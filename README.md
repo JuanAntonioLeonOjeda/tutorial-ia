@@ -8,10 +8,10 @@ Mismo método que la plataforma de repaso del máster: lecciones en lenguaje cer
 **conversaciones de ejemplo**, **prompts para copiar**, **simulaciones** que se pueden tocar,
 preguntas rápidas con pista y solución y **prácticas para hacer en Claude** con una checklist.
 
-- 4 módulos + 1 opcional · 21 lecciones · 6 simulaciones · 52 ejercicios y prácticas.
+- 4 módulos + 1 opcional · 22 lecciones · 7 simulaciones · 55 ejercicios y prácticas.
   1. **Fundamentos**: qué hay detrás del chat, pedir bien, archivos/imágenes/voz, usarla con cabeza.
-  2. **Claude a fondo**: la interfaz, artefactos y documentos, proyectos, memoria y estilos,
-     investigación con fuentes, Claude en Chrome, Excel y PowerPoint.
+  2. **Claude a fondo**: la interfaz, modelos y límites de uso, artefactos y documentos, proyectos,
+     instrucciones y memoria, investigación con fuentes, Claude en Chrome, Excel y Google Docs.
   3. **Superpoderes**: conectores (MCP), skills, Cowork, automatizaciones y un recetario.
   4. **ChatGPT y Gemini**: el diccionario desde Claude, Gems y NotebookLM, cuál usar para qué.
   5. **Un paso más** (con un poco de código): Claude Code, la carpeta `.claude` y `AGENTS.md`,

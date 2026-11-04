@@ -2,14 +2,14 @@ import { useState, type ReactNode } from "react";
 
 import {
   ButtonRow,
+  Choice,
   ControlNote,
   SimButton,
   SimFrame,
   Stat,
-  Toggle,
 } from "@/features/simulations/kit";
 
-import { agentRun, TASK, type StepKind } from "./cowork";
+import { agentRun, APPROVAL_MODES, TASK, type ApprovalMode, type StepKind } from "./cowork";
 import styles from "./Curso.module.css";
 
 const KIND: Record<StepKind, string> = {
@@ -18,23 +18,24 @@ const KIND: Record<StepKind, string> = {
   buscar: "Busca",
   observar: "Se da cuenta",
   crear: "Crea",
+  revisar: "Se autorrevisa",
   permiso: "Te pregunta",
   enviar: "Envía",
   fin: "Termina",
 };
 
 export default function CoworkSim(): ReactNode {
-  const [askFirst, setAskFirst] = useState(true);
+  const [mode, setMode] = useState<ApprovalMode>("manual");
   const [approved, setApproved] = useState<boolean | null>(null);
   const [shown, setShown] = useState(1);
-  const steps = agentRun(askFirst, approved);
+  const steps = agentRun(mode, approved);
   const visible = steps.slice(0, shown);
   const last = visible.at(-1);
   const isWaiting = last?.kind === "permiso" && approved === null;
   const isDone = last?.kind === "fin";
 
-  function reset(nextAskFirst = askFirst): void {
-    setAskFirst(nextAskFirst);
+  function reset(nextMode: ApprovalMode = mode): void {
+    setMode(nextMode);
     setApproved(null);
     setShown(1);
   }
@@ -47,18 +48,19 @@ export default function CoworkSim(): ReactNode {
   return (
     <SimFrame
       title="Un agente trabajando (y cuándo te pregunta)"
-      intro="Un agente no responde de una vez: planifica, usa herramientas, mira el resultado y sigue. Avanza paso a paso. Luego desactiva «Preguntar antes de enviar» y repite."
+      intro="Un agente no responde de una vez: planifica, usa herramientas, mira el resultado y sigue. Avanza paso a paso con «Aprobar a mano» y luego repite con «Aprobar automáticamente», que es el modo por defecto en muchos planes."
       onReset={() => {
-        reset(true);
+        reset("manual");
       }}
       controls={
         <>
-          <Toggle
-            label="Preguntar antes de enviar o borrar"
-            isOn={askFirst}
-            onChange={(isOn) => {
-              reset(isOn);
+          <Choice
+            label="Modo de aprobación"
+            value={mode}
+            onChange={(next) => {
+              reset(next);
             }}
+            options={APPROVAL_MODES.map((m) => ({ value: m.id, label: m.label }))}
           />
           <ButtonRow>
             <SimButton
@@ -91,8 +93,8 @@ export default function CoworkSim(): ReactNode {
             </ButtonRow>
           )}
           <ControlNote>
-            Fíjate en el paso amarillo: es el momento de revisar antes de que algo salga de tu
-            ordenador.
+            En automático, Claude solo frena lo que su comprobación ve peligroso (como sacar datos
+            fuera o instrucciones escondidas en una web). Mandar algo a tu jefa no lo es: lo envía.
           </ControlNote>
         </>
       }
@@ -102,7 +104,7 @@ export default function CoworkSim(): ReactNode {
           <Stat
             label="Estado"
             value={isWaiting ? "Esperando tu permiso" : isDone ? "Terminado" : "Trabajando"}
-            tone={isDone ? (askFirst ? "good" : "bad") : "default"}
+            tone={isDone ? (mode === "manual" ? "good" : "bad") : "default"}
           />
         </>
       }

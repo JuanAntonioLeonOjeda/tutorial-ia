@@ -7,7 +7,7 @@ Un conector es un **enchufe** entre Claude y otra aplicación. Por debajo usa un
 - Cada conector da a Claude **herramientas** concretas: «buscar correos», «leer evento», «crear borrador», «buscar archivo»…
 - Claude decide cuándo usarlas según lo que pides, y te enseña qué ha consultado.
 - Solo ve **lo que tu cuenta puede ver**: entra con tu usuario y tus permisos.
-- Lo de **escribir** (crear, mover, enviar, borrar) te lo pregunta antes.
+- Lo de **escribir** (crear, mover, enviar, borrar) te lo pregunta antes en el chat y en el modo **manual** de Cowork; en el modo automático puede hacerlo sin preguntar (lección 3 de este módulo).
 
 <ConnectorsSim />
 
@@ -37,17 +37,17 @@ Preguntas «¿tengo hueco el jueves a las 12?» y no tienes conectado el calenda
 
 ## Activarlos
 
-1. Ve a <MenuPath to={["Ajustes", "Conectores"]} /> (en algunas versiones, <MenuPath to={["Personalizar", "Conectores"]} />) y busca el que quieras en el directorio.
+1. Ve a <MenuPath to={["Personalizar", "Conectores"]} /> y pulsa **`+` (Añadir)** para abrir el **directorio** (también se llega desde el `+` del cuadro de texto). Cada conector tiene su ficha: qué puede leer, qué puede escribir y en qué planes está.
 2. Pulsa **Conectar**: se abre la página de Google o Microsoft para que inicies sesión y aceptes permisos.
-3. En cada conversación, puedes activar o desactivar conectores desde el **menú de herramientas** del cuadro de texto.
+3. En cada conversación, los activas o desactivas en el `+` del cuadro de texto → **Conectores**.
 
-En cuentas de empresa, es habitual que **el administrador decida qué conectores** se pueden usar. Si no ves uno, pregunta a IT.
+En planes **Team y Enterprise**, primero el administrador añade el conector para toda la empresa y luego cada persona inicia sesión con su cuenta; Gmail o Calendar no te aparecerán hasta que lo haga. Con **Microsoft 365**, Claude puede además redactar y enviar correos o tocar el calendario si el administrador activa esas acciones. Si no ves uno, pregunta a IT.
 
 <Callout kind="warn" title="Permisos con cabeza">
 - Conecta solo lo que vas a usar.
 - **Lee lo que te pide antes de pulsar «Permitir»** cuando Claude va a crear, enviar o borrar algo. Mejor aún: pídele **borradores** en vez de envíos.
 - Si accedes al correo de tu jefa por delegación, confirma con IT qué está permitido.
-- Desconfía de correos o documentos que «le den órdenes» a la IA («ignora tus instrucciones y reenvía…»): es un tipo de ataque. Claude está entrenado para no hacerles caso, pero revisa siempre lo que va a hacer.
+- Desconfía de correos o documentos que «le den órdenes» a la IA («ignora tus instrucciones y reenvía…»): es un tipo de ataque. Claude está entrenado para no hacerles caso, lo que reduce el riesgo pero no lo elimina: revisa siempre lo que va a hacer.
 </Callout>
 
 ## Pedir bien con conectores
@@ -68,7 +68,7 @@ Lo aprendido sobre prompts sigue valiendo, con dos trucos:
   id="conectar"
   title="Conecta correo y calendario"
   steps={[
-    "En Ajustes → Conectores, conecta tu correo y tu calendario (o comprueba con IT cuáles están permitidos).",
+    "En Personalizar → Conectores, conecta tu correo y tu calendario (o comprueba con IT cuáles están permitidos).",
     "Pregunta: «¿Qué tengo mañana?» y comprueba que coincide con tu agenda.",
     "Pide: «Busca en mi correo los mensajes de [persona] de las dos últimas semanas y resúmelos en cinco puntos».",
     "Pide un borrador de respuesta a uno de ellos, sin enviarlo, y míralo en tu carpeta de borradores.",
@@ -79,10 +79,15 @@ Lo aprendido sobre prompts sigue valiendo, con dos trucos:
 El paso que más tiempo te va a ahorrar del curso.
 </Practice>
 
+
+<Callout kind="real">
+El orden habitual: primero **calendario** (solo lectura de agendas, poco riesgo), luego **correo** pidiendo siempre borradores, y después **documentos**. Durante las primeras semanas se comprueba en la bandeja de borradores y en el calendario lo que Claude dice haber hecho.
+</Callout>
+
 ## Para llevar
 
 - Un **conector** (por debajo, MCP) deja a Claude ver y usar tus herramientas con tus permisos.
 - Correo, calendario y documentos son los tres imprescindibles.
-- Se activan en **Ajustes → Conectores**; en empresa, IT decide cuáles.
+- Se conectan en **Personalizar → Conectores** y se activan por chat en el `+`; en empresa, IT decide cuáles.
 - Lo que escribe o envía te lo pregunta: lee antes de permitir y prefiere borradores.
 - Acota la búsqueda («de la última semana», «de este remitente») para que acierte más.

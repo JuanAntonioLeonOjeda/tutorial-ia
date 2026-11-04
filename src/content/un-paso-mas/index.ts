@@ -43,7 +43,11 @@ export const unPasoMas: Subject = {
       summary:
         "Conectores del directorio, remotos por URL y locales; cómo añadirlos en la app y en Claude Code, y qué preguntar antes.",
       minutes: 20,
-      sources: ["https://modelcontextprotocol.io", "https://code.claude.com/docs/en/mcp"],
+      sources: [
+        "https://modelcontextprotocol.io",
+        "https://code.claude.com/docs/en/mcp",
+        "https://claude.com/docs/connectors/building/directory-vs-custom",
+      ],
       exercises: ["tipo-conector", "conector-manual"],
       load: () => import("./03-conectores-a-mano.mdx"),
     }),

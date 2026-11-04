@@ -5,8 +5,9 @@ Hasta ahora Claude te contestaba en el chat. Pero lo que tú necesitas muchas ve
 Cuando le pides algo con entidad propia (un documento largo, una tabla, un diagrama, una página), Claude lo abre en un panel aparte llamado **artefacto**. La ventaja:
 
 - Lo ves **separado de la conversación** y puedes pedir cambios sin perderlo («cambia el título», «añade una columna»).
-- Tiene **versiones**: puedes volver a la anterior si un cambio no te gusta.
-- Se puede **copiar, descargar o publicar** y compartir con un enlace (según tu cuenta).
+- Si un cambio no te gusta, **edita tu mensaje anterior** y Claude rehace el artefacto desde ahí.
+- Empieza siendo **privado**; puedes copiarlo, descargarlo o **compartirlo** con un enlace (según tu plan y lo que permita tu empresa).
+- Hay **plantillas** para empezar más rápido: documento, presentación, diseño y, en algunos planes, cuadros de mando.
 
 Un artefacto puede ser incluso una **mini aplicación**: una checklist que se marca, un calculador de dietas de viaje, un formulario para que el equipo elija fecha… sin saber programar: lo describes y Claude la construye.
 
@@ -19,7 +20,7 @@ Un artefacto puede ser incluso una **mini aplicación**: una checklist que se ma
 
 ## Archivos de verdad: Word, Excel, PowerPoint, PDF
 
-Claude puede **crear y editar archivos** de Office y PDF que te descargas y abres como cualquier otro. Por dentro usa unas skills que trae de serie (en el módulo 3 verás qué es una skill). Si no le aparece la opción, mira en <MenuPath to={["Ajustes", "Capacidades"]} /> que la creación de archivos esté activada (en cuentas de empresa la controla el administrador).
+Claude puede **crear y editar archivos** de Office y PDF que te descargas y abres como cualquier otro. Por dentro usa unas skills que trae de serie (en el módulo 3 verás qué es una skill). Si no le aparece la opción, mira en <MenuPath to={["Ajustes", "Capacidades"]} /> que esté activado **Crear y editar archivos** (en planes Team y Enterprise lo controla el administrador y no lo verás). Los artefactos también necesitan ese ajuste.
 
 Ejemplos que funcionan muy bien:
 
@@ -27,7 +28,7 @@ Ejemplos que funcionan muy bien:
 | --- | --- |
 | «Con estas notas, una presentación de 6 diapositivas para el comité» | Un `.pptx` con título, puntos y notas del orador |
 | «Pasa esta tabla de asistentes a Excel con una columna de confirmación y totales» | Un `.xlsx` con fórmulas que funcionan |
-| «Este Word es el orden del día del mes pasado: actualízalo con los puntos nuevos» | El mismo `.docx` editado, conservando el formato |
+| «Este Word es el orden del día del mes pasado: actualízalo con los puntos nuevos» | Una versión nueva del `.docx` con el mismo formato (tu original no se toca) |
 | «Convierte el acta en PDF con el logo arriba» | Un `.pdf` listo para enviar |
 
 <Callout kind="warn">
@@ -48,6 +49,8 @@ Tienes las notas de la reunión de estrategia y quieres una presentación para e
 </Quiz>
 
 ## Editar un documento que ya tienes
+
+Antes de subir un contrato o un acta, recuerda el semáforo de datos (módulo 1): documentos de trabajo, solo en la cuenta de empresa, y lo rojo, ni ahí.
 
 Sube el archivo y pide cambios concretos. Funciona igual de bien para:
 
@@ -77,7 +80,7 @@ Convierte notas en una presentación descargable.
     "Piensa en algo que controles a mano: confirmaciones de un evento, una checklist de viaje, el estado de los regalos de Navidad…",
     "Descríbeselo a Claude: qué datos hay, qué quieres poder marcar o calcular.",
     "Prueba el artefacto en el panel y pide un cambio.",
-    "Mira las opciones del artefacto: copiar, descargar y publicar o compartir.",
+    "Mira las opciones del artefacto: copiar, descargar y compartir. No lo compartas con datos reales de invitados: pruébalo con nombres inventados.",
   ]}
   example={<Prompt text={`
     Crea una pequeña aplicación para controlar las confirmaciones de [EVENTO]. Quiero poder añadir invitados (nombre, empresa, correo), marcar si confirman, no vienen o están pendientes, y ver arriba los totales de cada grupo. Que tenga un botón para copiar la lista de pendientes y mandarles un recordatorio.
@@ -86,10 +89,15 @@ Convierte notas en una presentación descargable.
 Construye una herramienta a tu medida sin programar.
 </Practice>
 
+
+<Callout kind="real">
+Lo que más rinde en una dirección general: subir **una vez** las plantillas corporativas (presentación, acta, orden del día) a un proyecto, y pedir siempre «con nuestra plantilla». Las mini apps triunfan para eventos: confirmaciones, mesas, regalos. Y antes de enviar cualquier documento generado, se abre en Word o PowerPoint y se revisa como uno propio.
+</Callout>
+
 ## Para llevar
 
-- Un **artefacto** es un documento o mini app en un panel aparte, con versiones y para compartir.
+- Un **artefacto** es un documento o mini app en un panel aparte, privado al principio y que puedes compartir.
 - Claude crea y edita **Word, Excel, PowerPoint y PDF** de verdad.
 - Usa tus **plantillas** corporativas: súbelas y pide que las use.
 - Para revisar documentos, pide primero la lista de cambios y luego que los aplique.
-- Si no ves la opción de archivos, está en Ajustes → Capacidades (o la controla IT).
+- Si no ves la opción de archivos, activa **Crear y editar archivos** en Ajustes → Capacidades (o pregunta a IT).

@@ -1,0 +1,129 @@
+Con una suscripción a Claude no pagas por mensaje, pero tampoco es barra libre: cada plan tiene un **límite de uso**, y lo que eliges en cada conversación (qué modelo, cuánto esfuerzo, lo larga que es) decide lo rápido que lo gastas. Usar siempre lo más potente es como ir en taxi a por el pan: llegas, pero a media tarde te quedas sin presupuesto. Esta lección va de elegir bien.
+
+## El menú del modelo
+
+Junto al botón de enviar está el **nombre del modelo**. Al pulsarlo controlas tres cosas:
+
+1. **El modelo.** Los de siempre son tres familias:
+   - **Haiku**: el rápido y ligero.
+   - **Sonnet**: el equilibrado, el del día a día.
+   - **Opus**: el más capaz, para lo difícil.
+
+   En **Más modelos** aparecen otros (versiones anteriores y modelos especiales, como **Fable**, que en algunos planes tiene su propio límite semanal). Si no sabes cuál elegir, el que viene marcado sirve.
+2. **El esfuerzo**: cuánto «piensa» antes de contestar. Cada modelo trae uno marcado como **Predeterminado**.
+3. **Pensar** (o **Extendido**): que razone por escrito antes de responder. En los modelos más recientes va siempre activado y no se puede apagar; ahí la palanca es el esfuerzo.
+
+<Callout kind="note">
+Los nombres llevan número de versión (Sonnet 5.5, Opus 5.5…) y cambian cada pocos meses. Lo que dura es la idea: **rápido, equilibrado y más capaz**, y **más esfuerzo = mejor pero más lento y más caro**.
+</Callout>
+
+## Los niveles de esfuerzo
+
+Así los describe la ayuda de Claude, traducido a tu día a día:
+
+| Esfuerzo | Para qué | Ejemplos |
+| --- | --- | --- |
+| **Bajo** y **Medio** | Tareas rutinarias; hacen que tu límite dure más | Correos, resúmenes cortos, reformular, traducir |
+| **Alto** | El mejor equilibrio entre calidad y rapidez | Un acta a partir de una transcripción, un informe |
+| **Muy alto** | Tareas largas de agente (muchos pasos seguidos) | Un encargo grande en Cowork |
+| **Máximo** | Lo más difícil, donde un error sale caro; tarda bastante más | Comparar versiones de un contrato, cuadrar agendas con muchas restricciones |
+
+Lo que dice la ayuda oficial, sin adornos: más esfuerzo da respuestas más completas, **pero tarda más, gasta más y llegas antes al límite**.
+
+## Elegir: la combinación más barata que basta
+
+La regla es sencilla: **empieza por lo de por defecto y sube solo si el resultado se queda corto**. Pruébalo:
+
+<ModelChoiceSim />
+
+<Quiz
+  id="modelo-correo"
+  options={[
+    "Opus con esfuerzo máximo, para que quede perfecto",
+    "El modelo por defecto (o Haiku) con esfuerzo bajo o medio",
+    "Da igual: todos gastan lo mismo",
+  ]}
+  answer={1}
+  explanation="Contestar un correo rutinario lo hace bien cualquier modelo. Con lo más potente obtienes casi lo mismo, tardas más y gastas límite que te puede faltar por la tarde. Y no, no gastan lo mismo: el modelo y el esfuerzo influyen en el consumo."
+>
+Tienes que contestar diez correos sencillos de confirmación de asistencia. ¿Qué eliges?
+</Quiz>
+
+## Los límites de uso
+
+En los planes de pago hay dos límites que se combinan:
+
+- **Uno por sesión de cinco horas**, que empieza a contar con tu primer mensaje y se renueva entero a las cinco horas.
+- **Uno semanal**, que se renueva cada semana.
+
+En el plan gratuito también hay un límite que se renueva cada cinco horas, y lo que puedes enviar varía según la demanda.
+
+Detalles que conviene saber:
+
+- Lo ves en <MenuPath to={["Ajustes", "Uso"]} />, con barras de progreso y el tiempo que falta.
+- **Todo cuenta para el mismo límite**: la web, la app de escritorio, el móvil, Cowork y Claude Code.
+- Si llegas al límite, puedes **esperar** a que se renueve, **subir de plan** o, si están activados, seguir con **créditos de uso** (que se pagan aparte).
+- En el plan **Team**, el límite es **de cada persona**: no se comparte ni se pasa entre compañeras. En **Enterprise**, el administrador puede restringir qué modelos y qué niveles de esfuerzo se pueden usar.
+
+<Callout kind="warn">
+Si en tu empresa los créditos de uso están activados o tenéis un plan que se factura por consumo, gastar de más **cuesta dinero de verdad**. Aplica el mismo criterio que con cualquier gasto de la oficina.
+</Callout>
+
+## Qué gasta más (y cómo estirar el límite)
+
+Según la ayuda oficial, el consumo depende de:
+
+- **El modelo y el esfuerzo** que elijas.
+- **La longitud de la conversación**: cuanto más larga, más pesa cada mensaje nuevo.
+- **Los archivos** adjuntos (y su tamaño).
+- **Las herramientas**: Investigación y búsqueda web gastan más que una respuesta normal.
+
+Y los trucos que recomienda Anthropic, que coinciden con lo que ya has aprendido en el curso:
+
+- **Junta las peticiones relacionadas en un mensaje** («hazme el acta y, además, los correos a cada responsable») en vez de ir de una en una.
+- **Sé concreta** y revisa el prompt antes de enviar: menos idas y vueltas.
+- **Un chat por tema**, y uno nuevo cuando el anterior se ha hecho muy largo.
+- **Documentos de referencia en un proyecto**: lo que está en un proyecto se guarda en caché y cuenta menos cuando se reutiliza. Quita del proyecto los archivos que ya no uses y no alargues las instrucciones sin necesidad.
+- **Baja el esfuerzo** para lo rutinario y **pide que no busque en la web** si no necesitas información actual.
+
+<Predict
+  id="sesion"
+  answer={["15:00", "15", "15h", "a las 15:00", "las 15:00"]}
+  explanation="La sesión de cinco horas empieza con tu primer mensaje (10:00), así que se renueva entera a las 15:00. El límite semanal es aparte y sigue su propio calendario."
+  hints={["Cuenta desde tu primer mensaje, no desde que te quedaste sin uso."]}
+>
+Empiezas a usar Claude a las 10:00 y a las 13:30 te avisa de que has llegado al límite de la sesión. ¿A qué hora se renueva? (Responde con la hora, por ejemplo 16:30.)
+</Predict>
+
+<Callout kind="real">
+Un reparto que funciona para una asistente de dirección:
+
+- **Por defecto** (Sonnet, esfuerzo por defecto) para el 80 % del día: correos, resúmenes, reformular.
+- **Opus o esfuerzo alto** para el acta del consejo, revisar un contrato o preparar el dossier.
+- **Haiku o esfuerzo bajo** para las tandas de cosas pequeñas: clasificar, traducir frases, extraer datos de muchas tarjetas.
+- Mirar **Ajustes → Uso** los días de mucho trabajo, antes de empezar algo grande.
+</Callout>
+
+<Practice
+  id="comparar-modelos"
+  title="Mismo encargo, dos combinaciones"
+  steps={[
+    "Elige un encargo real de dificultad media (por ejemplo, resumir un acta larga o comparar dos propuestas).",
+    "Hazlo con el modelo por defecto y esfuerzo bajo o medio. Apunta cuánto tarda.",
+    "En un chat nuevo, repítelo con el modelo más capaz y esfuerzo alto.",
+    "Compara: ¿la diferencia de calidad compensa el tiempo y el consumo?",
+    "Abre Ajustes → Uso y mira cuánto has gastado en la sesión.",
+  ]}
+  hints={["Si tu cuenta de empresa no te deja elegir modelo o esfuerzo, el administrador lo ha fijado: haz la práctica solo con el esfuerzo, o solo mirando Ajustes → Uso."]}
+  example={<>Lo habitual: para un resumen, la versión ligera ya está bien y la potente añade matices que no necesitas. Para comparar dos contratos, la potente encuentra diferencias que la ligera se salta. Esa es la intuición que buscas: <strong>sube solo cuando lo ligero se queda corto</strong>.</>}
+>
+Comprueba por ti misma cuándo compensa subir.
+</Practice>
+
+## Para llevar
+
+- El menú junto al botón de enviar elige **modelo**, **esfuerzo** y **pensamiento**.
+- **Haiku** rápido, **Sonnet** de diario, **Opus** para lo difícil; más esfuerzo es mejor pero más lento y gasta más.
+- Empieza por lo predeterminado y **sube solo si se queda corto**.
+- Límite por **sesión de 5 horas** y **semanal**; míralo en **Ajustes → Uso**.
+- Estira el límite: peticiones juntas, chats cortos por tema, documentos en proyectos, esfuerzo bajo para lo rutinario.

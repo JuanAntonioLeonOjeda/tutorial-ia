@@ -1,14 +1,18 @@
-/** A scheduled task: when it runs, what it does, where it leaves the result. */
+/**
+ * A scheduled task: when it runs, what it does, where it leaves the result. Cowork offers
+ * hourly, daily, weekly, weekday and manual cadences (support.claude.com, "Schedule recurring
+ * tasks in Claude Cowork"); the options here are built from those.
+ */
 
 import type { ConnectorId } from "./connectors";
 
-export type WhenId = "laborables" | "lunes" | "viernes" | "mes";
+export type WhenId = "laborables" | "lunes" | "viernes" | "hora";
 
 export const WHEN: readonly { id: WhenId; label: string; hour: number; minute: number }[] = [
   { id: "laborables", label: "Cada día laborable a las 8:00", hour: 8, minute: 0 },
   { id: "lunes", label: "Cada lunes a las 8:00", hour: 8, minute: 0 },
   { id: "viernes", label: "Cada viernes a las 14:00", hour: 14, minute: 0 },
-  { id: "mes", label: "El día 1 de cada mes a las 9:00", hour: 9, minute: 0 },
+  { id: "hora", label: "Cada hora, en punto", hour: 0, minute: 0 },
 ];
 
 export type WhatId = "agenda" | "pendientes" | "semana" | "vencimientos";
@@ -87,8 +91,8 @@ function runsOn(when: WhenId, day: Date): boolean {
       return weekday === 1;
     case "viernes":
       return weekday === 5;
-    case "mes":
-      return day.getDate() === 1;
+    case "hora":
+      return true;
   }
 }
 
@@ -97,6 +101,11 @@ export function nextRuns(when: WhenId, from: Date, count: number): Date[] {
   const rule = WHEN.find((w) => w.id === when);
   if (rule === undefined) return [];
   const runs: Date[] = [];
+  if (when === "hora") {
+    const next = new Date(from.getFullYear(), from.getMonth(), from.getDate(), from.getHours() + 1);
+    for (let i = 0; i < count; i++) runs.push(new Date(next.getTime() + i * 3_600_000));
+    return runs;
+  }
   const day = new Date(from.getFullYear(), from.getMonth(), from.getDate(), rule.hour, rule.minute);
   // Two years of days is far more than any rule here needs to produce `count` runs.
   for (let i = 0; i < 730 && runs.length < count; i++) {

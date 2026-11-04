@@ -17,7 +17,11 @@ export const superpoderes: Subject = {
       summary:
         "Qué es un conector (y MCP), los imprescindibles, cómo activarlos y cómo pedir con ellos sin riesgos.",
       minutes: 20,
-      sources: [HELP, "https://modelcontextprotocol.io"],
+      sources: [
+        `${HELP}/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities`,
+        `${HELP}/en/articles/10166901-use-google-workspace-connectors`,
+        "https://modelcontextprotocol.io",
+      ],
       exercises: ["falta-conector", "conectar"],
       load: () => import("./01-conectores.mdx"),
     }),
@@ -28,9 +32,9 @@ export const superpoderes: Subject = {
         "Qué es una skill, por qué la descripción lo es todo, cómo instalar las de ejemplo y cómo crear la tuya conversando.",
       minutes: 25,
       sources: [
+        `${HELP}/en/articles/12512180-use-skills-in-claude`,
+        `${HELP}/en/articles/12512198-how-to-create-custom-skills`,
         "https://academy.claude.com/courses/claude-101/working-with-skills",
-        "https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview",
-        HELP,
       ],
       exercises: ["descripcion", "instalar-skill", "crear-skill"],
       load: () => import("./02-skills.mdx"),
@@ -39,11 +43,13 @@ export const superpoderes: Subject = {
       slug: "cowork",
       title: "Cowork: delegar en un agente",
       summary:
-        "Cómo trabaja un agente, qué es Cowork, qué encargos le van bien y cómo encargarlos con red.",
+        "Cómo trabaja un agente, qué es Cowork, los modos de aprobación, qué encargos le van bien y cómo encargarlos con red.",
       minutes: 25,
       sources: [
-        "https://claude.com/product/cowork",
-        "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork",
+        `${HELP}/en/articles/13345190-get-started-with-claude-cowork`,
+        `${HELP}/en/articles/16761823-claude-cowork-and-chat-are-one-claude`,
+        `${HELP}/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile`,
+        `${HELP}/en/articles/13364135-use-claude-cowork-safely`,
       ],
       exercises: ["permiso", "primer-encargo"],
       load: () => import("./03-cowork.mdx"),
@@ -52,11 +58,11 @@ export const superpoderes: Subject = {
       slug: "automatizaciones",
       title: "Automatizaciones y tareas programadas",
       summary:
-        "Cuándo, qué y dónde: tareas programadas en Cowork, sus reglas de oro y cuándo usar Power Automate o Zapier.",
+        "Cuándo, qué y dónde: tareas programadas en Claude, sus reglas de oro y cuándo usar Power Automate o Zapier.",
       minutes: 20,
       sources: [
-        "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork",
-        "https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork",
+        `${HELP}/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork`,
+        `${HELP}/en/articles/13345190-get-started-with-claude-cowork`,
       ],
       exercises: ["proxima", "borrador", "programar"],
       load: () => import("./04-automatizaciones.mdx"),

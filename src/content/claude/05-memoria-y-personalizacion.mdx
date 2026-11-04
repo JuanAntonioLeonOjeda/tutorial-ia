@@ -1,0 +1,94 @@
+Los proyectos sirven para un área de trabajo. Pero hay cosas que valen para **todas** tus conversaciones: tu nombre, tu puesto, que escribes en español de España, que no te gustan las respuestas largas. Claude tiene dos sitios para eso: tus **instrucciones** y la **memoria**. Y para que escriba como tú, un truco que combina las dos con las skills. Saber qué va dónde evita que se contradigan.
+
+## Instrucciones para Claude
+
+En <MenuPath to={["Ajustes", "Tu Claude"]} /> (en la versión anterior, «Cuenta» o «Perfil») hay un campo de **instrucciones para Claude**: un texto corto que tiene en cuenta en todas las conversaciones. Pon ahí lo que es verdad siempre:
+
+<Prompt
+  title="Instrucciones para Claude"
+  text={`
+    Soy [TU NOMBRE], asistente de dirección en [EMPRESA]. Escribo en español de España (usa «vosotros», fechas en formato día/mes, euros con coma decimal).
+    Prefiero respuestas directas, sin introducciones ni resúmenes finales. Si algo es ambiguo, pregúntame antes de hacerlo largo.
+    Cuando me des un texto para enviar, dámelo listo para copiar, sin comentarios alrededor.
+  `}
+/>
+
+## Que escriba como tú
+
+Lo que mejor funciona no son los adjetivos («cercano pero profesional»), sino los **ejemplos** (lo viste en el módulo 1). Para no pegarlos cada vez:
+
+1. Pega en un chat tres a cinco correos tuyos que te gusten y pide: «describe mi forma de escribir en ocho reglas concretas: saludo, despedida, longitud, tratamiento, expresiones que uso y que no uso».
+2. Revisa las reglas, corrige lo que no sea verdad y **añádelas a tus instrucciones**.
+3. Si escribes de formas muy distintas según el caso (correos rápidos frente a comunicados formales), conviértelas en una **skill** (módulo 3), que Claude carga solo cuando toca.
+
+<Callout kind="note">
+En versiones anteriores de Claude había un selector de **estilos** (normal, conciso, formal…) en el cuadro de texto. No hemos podido confirmarlo en la ayuda actual: si lo ves en tu cuenta, úsalo para cambiar el tono de una conversación; si no, las instrucciones y las skills hacen lo mismo.
+</Callout>
+
+## Memoria
+
+Con la **memoria** activada, Claude recuerda cosas de conversaciones anteriores: en qué estás trabajando, preferencias que le dijiste de pasada, nombres. También puede **buscar en tus chats anteriores** cuando le preguntas por algo («¿qué hotel reservamos en Bruselas la otra vez?»).
+
+- En <MenuPath to={["Ajustes", "Memoria"]} /> ves lo que recuerda, ordenado por **temas** que puedes editar o borrar, y un ajuste para los **temas sensibles**.
+- Puedes **pausarla** (no usa ni crea recuerdos, pero no los borra) o **reiniciarla** (lo borra todo, también la de los proyectos).
+- Cada **proyecto tiene su propia memoria**: lo de «Consejo» no se mezcla con lo de «Viajes». Si quieres que un proyecto tampoco use lo que Claude sabe de ti en general, desactiva **Usar memoria de la cuenta** en ese proyecto.
+- Para que **un chat concreto** no se recuerde, apaga **Memoria** en el `+` antes de enviar el primer mensaje. El chat sí queda en tu historial.
+- Para que no quede **ni en el historial**, usa un **chat incógnito**. Solo funciona fuera de proyectos.
+- En cuentas de empresa, el administrador puede tener la memoria desactivada.
+
+<Callout kind="warn">
+La memoria es cómoda, pero no la uses como archivo: lo que debe saber **siempre y exactamente** (las personas clave, la plantilla del acta) va escrito en las instrucciones del proyecto o en las tuyas, donde lo controlas tú. Y revisa de vez en cuando qué recuerda: si hay algo que no debería saber, bórralo.
+</Callout>
+
+## Qué va dónde
+
+| Si es… | Va en… |
+| --- | --- |
+| Verdad en todas tus conversaciones (quién eres, idioma, «sé breve», tu forma de escribir) | Instrucciones para Claude (Ajustes → Tu Claude) |
+| Contexto de un área de trabajo (personas, plantillas, reglas) | Instrucciones y conocimiento de un proyecto |
+| Lo que ha ido saliendo y no quieres repetir | Memoria (automática) |
+| Un procedimiento paso a paso, o un tono para un tipo de texto, que se aplique cuando toque | Una skill (módulo 3) |
+
+<Callout kind="real">
+Una configuración típica que dura: unas instrucciones generales de diez líneas (quién eres, idioma, tu forma de escribir), un proyecto por área y la memoria activada pero revisada cada mes. Cuando algo sale mal dos veces seguidas, la corrección va a las instrucciones del sitio que toque, no a la conversación.
+</Callout>
+
+<Quiz
+  id="que-va-donde"
+  options={["Instrucciones para Claude (Tu Claude)", "Una skill", "Instrucciones del proyecto «Consejo»", "Memoria"]}
+  answer={2}
+  explanation="Es contexto de un área concreta (el consejo), estable y que debe cumplirse siempre. Va en las instrucciones de ese proyecto. En tus instrucciones generales se aplicaría también a tus correos de viajes, y la memoria no garantiza que lo recuerde exactamente."
+>
+Las convocatorias del consejo se envían siempre con 15 días de antelación y con el orden del día numerado. ¿Dónde lo pones?
+</Quiz>
+
+<Quiz
+  id="incognito"
+  options={["En un chat normal, luego lo borras", "En un chat incógnito, fuera de cualquier proyecto", "En el proyecto de Dirección General con la memoria apagada"]}
+  answer={1}
+  explanation="Un chat incógnito no se guarda en el historial ni alimenta la memoria (y solo existe fuera de proyectos). Apagar la memoria en un chat evita que se recuerde, pero el chat sigue en tu historial. Para algo puntual y delicado, incógnito; y recuerda el semáforo: si es rojo, ni siquiera ahí."
+>
+Quieres pedir ayuda con un tema personal delicado sin que quede en tu historial ni en la memoria. ¿Dónde?
+</Quiz>
+
+<Practice
+  id="personalizar"
+  title="Personaliza tu Claude"
+  steps={[
+    "Rellena tus instrucciones en Ajustes → Tu Claude (usa la plantilla si te sirve).",
+    "Pega 3–5 correos tuyos en un chat y pide que describa tu forma de escribir en ocho reglas. Corrígelas y añádelas a tus instrucciones.",
+    "Abre Ajustes → Memoria y revisa qué recuerda de ti. Borra lo que no deba saber.",
+    "Abre un chat nuevo sin proyecto y pide un correo cualquiera: ¿se nota el cambio?",
+  ]}
+  hints={["Si no ves la sección Memoria, puede que tu empresa la tenga desactivada: las instrucciones funcionan igual."]}
+  example={<>Señal de que está bien: los correos ya no empiezan con «¡Claro! Aquí tienes…», salen en tu español, con tu saludo y tu despedida, y no tienes que pedir «más corto» cada vez.</>}
+>
+Deja Claude configurado a tu medida.
+</Practice>
+
+## Para llevar
+
+- **Instrucciones para Claude** (Ajustes → Tu Claude): lo que es verdad siempre, incluida tu forma de escribir.
+- **Proyecto**: contexto de un área. **Skill**: un procedimiento o un tono que se aplica cuando toca.
+- La **memoria** recuerda lo que va saliendo; revísala en Ajustes → Memoria y no la uses como archivo.
+- Memoria apagada en un chat para que no se recuerde; **incógnito** para que no quede ni en el historial.
