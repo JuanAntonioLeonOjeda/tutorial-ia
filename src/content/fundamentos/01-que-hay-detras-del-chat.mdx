@@ -63,17 +63,19 @@ Subes el informe anual (120 págs.), el Excel de gastos y luego charlas cuarenta
 
 ## Modelos grandes y pequeños
 
-Cada empresa ofrece varios modelos. En Claude verás nombres como **Opus** (el más capaz, algo más lento), **Sonnet** (el equilibrio, el de diario) y **Haiku** (el rápido). En ChatGPT y Gemini pasa lo mismo con otros nombres. Además, muchos tienen un modo de **pensamiento extendido** («Extended thinking», «Pensar más»), en el que el modelo razona antes de contestar: más lento, pero mejor para problemas con varios pasos.
+Cada empresa ofrece varios modelos. En Claude verás **Opus** (el más capaz, algo más lento), **Sonnet** (el equilibrio, el de diario) y **Haiku** (el rápido). En ChatGPT y Gemini pasa lo mismo con otros nombres. Además puedes decidir **cuánto piensa** antes de contestar: más pensamiento es mejor para problemas con varios pasos, pero más lento.
+
+Y hay un detalle práctico: lo más potente **gasta antes tu límite de uso**. Cómo elegir modelo y esfuerzo sin quedarte sin uso a media tarde tiene su propia lección en el módulo 2.
 
 | Para… | Usa |
 | --- | --- |
 | Correos, resúmenes, reformular, traducir | El modelo por defecto |
-| Analizar un contrato largo, comparar propuestas, planificar algo con muchas restricciones | El más capaz y/o pensamiento extendido |
+| Analizar un contrato largo, comparar propuestas, planificar algo con muchas restricciones | El más capaz y/o más esfuerzo |
 | Mil cosas pequeñas y rápidas | El rápido |
 
 <Quiz
   id="modelo"
-  options={["El modelo rápido, sin pensar", "El modelo por defecto", "El más capaz con pensamiento extendido"]}
+  options={["El modelo rápido, con poco esfuerzo", "El modelo por defecto", "El más capaz con esfuerzo alto"]}
   answer={2}
   explanation="Encajar agendas de seis personas con restricciones (viajes, horas, salas) es un problema de varios pasos donde un fallo invalida todo. Ahí compensa esperar unos segundos más. Y aun así, revisa el resultado contra los calendarios."
 >
@@ -85,10 +87,10 @@ Tienes que encontrar una fecha para el comité que encaje con seis agendas, dos 
   steps={[
     "Abre claude.ai (o la app de escritorio) y empieza un chat nuevo.",
     "Pregúntale: «¿Cuál es tu fecha de corte de conocimiento y qué no sabes de mí ni de mi empresa?»",
-    "Pídele algo que dependa de hoy, por ejemplo «¿Qué tiempo hará mañana en Madrid?», primero sin búsqueda web y luego activándola en el menú de herramientas.",
-    "Compara las dos respuestas: ¿cuál cita fuentes?",
+    "Pídele algo que dependa de hoy, por ejemplo «¿Qué tiempo hará mañana en Madrid?». Luego repite: «sin buscar en internet, ¿qué tiempo hará mañana en Madrid?».",
+    "Compara las dos respuestas: ¿cuál cita fuentes y cuál es una suposición?",
   ]}
-  hints={["La búsqueda web suele estar en el botón de herramientas (el icono de ajustes o «+») bajo el cuadro de texto."]}
+  hints={["En la versión anterior de Claude, la búsqueda web se activa en el botón + del cuadro de texto; en la nueva, Claude busca cuando hace falta y puedes pedirle que no lo haga."]}
   example={<>Sin búsqueda, Claude te dirá que no tiene acceso a datos en tiempo real (o, peor, te dará algo genérico). Con búsqueda, verás que consulta webs y te da enlaces. Esa diferencia es la que tienes que tener en la cabeza siempre que pidas <strong>datos</strong>.</>}
 >
 Comprueba por ti misma lo que sabe y lo que no.
@@ -99,5 +101,5 @@ Comprueba por ti misma lo que sabe y lo que no.
 - La IA **escribe** la respuesta, no la busca: redacta genial y puede inventar datos con aplomo.
 - No sabe nada de tu empresa ni de lo reciente, salvo que se lo des (texto, archivo, búsqueda web, conectores).
 - La **ventana de contexto** es su memoria de trabajo: grande pero finita. Un chat por tema.
-- Modelo por defecto para el día a día; el más capaz y el pensamiento extendido para lo complejo.
+- Modelo por defecto para el día a día; el más capaz y más esfuerzo para lo complejo (y gastan más).
 - Los datos que importan (teléfonos, fechas, cifras, nombres) se comprueban siempre.

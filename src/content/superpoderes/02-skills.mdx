@@ -39,25 +39,25 @@ La gracia es que Claude **no lee todas tus skills** en cada conversación: solo 
     "Porque Claude solo lee la descripción y nunca las instrucciones",
   ]}
   answer={0}
-  explanation="Hasta que decide usarla, Claude solo ve el nombre y la descripción. Una descripción vaga («ayuda con documentos») no se activa cuando debe y se activa cuando no. Una concreta dice qué hace y cuándo usarla, con las palabras que tú usarías al pedirlo."
+  explanation="Hasta que decide usarla, Claude solo ve el nombre y la descripción. Una descripción vaga («ayuda con documentos») no se activa cuando debe y se activa cuando no. Una concreta dice qué hace y cuándo usarla, con las palabras que tú usarías al pedirlo. Y no es que nunca lea las instrucciones: en cuanto la descripción encaja, carga la skill entera."
   hints={["En la simulación, prueba «¿Qué acuerdos salieron ayer?» con las dos descripciones."]}
 >
 ¿Por qué la descripción de una skill debe decir qué hace **y cuándo usarla**?
 </Quiz>
 
-## Skills, proyectos y preferencias
+## Skills, proyectos e instrucciones
 
-| | Preferencias | Proyecto | Skill |
+| | Instrucciones para Claude | Proyecto | Skill |
 | --- | --- | --- | --- |
 | Qué guarda | Quién eres, cómo te gusta | Contexto de un área | Un procedimiento |
 | Cuándo se aplica | Siempre | En los chats de ese proyecto | Cuando la tarea encaja, en cualquier chat |
 | Ejemplo | «Español de España, breve» | «Proyecto Consejo: personas, plazos» | «Cómo se hace un acta» |
 
-Se combinan: dentro del proyecto «Consejo», la skill del acta usa las personas del proyecto y tu tono de las preferencias.
+Se combinan: dentro del proyecto «Consejo», la skill del acta usa las personas del proyecto y tu tono de tus instrucciones.
 
 ## Las que vienen de serie
 
-Anthropic trae skills para **Word, Excel, PowerPoint y PDF** (las que usa Claude para crear documentos, módulo 2) y una muy útil: **skill-creator**, que te ayuda a crear las tuyas conversando. Están en <MenuPath to={["Ajustes", "Capacidades", "Skills"]} /> (en algunas versiones, en «Personalizar»). En empresas, el administrador puede además repartir skills a todo el equipo.
+Anthropic trae skills para **Word, Excel, PowerPoint y PDF** (las que usa Claude para crear documentos, módulo 2). Funcionan solas: no hay que activarlas. Tus skills, las que te comparten y las de tu empresa están en <MenuPath to={["Personalizar", "Skills"]} />, junto a los conectores y los **plugins** (paquetes que juntan skills, conectores y subagentes para un tipo de trabajo). En planes de empresa, el administrador puede repartir skills a todo el equipo o desactivar que cada persona cree las suyas.
 
 ## Instalar una skill
 
@@ -65,8 +65,8 @@ Anthropic trae skills para **Word, Excel, PowerPoint y PDF** (las que usa Claude
    - [acta-de-reunion.zip](/descargas/acta-de-reunion.zip)
    - [correo-ejecutivo.zip](/descargas/correo-ejecutivo.zip)
    - [preparar-viaje.zip](/descargas/preparar-viaje.zip)
-2. Ve a <MenuPath to={["Ajustes", "Capacidades", "Skills"]} /> y súbelo.
-3. Actívala y pruébala en un chat nuevo: «hazme el acta con estas notas: …».
+2. Ve a <MenuPath to={["Personalizar", "Skills", "+", "Crear skill", "Subir una skill"]} /> y elige el `.zip`. El zip debe contener **la carpeta** de la skill (no el `SKILL.md` suelto) y la carpeta debe llamarse igual que el `name` de la skill; las tres de arriba ya cumplen las dos cosas.
+3. Aparecerá en tu lista, con un interruptor para activarla o desactivarla. Pruébala en un chat nuevo: «hazme el acta con estas notas: …». Las skills que subes son **solo tuyas** hasta que las compartes.
 
 <Callout kind="warn">
 Una skill puede llevar instrucciones (y, en las avanzadas, pequeños programas). **Instala solo skills de fuentes de confianza** y léete el `SKILL.md` antes: es texto normal y se entiende.
@@ -74,7 +74,7 @@ Una skill puede llevar instrucciones (y, en las avanzadas, pequeños programas).
 
 ## Crear la tuya, conversando
 
-No hace falta escribir el archivo a mano. Con skill-creator activado:
+No hace falta escribir el archivo a mano: pídeselo a Claude en un chat.
 
 <Prompt
   title="Crear una skill con Claude"
@@ -96,11 +96,11 @@ Buenas candidatas a skill son las tareas que (1) haces al menos una vez al mes, 
   title="Instala y prueba una skill"
   steps={[
     "Descarga acta-de-reunion.zip y ábrelo para leer el SKILL.md (es texto).",
-    "Súbela en Ajustes → Capacidades → Skills y actívala.",
+    "Súbela en Personalizar → Skills → + → Crear skill → Subir una skill, y comprueba que está activada.",
     "En un chat nuevo, pega unas notas de reunión y pide «hazme el acta».",
     "Comprueba que sigue el formato y marca con [CONFIRMAR] lo dudoso.",
   ]}
-  hints={["Si no aparece la sección de skills, puede estar desactivada en tu cuenta de empresa: pregunta a IT.", "Si Claude no usa la skill, pídelo explícito: «usa la skill acta-de-reunion»."]}
+  hints={["Si no aparece la sección de skills (en tu plan o porque tu empresa la tiene desactivada), abre el SKILL.md, copia su texto y pégalo en las instrucciones de un proyecto «Actas»: funciona casi igual, aunque solo dentro de ese proyecto.", "Si Claude no usa la skill, pídelo explícito: «usa la skill acta-de-reunion»."]}
   example={<>Lo normal es que Claude diga que está usando la skill y que el acta salga con la cabecera, los puntos numerados, la tabla de tareas y, al final, la lista de puntos a confirmar. Si quieres cambiar el formato (por ejemplo, tu empresa pone «Asistentes» al final), edita la skill: pídeselo a Claude.</>}
 >
 Pon en marcha la skill del acta.
@@ -111,7 +111,7 @@ Pon en marcha la skill del acta.
   title="Crea tu propia skill"
   steps={[
     "Elige una tarea repetitiva tuya que no esté en las de ejemplo.",
-    "Activa skill-creator y usa el prompt «Crear una skill con Claude».",
+    "Usa el prompt «Crear una skill con Claude» en un chat nuevo.",
     "Responde a sus preguntas con ejemplos reales.",
     "Instala la skill resultante y pruébala con dos casos distintos.",
     "Corrige lo que falle pidiéndole que modifique la skill.",
@@ -126,5 +126,5 @@ Convierte un procedimiento tuyo en una skill.
 - Una **skill** es una carpeta con un `SKILL.md`: nombre, descripción e instrucciones.
 - Claude solo lee la **descripción** hasta que la necesita: que diga qué hace y cuándo usarla.
 - Proyecto = contexto de un área; skill = procedimiento que se aplica en cualquier chat.
-- Se instalan como `.zip` en **Ajustes → Capacidades → Skills**; solo de fuentes de confianza.
-- La forma fácil de crear una: pedírsela a Claude con skill-creator.
+- Se instalan como `.zip` en **Personalizar → Skills**; solo de fuentes de confianza.
+- La forma fácil de crear una: pedírsela a Claude conversando.
