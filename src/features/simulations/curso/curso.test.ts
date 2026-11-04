@@ -5,6 +5,7 @@ import { REQUESTS, resolveRequest } from "./connectors";
 import { CONTEXT_CAPACITY, fillContext, layoutSegments } from "./context-window";
 import { agentRun } from "./cowork";
 import { answerFor, buildPrompt, INGREDIENTS } from "./prompt-builder";
+import { chooseModel, MODEL_TASKS, type ModelTask } from "./model-choice";
 import { matchSkills, minutesSkill, OTHER_SKILLS, SKILL_REQUESTS, verdict } from "./skills";
 
 describe("fillContext", () => {
@@ -83,10 +84,7 @@ describe("automation", () => {
     expect(nextRuns("laborables", from, 3).map((d) => d.getDate())).toEqual([5, 6, 9]);
     expect(nextRuns("lunes", from, 2).map((d) => d.getDate())).toEqual([9, 16]);
     expect(nextRuns("viernes", from, 1)[0]?.getHours()).toBe(14);
-    expect(nextRuns("mes", from, 2).map((d) => [d.getMonth(), d.getDate()])).toEqual([
-      [11, 1],
-      [0, 1],
-    ]);
+    expect(nextRuns("hora", from, 3).map((d) => d.getHours())).toEqual([11, 12, 13]);
   });
 
   it("includes today when the hour has not passed", () => {
@@ -101,17 +99,24 @@ describe("automation", () => {
 });
 
 describe("cowork agent run", () => {
-  it("stops at the approval step until the person answers", () => {
-    const waiting = agentRun(true, null);
-    expect(waiting.at(-1)?.kind).toBe("permiso");
-    expect(agentRun(true, false).some((s) => s.kind === "enviar")).toBe(false);
-    expect(agentRun(true, true).at(-1)?.kind).toBe("fin");
+  it("in manual mode stops at the approval step until the person answers", () => {
+    expect(agentRun("manual", null).at(-1)?.kind).toBe("permiso");
+    expect(agentRun("manual", false).some((s) => s.kind === "enviar")).toBe(false);
+    expect(agentRun("manual", true).at(-1)?.kind).toBe("fin");
   });
 
-  it("sends without asking when approval is off", () => {
-    const steps = agentRun(false, null);
+  it("in auto mode checks safety but sends a harmless email without asking", () => {
+    const steps = agentRun("auto", null);
     expect(steps.some((s) => s.kind === "permiso")).toBe(false);
+    expect(steps.map((s) => s.kind)).toContain("revisar");
     expect(steps.some((s) => s.kind === "enviar")).toBe(true);
+  });
+
+  it("in skip mode neither asks nor checks", () => {
+    const kinds = agentRun("skip", null).map((s) => s.kind);
+    expect(kinds).not.toContain("permiso");
+    expect(kinds).not.toContain("revisar");
+    expect(kinds).toContain("enviar");
   });
 });
 
@@ -123,5 +128,33 @@ describe("layoutSegments", () => {
       [12, 14],
       [26, 6],
     ]);
+  });
+});
+
+describe("chooseModel", () => {
+  const task = (id: string): ModelTask => {
+    const t = MODEL_TASKS.find((x) => x.id === id);
+    if (!t) throw new Error(id);
+    return t;
+  };
+
+  it("routine work is fine on the fast model and wasteful on the most capable at high effort", () => {
+    expect(chooseModel(task("correo"), "rapido", "medio").verdict).toBe("acertado");
+    expect(chooseModel(task("correo"), "equilibrado", "medio").verdict).toBe("acertado");
+    expect(chooseModel(task("correo"), "capaz", "alto").verdict).toBe("de-mas");
+  });
+
+  it("hard work falls short on small models or low effort", () => {
+    expect(chooseModel(task("contrato"), "equilibrado", "medio").verdict).toBe("corto");
+    expect(chooseModel(task("contrato"), "rapido", "maximo").verdict).toBe("corto");
+    expect(chooseModel(task("contrato"), "capaz", "medio").verdict).toBe("acertado");
+    expect(chooseModel(task("agendas"), "equilibrado", "maximo").verdict).toBe("acertado");
+  });
+
+  it("usage grows with model and effort, and speed falls", () => {
+    const low = chooseModel(task("acta"), "rapido", "bajo");
+    const high = chooseModel(task("acta"), "capaz", "maximo");
+    expect([low.usage, high.usage]).toEqual([1, 6]);
+    expect(low.speed).toBeGreaterThan(high.speed);
   });
 });

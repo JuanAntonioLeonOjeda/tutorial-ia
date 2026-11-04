@@ -5,15 +5,15 @@ En el módulo 3 conectaste el correo y el calendario con un clic, desde el direc
 | Tipo | Dónde corre | Cómo se añade |
 | --- | --- | --- |
 | **Del directorio** | En internet (lo mantiene la empresa del servicio) | Un clic en Conectores (módulo 3) |
-| **Remoto personalizado** | En internet, en una dirección (URL) que te dan | Pegando la URL en Conectores → añadir personalizado |
+| **Remoto personalizado** | En internet, en una dirección (URL) que te dan | Pegando la URL en Personalizar → Conectores |
 | **Local** | En tu ordenador | Como extensión de la app de escritorio, o editando un archivo de configuración |
 
 ## Un conector remoto por URL
 
 Si un proveedor o IT te da la dirección de su servidor MCP (algo como `https://mcp.ejemplo.com/mcp`):
 
-1. En la app, ve a <MenuPath to={["Ajustes", "Conectores"]} /> y elige **añadir conector personalizado** (en algunas versiones, el botón `+`).
-2. Ponle un nombre y pega la URL.
+1. En la app, ve a <MenuPath to={["Personalizar", "Conectores", "Añadir", "Personalizado", "Web"]} />. Funciona en todos los planes, pero en el gratuito solo puedes tener uno.
+2. Ponle un nombre y pega la URL. Si el servidor no usa inicio de sesión sino una clave fija, se pone en **cabeceras de la petición** (solo si te la da IT).
 3. Inicia sesión cuando te lo pida y revisa los permisos.
 
 En **Claude Code**, lo mismo es una línea:

@@ -20,6 +20,7 @@ export const simulations = {
   ConnectorsSim: lazySim(() => import("./curso/ConnectorsSim")),
   ContextWindowSim: lazySim(() => import("./curso/ContextWindowSim")),
   CoworkSim: lazySim(() => import("./curso/CoworkSim")),
+  ModelChoiceSim: lazySim(() => import("./curso/ModelChoiceSim")),
   PromptBuilderSim: lazySim(() => import("./curso/PromptBuilderSim")),
   SkillTriggerSim: lazySim(() => import("./curso/SkillTriggerSim")),
 } satisfies Record<string, ComponentType>;

@@ -130,3 +130,22 @@
   font-weight: 700;
   color: var(--subject-color);
 }
+
+.meter {
+  display: inline-flex;
+  gap: 3px;
+  vertical-align: middle;
+}
+
+.meter span {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  border: 1px solid var(--color-line-strong);
+  background: var(--color-surface);
+}
+
+.meter span[data-on="true"] {
+  background: var(--subject-color);
+  border-color: var(--subject-color);
+}

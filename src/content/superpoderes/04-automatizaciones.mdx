@@ -1,8 +1,8 @@
-Lo último que le falta a tu asistente es la **iniciativa**: que el briefing de la agenda esté hecho cuando llegas a las 8, que el viernes a las 14 tengas el resumen de la semana, que el día 1 te avise de los contratos que vencen. Eso son **tareas programadas**: un encargo que se ejecuta solo, cuando toca, y te deja el resultado preparado.
+Lo último que le falta a tu asistente es la **iniciativa**: que el briefing de la agenda esté hecho cuando llegas a las 8, que el viernes a las 14 tengas el resumen de la semana, que cada lunes te avise de los contratos que vencen. Eso son **tareas programadas**: un encargo que se ejecuta solo, cuando toca, y te deja el resultado preparado.
 
 ## Una automatización son tres decisiones
 
-1. **Cuándo**: cada día laborable a las 8:00, cada lunes, el día 1 de cada mes…
+1. **Cuándo**: cada hora, cada día, los días laborables, cada semana… (o a mano, cuando tú la lances).
 2. **Qué**: el encargo, escrito como para Cowork (objetivo, material, reglas).
 3. **Dónde lo deja**: en la propia tarea, como borrador de correo, en un documento.
 
@@ -19,12 +19,15 @@ Creas el viernes a las 17:00 una tarea «cada día laborable a las 8:00». ¿Qu�
 
 ## Tareas programadas en Claude
 
-En **Cowork** puedes programar tareas de dos formas:
+Las tareas programadas están en todos los planes de pago y se crean de tres formas:
 
-- Escribiendo `/schedule` en una tarea de Cowork y diciendo cada cuánto.
-- Desde la sección **Programadas** de la barra lateral, donde ves, creas y editas todas.
+- **Pidiéndolo en una conversación** (en la nueva experiencia): «cada día laborable a las 7:45, prepárame…». Claude te hace un par de preguntas, te enseña nombre, frecuencia e instrucciones, y pulsas **Programar**.
+- Escribiendo `/schedule` en una tarea de Cowork.
+- Desde **Programadas** en la barra lateral → **Nueva tarea**: «Crear con Claude» (te va preguntando) o configurarla a mano. A mano eliges nombre, instrucciones, **frecuencia** (cada hora, diaria, semanal, laborables o manual), **modo de aprobación** y, si quieres, modelo y carpeta.
 
-Se ejecutan **en la nube**: no hace falta que tu ordenador esté encendido ni la app abierta. Usan los conectores que tengas (correo, calendario, Drive) y tus skills.
+En Programadas ves también las ejecuciones pasadas y las próximas, y puedes editar, pausar, reanudar, borrar o lanzar una tarea al momento. Cada ejecución es una tarea normal de Cowork que revisas cuando está lista, y te avisa en el móvil.
+
+Se ejecutan **en la nube**: no hace falta que tu ordenador esté encendido ni la app abierta. La excepción: si la tarea necesita **archivos o programas de tu ordenador**, solo se ejecuta allí, con la app abierta. Usan los conectores, plugins y skills que tengas.
 
 <Prompt
   title="Briefing diario (tarea programada)"
@@ -44,13 +47,14 @@ Se ejecutan **en la nube**: no hace falta que tu ordenador esté encendido ni la
 - **Briefing de la agenda** cada mañana.
 - **Correos pendientes** importantes a media mañana.
 - **Resumen semanal** el viernes: reuniones, acuerdos, pendientes para el lunes.
-- **Vencimientos del mes** el día 1: contratos, renovaciones, cumpleaños, plazos legales.
+- **Vencimientos** cada lunes: contratos, renovaciones, cumpleaños y plazos legales de las próximas semanas.
 - **Seguimiento de tareas de actas** cada lunes: qué acuerdos tienen fecha esta semana y quién es responsable.
 </Callout>
 
 ## Reglas de oro
 
 - **Borradores, no envíos.** La tarea trabaja sola; tú revisas antes de que salga nada.
+- **Mira el modo de aprobación** de cada tarea. En **manual**, se para a esperarte en cada acción hasta que la abras: seguro, pero no estará lista cuando llegues. En **automático** trabaja sola y no te pregunta (lección anterior): ahí el «borrador, no envío» tiene que estar escrito en las instrucciones.
 - **Empieza por una** y ajústala dos semanas antes de crear la siguiente.
 - **Revisa el historial** de ejecuciones: si un día falló (un conector desconectado, por ejemplo), lo verás ahí.
 - **Escribe qué hacer si falta algo** («si no hay reuniones, dilo en una línea»), para no recibir textos de relleno.
@@ -60,7 +64,7 @@ Se ejecutan **en la nube**: no hace falta que tu ordenador esté encendido ni la
   options={[
     "Enviar el resumen directamente a Laura cada viernes",
     "Dejarlo como borrador para ti y enviarlo tras revisarlo",
-    "Publicarlo en el canal general de la empresa",
+    "Enviárselo a Laura directamente, avisándole de que es automático",
   ]}
   answer={1}
   explanation="Una tarea programada trabaja sin supervisión: si un viernes se equivoca de acta o se le escapa un dato delicado, con el borrador lo ves antes. Cuando lleves semanas viendo que acierta, puedes plantearte otra cosa, pero el borrador es el punto de partida sensato."
@@ -83,7 +87,8 @@ Regla práctica: si la tarea es **mecánica** (mover, copiar, avisar siempre igu
   steps={[
     "Elige una de las automatizaciones de la lista que te ahorraría tiempo.",
     "Pruébala primero como encargo normal en Cowork o en el chat, y ajusta el texto hasta que el resultado te guste.",
-    "Prográmala (con /schedule o en Programadas) para que deje un borrador, no un envío.",
+    "Prográmala (pidiéndolo en el chat, con /schedule o en Programadas → Nueva tarea) con «déjalo como borrador, no envíes nada» escrito en las instrucciones.",
+    "Elige el modo de aprobación: manual las primeras semanas (la tarea se parará a esperarte en cada acción y la aprobarás al abrirla) y automático solo cuando confíes en ella.",
     "Durante una semana, revisa cada resultado y anota qué cambiarías.",
     "Edita la instrucción con esas mejoras.",
   ]}
@@ -96,6 +101,6 @@ Pon a trabajar a Claude mientras no estás.
 ## Para llevar
 
 - Una automatización = **cuándo** + **qué** + **dónde lo deja**.
-- En Claude: tareas programadas de **Cowork** (`/schedule` o la sección Programadas), sin que tu ordenador esté encendido.
+- En Claude: pídela en el chat, con `/schedule` o en **Programadas**; corre en la nube salvo que necesite tu ordenador.
 - Borradores, no envíos; empieza por una y ajústala.
 - Lo mecánico, Power Automate/Zapier; lo que necesita criterio, IA.

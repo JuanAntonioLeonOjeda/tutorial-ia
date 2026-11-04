@@ -1,7 +1,7 @@
 /** An agent doing a multi-step task with tools, and the point where it asks before acting. */
 
 export type StepKind =
-  "plan" | "leer" | "buscar" | "observar" | "crear" | "permiso" | "enviar" | "fin";
+  "plan" | "leer" | "buscar" | "observar" | "crear" | "revisar" | "permiso" | "enviar" | "fin";
 
 export interface AgentStep {
   kind: StepKind;
@@ -34,18 +34,44 @@ const BEFORE_SENDING: readonly AgentStep[] = [
   },
 ];
 
-/** The whole run for a given setting and, when it asks, the person's answer. */
-export function agentRun(askBeforeSending: boolean, approved: boolean | null): AgentStep[] {
+/**
+ * Cowork's approval modes (support.claude.com, "Get started with Claude Cowork"): Manual asks
+ * for each action; Auto keeps going and only blocks actions its safety check flags (data
+ * exfiltration, prompt injection…); Skip neither asks nor checks. Emailing an itinerary to
+ * your boss is not unsafe, so Auto sends it without asking.
+ */
+export type ApprovalMode = "manual" | "auto" | "skip";
+
+export const APPROVAL_MODES: readonly { id: ApprovalMode; label: string }[] = [
+  { id: "manual", label: "Aprobar a mano" },
+  { id: "auto", label: "Aprobar automáticamente" },
+  { id: "skip", label: "Saltar aprobaciones" },
+];
+
+/** The whole run for a given mode and, when it asks, the person's answer. */
+export function agentRun(mode: ApprovalMode, approved: boolean | null): AgentStep[] {
   const steps = [...BEFORE_SENDING];
-  if (!askBeforeSending) {
+  if (mode === "auto") {
+    steps.push({
+      kind: "revisar",
+      text: "Comprobación de seguridad automática: enviar un correo a tu jefa no parece peligroso, así que no te pregunta.",
+    });
     steps.push({
       kind: "enviar",
-      text: "Envía el itinerario a Laura directamente, riesgo incluido, sin que tú lo hayas visto.",
+      text: "Envía el itinerario a Laura, riesgo incluido, sin que tú lo hayas visto.",
     });
     steps.push({
       kind: "fin",
       text: "Hecho. Si había un error en el itinerario, ya está en la bandeja de Laura.",
     });
+    return steps;
+  }
+  if (mode === "skip") {
+    steps.push({
+      kind: "enviar",
+      text: "Envía el itinerario a Laura directamente: sin preguntarte y sin ninguna comprobación.",
+    });
+    steps.push({ kind: "fin", text: "Hecho. Nada se ha parado a revisar nada en ningún momento." });
     return steps;
   }
   steps.push({
