@@ -1,0 +1,9 @@
+# One service: the static web app. Open http://localhost:${TUTORIAL_IA_PORT:-3300}
+name: tutorial-ia
+
+services:
+  web:
+    build: .
+    ports:
+      - "${TUTORIAL_IA_PORT:-3300}:8080"
+    restart: unless-stopped

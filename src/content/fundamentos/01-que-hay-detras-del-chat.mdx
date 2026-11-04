@@ -1,0 +1,103 @@
+Ya usas Claude, ChatGPT y Gemini, y te funcionan… a veces. Otras veces la respuesta es genérica, se inventa un dato o «se olvida» de algo que le dijiste al principio. Casi todo eso se explica con tres ideas sencillas sobre cómo funcionan por dentro. Con ellas entenderás por qué el resto del curso te pide hacer las cosas de una manera y no de otra.
+
+<LadderDiagram />
+
+## Un autocompletado con muchísima lectura
+
+Un asistente de IA es un **modelo de lenguaje**: un programa que ha leído una cantidad enorme de texto y ha aprendido a continuar cualquier texto de la forma más plausible. Cuando le escribes, no «busca» la respuesta en una base de datos: la **va escribiendo** palabra a palabra, eligiendo cada vez lo que encaja mejor con todo lo anterior.
+
+Eso tiene dos consecuencias muy prácticas:
+
+- **Escribe de maravilla**: redactar, resumir, reordenar, traducir, cambiar el tono… es justo lo que mejor hace.
+- **Puede inventar con total seguridad.** Si no tiene el dato, lo plausible es escribir algo que *suene* a dato. A esto se le llama **alucinación**: un teléfono, una fecha, una cita, un artículo de ley que no existen.
+
+<Callout kind="idea">
+Piensa en un asistente nuevo, brillante y rapidísimo, que lo ha leído todo pero **no conoce tu empresa** y que, si no sabe algo, prefiere no decepcionarte. Le darías contexto, le pedirías que te diga cuando no esté seguro y revisarías los datos importantes. Con la IA, igual.
+</Callout>
+
+<Quiz
+  id="alucinacion"
+  options={[
+    "Lo copia tal cual, porque la IA lo ha buscado en internet",
+    "Lo compruebas en la web del hotel o le pides que use la búsqueda web y te dé la fuente",
+    "Le preguntas «¿estás seguro?» y, si dice que sí, es correcto",
+  ]}
+  answer={1}
+  explanation="Sin búsqueda web activada, el modelo escribe de memoria y un teléfono es exactamente el tipo de dato que puede inventar. Preguntarle «¿estás seguro?» no sirve: puede contestar que sí con la misma seguridad. Lo fiable es una fuente que puedas abrir."
+  hints={["¿De dónde sale ese número si nadie le ha dado acceso a internet?"]}
+>
+Le pides a Claude el teléfono de reservas de un hotel de Bruselas y te da uno con el prefijo correcto. ¿Qué haces?
+</Quiz>
+
+## Lo que sabe y lo que no
+
+El modelo aprendió con textos **hasta una fecha** (su «fecha de corte»). De lo que pasó después no sabe nada, salvo que:
+
+- active la **búsqueda web** (Claude, ChatGPT y Gemini la tienen), o
+- se lo des tú: pegando un texto, subiendo un archivo o conectando tu correo o tu calendario (eso es el módulo 3).
+
+Y de **tu trabajo** no sabe nada de nada: quién es tu jefa, cómo se llaman los del comité, qué formato tienen vuestras actas. Todo eso hay que dárselo. Lo bueno es que solo hace falta hacerlo una vez si lo guardas en un **proyecto** (módulo 2).
+
+## La memoria de trabajo: la ventana de contexto
+
+En cada respuesta, el modelo «tiene delante» todo lo de la conversación: tus mensajes, sus respuestas y los archivos que hayas subido. Ese espacio se llama **ventana de contexto** y se mide en **tokens** (trocitos de palabra; en español, una palabra son 1–2 tokens).
+
+La ventana es grande (cientos de páginas), pero no infinita, y además **no todo pesa igual**: en conversaciones muy largas, lo del principio se diluye. Juega con ella:
+
+<ContextWindowSim />
+
+<Predict
+  id="ventana"
+  answer={["no"]}
+  explanation="El informe (~85k) y el Excel (~90k) ya suman ~175k de 200k, y cuarenta intercambios añaden ~60k más. No cabe: la app tendrá que resumir o dejar fuera parte de lo antiguo. Mejor: un chat por tema, y en el Excel, solo las columnas que hacen falta."
+  hints={["Suma los tamaños aproximados de la simulación: informe, Excel y 40 intercambios de ~1,5k.", "La ventana es de 200k."]}
+>
+Subes el informe anual (120 págs.), el Excel de gastos y luego charlas cuarenta mensajes sobre ellos. ¿Cabe todo cómodamente en la ventana? Responde «sí» o «no».
+</Predict>
+
+<Callout kind="real">
+- **Un chat por tema.** Para el acta del comité, un chat; para el viaje, otro. Los chats eternos «de todo» acaban dando peores respuestas.
+- Si un chat se ha ido por las ramas, pídele un **resumen de lo acordado** y empieza uno nuevo pegando ese resumen.
+- Lo que repites en cada chat (quién eres, tu jefa, tu estilo) no va en el chat: va en un **proyecto** o en tus **preferencias** (módulo 2).
+</Callout>
+
+## Modelos grandes y pequeños
+
+Cada empresa ofrece varios modelos. En Claude verás nombres como **Opus** (el más capaz, algo más lento), **Sonnet** (el equilibrio, el de diario) y **Haiku** (el rápido). En ChatGPT y Gemini pasa lo mismo con otros nombres. Además, muchos tienen un modo de **pensamiento extendido** («Extended thinking», «Pensar más»), en el que el modelo razona antes de contestar: más lento, pero mejor para problemas con varios pasos.
+
+| Para… | Usa |
+| --- | --- |
+| Correos, resúmenes, reformular, traducir | El modelo por defecto |
+| Analizar un contrato largo, comparar propuestas, planificar algo con muchas restricciones | El más capaz y/o pensamiento extendido |
+| Mil cosas pequeñas y rápidas | El rápido |
+
+<Quiz
+  id="modelo"
+  options={["El modelo rápido, sin pensar", "El modelo por defecto", "El más capaz con pensamiento extendido"]}
+  answer={2}
+  explanation="Encajar agendas de seis personas con restricciones (viajes, horas, salas) es un problema de varios pasos donde un fallo invalida todo. Ahí compensa esperar unos segundos más. Y aun así, revisa el resultado contra los calendarios."
+>
+Tienes que encontrar una fecha para el comité que encaje con seis agendas, dos viajes y la disponibilidad de la sala. ¿Qué eliges?
+</Quiz>
+
+<Practice
+  id="primer-contacto"
+  steps={[
+    "Abre claude.ai (o la app de escritorio) y empieza un chat nuevo.",
+    "Pregúntale: «¿Cuál es tu fecha de corte de conocimiento y qué no sabes de mí ni de mi empresa?»",
+    "Pídele algo que dependa de hoy, por ejemplo «¿Qué tiempo hará mañana en Madrid?», primero sin búsqueda web y luego activándola en el menú de herramientas.",
+    "Compara las dos respuestas: ¿cuál cita fuentes?",
+  ]}
+  hints={["La búsqueda web suele estar en el botón de herramientas (el icono de ajustes o «+») bajo el cuadro de texto."]}
+  example={<>Sin búsqueda, Claude te dirá que no tiene acceso a datos en tiempo real (o, peor, te dará algo genérico). Con búsqueda, verás que consulta webs y te da enlaces. Esa diferencia es la que tienes que tener en la cabeza siempre que pidas <strong>datos</strong>.</>}
+>
+Comprueba por ti misma lo que sabe y lo que no.
+</Practice>
+
+## Para llevar
+
+- La IA **escribe** la respuesta, no la busca: redacta genial y puede inventar datos con aplomo.
+- No sabe nada de tu empresa ni de lo reciente, salvo que se lo des (texto, archivo, búsqueda web, conectores).
+- La **ventana de contexto** es su memoria de trabajo: grande pero finita. Un chat por tema.
+- Modelo por defecto para el día a día; el más capaz y el pensamiento extendido para lo complejo.
+- Los datos que importan (teléfonos, fechas, cifras, nombres) se comprueban siempre.

@@ -1,0 +1,12 @@
+# Tasks: Aprende IA
+
+- [x] Copy the platform from `repaso`; remove Python/Pyodide, KaTeX, TFM, CodeMirror
+- [x] New catalog (four modules + extras), tokens, icons, UI strings, home page
+- [x] `Practice`, `Chat`, `Prompt`, `MenuPath` with tests
+- [x] Six simulations with pure logic tested in `curso.test.ts`
+- [x] Diagrams: course ladder, project, agent loop
+- [x] 21 lessons
+- [x] Example skills and workspace template in `material/`, `scripts/zip-skills.sh`
+- [x] `AGENTS.md`, `.claude/` rules, agents and commands adapted (`/refresh-lesson` added)
+- [x] ADRs 0001–0004, README, Docker on port 3300
+- [ ] Review every lesson with `content-reviewer` once the target plan's features are known

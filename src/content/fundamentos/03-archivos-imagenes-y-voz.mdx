@@ -1,0 +1,127 @@
+Buena parte de tu trabajo no empieza en una página en blanco, sino en un PDF de 40 páginas, un Excel heredado, la foto de una pizarra o una reunión de una hora. Los asistentes de IA leen todo eso. Esta lección va de cómo dárselo para que lo aproveche bien, y de qué hacer con lo que no es texto: imágenes, capturas y voz.
+
+## Qué puedes subir
+
+Con el clip o arrastrando el archivo al chat puedes darle:
+
+| Tipo | Ejemplos | Para qué te sirve |
+| --- | --- | --- |
+| Documentos | PDF, Word, texto | Resumir, extraer acuerdos, comparar versiones, buscar una cláusula |
+| Hojas de cálculo | Excel, CSV | Totales, tablas resumen, detectar duplicados, gráficos |
+| Imágenes | Fotos, capturas de pantalla, escaneos | Leer una pizarra, pasar una tarjeta de visita a texto, entender un error en pantalla |
+| Presentaciones | PowerPoint, PDF de diapositivas | Resumir, revisar coherencia, preparar notas del orador |
+
+<Callout kind="idea">
+Un archivo subido entra en la **ventana de contexto** de la lección anterior. Un PDF de 300 páginas ocupa mucho: si solo te interesa el capítulo 4, dile «céntrate en el capítulo 4» o sube solo esas páginas.
+</Callout>
+
+## Pedir sobre un documento
+
+El error típico es subir el documento y escribir «resúmelo». Te dará un resumen correcto… y probablemente inútil. Di **para qué** lo quieres:
+
+<Prompt
+  title="Resumen con propósito"
+  text={`
+    Te adjunto [DOCUMENTO]. Lo va a leer [QUIÉN] para [PARA QUÉ: DECIDIR, PREPARAR UNA REUNIÓN, CONTESTAR…].
+
+    Dame:
+    1. En tres líneas, de qué va y qué se pide.
+    2. Las cifras y fechas importantes, con la página donde salen.
+    3. Lo que hay que decidir o contestar, y antes de cuándo.
+    4. Dudas o puntos flojos que conviene preguntar.
+
+    Si algo no aparece en el documento, dilo; no lo completes tú.
+  `}
+/>
+
+Fíjate en dos trucos: **pedir la página** (así compruebas en segundos) y **«si no aparece, dilo»** (reduce los inventos).
+
+<Quiz
+  id="pagina"
+  options={[
+    "Porque así el resumen queda más largo y completo",
+    "Porque te permite comprobar rápido cada dato en el original",
+    "Porque la IA solo lee las páginas que le nombras",
+  ]}
+  answer={1}
+  explanation="Pedir la página (o la cita literal) convierte cada dato en algo comprobable en segundos. Si una cifra no está donde dice, has cazado un error antes de que llegue a tu jefa."
+>
+¿Por qué conviene pedir «con la página donde sale» al extraer cifras de un PDF?
+</Quiz>
+
+## Excel sin fórmulas
+
+Con hojas de cálculo, los asistentes actuales no «miran» los números: **ejecutan un pequeño análisis** por debajo, así que sus cuentas son fiables si entienden bien las columnas. Ayúdales:
+
+- Explica qué es cada columna si los nombres son crípticos («IMP_NET es el importe sin IVA»).
+- Pide el resultado en **una tabla** y, si te va a servir, **como archivo Excel descargable**.
+- Para comprobar, pide un dato que conozcas («¿cuánto gastamos en viajes en marzo?»): si coincide, te fías más del resto.
+
+<Chat
+  messages={[
+    { from: "tu", text: "Te adjunto los gastos de viaje del año. ¿Cuánto hemos gastado por persona y por trimestre? Hazme una tabla y dime los tres viajes más caros.", note: "adjunta gastos-viajes-2026.xlsx" },
+    { from: "ia", text: "He leído 412 filas (enero–octubre). Agrupo por la columna «Empleado» y por trimestre según «Fecha»:\n\n| Persona | T1 | T2 | T3 | T4 (hasta oct.) |\n| Laura Martín | 6.240 € | 8.910 € | 4.120 € | 2.380 € |\n| …\n\nLos tres viajes más caros: Nueva York (marzo, 4.850 €), Singapur (mayo, 4.310 €) y Bruselas (septiembre, 2.020 €).\n\nNota: hay 7 filas sin fecha que no he podido asignar a un trimestre. ¿Te las listo?" },
+  ]}
+/>
+
+## Fotos y capturas
+
+Una imagen vale para mucho más que «¿qué ves aquí?»:
+
+- **Foto de la pizarra** tras una reunión → «pásala a una lista de acuerdos con responsables».
+- **Tarjetas de visita** → «extrae nombre, cargo, empresa, correo y teléfono en una tabla».
+- **Captura de un mensaje de error** del ordenador → «¿qué significa y qué hago, paso a paso?».
+- **Factura o ticket** escaneado → «dime fecha, proveedor, base, IVA y total».
+
+<Callout kind="warn">
+La lectura de imágenes es muy buena pero no perfecta, sobre todo con letra manuscrita o fotos torcidas. Revisa números y nombres propios.
+</Callout>
+
+## La voz
+
+En el móvil (y en el escritorio) puedes **dictar** en vez de escribir, y en las apps de Claude, ChatGPT y Gemini hay un **modo voz** para conversar en voz alta. Es ideal para:
+
+- Volcar ideas al salir de una reunión: «apúntate esto: …» y luego «ordénalo en acta».
+- Preparar un correo mientras caminas.
+- Ensayar una conversación difícil («haz de proveedor enfadado; yo te contesto»).
+
+<Practice
+  id="pizarra"
+  title="De la foto al acta"
+  steps={[
+    "Haz una foto a unas notas escritas a mano (o a una pizarra, o a un folio con apuntes).",
+    "Súbela a Claude con: «Pásalo a texto ordenado. Luego, haz una lista de tareas con responsable y fecha si aparecen.»",
+    "Comprueba si ha leído bien los nombres y números.",
+    "Pídele el resultado en el formato en que lo usarías (correo, lista para Teams, tabla).",
+  ]}
+  hints={["Si la foto es de un documento con datos personales, mejor usa uno de prueba (lección siguiente)."]}
+  example={<>Una buena respuesta separa <em>transcripción</em> (lo que pone) de <em>interpretación</em> (las tareas). Si no lo hace, pídeselo: «primero transcribe tal cual; luego, aparte, la lista de tareas».</>}
+>
+Convierte unas notas en papel en algo que puedas enviar.
+</Practice>
+
+<Practice
+  id="excel"
+  title="Pregúntale a un Excel"
+  steps={[
+    "Coge una hoja de cálculo de trabajo sin datos sensibles (o crea una de prueba con 20 filas).",
+    "Súbela y pide un resumen: totales por categoría, por mes o por persona.",
+    "Pide un dato que ya conozcas y comprueba que coincide.",
+    "Pide el resultado como archivo Excel descargable.",
+  ]}
+  example={<Prompt text={`
+    Te adjunto [ARCHIVO]. Cada fila es [QUÉ ES CADA FILA]. Las columnas importantes son [COLUMNA: QUÉ SIGNIFICA].
+
+    Quiero [EL RESUMEN QUE NECESITAS] en una tabla. Avísame si ves filas raras (vacías, duplicadas, fechas imposibles).
+  `} />}
+>
+Saca un resumen de una hoja de cálculo sin tocar una fórmula.
+</Practice>
+
+## Para llevar
+
+- Sube el archivo y di **para qué** lo quieres, no solo «resúmelo».
+- Pide páginas o citas para comprobar, y «si no aparece, dilo».
+- Con Excel, explica las columnas y pide tablas o el archivo descargable.
+- Fotos de pizarras, tarjetas, tickets o errores en pantalla también son entradas válidas.
+- El dictado y el modo voz son perfectos para volcar ideas al salir de una reunión.

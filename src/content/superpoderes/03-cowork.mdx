@@ -1,0 +1,99 @@
+En el chat, tú pides y Claude contesta, mensaje a mensaje. Un **agente** funciona distinto: le das un **objetivo** («prepara la carpeta del viaje a Bruselas y mándale el itinerario a Laura») y él solo se organiza: planifica, abre archivos, busca en el correo, crea documentos, comprueba lo que ha hecho y te pregunta cuando algo es delicado. En Claude, eso es **Cowork**.
+
+## Cómo trabaja un agente
+
+<AgentLoopDiagram />
+
+La diferencia con el chat no es que sea más listo, sino que **puede encadenar acciones**: el resultado de un paso decide el siguiente. Si al leer el billete ve que el vuelo sale demasiado pronto, lo anota como riesgo antes de seguir. Míralo paso a paso:
+
+<CoworkSim />
+
+<Quiz
+  id="permiso"
+  options={[
+    "Para que el agente sea más rápido",
+    "Porque es el momento de revisar antes de que algo salga de tu ordenador o no tenga vuelta atrás",
+    "Porque el agente no sabe enviar correos sin ayuda",
+  ]}
+  answer={1}
+  explanation="Leer y crear borradores es reversible; enviar un correo a tu jefa o borrar archivos no. El punto de permiso es tu control de calidad: ahí ves el itinerario con el riesgo marcado y decides. Desactivarlo para tareas así es cambiar comodidad por riesgo."
+>
+En la simulación, ¿por qué es buena idea dejar activado «preguntar antes de enviar o borrar»?
+</Quiz>
+
+## Qué es Cowork
+
+**Cowork** es el modo agente de la **app de escritorio** de Claude (está en una pestaña aparte del chat). Lo que lo hace distinto:
+
+- **Trabaja con tus archivos**: le das acceso a una carpeta de tu ordenador y puede leer, crear y organizar documentos dentro.
+- **Usa tus conectores** (correo, calendario, Drive…) y puede navegar con Chrome si lo tienes.
+- **Tareas largas**: puede estar trabajando varios minutos (o más) en algo de muchos pasos mientras tú haces otra cosa, y ver su progreso.
+- **Proyectos de Cowork**: agrupan tareas con sus instrucciones, contexto y memoria, igual que los proyectos del chat.
+- **Plugins**: paquetes que juntan skills, conectores y agentes para un tipo de trabajo concreto.
+- **Tareas programadas**: lo que hace solo cada día o cada semana (lección siguiente).
+
+<Callout kind="note">
+Cowork está incluido en los planes de pago de Claude, pero en empresas puede estar limitado por IT. Si no ves la pestaña en la app de escritorio, pregunta.
+</Callout>
+
+## Encargos que le van bien
+
+| Encargo | Por qué es de agente |
+| --- | --- |
+| «Ordena la carpeta Descargas: facturas a Facturas/2026 por mes, el resto a Revisar» | Muchos archivos, una regla clara |
+| «Con las 12 actas de este año, hazme un Excel con todos los acuerdos, responsable y si está cerrado» | Leer muchos documentos y consolidar |
+| «Prepara la documentación del consejo: busca en el correo los informes de cada área, júntalos en un PDF con índice» | Varias fuentes, varios pasos |
+| «Revisa las 40 notas de gastos de la carpeta y dime cuáles no cumplen la política de viajes» | Repetitivo y con criterio escrito |
+| «Prepara el viaje a Bruselas: itinerario y checklist con lo que hay en la carpeta y el correo» | Combina archivos, correo y una skill |
+
+Y lo que **no**: decisiones que dependen de matices que no están escritos en ningún sitio, o tareas donde un error no se puede deshacer y no vas a revisar.
+
+## Cómo encargar bien
+
+Igual que con una persona, el resultado depende del encargo:
+
+<Prompt
+  title="Encargo para Cowork"
+  text={`
+    Objetivo: [QUÉ QUIERES CONSEGUIR, EN UNA FRASE]
+
+    Material: [CARPETA, CORREOS, DOCUMENTOS QUE DEBE USAR]
+
+    Resultado: [QUÉ DEBE QUEDAR HECHO Y DÓNDE: ARCHIVO, CARPETA, BORRADOR]
+
+    Reglas: [CRITERIOS, P. EJ. POLÍTICA DE VIAJES; QUÉ NO TOCAR]
+
+    Antes de enviar, borrar o mover algo fuera de la carpeta, pregúntame. Si algo no está claro, pregunta en vez de suponer. Al terminar, resume qué has hecho y qué ha quedado pendiente.
+  `}
+/>
+
+<Callout kind="warn" title="Buenas costumbres con agentes">
+- Dale acceso a **una carpeta concreta**, no a todo el disco.
+- Haz las primeras pruebas con **copias** de los archivos.
+- Lee el **plan** antes de que empiece; si no te convence, corrígelo.
+- Revisa el resultado la primera vez como si fuera de alguien nuevo. Con el tiempo sabrás en qué encargos te puedes fiar más.
+</Callout>
+
+<Practice
+  id="primer-encargo"
+  title="Tu primer encargo a Cowork"
+  steps={[
+    "Abre la app de escritorio y entra en Cowork.",
+    "Crea una carpeta de prueba con 10–15 archivos variados (copias de PDFs, Word, capturas).",
+    "Encárgale ordenarla: «crea subcarpetas por tipo de documento, renombra cada archivo como AAAA-MM-DD_tema y hazme un índice en Excel».",
+    "Lee el plan que propone antes de que empiece.",
+    "Revisa el resultado y pídele una corrección.",
+  ]}
+  hints={["Si no tienes Cowork, haz una versión en el chat: sube cinco documentos y pide el índice en Excel con fecha, tema y resumen de una línea de cada uno."]}
+  example={<>Un buen plan dice qué va a hacer antes de tocar nada («voy a leer los 14 archivos, proponer 4 categorías, renombrar…») y pregunta si algo es ambiguo («hay dos archivos sin fecha visible, ¿uso la fecha de modificación?»). Si no pregunta nada y empieza sin más, añade a tus encargos: «antes de empezar, enséñame el plan».</>}
+>
+Delega una tarea de varios pasos en un agente, con red.
+</Practice>
+
+## Para llevar
+
+- Un **agente** recibe un objetivo y encadena pasos: planifica, actúa, mira, sigue.
+- **Cowork** es el agente de Claude en el escritorio: tus archivos, tus conectores, tareas largas.
+- Encargo = objetivo, material, resultado, reglas y cuándo preguntar.
+- Una carpeta concreta, copias al principio y revisar el plan.
+- Deja activado que **pregunte antes de enviar o borrar**.

@@ -1,0 +1,95 @@
+Hasta ahora Claude te contestaba en el chat. Pero lo que tú necesitas muchas veces no es una respuesta: es **un documento**. Una presentación para el comité, un Excel de seguimiento, un Word con el orden del día. Claude puede crearlos y editarlos de verdad, y también construir pequeñas herramientas interactivas que se abren en una ventana al lado del chat.
+
+## Artefactos: el panel de la derecha
+
+Cuando le pides algo con entidad propia (un documento largo, una tabla, un diagrama, una página), Claude lo abre en un panel aparte llamado **artefacto**. La ventaja:
+
+- Lo ves **separado de la conversación** y puedes pedir cambios sin perderlo («cambia el título», «añade una columna»).
+- Tiene **versiones**: puedes volver a la anterior si un cambio no te gusta.
+- Se puede **copiar, descargar o publicar** y compartir con un enlace (según tu cuenta).
+
+Un artefacto puede ser incluso una **mini aplicación**: una checklist que se marca, un calculador de dietas de viaje, un formulario para que el equipo elija fecha… sin saber programar: lo describes y Claude la construye.
+
+<Chat
+  messages={[
+    { from: "tu", text: "Hazme una checklist interactiva para preparar un viaje de Laura: documentación, transporte, alojamiento, reuniones y regreso. Que pueda marcar cada punto y ver el porcentaje hecho." },
+    { from: "ia", text: "Aquí tienes la checklist. Puedes marcar cada punto y la barra de arriba muestra el progreso. ¿Quieres que añada un campo de notas por apartado?", note: "abre un artefacto: «Checklist de viaje»" },
+  ]}
+/>
+
+## Archivos de verdad: Word, Excel, PowerPoint, PDF
+
+Claude puede **crear y editar archivos** de Office y PDF que te descargas y abres como cualquier otro. Por dentro usa unas skills que trae de serie (en el módulo 3 verás qué es una skill). Si no le aparece la opción, mira en <MenuPath to={["Ajustes", "Capacidades"]} /> que la creación de archivos esté activada (en cuentas de empresa la controla el administrador).
+
+Ejemplos que funcionan muy bien:
+
+| Pides | Te da |
+| --- | --- |
+| «Con estas notas, una presentación de 6 diapositivas para el comité» | Un `.pptx` con título, puntos y notas del orador |
+| «Pasa esta tabla de asistentes a Excel con una columna de confirmación y totales» | Un `.xlsx` con fórmulas que funcionan |
+| «Este Word es el orden del día del mes pasado: actualízalo con los puntos nuevos» | El mismo `.docx` editado, conservando el formato |
+| «Convierte el acta en PDF con el logo arriba» | Un `.pdf` listo para enviar |
+
+<Callout kind="warn">
+El diseño que genera es correcto pero genérico. Si en tu empresa hay **plantillas corporativas**, súbelas y pídele que las use: «usa esta plantilla de PowerPoint como base». Y si lo haces a menudo, guárdala en un proyecto (lección siguiente).
+</Callout>
+
+<Quiz
+  id="artefacto"
+  options={[
+    "Pedirle en el chat el texto de cada diapositiva y montarla tú en PowerPoint",
+    "Pedirle directamente el archivo .pptx, a partir de las notas y con la plantilla de la empresa",
+    "Pedirle una imagen de cada diapositiva",
+  ]}
+  answer={1}
+  explanation="Si la creación de archivos está activa, Claude genera el .pptx entero. Con la plantilla corporativa adjunta, además sale con vuestro formato. Tú revisas y ajustas lo que haga falta en PowerPoint."
+>
+Tienes las notas de la reunión de estrategia y quieres una presentación para el comité. ¿Qué es lo más eficiente?
+</Quiz>
+
+## Editar un documento que ya tienes
+
+Sube el archivo y pide cambios concretos. Funciona igual de bien para:
+
+- **Revisar**: «revisa este informe: erratas, frases demasiado largas y cifras que no cuadran entre apartados. Dame una lista antes de cambiar nada».
+- **Actualizar**: «cambia todas las fechas de 2025 a 2026 y actualiza la lista de asistentes con esta otra».
+- **Comparar versiones**: sube dos versiones y pide «¿qué ha cambiado entre la v2 y la v3 del contrato?».
+
+<Practice
+  id="presentacion"
+  title="Una presentación desde notas"
+  steps={[
+    "Coge unas notas reales o inventadas de una reunión (media página basta).",
+    "Pide: «Con estas notas, crea una presentación de PowerPoint de 5 diapositivas para el comité de dirección: título, contexto, tres puntos clave y próximos pasos. Añade notas del orador.»",
+    "Descarga el .pptx y ábrelo en PowerPoint.",
+    "Pide dos cambios en el chat (por ejemplo, «menos texto por diapositiva» y «añade una tabla de responsables») y vuelve a descargar.",
+  ]}
+  hints={["Si no aparece el archivo descargable, revisa Ajustes → Capacidades o pregunta a IT si la creación de archivos está activada."]}
+  example={<>Lo normal es que la primera versión tenga demasiado texto. Una buena segunda instrucción: «máximo 4 puntos por diapositiva, de una línea cada uno; lo demás, a las notas del orador».</>}
+>
+Convierte notas en una presentación descargable.
+</Practice>
+
+<Practice
+  id="mini-app"
+  title="Tu primera mini aplicación"
+  steps={[
+    "Piensa en algo que controles a mano: confirmaciones de un evento, una checklist de viaje, el estado de los regalos de Navidad…",
+    "Descríbeselo a Claude: qué datos hay, qué quieres poder marcar o calcular.",
+    "Prueba el artefacto en el panel y pide un cambio.",
+    "Mira las opciones del artefacto: copiar, descargar y publicar o compartir.",
+  ]}
+  example={<Prompt text={`
+    Crea una pequeña aplicación para controlar las confirmaciones de [EVENTO]. Quiero poder añadir invitados (nombre, empresa, correo), marcar si confirman, no vienen o están pendientes, y ver arriba los totales de cada grupo. Que tenga un botón para copiar la lista de pendientes y mandarles un recordatorio.
+  `} />}
+>
+Construye una herramienta a tu medida sin programar.
+</Practice>
+
+## Para llevar
+
+- Un **artefacto** es un documento o mini app en un panel aparte, con versiones y para compartir.
+- Claude crea y edita **Word, Excel, PowerPoint y PDF** de verdad.
+- Usa tus **plantillas** corporativas: súbelas y pide que las use.
+- Para revisar documentos, pide primero la lista de cambios y luego que los aplique.
+- Si no ves la opción de archivos, está en Ajustes → Capacidades (o la controla IT).

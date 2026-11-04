@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": ["Read", "Glob", "Grep"],
+    "ask": ["Write", "Edit", "Bash(mv:*)", "Bash(mkdir:*)"],
+    "deny": ["Bash(rm:*)", "Read(./Consejo/**/confidencial*)", "WebFetch"]
+  }
+}

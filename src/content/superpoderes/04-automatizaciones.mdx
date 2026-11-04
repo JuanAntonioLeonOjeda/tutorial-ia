@@ -1,0 +1,101 @@
+Lo último que le falta a tu asistente es la **iniciativa**: que el briefing de la agenda esté hecho cuando llegas a las 8, que el viernes a las 14 tengas el resumen de la semana, que el día 1 te avise de los contratos que vencen. Eso son **tareas programadas**: un encargo que se ejecuta solo, cuando toca, y te deja el resultado preparado.
+
+## Una automatización son tres decisiones
+
+1. **Cuándo**: cada día laborable a las 8:00, cada lunes, el día 1 de cada mes…
+2. **Qué**: el encargo, escrito como para Cowork (objetivo, material, reglas).
+3. **Dónde lo deja**: en la propia tarea, como borrador de correo, en un documento.
+
+<AutomationBuilderSim />
+
+<Predict
+  id="proxima"
+  answer={["lunes", "el lunes"]}
+  explanation="Una tarea «cada día laborable a las 8:00» creada el viernes por la tarde no vuelve a ejecutarse hasta el lunes a las 8:00: sábado y domingo no son laborables."
+  hints={["Mira en la simulación cuáles son las próximas ejecuciones de «cada día laborable»."]}
+>
+Creas el viernes a las 17:00 una tarea «cada día laborable a las 8:00». ¿Qué día se ejecuta por primera vez?
+</Predict>
+
+## Tareas programadas en Claude
+
+En **Cowork** puedes programar tareas de dos formas:
+
+- Escribiendo `/schedule` en una tarea de Cowork y diciendo cada cuánto.
+- Desde la sección **Programadas** de la barra lateral, donde ves, creas y editas todas.
+
+Se ejecutan **en la nube**: no hace falta que tu ordenador esté encendido ni la app abierta. Usan los conectores que tengas (correo, calendario, Drive) y tus skills.
+
+<Prompt
+  title="Briefing diario (tarea programada)"
+  text={`
+    Cada día laborable a las 7:45:
+
+    Revisa el calendario de [NOMBRE] para hoy. Para cada reunión: hora, lugar o enlace, asistentes, de qué va (busca el último correo relacionado) y qué tiene que llevar preparado.
+    Señala solapes, reuniones sin documentación y huecos de más de una hora.
+    Añade los correos importantes sin contestar de más de dos días (consejo, clientes, equipo directo).
+
+    Déjalo como borrador de correo para mí con asunto «Agenda [fecha]». No envíes nada.
+    Si algo no lo encuentras, dilo en vez de suponerlo.
+  `}
+/>
+
+<Callout kind="real" title="Automatizaciones que de verdad usan las asistentes de dirección">
+- **Briefing de la agenda** cada mañana.
+- **Correos pendientes** importantes a media mañana.
+- **Resumen semanal** el viernes: reuniones, acuerdos, pendientes para el lunes.
+- **Vencimientos del mes** el día 1: contratos, renovaciones, cumpleaños, plazos legales.
+- **Seguimiento de tareas de actas** cada lunes: qué acuerdos tienen fecha esta semana y quién es responsable.
+</Callout>
+
+## Reglas de oro
+
+- **Borradores, no envíos.** La tarea trabaja sola; tú revisas antes de que salga nada.
+- **Empieza por una** y ajústala dos semanas antes de crear la siguiente.
+- **Revisa el historial** de ejecuciones: si un día falló (un conector desconectado, por ejemplo), lo verás ahí.
+- **Escribe qué hacer si falta algo** («si no hay reuniones, dilo en una línea»), para no recibir textos de relleno.
+
+<Quiz
+  id="borrador"
+  options={[
+    "Enviar el resumen directamente a Laura cada viernes",
+    "Dejarlo como borrador para ti y enviarlo tras revisarlo",
+    "Publicarlo en el canal general de la empresa",
+  ]}
+  answer={1}
+  explanation="Una tarea programada trabaja sin supervisión: si un viernes se equivoca de acta o se le escapa un dato delicado, con el borrador lo ves antes. Cuando lleves semanas viendo que acierta, puedes plantearte otra cosa, pero el borrador es el punto de partida sensato."
+>
+Programas un resumen semanal para tu jefa. ¿Cómo lo entregas al principio?
+</Quiz>
+
+## Y fuera de Claude
+
+- **ChatGPT** tiene **tareas programadas** y su propio modo agente; **Gemini** tiene **acciones programadas**. La idea es la misma (módulo 4).
+- **Power Automate** (si tu empresa usa Microsoft 365), **Zapier** o **Make** conectan aplicaciones con reglas fijas («cuando llegue un correo con factura, guarda el adjunto en esta carpeta»). Son más rígidos que un agente pero muy fiables para lo mecánico, y muchos ya tienen pasos con IA. Si tu empresa los usa, pregunta a IT: suelen tener plantillas listas.
+
+<Callout kind="idea">
+Regla práctica: si la tarea es **mecánica** (mover, copiar, avisar siempre igual), una automatización clásica. Si necesita **leer y criterio** (resumir, priorizar, redactar), una tarea programada con IA.
+</Callout>
+
+<Practice
+  id="programar"
+  title="Tu primera tarea programada"
+  steps={[
+    "Elige una de las automatizaciones de la lista que te ahorraría tiempo.",
+    "Pruébala primero como encargo normal en Cowork o en el chat, y ajusta el texto hasta que el resultado te guste.",
+    "Prográmala (con /schedule o en Programadas) para que deje un borrador, no un envío.",
+    "Durante una semana, revisa cada resultado y anota qué cambiarías.",
+    "Edita la instrucción con esas mejoras.",
+  ]}
+  hints={["Si no tienes Cowork, crea la tarea en ChatGPT (Tareas) o Gemini (Acciones programadas) con el mismo texto."]}
+  example={<>La primera semana casi siempre hay que añadir algo como: «no incluyas reuniones internas de menos de 15 minutos», «ordena por hora, no por importancia» o «si es festivo, no hagas nada». Eso es normal: estás enseñando al nuevo asistente cómo te gustan las cosas.</>}
+>
+Pon a trabajar a Claude mientras no estás.
+</Practice>
+
+## Para llevar
+
+- Una automatización = **cuándo** + **qué** + **dónde lo deja**.
+- En Claude: tareas programadas de **Cowork** (`/schedule` o la sección Programadas), sin que tu ordenador esté encendido.
+- Borradores, no envíos; empieza por una y ajústala.
+- Lo mecánico, Power Automate/Zapier; lo que necesita criterio, IA.

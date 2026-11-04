@@ -1,0 +1,89 @@
+En el módulo 3 conectaste el correo y el calendario con un clic, desde el directorio de conectores. Pero hay miles de conectores más (todos usan el estándar **MCP**), y algunos no están en el directorio: el de una herramienta interna de tu empresa, uno que te recomienda IT, uno para tus archivos locales. Esta lección enseña a añadirlos a mano, con lo justo de técnica.
+
+## Tres tipos de conector
+
+| Tipo | Dónde corre | Cómo se añade |
+| --- | --- | --- |
+| **Del directorio** | En internet (lo mantiene la empresa del servicio) | Un clic en Conectores (módulo 3) |
+| **Remoto personalizado** | En internet, en una dirección (URL) que te dan | Pegando la URL en Conectores → añadir personalizado |
+| **Local** | En tu ordenador | Como extensión de la app de escritorio, o editando un archivo de configuración |
+
+## Un conector remoto por URL
+
+Si un proveedor o IT te da la dirección de su servidor MCP (algo como `https://mcp.ejemplo.com/mcp`):
+
+1. En la app, ve a <MenuPath to={["Ajustes", "Conectores"]} /> y elige **añadir conector personalizado** (en algunas versiones, el botón `+`).
+2. Ponle un nombre y pega la URL.
+3. Inicia sesión cuando te lo pida y revisa los permisos.
+
+En **Claude Code**, lo mismo es una línea:
+
+```bash
+claude mcp add --transport http notion https://mcp.notion.com/mcp
+```
+
+Y dentro de Claude Code, `/mcp` te enseña los conectados y te deja iniciar sesión.
+
+## Un conector local
+
+Los conectores locales trabajan con cosas de tu ordenador. Lo más fácil es instalarlos como **extensiones** de la app de escritorio (un archivo que se abre con doble clic, desde la sección de extensiones de los ajustes). Si no hay extensión, se añaden en el archivo de configuración de la app de escritorio, `claude_desktop_config.json` (desde <MenuPath to={["Ajustes", "Desarrollador", "Editar configuración"]} />). Por ejemplo, para darle acceso a una carpeta concreta:
+
+```json
+{
+  "mcpServers": {
+    "documentos-direccion": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/ana/Documents/Direccion"
+      ]
+    }
+  }
+}
+```
+
+Se lee así: «hay un conector llamado *documentos-direccion*; para arrancarlo, ejecuta el programa `server-filesystem` y dale permiso solo sobre la carpeta Direccion». Tras guardar, reinicia la app. (Este ejemplo necesita tener Node.js instalado; por eso, si existe, mejor la extensión.)
+
+<Quiz
+  id="tipo-conector"
+  options={["Del directorio", "Remoto personalizado, con la URL que te da IT", "Local, editando claude_desktop_config.json"]}
+  answer={1}
+  explanation="El servidor ya está funcionando en internet (lo mantiene IT) y solo necesitas su dirección: es un conector remoto personalizado. Se añade pegando la URL en Conectores o con «claude mcp add --transport http» en Claude Code."
+>
+IT te dice: «tenemos un conector MCP para la intranet en https://mcp.intranet.empresa.com/mcp». ¿De qué tipo es?
+</Quiz>
+
+## Seguridad: la parte importante
+
+Un conector da a Claude acceso a algo tuyo. Antes de añadir uno a mano:
+
+- **¿Quién lo hace?** Solo de fuentes oficiales (el propio servicio, Anthropic, tu IT). Un conector malicioso puede leer lo que conectes o darle a Claude instrucciones engañosas.
+- **¿Qué permisos pide?** Si un conector de calendario quiere también leer tu correo, desconfía.
+- **¿Lo aprueba tu empresa?** En cuentas de empresa, añadir conectores puede requerir permiso de IT, y con razón.
+- **Mínimo acceso**: en los locales, una carpeta concreta, nunca el disco entero.
+
+<Callout kind="real">
+La mayoría de las personas nunca necesitará editar `claude_desktop_config.json`: entre el directorio de conectores y las extensiones está casi todo. Saber que existe sirve para dos cosas: entender qué te propone IT cuando te manda una URL o un JSON, y no instalar lo que no entiendes.
+</Callout>
+
+<Practice
+  id="conector-manual"
+  title="Explora los conectores"
+  steps={[
+    "En la app de Claude, abre el directorio de conectores y localiza el botón para añadir uno personalizado (no hace falta añadir nada).",
+    "Pregunta a IT si hay conectores internos aprobados (intranet, CRM, gestor documental).",
+    "Si tienes Claude Code, escribe /mcp para ver qué conectores tiene.",
+    "Opcional: añade a Claude Code un conector remoto oficial de una herramienta que uses (Notion, Asana, etc.) siguiendo su documentación.",
+  ]}
+  example={<>Lo importante no es instalar muchos, sino saber leer lo que te proponen: una URL de un proveedor oficial, permisos razonables y aprobación de IT. Con eso, añadirlo son dos minutos.</>}
+>
+Conoce dónde se añaden y qué preguntar antes.
+</Practice>
+
+## Para llevar
+
+- Todos los conectores hablan **MCP**: del directorio, remotos por URL o locales.
+- Remoto: pega la URL en Conectores, o `claude mcp add --transport http nombre url` en Claude Code.
+- Local: mejor como extensión; si no, en `claude_desktop_config.json`.
+- Solo de fuentes oficiales, con permisos mínimos y con el visto bueno de IT.

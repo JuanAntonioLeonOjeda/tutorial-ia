@@ -1,0 +1,87 @@
+Antes de una reunión con un cliente nuevo, de un viaje a una ciudad que no conoces o de elegir sede para un evento, sueles pasar una hora saltando entre pestañas. Claude puede hacer esa búsqueda por ti y entregarte un informe con las fuentes. Hay dos niveles: la **búsqueda web** rápida y la **Investigación**, más profunda.
+
+## Búsqueda web: la respuesta con fuentes
+
+Con la búsqueda web activada (en el menú de herramientas), Claude busca en internet antes de contestar y **cita las páginas** que ha usado. Úsala siempre que la respuesta dependa de algo **actual o concreto**:
+
+- «¿Qué restaurantes con sala privada para 12 hay cerca de la Castellana 50?»
+- «¿Hay huelga de controladores en Francia la semana del 14?»
+- «¿Quién es el actual director financiero de Acme?»
+
+<Callout kind="warn">
+Que cite fuentes no significa que las haya leído bien. Abre al menos el enlace del dato que vas a usar. Y fíjate en la fecha de la fuente: una noticia de hace dos años puede estar desactualizada.
+</Callout>
+
+## Investigación: un informe en minutos
+
+La **Investigación** (Research) es otra cosa: Claude hace **muchas búsquedas seguidas**, lee decenas de páginas, compara y te entrega un **informe estructurado** con referencias. Tarda varios minutos y es ideal para preguntas grandes:
+
+| Encargo | Qué te devuelve |
+| --- | --- |
+| Briefing de una empresa antes de una reunión | Qué hace, cifras, noticias recientes, quién es quién, temas sensibles |
+| Comparar cinco hoteles para un evento de 80 personas | Tabla con capacidad, salas, precios orientativos, distancia, opiniones |
+| Biografía de un ponente invitado | Trayectoria, publicaciones, cargos, cómo presentarle |
+| Requisitos para viajar a un país | Visados, vacunas, avisos oficiales, enchufes, propinas |
+
+Si tienes **conectores** activados (módulo 3), la Investigación puede buscar también en tu correo, calendario o Drive: «prepara un briefing de la reunión con Acme usando la web y nuestros correos con ellos».
+
+<Prompt
+  title="Briefing para una reunión"
+  text={`
+    Prepara un briefing para la reunión de [NOMBRE DE TU JEFA] con [PERSONA, CARGO] de [EMPRESA] el [FECHA].
+
+    Quiero:
+    1. La empresa en cinco líneas: qué hace, tamaño, cifras recientes.
+    2. Noticias de los últimos seis meses que puedan salir en la conversación.
+    3. Trayectoria de [PERSONA] y temas en los que tiene interés público.
+    4. Tres temas para romper el hielo y dos temas a evitar.
+    5. Fuentes al final, con fecha.
+
+    Máximo una página. Si algo no lo encuentras en fuentes fiables, dilo.
+  `}
+/>
+
+<Quiz
+  id="busqueda-o-investigacion"
+  options={["Búsqueda web", "Investigación", "Ninguna: sin herramientas, que ya lo sabe"]}
+  answer={0}
+  explanation="Es un dato concreto y actual: una búsqueda rápida basta y tarda segundos. La Investigación es para preguntas grandes con muchas fuentes. Sin herramientas, Claude solo sabe lo que aprendió hasta su fecha de corte."
+>
+Quieres saber el horario de apertura de un museo de Bruselas para el próximo sábado. ¿Qué usas?
+</Quiz>
+
+<Quiz
+  id="verificar"
+  options={[
+    "Copiarla tal cual en el briefing: viene de una fuente citada",
+    "Abrir la fuente, comprobar el dato y la fecha de publicación",
+    "Pedirle a Claude que confirme que es correcta",
+  ]}
+  answer={1}
+  explanation="Las fuentes existen para comprobarlas. A veces el modelo resume mal una cifra o la fuente es antigua. Para lo que va en un documento para tu jefa, el enlace se abre."
+>
+El informe dice que la empresa facturó 340 millones el año pasado y cita una noticia. ¿Qué haces antes de usar la cifra?
+</Quiz>
+
+<Practice
+  id="briefing"
+  title="Briefing de verdad"
+  steps={[
+    "Elige una reunión o evento próximo con una empresa o persona externa.",
+    "Activa la Investigación en el menú de herramientas.",
+    "Usa la plantilla «Briefing para una reunión» con los datos reales.",
+    "Mientras trabaja, mira cómo va enseñando lo que busca.",
+    "Abre tres de las fuentes y comprueba los datos más importantes.",
+  ]}
+  hints={["Si tu plan no tiene Investigación, hazlo con la búsqueda web normal en dos o tres preguntas encadenadas."]}
+  example={<>Un buen resultado ocupa una página, separa hechos de opiniones, y cada dato concreto lleva su fuente. Si el informe sale demasiado largo, pide «reduce a lo que Laura puede leer en el coche en tres minutos».</>}
+>
+Prepara un briefing real con fuentes y compruébalas.
+</Practice>
+
+## Para llevar
+
+- **Búsqueda web** para datos actuales y concretos; **Investigación** para informes con muchas fuentes.
+- Pide siempre fuentes con fecha y abre las del dato que vas a usar.
+- Con conectores, la Investigación combina la web con tu correo y tus documentos.
+- Pon límites al formato («una página», «para leer en tres minutos»).

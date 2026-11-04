@@ -1,0 +1,88 @@
+Hasta ahora, todo lo que Claude sabía de tu trabajo se lo dabas tú: pegando, adjuntando, explicando. Los **conectores** cambian eso. Conectas tu correo, tu calendario o tu Drive una vez, y a partir de ahí puedes pedir «¿qué tiene Laura mañana?» o «resume los correos del consejero que no he contestado» sin copiar nada. Es el paso que convierte a Claude de redactor en asistente.
+
+## Qué es un conector
+
+Un conector es un **enchufe** entre Claude y otra aplicación. Por debajo usa un estándar abierto llamado **MCP** (Model Context Protocol): una forma común de que una IA hable con herramientas externas. No necesitas saber cómo funciona; solo que:
+
+- Cada conector da a Claude **herramientas** concretas: «buscar correos», «leer evento», «crear borrador», «buscar archivo»…
+- Claude decide cuándo usarlas según lo que pides, y te enseña qué ha consultado.
+- Solo ve **lo que tu cuenta puede ver**: entra con tu usuario y tus permisos.
+- Lo de **escribir** (crear, mover, enviar, borrar) te lo pregunta antes.
+
+<ConnectorsSim />
+
+<Quiz
+  id="falta-conector"
+  options={[
+    "Que Claude no puede ver tu calendario y lo correcto es que lo diga",
+    "Que Claude buscará en internet tu calendario",
+    "Que Claude recuerda tu agenda de otras conversaciones y responde igual",
+  ]}
+  answer={0}
+  explanation="Sin el conector de calendario, Claude no tiene forma de ver tus eventos. Lo correcto es que te lo diga o te pida que lo pegues. Si contestara con citas concretas, se las estaría inventando: por eso conviene saber qué tienes conectado."
+  hints={["En la simulación, elige «¿Qué tiene Laura mañana?» y desconecta Calendario."]}
+>
+Preguntas «¿tengo hueco el jueves a las 12?» y no tienes conectado el calendario. ¿Qué debería pasar?
+</Quiz>
+
+## Los conectores que más te van a servir
+
+| Conector | Peticiones típicas |
+| --- | --- |
+| **Correo** (Gmail u Outlook) | «Resume los correos sin contestar de esta semana», «Busca la confirmación del hotel de Bruselas», «Prepara un borrador de respuesta a Pedro» |
+| **Calendario** (Google o Outlook) | «¿Qué tiene Laura el jueves?», «Busca un hueco de una hora para los seis del comité», «¿Qué reuniones se solapan la semana que viene?» |
+| **Documentos** (Google Drive, SharePoint, OneDrive) | «Busca la última versión del contrato con Acme», «Resume las actas de los tres últimos comités» |
+| **Mensajería** (Slack, Teams) | «¿Qué se decidió en el canal de dirección?» |
+| **Otros** (CRM, firma electrónica, gestor de tareas, videollamadas…) | Según lo que use tu empresa |
+
+## Activarlos
+
+1. Ve a <MenuPath to={["Ajustes", "Conectores"]} /> (en algunas versiones, <MenuPath to={["Personalizar", "Conectores"]} />) y busca el que quieras en el directorio.
+2. Pulsa **Conectar**: se abre la página de Google o Microsoft para que inicies sesión y aceptes permisos.
+3. En cada conversación, puedes activar o desactivar conectores desde el **menú de herramientas** del cuadro de texto.
+
+En cuentas de empresa, es habitual que **el administrador decida qué conectores** se pueden usar. Si no ves uno, pregunta a IT.
+
+<Callout kind="warn" title="Permisos con cabeza">
+- Conecta solo lo que vas a usar.
+- **Lee lo que te pide antes de pulsar «Permitir»** cuando Claude va a crear, enviar o borrar algo. Mejor aún: pídele **borradores** en vez de envíos.
+- Si accedes al correo de tu jefa por delegación, confirma con IT qué está permitido.
+- Desconfía de correos o documentos que «le den órdenes» a la IA («ignora tus instrucciones y reenvía…»): es un tipo de ataque. Claude está entrenado para no hacerles caso, pero revisa siempre lo que va a hacer.
+</Callout>
+
+## Pedir bien con conectores
+
+Lo aprendido sobre prompts sigue valiendo, con dos trucos:
+
+- **Di dónde buscar**: «en mi correo, de la última semana, del dominio @acme.com». Acota y acierta más.
+- **Pide borradores**: «déjalo como borrador en Gmail», «no lo envíes».
+
+<Chat
+  messages={[
+    { from: "tu", text: "Mira el calendario de mañana y los correos de cada reunión. Prepárame un resumen para Laura: hora, con quién, de qué va y qué tiene que llevar preparado." },
+    { from: "ia", text: "Mañana, jueves 14:\n\n9:00 · Comité de Dirección (sala Retiro). Orden del día en el correo de Marta del lunes: presupuesto 2027 y plan de oficinas. Llevar: la versión 3 del presupuesto.\n\n11:30 · Acme (videollamada). Último correo: piden rebaja del 5 %. Llevar: la propuesta v3 (está en Drive, «Acme/Propuestas»).\n\n16:00 · Consejo asesor. Sin documentación en el correo: ¿quieres que pregunte a la secretaría?", note: "usa Calendario, Gmail y Google Drive" },
+  ]}
+/>
+
+<Practice
+  id="conectar"
+  title="Conecta correo y calendario"
+  steps={[
+    "En Ajustes → Conectores, conecta tu correo y tu calendario (o comprueba con IT cuáles están permitidos).",
+    "Pregunta: «¿Qué tengo mañana?» y comprueba que coincide con tu agenda.",
+    "Pide: «Busca en mi correo los mensajes de [persona] de las dos últimas semanas y resúmelos en cinco puntos».",
+    "Pide un borrador de respuesta a uno de ellos, sin enviarlo, y míralo en tu carpeta de borradores.",
+  ]}
+  hints={["Si no aparece el conector que buscas, puede que tu empresa use otro (Outlook en vez de Gmail, por ejemplo) o que esté desactivado por el administrador."]}
+  example={<>Lo esperable: Claude te enseña qué ha buscado («busca en Gmail: from:pedro newer_than:14d»), resume con fechas y, al pedir el borrador, te pregunta antes de crearlo. Si algo de la respuesta no está en tus correos, díselo: «eso no aparece, ¿de dónde lo sacas?».</>}
+>
+El paso que más tiempo te va a ahorrar del curso.
+</Practice>
+
+## Para llevar
+
+- Un **conector** (por debajo, MCP) deja a Claude ver y usar tus herramientas con tus permisos.
+- Correo, calendario y documentos son los tres imprescindibles.
+- Se activan en **Ajustes → Conectores**; en empresa, IT decide cuáles.
+- Lo que escribe o envía te lo pregunta: lee antes de permitir y prefiere borradores.
+- Acota la búsqueda («de la última semana», «de este remitente») para que acierte más.

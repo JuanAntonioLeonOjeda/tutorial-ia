@@ -1,0 +1,94 @@
+Todo lo del curso hasta aquí se hace con clics. Esta sección es **opcional** y toca un poco de «código»: abrir un terminal, escribir un par de órdenes y editar archivos de texto. Merece la pena por una razón: **Claude Code**, la herramienta con la que se construyen proyectos como este curso, es el agente más potente y configurable de Anthropic, y su forma de organizarse (archivos `AGENTS.md`, carpeta `.claude/`) es la que inspira skills, Cowork y el resto.
+
+<Callout kind="idea" title="¿Cowork o Claude Code?">
+**Cowork** es Claude Code con interfaz amable y pensado para trabajo de oficina. **Claude Code** es lo mismo con más control: le escribes la configuración en archivos, la versionas, la compartes. Si Cowork te cubre, perfecto. Si te pica la curiosidad o quieres montar un espacio de trabajo muy a tu medida, sigue.
+</Callout>
+
+## El terminal en cinco minutos
+
+El **terminal** es una ventana donde escribes órdenes en vez de hacer clic. En Mac se llama **Terminal** (búscalo con Cmd + espacio); en Windows, **PowerShell** o **Terminal**. Solo necesitas tres órdenes:
+
+```bash
+pwd                       # ¿en qué carpeta estoy?
+ls                        # ¿qué hay aquí? (en Windows también vale «dir»)
+cd Documentos/Direccion   # entra en esa carpeta («cd ..» sube un nivel)
+```
+
+Truco: escribe `cd ` (con espacio) y **arrastra una carpeta del Finder** a la ventana: se escribe la ruta sola.
+
+## Instalar y arrancar Claude Code
+
+Las instrucciones oficiales están en la documentación de Claude Code; a día de hoy, la instalación es una línea:
+
+```bash
+# Mac o Linux
+curl -fsSL https://claude.ai/install.sh | bash
+
+# Windows (PowerShell)
+irm https://claude.ai/install.ps1 | iex
+```
+
+Si no te dejan instalar programas en el ordenador del trabajo, pídeselo a IT o pruébalo en casa. La **app de escritorio de Claude** también tiene una pestaña **Code** que hace lo mismo sin terminal.
+
+Luego entra en una carpeta de trabajo y arráncalo:
+
+```bash
+cd ~/Documents/Direccion
+claude
+```
+
+La primera vez te pedirá iniciar sesión con tu cuenta de Claude. A partir de ahí, hablas con él en español, como en el chat, pero **trabajando sobre los archivos de esa carpeta**.
+
+## Lo que verás
+
+<Chat
+  assistant="Claude Code"
+  messages={[
+    { from: "tu", text: "¿Qué hay en esta carpeta? Hazme un resumen de cada subcarpeta en una línea." },
+    { from: "ia", text: "Hay 4 subcarpetas y 37 archivos:\n- Actas/ — 12 actas de 2026, de comité y consejo\n- Viajes/ — 5 viajes, el último a Bruselas (noviembre)\n- Consejo/ — documentación de 3 sesiones\n- Entrada/ — 9 archivos sin clasificar (facturas y PDFs)\n\n¿Quieres que proponga cómo clasificar lo de Entrada/?" },
+    { from: "tu", text: "Sí, pero enséñame la propuesta antes de mover nada." },
+    { from: "ia", text: "Propuesta:\n| Archivo | Destino |\n| factura_hotel.pdf | Viajes/2026-11_bruselas/2026-11-12_factura-hotel.pdf |\n| …\n\n¿Lo aplico?", note: "al aplicarlo, pide permiso para cada «mv» (mover)" },
+  ]}
+/>
+
+Tres cosas importantes:
+
+- **Permisos.** Antes de crear, modificar o mover archivos, o de ejecutar una orden, te pregunta. Puedes aprobar una vez, aprobar siempre para ese tipo de acción, o decir que no.
+- **Esc** para pararle a mitad. **Esc dos veces** para volver atrás en la conversación.
+- **Órdenes con barra**: `/help` (ayuda), `/clear` (empezar de cero), `/init` (que cree su archivo de instrucciones para esta carpeta, ver lección siguiente).
+
+<Quiz
+  id="carpeta"
+  options={[
+    "En tu carpeta personal entera, para que lo vea todo",
+    "En la carpeta concreta del trabajo que vas a hacer",
+    "En la carpeta del sistema, para que tenga más permisos",
+  ]}
+  answer={1}
+  explanation="Claude Code trabaja sobre la carpeta en la que lo arrancas. Una carpeta concreta acota lo que puede leer y tocar, y le da el contexto justo. Es lo mismo que darle a Cowork acceso a una carpeta y no a todo el disco."
+>
+¿Dónde arrancas Claude Code?
+</Quiz>
+
+<Practice
+  id="primera-sesion"
+  title="Tu primera sesión"
+  steps={[
+    "Crea una carpeta de prueba con copias de 5–10 documentos (o descarga la plantilla de la lección siguiente).",
+    "Abre el terminal, entra en la carpeta con cd y arranca claude.",
+    "Pídele que te describa lo que hay en la carpeta.",
+    "Pídele que cree un índice en Excel o en un archivo de texto con nombre, fecha y tema de cada documento. Mira cómo pide permiso para escribir.",
+    "Escribe /help y cierra con /exit (o Ctrl + C dos veces).",
+  ]}
+  hints={["Si el terminal dice «command not found: claude», cierra la ventana y abre otra nueva tras instalar.", "Si te bloqueas, pregúntale a Claude (en el chat normal) con el mensaje de error exacto."]}
+  example={<>Lo normal: te dirá qué archivos ha encontrado, te propondrá cómo hacer el índice y te pedirá permiso para crear el archivo. Si aceptas, aparece en la carpeta. Ya has usado un agente desde el terminal.</>}
+>
+Pierde el miedo al terminal con una tarea pequeña.
+</Practice>
+
+## Para llevar
+
+- **Claude Code** es el agente de Anthropic que trabaja sobre una carpeta, desde el terminal o la pestaña Code de la app.
+- Tres órdenes de terminal bastan: `pwd`, `ls`, `cd`.
+- Se instala con una línea y se arranca con `claude` dentro de la carpeta de trabajo.
+- Pide permiso antes de tocar nada; **Esc** para parar; `/help` para ayuda.

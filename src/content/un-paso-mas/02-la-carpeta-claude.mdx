@@ -1,0 +1,172 @@
+En Cowork y en el chat, configuras a Claude con formularios: instrucciones del proyecto, preferencias, skills subidas. En Claude Code, **todo eso son archivos de texto** dentro de tu carpeta de trabajo. Parece más técnico, pero tiene una ventaja enorme: lo ves todo junto, lo copias, lo compartes con una compañera y sabes exactamente qué sabe tu asistente. Este mismo curso se construyó así.
+
+## El mapa
+
+Una carpeta de trabajo bien montada para Claude tiene esta pinta:
+
+```text
+Direccion/
+├── AGENTS.md              ← el índice: quién eres, qué hay en la carpeta, dónde está cada regla
+├── CLAUDE.md              ← lo que Claude Code lee al arrancar (aquí, solo apunta a AGENTS.md)
+├── .claude/
+│   ├── settings.json      ← permisos: qué puede hacer sin preguntar y qué nunca
+│   ├── rules/             ← reglas que se cargan siempre (estilo, confidencialidad)
+│   ├── skills/            ← procedimientos que se cargan cuando tocan (como en el módulo 3)
+│   ├── commands/          ← órdenes propias: /semana, /clasificar
+│   └── agents/            ← subagentes especializados: un revisor, un investigador…
+├── Actas/
+├── Viajes/
+└── …
+```
+
+Puedes descargar esta plantilla ya rellena para una asistente de dirección: [espacio-direccion.zip](/descargas/espacio-direccion.zip). Descomprímela, cambia lo que va entre corchetes y arranca `claude` dentro.
+
+<Callout kind="note" title="Las carpetas que empiezan por punto">
+`.claude` empieza por punto y por eso el Finder la oculta. En Mac, pulsa **Cmd + Mayúsculas + .** para ver los archivos ocultos. Todos son de texto: se abren con cualquier editor (TextEdit en modo texto, o Visual Studio Code si te animas).
+</Callout>
+
+## AGENTS.md y CLAUDE.md: el manual de la carpeta
+
+**`CLAUDE.md`** es lo que Claude Code lee siempre al arrancar en una carpeta. **`AGENTS.md`** es un formato abierto que entienden también otros asistentes (Copilot, Cursor, Codex…). Lo práctico es escribir todo en `AGENTS.md` y que `CLAUDE.md` solo lo importe:
+
+```markdown
+@AGENTS.md
+@.claude/rules/estilo.md
+@.claude/rules/confidencialidad.md
+```
+
+El `@` significa «incluye aquí este archivo». Y `AGENTS.md` funciona como **índice**: corto, con tablas que dicen qué hay en cada sitio, y que delega el detalle en otros archivos:
+
+```markdown
+# AGENTS.md — Espacio de trabajo de Dirección General
+
+## Quién y para qué
+- Trabajas con Ana, asistente de dirección de Laura Martín, CEO de Acme.
+- Tu papel: preparar borradores, ordenar archivos y resumir.
+  **Nunca envías nada ni borras archivos sin preguntar.**
+
+## Mapa de la carpeta
+| Ruta         | Qué hay                                                   |
+| ------------ | --------------------------------------------------------- |
+| `Actas/`     | Actas firmadas, una por reunión: `AAAA-MM-DD_organo.docx` |
+| `Entrada/`   | Lo que llega sin clasificar                               |
+…
+```
+
+<Callout kind="idea">
+Es lo mismo que las instrucciones de un proyecto (módulo 2), pero partido en piezas: el índice siempre, y el detalle en `rules/`, `skills/` o `agents/`. Así cada pieza es corta, se entiende y se cambia sin miedo a romper el resto.
+</Callout>
+
+## settings.json: los permisos
+
+Decide qué puede hacer sin preguntar (`allow`), qué tiene que preguntar (`ask`) y qué no puede hacer nunca (`deny`):
+
+```json
+{
+  "permissions": {
+    "allow": ["Read", "Glob", "Grep"],
+    "ask": ["Write", "Edit", "Bash(mv:*)", "Bash(mkdir:*)"],
+    "deny": ["Bash(rm:*)", "Read(./Consejo/**/confidencial*)", "WebFetch"]
+  }
+}
+```
+
+En castellano: leer y buscar, libre; escribir, editar, mover y crear carpetas, preguntando; borrar, leer archivos confidenciales del consejo y conectarse a webs, nunca.
+
+## rules/: lo que vale siempre
+
+Archivos cortos, uno por tema. `estilo.md`:
+
+```markdown
+# Estilo
+- Español de España. Fechas con día de la semana: «martes 19 de noviembre de 2026».
+- Correos breves (máximo seis líneas), asunto que se entiende solo.
+- Nombres de archivo: `AAAA-MM-DD_tema-en-minusculas.ext`, sin espacios ni tildes.
+```
+
+## skills/: los procedimientos
+
+Exactamente el mismo formato que las skills del módulo 3: una carpeta con su `SKILL.md`. En Claude Code no hace falta subir nada: si está en `.claude/skills/`, la tiene.
+
+## commands/: tus órdenes con barra
+
+Un archivo `.claude/commands/semana.md` crea la orden `/semana`. Es un prompt guardado:
+
+```markdown
+---
+description: Resumen de la semana a partir de las actas y documentos modificados
+---
+
+Resume la semana de la dirección:
+1. Busca en `Actas/` las actas de esta semana y extrae sus acuerdos y tareas.
+2. Mira qué archivos de `Viajes/` y `Consejo/` han cambiado en los últimos siete días.
+3. Escribe el resumen en `Entrada/AAAA-MM-DD_resumen-semana.md`.
+No envíes nada.
+```
+
+Con `$ARGUMENTS` dentro del texto, la orden acepta un complemento: `/clasificar facturas` sustituye `$ARGUMENTS` por «facturas».
+
+## agents/: subagentes especializados
+
+Un **subagente** es un Claude aparte, con su propio encargo y sus propias herramientas, al que el principal puede pasar trabajo. Por ejemplo, un revisor que **solo puede leer**:
+
+```markdown
+---
+name: revisor
+description: Revisa un documento antes de enviarlo - erratas, fechas que no cuadran,
+  nombres mal escritos, datos sin fuente, tono.
+tools: Read, Glob, Grep
+---
+
+Eres un revisor exigente y amable. Solo lees; no cambias archivos.
+Devuelve una lista numerada, de lo más grave a lo menos: errores de datos,
+confidencialidad, estilo y erratas. Para cada punto: dónde, qué pasa y la corrección.
+```
+
+Le pides «pásale el revisor al acta del comité» y Claude se lo encarga. Como la `description` de las skills, la del subagente decide cuándo se usa.
+
+<Quiz
+  id="que-archivo"
+  options={[".claude/rules/estilo.md", ".claude/commands/convocatoria.md", ".claude/settings.json", "AGENTS.md"]}
+  answer={1}
+  explanation="Algo que quieres lanzar tú, cuando quieras, con una orden corta, es un comando: un prompt guardado en .claude/commands/. Si quisieras que se aplicara solo cuando la tarea encaje, sería una skill; si debe cumplirse siempre, una regla."
+>
+Quieres escribir `/convocatoria consejo 12 de diciembre` y que prepare la convocatoria con todos los pasos. ¿Qué archivo creas?
+</Quiz>
+
+<Quiz
+  id="deny"
+  options={["allow", "ask", "deny"]}
+  answer={2}
+  explanation="«deny» bloquea la acción aunque Claude crea que es buena idea o alguien se lo pida. Borrar archivos del trabajo es justo el tipo de cosa que no debe poder hacer sin ti; si alguna vez hace falta, lo haces tú."
+>
+¿En qué lista de `settings.json` pones «borrar archivos» para que no pueda hacerlo nunca?
+</Quiz>
+
+<Callout kind="real" title="Así se hizo este curso">
+Este curso es una aplicación construida con Claude Code a partir de una plantilla con el mismo formato: un `AGENTS.md` índice con el mapa de carpetas, reglas en `.claude/rules/` (cómo escribir una lección, el tono, qué no hacer), subagentes revisores (de contenido, de accesibilidad) y comandos como `/new-lesson`. La configuración es texto, así que se mejora igual que se mejora un manual: cuando algo sale mal, se añade una línea.
+</Callout>
+
+<Practice
+  id="mi-espacio"
+  title="Monta tu espacio"
+  steps={[
+    "Descarga espacio-direccion.zip, descomprímelo en Documentos y abre AGENTS.md con un editor de texto.",
+    "Cambia todo lo que va [ENTRE CORCHETES] por tus datos y ajusta el mapa de carpetas a cómo trabajas tú.",
+    "Copia algunos documentos de prueba en Entrada/.",
+    "Arranca claude en la carpeta y prueba /clasificar. Revisa la propuesta antes de aprobar.",
+    "Pide «pásale el revisor a» un documento y mira el informe.",
+    "Añade una regla nueva a estilo.md a partir de algo que hayas tenido que corregir.",
+  ]}
+  hints={["Si /clasificar no aparece, comprueba que arrancaste claude dentro de la carpeta espacio-direccion (pwd).", "Puedes pedirle al propio Claude Code que te ayude a editar AGENTS.md: «hazme preguntas para completar AGENTS.md»."]}
+  example={<>Señal de que está bien montado: en una sesión nueva, sin explicar nada, «prepárame la convocatoria del comité» sale con tus fechas, tu firma y tus nombres de archivo, y antes de guardar te pregunta. Cada vez que algo falle, la corrección va a un archivo de <code>.claude/</code>, no a la conversación.</>}
+>
+Convierte la plantilla en tu espacio de trabajo.
+</Practice>
+
+## Para llevar
+
+- En Claude Code, la configuración son **archivos de texto** en la carpeta de trabajo.
+- `AGENTS.md` es el índice (formato abierto); `CLAUDE.md` lo importa con `@`.
+- `.claude/settings.json` = permisos (allow, ask, deny); `rules/` = siempre; `skills/` = cuando toca; `commands/` = órdenes con barra; `agents/` = subagentes.
+- Cuando algo falla, la corrección va a un archivo, no al chat.

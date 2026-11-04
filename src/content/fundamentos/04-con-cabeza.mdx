@@ -1,0 +1,86 @@
+Antes de conectar la IA a tu correo y tu agenda (módulo 3), toca hablar de lo que no sale en los anuncios: qué datos puedes darle, de qué no te puedes fiar y cuándo no merece la pena usarla. Como asistente de dirección manejas información delicada (agendas, retribuciones, consejos de administración), así que esta lección no es opcional.
+
+## Qué pasa con lo que escribes
+
+Lo que escribes y subes se envía a los servidores de la empresa que da el servicio (Anthropic, OpenAI, Google). Lo que importa es **qué cuenta estás usando**:
+
+| Cuenta | Lo habitual | Lo que debes hacer |
+| --- | --- | --- |
+| **De empresa** (Claude Team/Enterprise, ChatGPT Business/Enterprise, Gemini en Google Workspace) | Por contrato, tus conversaciones **no se usan para entrenar** los modelos y el equipo de IT controla qué se permite | Úsala para todo lo del trabajo. Pregunta a IT qué conectores y funciones están aprobados. |
+| **Personal** (gratuita o de pago) | Puede que se usen para mejorar los modelos según tus ajustes de privacidad | No metas información de la empresa. Revisa los ajustes de privacidad. |
+
+<Callout kind="real">
+Si en tu empresa hay una **política de uso de IA**, léela: suele decir qué herramientas están aprobadas y qué datos no pueden salir nunca (datos personales de empleados, información de consejo, datos de clientes…). Si no la hay, aplica el sentido común de la tabla de abajo y pregunta.
+</Callout>
+
+## El semáforo de los datos
+
+| | Ejemplos | ¿A la IA? |
+| --- | --- | --- |
+| 🟢 Verde | Textos públicos, borradores sin nombres, plantillas, tus propios apuntes de formación | Sin problema |
+| 🟡 Ámbar | Agendas, correos internos, actas ordinarias, presentaciones internas | Solo en la cuenta de empresa |
+| 🔴 Rojo | Nóminas, datos de salud, DNI y cuentas bancarias, información privilegiada (resultados antes de publicarse, operaciones corporativas), contraseñas | No, salvo que la política de la empresa lo autorice expresamente |
+
+Truco para el ámbar en una cuenta personal: **anonimiza**. Cambia «Laura Martín» por «la CEO» y «Acme» por «el cliente». La IA trabaja igual de bien.
+
+<Quiz
+  id="semaforo"
+  options={[
+    "Pegarlo tal cual en tu cuenta personal de ChatGPT, que es más cómoda",
+    "Usar la cuenta de empresa, si la política de IA lo permite para este tipo de documento",
+    "Hacer una foto con el móvil y subirla a Gemini, porque las imágenes no cuentan",
+  ]}
+  answer={1}
+  explanation="Un borrador de acta del consejo es como mínimo ámbar, y puede ser rojo si incluye información privilegiada. Va en la cuenta de empresa y solo si la política lo permite. Una foto es el mismo dato en otro formato: cuenta igual."
+>
+Te piden resumir el borrador del acta del consejo de administración. ¿Qué haces?
+</Quiz>
+
+## De qué no te puedes fiar (aún)
+
+- **Datos concretos sin fuente**: teléfonos, direcciones, horarios, precios, artículos de ley. Pide la fuente o compruébalo.
+- **Cálculos de cabeza en el texto**: si es importante, pide que lo calcule con una hoja o que te enseñe la operación.
+- **Fechas relativas**: «el próximo jueves» depende de qué día cree que es hoy. Da fechas exactas.
+- **Lo que dice que ha hecho**: si un agente dice «he enviado el correo», mira la bandeja de enviados la primera vez.
+- **Citas de personas**: no pongas en boca de nadie algo que la IA ha redactado sin que lo revise.
+
+<Callout kind="idea" title="La regla del becario brillante">
+Revisa el trabajo de la IA con el mismo cuidado que el de un becario muy listo en su primera semana: con más cuidado cuanto más se juega (un correo a un consejero, un dato en un informe) y casi nada para lo que no sale de tu mesa (una lista de ideas, un primer borrador).
+</Callout>
+
+## Sesgos y tono
+
+Los modelos aprenden de textos humanos, con sus sesgos. En la práctica, vigila:
+
+- Cartas de recomendación o evaluaciones que describen distinto a hombres y mujeres.
+- Traducciones que cambian el género o el tratamiento.
+- Un tono demasiado entusiasta o «de marketing» que no es el de tu empresa.
+
+## Cuándo no usarla
+
+- Cuando escribirlo tú es más rápido que explicarlo (un «ok, gracias»).
+- Cuando lo importante es que sea **tuyo**: una felicitación personal, un pésame.
+- Cuando no vas a poder revisar el resultado y un error sería grave.
+
+<Practice
+  id="politica"
+  title="Tu punto de partida"
+  steps={[
+    "Averigua qué cuenta de IA usas en el trabajo (¿Claude de empresa? ¿personal?) y quién la administra.",
+    "Busca si existe una política de uso de IA en tu empresa (intranet, IT, compliance) y léela.",
+    "En Claude, abre los ajustes de privacidad y mira qué opciones tienes.",
+    "Escribe tu propio semáforo: tres tipos de documentos verdes, tres ámbar y tres rojos de tu día a día.",
+  ]}
+  hints={["En claude.ai, la privacidad está en Ajustes. En una cuenta de empresa puede que algunas opciones las controle el administrador."]}
+  example={<>Por ejemplo. <strong>Verde:</strong> plantillas de correo, notas de un curso, borradores sin nombres. <strong>Ámbar:</strong> agenda de la CEO, actas de comité de dirección, presentaciones internas. <strong>Rojo:</strong> nóminas y bonus, actas del consejo con información privilegiada, datos médicos de una baja.</>}
+>
+Antes de seguir, deja claro con qué cuenta trabajas y qué puedes darle.
+</Practice>
+
+## Para llevar
+
+- Trabajo **solo en la cuenta de empresa**; la personal, para lo personal.
+- Semáforo: verde sin problema, ámbar en cuenta de empresa, rojo no (salvo autorización expresa).
+- Anonimizar funciona: «la CEO», «el cliente».
+- Comprueba datos concretos, fechas y lo que un agente dice que ha hecho.
+- Revisión proporcional a lo que te juegas.

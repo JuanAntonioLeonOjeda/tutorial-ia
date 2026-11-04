@@ -1,0 +1,137 @@
+La diferencia entre una respuesta que tienes que reescribir entera y una que envías tal cual casi nunca está en la herramienta: está en lo que le pides. La buena noticia es que pedir bien no es un arte oscuro. Es lo mismo que harías al delegar en una persona nueva: decirle quién eres, de qué va el asunto, qué necesitas y cómo lo quieres.
+
+## Los cinco ingredientes
+
+Un buen prompt (la petición que escribes) tiene una **tarea** y, alrededor, algunos de estos ingredientes:
+
+| Ingrediente | Qué responde | Ejemplo |
+| --- | --- | --- |
+| **Rol** | ¿Para quién trabaja y desde dónde habla? | «Eres mi ayudante para la agenda de Laura, la CEO; yo soy su asistente.» |
+| **Contexto** | ¿De qué va esto? Datos, nombres, fechas, el porqué. | «El comité del jueves 14 pasa al martes 19 a las 9:30 porque Laura viaja.» |
+| **Formato** | ¿Cómo quieres el resultado? | «Asunto y cuerpo; máximo seis líneas; la fecha en una línea aparte.» |
+| **Tono** | ¿Cómo debe sonar? | «Cordial y directo, de tú.» |
+| **Ejemplo** | ¿Cómo lo haces tú? | Un correo tuyo de otra vez. |
+
+No hacen falta los cinco siempre. El que **más** cambia el resultado suele ser el **contexto**: sin él, la IA rellena huecos con generalidades o, peor, con datos inventados.
+
+<PromptBuilderSim />
+
+<Quiz
+  id="ingrediente"
+  options={["Rol", "Contexto", "Formato", "Tono"]}
+  answer={1}
+  explanation="Las fechas, la sala y el motivo son contexto: datos que solo tú tienes. Sin ellos, el modelo deja huecos ([nueva fecha]) o se los inventa. El resto de ingredientes mejoran la forma; el contexto arregla el fondo."
+  hints={["Fíjate en qué ingrediente quita los [corchetes] de la respuesta en la simulación."]}
+>
+La respuesta te llega con «[nueva fecha]» y «[sala]» por rellenar. ¿Qué ingrediente faltaba?
+</Quiz>
+
+## Una plantilla para delegar
+
+No tienes que escribir prosa bonita. Va mejor por bloques, en este orden:
+
+<Prompt
+  title="Plantilla para delegar una tarea"
+  text={`
+    Contexto: [QUIÉN ERES, PARA QUIÉN TRABAJAS Y DE QUÉ VA ESTO]
+
+    Tarea: [QUÉ NECESITAS, EN UNA FRASE]
+
+    Datos: [FECHAS, NOMBRES, CIFRAS, LO QUE TENGAS; O «TE ADJUNTO…»]
+
+    Formato: [LONGITUD, ESTRUCTURA, LISTA O TABLA, PARA DÓNDE ES]
+
+    Tono: [FORMAL, CERCANO, DE TÚ O DE USTED]
+
+    Si te falta información para hacerlo bien, pregúntame antes de empezar.
+  `}
+/>
+
+La última línea es oro: en vez de adivinar, la IA te hará dos o tres preguntas. Úsala siempre que el encargo sea importante.
+
+## Mejor iterar que repetir
+
+La primera respuesta es un **borrador**. No empieces de cero si no te convence: dile qué cambiar, igual que a una persona.
+
+<Chat
+  messages={[
+    { from: "tu", text: "Escríbeme un correo para pedir a los miembros del consejo sus fechas disponibles en enero para la reunión anual." },
+    { from: "ia", text: "Asunto: Disponibilidad para la reunión anual del Consejo\n\nEstimados consejeros:\n\nCon motivo de la organización de la reunión anual del Consejo de Administración, les agradeceríamos que nos indicaran…" },
+    { from: "tu", text: "Bien, pero más corto (cuatro líneas), da tres fechas concretas para que elijan (13, 20 o 27 de enero, a las 10:00) y pide respuesta antes del viernes." },
+    { from: "ia", text: "Asunto: Reunión anual del Consejo: ¿13, 20 o 27 de enero?\n\nEstimados consejeros:\n\nPara fijar la reunión anual proponemos tres fechas, todas a las 10:00: 13, 20 o 27 de enero. ¿Nos indican antes del viernes cuáles les vienen bien?\n\nMuchas gracias y un saludo," },
+  ]}
+/>
+
+Frases que funcionan muy bien para iterar:
+
+- «Más corto», «quítale la segunda frase», «sin adjetivos».
+- «Dame tres versiones distintas» (y eliges).
+- «¿Qué le falta a este texto para que lo entienda alguien que no estuvo en la reunión?»
+- «Ahora en inglés, mismo tono.»
+- «Revisa tu respuesta: ¿hay algún dato que no te haya dado yo?» (para cazar inventos).
+
+<Callout kind="warn">
+Si después de **tres o cuatro** correcciones sigue sin salir, el problema suele ser de partida: falta contexto o el encargo es ambiguo. Abre un chat nuevo con un prompt mejor en lugar de seguir parcheando.
+</Callout>
+
+## Dale ejemplos, no adjetivos
+
+«Tono profesional pero cercano» significa cosas distintas para cada persona. Un **ejemplo** real lo deja claro al instante. Pega uno o dos correos tuyos que te gusten y di «escribe como en estos ejemplos». Si lo haces mucho, en el módulo 2 verás cómo guardarlo para no repetirlo (estilos y proyectos).
+
+<Quiz
+  id="ejemplos"
+  options={[
+    "«Sé conciso, profesional y cercano, pero no demasiado formal»",
+    "«Escribe como en este correo que mandé el mes pasado:» y pegar el correo",
+    "«Escribe bien, como lo haría una asistente de dirección con experiencia»",
+  ]}
+  answer={1}
+  explanation="Los adjetivos se interpretan; un ejemplo se imita. Con un correo tuyo de verdad, la IA copia la longitud, el saludo, la despedida y las expresiones que usas."
+>
+¿Qué instrucción consigue más fácilmente que los correos suenen a ti?
+</Quiz>
+
+## Pedir el formato que vas a usar
+
+La IA puede devolverte casi cualquier forma. Pide la que te ahorra trabajo después:
+
+- **Tabla** para comparar (hoteles, proveedores, fechas).
+- **Lista de tareas** con responsable y fecha, para las actas.
+- **Texto listo para pegar** en un correo o en un documento («sin títulos ni negritas»).
+- **Puntos clave en tres líneas** para un WhatsApp a tu jefa.
+
+<Practice
+  id="delegar"
+  title="Delega un correo de verdad"
+  steps={[
+    "Elige un correo real que tengas que escribir esta semana.",
+    "Rellena la plantilla «delegar una tarea» con tus datos (cambia nombres sensibles si quieres).",
+    "Pégala en Claude y lee la primera versión.",
+    "Pide al menos dos cambios conversando («más corto», «dame otra versión», etc.).",
+    "Compara el resultado con lo que habrías escrito tú: ¿qué ingrediente ha marcado la diferencia?",
+  ]}
+  hints={["Si te pregunta cosas, contesta: es la línea final de la plantilla funcionando.", "Si el tono no te encaja, pega un correo tuyo como ejemplo."]}
+  example={<Prompt title="Ejemplo relleno" text={`
+    Contexto: soy asistente de dirección de Laura Martín, CEO. Escribo en su nombre a un proveedor con el que tenemos buena relación.
+
+    Tarea: declinar con amabilidad la invitación a su cena de Navidad del 18 de diciembre.
+
+    Datos: Laura estará de viaje en Lisboa esa semana. Nos gustaría vernos en enero.
+
+    Formato: correo de máximo cinco líneas, con asunto.
+
+    Tono: cordial, de usted.
+
+    Si te falta información para hacerlo bien, pregúntame antes de empezar.
+  `} />}
+>
+Aplica los ingredientes y la iteración a una tarea tuya.
+</Practice>
+
+## Para llevar
+
+- Un buen prompt es una buena delegación: rol, **contexto**, tarea, formato, tono y, si puedes, un ejemplo.
+- Termina los encargos importantes con «si te falta información, pregúntame».
+- La primera respuesta es un borrador: itera con instrucciones concretas.
+- Un ejemplo real vale más que tres adjetivos.
+- Si tras tres o cuatro intentos no sale, empieza de nuevo con mejor contexto.

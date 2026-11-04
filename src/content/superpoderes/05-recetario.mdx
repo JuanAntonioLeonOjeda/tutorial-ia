@@ -1,0 +1,135 @@
+Ya tienes todas las piezas: prompts, proyectos, skills, conectores, agentes y tareas programadas. Esta lección las junta en **recetas** para el día a día de una asistente de dirección. Cada una dice qué piezas usa y trae el prompt listo para copiar. No hace falta usarlas todas: elige las dos o tres que más te duelan.
+
+## 1. La agenda de mañana, explicada
+
+**Piezas:** conectores de calendario y correo · tarea programada (opcional).
+
+<Prompt
+  text={`
+    Revisa la agenda de [NOMBRE] de mañana. Para cada cita: hora, lugar o enlace, con quién (cargo y empresa), de qué va según el último correo, y qué tiene que llevar.
+    Avisa de solapes, desplazamientos imposibles y reuniones sin orden del día.
+    Formato: una línea por cita, para leer en el móvil.
+  `}
+/>
+
+## 2. Del audio de la reunión al acta y las tareas
+
+**Piezas:** transcripción (de la herramienta de videollamadas o dictada) · skill `acta-de-reunion` · proyecto con la plantilla.
+
+<Prompt
+  text={`
+    Te pego la transcripción de [REUNIÓN] del [FECHA]. Asistentes: [LISTA].
+    Haz el acta con nuestra skill. Después, aparte, prepara un correo para cada responsable con solo sus tareas y fechas, en borrador.
+  `}
+/>
+
+<Callout kind="warn">
+Antes de grabar o transcribir una reunión, todos los asistentes deben saberlo, y la política de la empresa debe permitirlo.
+</Callout>
+
+## 3. Encontrar fecha para seis agendas
+
+**Piezas:** conector de calendario · modelo más capaz o pensamiento extendido.
+
+<Prompt
+  text={`
+    Necesito una reunión de [DURACIÓN] con [PERSONAS] entre el [FECHA] y el [FECHA], en horario de 9:00 a 18:00, nunca a primera hora del lunes ni el viernes por la tarde.
+    Mira sus calendarios (los que puedas ver) y dame las tres mejores opciones, explicando qué conflicto tiene cada una si lo hay.
+    Si no puedes ver el calendario de alguien, dímelo.
+  `}
+/>
+
+## 4. La bandeja de entrada, triada
+
+**Piezas:** conector de correo · skill `correo-ejecutivo`.
+
+<Prompt
+  text={`
+    Revisa los correos que han llegado a [BUZÓN] desde ayer a las 18:00.
+    Clasifícalos en: urgente para [NOMBRE], lo puedo contestar yo, solo informativo, y basura.
+    Para los urgentes, una línea de qué piden. Para los que puedo contestar yo, prepara borradores con nuestra skill de correo. No envíes nada.
+  `}
+/>
+
+## 5. El dossier del consejo
+
+**Piezas:** Cowork · conectores de correo y Drive · skill de PDF (de serie).
+
+<Prompt
+  text={`
+    Prepara la documentación del consejo del [FECHA]:
+    1. Busca en el correo y en la carpeta [CARPETA] los informes de cada punto del orden del día (te lo adjunto).
+    2. Hazme una tabla de qué tengo y qué falta, con quién lo debía enviar.
+    3. Con lo que hay, monta un PDF con portada, índice y los documentos en el orden del día.
+    Para los que faltan, prepara un recordatorio en borrador para cada responsable.
+  `}
+/>
+
+## 6. El viaje completo
+
+**Piezas:** skill `preparar-viaje` · búsqueda web · conectores · artefacto (checklist).
+
+<Prompt
+  text={`
+    [NOMBRE] viaja a [CIUDAD] del [FECHA] al [FECHA]. Citas fijas: [CITAS CON HORA Y DIRECCIÓN].
+    Prepara el viaje con nuestra skill: dos opciones de ida y vuelta, hotel cerca de [LUGAR], traslados, riesgos.
+    Después, hazme una checklist interactiva con todo lo que tengo que reservar y confirmar.
+  `}
+/>
+
+## 7. El resumen para leer en tres minutos
+
+**Piezas:** archivo adjunto o conector de Drive · proyecto con las preferencias de tu jefa.
+
+<Prompt
+  text={`
+    [NOMBRE] tiene tres minutos antes de la reunión para leer [DOCUMENTO].
+    Dame: la idea principal en una frase, tres puntos clave con cifras, la decisión que se le pide y la pregunta incómoda que le pueden hacer.
+    Nada más. Indica la página de cada dato.
+  `}
+/>
+
+## 8. Felicitaciones y cartas con el tono de cada uno
+
+**Piezas:** proyecto con lista de destinatarios · estilo propio · skill (si las haces cada año).
+
+<Prompt
+  text={`
+    Prepara las felicitaciones de [OCASIÓN] para la lista adjunta. Cada fila tiene nombre, relación con [NOMBRE] y un detalle personal.
+    Consejeros: de usted, formal y breve. Clientes: cordial, mencionando algo del año juntos. Equipo: cercano, de tú.
+    Ninguna igual a otra. Entrégalas en una tabla: destinatario y texto.
+  `}
+/>
+
+<Quiz
+  id="receta-piezas"
+  options={[
+    "Un proyecto con instrucciones",
+    "Una tarea programada con conectores de correo y calendario",
+    "Una skill de correo",
+  ]}
+  answer={1}
+  explanation="Que esté hecho cuando llegas, sin que lo pidas, es lo que aporta una tarea programada. Y para saber la agenda y de qué va cada reunión necesita los conectores de calendario y correo. El proyecto y la skill ayudan con el formato, pero no hacen que ocurra solo."
+>
+Quieres que el briefing de la receta 1 te esté esperando cada mañana a las 8. ¿Qué pieza es imprescindible?
+</Quiz>
+
+<Practice
+  id="mis-recetas"
+  title="Tus dos recetas"
+  steps={[
+    "Elige las dos recetas que más tiempo te ahorrarían esta semana.",
+    "Adapta cada prompt a tu caso real (nombres, carpetas, buzones).",
+    "Ejecútalas una vez y anota qué tuviste que corregir.",
+    "Decide dónde guardarlas: como skill (si es un procedimiento), en el proyecto (si es contexto) o como tarea programada (si es periódica).",
+  ]}
+  example={<>Por ejemplo: la receta 4 (bandeja triada) se queda como <strong>tarea programada</strong> a las 9:00 con borradores; la 2 (acta) ya es una <strong>skill</strong>, y los nombres de los asistentes habituales pasan a las <strong>instrucciones del proyecto</strong> para no escribirlos cada vez.</>}
+>
+Haz tuyas dos recetas.
+</Practice>
+
+## Para llevar
+
+- Las recetas combinan piezas: el prompt dice qué, el proyecto da contexto, la skill el procedimiento, los conectores los datos y la programación el cuándo.
+- Empieza por las que más te duelen y conviértelas en skill, proyecto o tarea programada.
+- Siempre borradores, siempre revisión antes de enviar a la dirección.
