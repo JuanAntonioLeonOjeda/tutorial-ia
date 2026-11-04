@@ -50,7 +50,8 @@ description: How lessons are written — tone, structure, the components availab
 - A `Practice` has 3–6 concrete steps (one action each), a fallback hint when the feature may
   be missing on the learner's plan, and an `example` that shows what a good result looks like.
 - Downloads go in `material/` and are linked as `/descargas/<name>.zip` after running
-  `scripts/zip-skills.sh`.
+  `scripts/zip-skills.sh`. Internal links are root-relative markdown links: `LessonLink` adds
+  the GitHub Pages base path (ADR-0005). Never hard-code `<a href="/…">`.
 
 ## Product claims
 

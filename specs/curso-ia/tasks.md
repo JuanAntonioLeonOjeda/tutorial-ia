@@ -9,4 +9,5 @@
 - [x] Example skills and workspace template in `material/`, `scripts/zip-skills.sh`
 - [x] `AGENTS.md`, `.claude/` rules, agents and commands adapted (`/refresh-lesson` added)
 - [x] ADRs 0001–0004, README, Docker on port 3300
+- [x] GitHub Pages: base path, 404 fallback, workflow (ADR-0005)
 - [ ] Review every lesson with `content-reviewer` once the target plan's features are known

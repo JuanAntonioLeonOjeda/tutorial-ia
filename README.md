@@ -18,7 +18,7 @@ preguntas rápidas con pista y solución y **prácticas para hacer en Claude** c
      conectores MCP a mano.
 - **Descargas**: tres skills de ejemplo listas para subir a Claude (acta, correo ejecutivo,
   viaje) y una plantilla de espacio de trabajo para Claude Code (`material/`).
-- Funciona en local con Docker. Sin cuentas ni servidor: el progreso se guarda en el navegador.
+- En GitHub Pages o en local con Docker. Sin cuentas ni servidor: el progreso se guarda en el navegador.
 
 ## MAIN DEPENDENCIES
 
@@ -37,7 +37,12 @@ preguntas rápidas con pista y solución y **prácticas para hacer en Claude** c
 ![pnpm](https://img.shields.io/badge/PNPM-12.11.2-F69220?style=for-the-badge&logo=pnpm&logoColor=white)
 ![Docker](https://img.shields.io/badge/DOCKER-NGINX%201.31.2-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
-## Arrancar
+## Abrirlo
+
+**En internet:** https://juanantonioleonojeda.github.io/tutorial-ia/ (se publica solo en cada
+push a `main`, con `.github/workflows/pages.yml`).
+
+**En local:**
 
 ```bash
 docker compose up -d --build      # http://localhost:3300  (cambia el puerto con TUTORIAL_IA_PORT)

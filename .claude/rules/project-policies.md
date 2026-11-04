@@ -18,7 +18,8 @@ through the apps' interfaces.
   visible, quick questions and **practices done in the real tool** (`<Practice>`).
 - `material/` holds downloadable material (example skills, a Claude Code workspace template).
   `scripts/zip-skills.sh` packs it into `public/descargas/`, where lessons link to it.
-- It runs on localhost in Docker. **No accounts, no backend, no telemetry** (ADR-0001).
+- It runs on localhost in Docker and is published on GitHub Pages under `/tutorial-ia/` on
+  every push to `main` (ADR-0005). **No accounts, no backend, no telemetry** (ADR-0001).
   Progress lives in the browser's `localStorage` (ADR-0003).
 
 Priority: **correct and useful content over features**. A wrong menu path or a feature that no
