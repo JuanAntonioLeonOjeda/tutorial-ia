@@ -8,6 +8,8 @@ import remarkGfm from "remark-gfm";
 import { defineConfig } from "vite";
 
 export default defineConfig({
+  // "/" for Docker and dev; the GitHub Pages workflow sets BASE_PATH=/tutorial-ia/ (ADR-0005).
+  base: process.env.BASE_PATH ?? "/",
   plugins: [
     {
       // MDX runs before React's plugin so lessons get Fast Refresh like any component.

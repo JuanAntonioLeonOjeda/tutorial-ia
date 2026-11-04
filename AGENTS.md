@@ -38,6 +38,7 @@ Update the status column when a change creates or finishes a path.
 | `material/espacio-direccion/`                                       | Claude Code workspace template: `AGENTS.md`, `CLAUDE.md`, `.claude/` (settings, rules, skill, commands, a reviewer subagent)                                      | ✅     |
 | `scripts/zip-skills.sh`, `public/descargas/`                        | packs `material/` into the zips the lessons link to                                                                                                               | ✅     |
 | `Dockerfile`, `nginx.conf`, `docker-compose.yml`, `.dockerignore`   | build with pnpm, serve with unprivileged nginx on 8080; host port `TUTORIAL_IA_PORT` (3300)                                                                       | ✅     |
+| `.github/workflows/pages.yml`                                       | lint, test, build with `BASE_PATH=/tutorial-ia/`, `404.html` fallback, deploy to GitHub Pages on push to `main` (ADR-0005)                                        | ✅     |
 | `docs/adr/`                                                         | ADRs (index and template)                                                                                                                                         | ✅     |
 | `specs/`                                                            | specs and task lists of changes (`curso-ia/`)                                                                                                                     | ✅     |
 
