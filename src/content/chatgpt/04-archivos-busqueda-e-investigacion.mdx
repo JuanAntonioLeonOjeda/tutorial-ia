@@ -1,0 +1,89 @@
+Mucho de tu trabajo con ChatGPT no es conversar: es darle material (un PDF de cuarenta páginas, una foto de la pizarra, la grabación de una reunión) y pedirle que lo convierta en algo útil. Esta lección repasa las herramientas que hay para eso en ChatGPT: archivos, búsqueda, investigación avanzada, imágenes, voz y el modo Record para reuniones.
+
+## Archivos e imágenes de entrada
+
+Con el `+` del cuadro de texto adjuntas PDFs, Word, Excel, presentaciones y fotos. Todo lo del módulo 1 vale igual: **dile qué es y qué quieres** («es el borrador del contrato con Acme; dime qué cambia respecto a la versión anterior que te adjunto»). El número y el tamaño de los archivos dependen del plan: en el gratuito son limitados.
+
+## Buscar en internet e investigar a fondo
+
+- **Búsqueda**: ChatGPT busca en internet cuando la pregunta lo necesita y te pone los enlaces. Para un dato concreto (horario de un museo, teléfono de un hotel), **pídele la fuente y ábrela**.
+- [**Investigación avanzada**](https://help.openai.com/en/articles/10500283-deep-research) (*deep research*): para preguntas que necesitan juntar muchas fuentes. Funciona así:
+  1. Le haces la pregunta y **te propone un plan** de investigación.
+  2. Trabaja varios minutos; puedes **seguir el avance e interrumpirlo** para ajustar el foco o las fuentes.
+  3. Te entrega un **informe con citas** para que compruebes cada dato.
+
+  Puede usar la web (o webs concretas que le digas), tus archivos y las **apps conectadas** (lección siguiente). El número de investigaciones depende del plan y, en los planes con cupo mensual, se renueva cada 30 días desde que la usas por primera vez.
+
+<Prompt
+  title="Investigación avanzada para un viaje"
+  text={`
+    Laura Martín viaja a [CIUDAD] del [FECHAS] para reunirse con [EMPRESA O INSTITUCIÓN].
+    Investiga y dame un informe con fuentes sobre:
+    1. Quién es quién: las 3–4 personas con las que se reunirá (cargo, trayectoria, declaraciones recientes).
+    2. Noticias de los últimos tres meses sobre [EMPRESA] que puedan salir en la reunión.
+    3. Logística: huelgas o eventos esas fechas que afecten a transporte y hoteles.
+    Usa solo fuentes que puedas citar; si algo no lo encuentras, dilo.
+  `}
+/>
+
+<Quiz
+  id="busqueda-o-investigacion-gpt"
+  options={[
+    "Una pregunta normal con búsqueda, y abrir el enlace que te dé",
+    "Investigación avanzada, para que lo compruebe en varias fuentes",
+    "Ninguna: el modelo ya sabe los horarios",
+  ]}
+  answer={0}
+  explanation="Un dato concreto se resuelve con una búsqueda y abriendo la fuente. La investigación avanzada tarda minutos y gasta cupo: es para preguntas que necesitan juntar muchas fuentes. Y sin búsqueda, un horario es justo el tipo de dato que el modelo se puede inventar."
+>
+Laura quiere llevar a unos clientes de Acme al museo de la ciudad el próximo lunes y necesitas el horario de apertura. ¿Qué usas?
+</Quiz>
+
+## Escribir: de Canvas a los bloques de texto
+
+Durante un tiempo, los textos largos se abrían en **Canvas**, un panel aparte para editar (como los artefactos de Claude). En los modelos más recientes, OpenAI lo está sustituyendo por **bloques de texto dentro del propio chat**, que puedes editar y copiar. Si en tu versión aún ves Canvas, úsalo igual: lo importante es pedir **cambios concretos** («acorta el segundo párrafo», «más formal el saludo») en lugar de volver a pedir el texto entero.
+
+## Imágenes
+
+ChatGPT **crea y edita imágenes** a partir de una descripción: la portada de una presentación, una invitación para la cena de Navidad, una foto de producto con fondo limpio. En el plan gratuito, con límite; en los de pago, más y de más calidad.
+
+<Callout kind="warn">
+Una imagen generada no es una foto: no la uses para mostrar algo que tiene que ser real (la sala del evento, el producto tal como es) y cuidado con logotipos y personas reales. Para documentos oficiales de la empresa, las imágenes del banco de imágenes o de comunicación.
+</Callout>
+
+## Voz y Record
+
+- **Voz**: en la app puedes **hablar** con ChatGPT en vez de escribir, como con el modo voz de Claude. Ideal para dictar notas al salir de una reunión.
+- [**Record**](https://help.openai.com/en/articles/11487532-chatgpt-record) (grabar): en la **app de Mac**, ChatGPT puede **grabar una reunión** (hasta 4 horas) y darte la transcripción y un resumen, que se guarda en tu historial y puedes convertir en un acta, un correo de seguimiento o una lista de tareas. En noviembre de 2026 estaba en beta para planes de pago (Plus, Pro, Business, Enterprise y Edu, según la ayuda), solo en Mac.
+
+<Callout kind="warn" title="Antes de grabar a nadie">
+La ayuda de OpenAI es clara: **eres tú quien responde** de cumplir la ley y de tener el consentimiento de las personas a las que grabas. En España y en la UE, grabar o transcribir una reunión exige informar a los asistentes, y muchas empresas lo prohíben sin autorización. Avisa al empezar y, con consejeros o personas de fuera, pregunta antes. Y revisa la transcripción: también se equivoca.
+</Callout>
+
+<Callout kind="real">
+El flujo más habitual con reuniones: se graba o se transcribe con la herramienta que permita la empresa (Teams, Meet o Record), y la transcripción se pasa al proyecto o a la skill del acta, que le da vuestro formato. La IA no decide qué entra en el acta: eso lo revisas tú, sobre todo en el consejo.
+</Callout>
+
+<Practice
+  id="investigar-gpt"
+  title="Una investigación con fuentes"
+  steps={[
+    "Elige un tema real de esta semana: un viaje, un cliente, una institución con la que hay reunión.",
+    "Lanza una investigación avanzada con el prompt de arriba, adaptado.",
+    "Lee el plan que te propone y ajústalo si hace falta antes de que empiece.",
+    "Cuando termine, abre tres de las fuentes citadas y comprueba que dicen lo que el informe dice.",
+    "Pide un resumen de media página para tu jefa, con los enlaces.",
+  ]}
+  hints={["En el plan gratuito la investigación avanzada es limitada. Si se te ha acabado, haz la misma pregunta con búsqueda normal y pide expresamente las fuentes."]}
+  example={<>Un buen informe separa lo que está comprobado (con su enlace) de lo que no ha podido confirmar, y tiene fechas. Si al abrir una fuente ves que no dice lo que el informe afirma, quita ese dato y díselo: «la fuente 4 no dice eso, corrígelo».</>}
+>
+Practica investigar con fuentes y comprobar.
+</Practice>
+
+## Para llevar
+
+- Adjunta con el `+` y di siempre qué es el archivo y qué quieres.
+- **Búsqueda** para datos concretos (abre la fuente); **investigación avanzada** para juntar muchas fuentes, con plan e informe citado.
+- Canvas va dando paso a bloques de texto en el chat: pide cambios concretos.
+- Imágenes para ilustrar, nunca como prueba de algo real.
+- **Record** graba reuniones en Mac: antes, consentimiento; después, revisión.

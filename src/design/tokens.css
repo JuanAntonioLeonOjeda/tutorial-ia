@@ -54,8 +54,12 @@
   --subject-claude-soft: #fbe9df;
   --subject-superpoderes: #7a3fd0;
   --subject-superpoderes-soft: #efe6fb;
-  --subject-otras-herramientas: #0f7a5a;
-  --subject-otras-herramientas-soft: #dcf2ea;
+  --subject-chatgpt: #0f7a5a;
+  --subject-chatgpt-soft: #dcf2ea;
+  --subject-gemini: #1c6fa3;
+  --subject-gemini-soft: #dcecf6;
+  --subject-otras-herramientas: #9a3b5b;
+  --subject-otras-herramientas-soft: #f8e3ea;
   /* "Un paso más": the optional section with a little code */
   --subject-un-paso-mas: #3b5174;
   --subject-un-paso-mas-soft: #e3e9f3;
@@ -147,8 +151,12 @@
   --subject-claude-soft: #3a2116;
   --subject-superpoderes: #c3a0ff;
   --subject-superpoderes-soft: #271c44;
-  --subject-otras-herramientas: #5fd7aa;
-  --subject-otras-herramientas-soft: #0f2e25;
+  --subject-chatgpt: #5fd7aa;
+  --subject-chatgpt-soft: #0f2e25;
+  --subject-gemini: #7cc4f0;
+  --subject-gemini-soft: #10283a;
+  --subject-otras-herramientas: #f39bb8;
+  --subject-otras-herramientas-soft: #3a1823;
   --subject-un-paso-mas: #a9bcdc;
   --subject-un-paso-mas-soft: #1b2539;
 

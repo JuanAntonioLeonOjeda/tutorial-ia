@@ -1,0 +1,100 @@
+Igual que en Claude y ChatGPT, lo último es que Gemini trabaje **sin que se lo pidas cada vez**: que el lunes a las 8 esté el resumen de la semana, que cada correo con una tarea quede etiquetado, que antes de cada reunión te llegue una ficha. Google tiene tres piezas para eso, con alcances muy distintos: las [**acciones programadas**](https://support.google.com/gemini/answer/16316416?hl=es) de la app, los **flujos de Workspace Studio** en la empresa y el [**modo Tarea**](https://support.google.com/gemini/answer/17094507?hl=es), que de momento no llega a España.
+
+## Acciones programadas
+
+En la app de Gemini, cualquier petición se puede programar **escribiendo cuándo** en el propio mensaje:
+
+<Prompt
+  title="Resumen del lunes (acción programada)"
+  text={`
+    Cada lunes a las 8:00: revisa mi calendario de la semana y mi correo de los últimos tres días.
+    Dame las reuniones de la semana con lo que hay que preparar para cada una, los solapes, y los correos importantes sin contestar de más de dos días.
+  `}
+/>
+
+También puedes crearlas desde **Programado**, en el menú lateral, describiendo la tarea o partiendo de una sugerencia:
+
+<Screenshot
+  src="gemini/programado.jpg"
+  alt="Página Programado de Gemini: un cuadro Describe una tarea y una lista de sugerencias como Crear resumen de noticias, Ver finanzas y mercados o Analizar a la competencia."
+  width={1470}
+  height={700}
+  date="noviembre de 2026"
+  marks={[
+    { x: 8, y: 156, w: 272, h: 32, n: 1, badge: "right" },
+    { x: 540, y: 176, w: 644, h: 64, n: 2, badge: "left" },
+    { x: 540, y: 316, w: 708, h: 384, n: 3, badge: "left" },
+  ]}
+  caption="(1) Programado, en el menú lateral. (2) Describe la tarea con su horario. (3) Sugerencias: casi todas personales; las de trabajo las escribes tú."
+/>
+
+Lo que dice la ayuda de Google:
+
+- Gemini te responde con un **resumen de la programación** para que la confirmes.
+- Se gestionan en **Programadas**, en el menú lateral: pausar, reanudar, editar o borrar.
+- Hasta **10 acciones activas** a la vez.
+- El contenido se prepara **en la hora anterior** a la que pides, así que no sirve para datos que cambian al minuto.
+- Necesitan tener la **actividad de Gemini** activada y, si usan Gmail o Calendar, Workspace **conectado** a Gemini.
+- Pueden **desactivarse solas** si no las usas durante un tiempo, y en cuentas personales se están activando poco a poco: puede que aún no las tengas.
+
+<AutomationBuilderSim />
+
+## Workspace Studio: agentes sin programar
+
+[**Google Workspace Studio**](https://workspaceupdates.googleblog.com/2025/12/workspace-studio.html) (studio.workspace.google.com) es el sitio donde, en las empresas con Workspace, se crean **agentes** que automatizan trabajo, sin escribir código. Google los llama **flujos**: algo que se pone en marcha (una hora, un correo nuevo, un cambio en una hoja) y una serie de pasos, algunos con IA.
+
+- Se crean **describiéndolos en lenguaje normal** (Gemini monta el flujo), **desde una plantilla** o desde cero.
+- Plantillas de Google que parecen escritas para una asistente: **resumen diario de los correos sin leer**, **etiquetar correos con tareas pendientes** y **fichas antes de cada reunión** en el chat.
+- Hay pasos de IA como **«Preguntar a Gemini»** (que puede usar tus skills) o un paso de **Deep Research** que genera un informe en Docs.
+- Pueden conectarse a otras herramientas de la empresa (por ejemplo, Asana, Jira o Salesforce).
+- Están en las ediciones **Business, Enterprise y Education** de Workspace, si el administrador lo activa; no en las cuentas personales.
+
+<Callout kind="real">
+En una empresa con Workspace, el primer flujo que suele montar una asistente es la **ficha antes de cada reunión**: media hora antes, un mensaje en Chat con quién asiste, el último correo relacionado y los documentos del evento. Se monta desde la plantilla en diez minutos y se comprueba una semana antes de fiarse.
+</Callout>
+
+## El modo Tarea (aún no en España)
+
+La app de Gemini tiene un **modo Tarea**, con un selector **Chat / Tarea** junto al cuadro de texto: un agente que hace encargos de varios pasos (ordenar la bandeja de entrada, vigilar precios de vuelos y hoteles, investigar y entregar archivos), navegando por webs con tu confirmación. Es el equivalente a Cowork o a ChatGPT Work.
+
+Pero según la ayuda de Google, en noviembre de 2026 **no está disponible en el Espacio Económico Europeo** (España incluida), ni en Reino Unido ni en Suiza, ni con **cuentas de trabajo**, y exige un plan Google AI Pro o Ultra. Si un vídeo te lo enseña, es por eso que no lo ves.
+
+<Quiz
+  id="programada-o-studio"
+  options={[
+    "Un flujo de Workspace Studio que se lance con cada correo nuevo",
+    "Una acción programada en la app de Gemini",
+    "El modo Tarea",
+  ]}
+  answer={0}
+  explanation="Lo que quieres se dispara con un evento (llega un correo) y hace una acción en Gmail (etiquetar), para el buzón de la empresa: es un flujo de Workspace Studio, y además Google tiene una plantilla casi igual. Una acción programada va por horario, no por correo. Y el modo Tarea no está disponible en España ni con cuentas de trabajo."
+>
+Tu empresa usa Google Workspace. Quieres que cada correo que te pida algo quede etiquetado como «Tarea» con el plazo en el asunto de la etiqueta. ¿Qué usas?
+</Quiz>
+
+<Callout kind="warn">
+Una automatización que **actúa** (etiqueta, mueve, envía) hace lo mismo cien veces seguidas, también cuando se equivoca. Empieza con flujos que **solo informan** (un resumen, una ficha), revisa una semana, y luego pasa a los que actúan, nunca a los que envían a otras personas sin tu revisión. Y si leen tu Gmail o tu Calendar, **con la cuenta de trabajo** y si IT lo permite.
+</Callout>
+
+<Practice
+  id="automatizar-gemini"
+  title="Tu primera automatización en Google"
+  steps={[
+    "Elige qué automatizar: el resumen del lunes, la ficha antes de cada reunión o el etiquetado de tareas.",
+    "Si es un resumen periódico, créalo como acción programada en la app de Gemini con el prompt de arriba.",
+    "Si tu empresa tiene Workspace Studio, abre studio.workspace.google.com y crea un flujo desde una plantilla parecida.",
+    "Revisa en Programadas (o en Studio) que la configuración es la que querías.",
+    "Comprueba el resultado durante una semana antes de fiarte.",
+  ]}
+  hints={["Si no tienes acciones programadas ni Studio, monta la misma automatización en Claude o en ChatGPT (módulo 3 y módulo 4): la instrucción es la misma."]}
+  example={<>Un buen resumen del lunes cabe en una pantalla: reuniones con lo que hay que preparar, solapes y correos pendientes. Una buena ficha de reunión: asistentes, motivo, último correo y documentos. Si se cuela algo que no es tuyo (la agenda de otra persona), revisa qué calendarios tienes compartidos.</>}
+>
+Que el trabajo repetido se haga solo, empezando por lo que solo informa.
+</Practice>
+
+## Para llevar
+
+- **Acciones programadas**: escribes cuándo en el mensaje; hasta 10 activas; se gestionan en Programadas.
+- **Workspace Studio**: agentes (flujos) sin código para empresas con Workspace, con plantillas de resumen, etiquetado y fichas de reunión.
+- **Modo Tarea**: el agente de Gemini, aún no disponible en España ni con cuentas de trabajo.
+- Primero automatizaciones que informan; las que actúan, después de una semana de revisión.

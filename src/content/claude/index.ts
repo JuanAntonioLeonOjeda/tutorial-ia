@@ -63,7 +63,7 @@ export const claude: Subject = {
       slug: "proyectos",
       title: "Proyectos: el contexto que no repites",
       summary:
-        "Instrucciones, conocimiento y chats; cómo escribir las instrucciones, qué subir y qué proyectos crear. Y su parecido con las Gems.",
+        "Instrucciones, conocimiento y chats; cómo escribir las instrucciones, qué subir y qué proyectos crear. Y su equivalente en ChatGPT y Gemini.",
       minutes: 25,
       sources: [`${HELP}/en/articles/9519177-how-can-i-create-and-manage-projects`, UI_CAPTURE],
       exercises: ["donde-va", "mi-proyecto"],
