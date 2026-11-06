@@ -4,7 +4,33 @@ Lo que hace útil a un asistente en tu trabajo es que vea **tu correo, tu agenda
 
 Una **app** conecta ChatGPT con un servicio que ya usas (Google Drive, Gmail, Slack y muchos más) para trabajar con su información en la conversación. Es lo mismo que un conector de Claude.
 
-- **Dónde se conectan**: en **Complementos** (en la barra lateral o en <MenuPath to={["Ajustes", "Complementos"]} />), eligiendo la app o el plugin que la incluye e iniciando sesión en ese servicio. Desde ahí también revisas o quitas la conexión.
+- **Dónde se conectan**: en **Complementos** (en la barra lateral o en <MenuPath to={["Configuración", "Complementos"]} />), eligiendo la app o el plugin que la incluye e iniciando sesión en ese servicio. Desde ahí también revisas o quitas la conexión.
+<Screenshot
+  src="chatgpt/complementos.jpg"
+  alt="Página Complementos de ChatGPT: buscador, complementos instalados y la lista de populares, con Gmail, Google Drive, GitHub, Supabase y Outlook Email, cada uno con un botón más."
+  width={1490}
+  height={700}
+  date="noviembre de 2026"
+  marks={[
+    { x: 6, y: 207, w: 328, h: 35, n: 1, badge: "right" },
+    { x: 356, y: 8, w: 252, h: 36, n: 2, badge: "bottom" },
+    { x: 470, y: 484, w: 912, h: 212, n: 3, badge: "left" },
+  ]}
+  caption="(1) Complementos, en la barra lateral. (2) Complementos y Habilidades. (3) Los más usados, entre ellos Gmail, Google Drive y Outlook Email: el + los conecta."
+/>
+
+- **Cuánto pregunta**: en <MenuPath to={["Configuración", "Complementos"]} /> está el **Permiso predeterminado**, que por defecto **permite las herramientas de bajo riesgo** (leer, buscar) y te pregunta en las demás. No lo relajes para el correo de trabajo.
+
+<Screenshot
+  src="chatgpt/complementos-ajustes.jpg"
+  alt="Configuración de ChatGPT, Complementos: buscador de complementos instalados y el ajuste Permiso predeterminado con la opción Permitir herramientas de bajo riesgo."
+  width={1490}
+  height={700}
+  date="noviembre de 2026"
+  marks={[{ x: 544, y: 204, w: 766, h: 60, n: 1, badge: "bottom" }]}
+  caption="(1) Permiso predeterminado: qué pueden hacer los complementos sin preguntarte."
+/>
+
 - **Cómo se usan**: menciona la app con **`@`** en tu mensaje o elígela en el **`+`**. Por ejemplo: «@Google Drive busca el briefing del proyecto Acme y resume los próximos pasos».
 - **Qué apps tienes** depende de la app, tu plan, tu país, tu empresa y hasta del modelo y del dispositivo.
 - Si tienes la **memoria** activada, ChatGPT puede usar lo que recuerda de ti al trabajar con una app.
@@ -19,13 +45,29 @@ Igual que con Claude: el asistente ve **lo que ve la cuenta con la que conectas*
 
 ## Tareas programadas
 
-Las **tareas programadas** hacen que ChatGPT trabaje solo, cuando toca. Se crean, se revisan y se gestionan en **Programadas**, en la barra lateral (o pidiéndolo en un chat: «cada día laborable a las 7:45, prepárame…»). Pueden ser:
+Las **tareas programadas** hacen que ChatGPT trabaje solo, cuando toca. Se crean, se revisan y se gestionan en **Tareas programadas**, en la barra lateral, escribiendo lo que quieres en «Programa una tarea» o eligiendo una recomendada (o pidiéndolo en un chat: «cada día laborable a las 7:45, prepárame…»).
+
+<Screenshot
+  src="chatgpt/tareas-programadas.jpg"
+  alt="Página Tareas programadas de ChatGPT: un cuadro para programar una tarea y una lista de tareas recomendadas, como seguir las noticias del sector o alertas de precios."
+  width={1490}
+  height={700}
+  date="noviembre de 2026"
+  marks={[
+    { x: 6, y: 135, w: 328, h: 35, n: 1, badge: "right" },
+    { x: 562, y: 137, w: 728, h: 52, n: 2, badge: "left" },
+    { x: 574, y: 245, w: 706, h: 440, n: 3, badge: "left" },
+  ]}
+  caption="(1) Tareas programadas, en la barra lateral. (2) Escribe la tarea con su horario. (3) Recomendadas: casi todas personales; las de trabajo las escribes tú."
+/>
+
+Pueden ser:
 
 - **Una sola vez** o **periódicas** (cada día, laborables, cada semana…).
 - De **vigilancia**: avisar cuando algo cambia (el precio de un vuelo, una noticia sobre un cliente).
-- **Por evento**: lanzarse cuando ocurre algo en una app conectada, por ejemplo cuando llega un correo a Gmail que cumple una condición. Se configuran con **disparador, condición e instrucción**. No están en Gratis ni Go.
+- **Por evento**: lanzarse cuando ocurre algo en una app conectada, por ejemplo cuando llega un correo a Gmail que cumple una condición. Se configuran con **disparador, condición e instrucción**. Estas no están en Gratis ni Go.
 
-Las tareas están en los planes **Plus, Pro, Business, Enterprise y Edu**. Te avisan por **notificación o correo** (en <MenuPath to={["Ajustes", "Notificaciones"]} />); para recibirlas en el móvil, crea la tarea desde la app.
+Según la ayuda de OpenAI, todos los planes tienen tareas, con distintos límites de **tareas activas**: 3 en Gratis y Go, 5 en Plus, 10 en Business y Edu, 15 en Pro y Enterprise. En el gratuito, como mucho **una al día** y en franjas flexibles (mañana, tarde o noche), no a una hora exacta; las tareas **por evento**, desde Plus. Te avisan por **notificación o correo** (en <MenuPath to={["Configuración", "Notificaciones"]} />); para recibirlas en el móvil, crea la tarea desde la app.
 
 <AutomationBuilderSim />
 
@@ -42,10 +84,10 @@ Las tareas están en los planes **Plus, Pro, Business, Enterprise y Edu**. Te av
   id="evento-o-programada"
   options={[
     "Una tarea periódica cada día a las 8:00",
-    "Una tarea por evento: cuando llegue un correo de Acme que cumpla la condición",
     "Ninguna: hay que mirarlo a mano",
+    "Una tarea por evento: cuando llegue un correo de Acme que cumpla la condición",
   ]}
-  answer={1}
+  answer={2}
   explanation="Lo que quieres es reaccionar cuando ocurre algo (llega el correo), no a una hora fija. Una tarea diaria te avisaría tarde, o te haría revisar todos los correos aunque no haya llegado nada de Acme. Ojo: las tareas por evento necesitan un plan de pago (no Gratis ni Go) y la app de correo conectada."
 >
 Quieres que, en cuanto llegue un correo de Acme con «contrato» en el asunto, ChatGPT te prepare un resumen y un borrador de respuesta. ¿Qué tipo de tarea creas?
@@ -62,10 +104,10 @@ Empieza por una tarea que **solo lee y te informa** (el briefing de la mañana, 
     "Conecta en Complementos tu calendario y tu correo de trabajo (si tu empresa lo permite).",
     "Pide: «¿Qué tengo mañana?» y comprueba que coincide con tu agenda.",
     "Crea en Programadas una tarea para cada día laborable a las 7:45 con el briefing del día.",
-    "Activa las notificaciones de tareas en Ajustes → Notificaciones.",
+    "Activa las notificaciones de tareas en Configuración → Notificaciones.",
     "Revisa el resultado de los tres primeros días y ajusta la instrucción.",
   ]}
-  hints={["Si tu plan no tiene tareas programadas (Gratis o Go), guarda la instrucción en un documento y pégala cada mañana en un chat: el resultado es el mismo, solo que lo lanzas tú.", "Si tu empresa no permite conectar el correo a ChatGPT, haz la práctica con Claude (módulo 3)."]}
+  hints={["En el plan gratuito no puedes fijar las 7:45: elige la franja de mañana. Si ya tienes 3 tareas activas, pausa una o guarda la instrucción en un documento y lánzala tú cada mañana.", "Si tu empresa no permite conectar el correo a ChatGPT, haz la práctica con Claude (módulo 3)."]}
   example={<>Un buen briefing cabe en una pantalla: las reuniones del día con hora, lugar, asistentes y qué hay que llevar; los solapes o huecos raros; y dos o tres correos importantes sin contestar. Si mete cosas que no están en tu agenda, revisa qué cuenta conectaste y si la instrucción le deja «rellenar» lo que no encuentra.</>}
 >
 Que el resumen del día esté hecho cuando llegas.

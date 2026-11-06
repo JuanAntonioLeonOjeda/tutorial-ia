@@ -20,7 +20,7 @@ Según la ayuda de Google:
 | Empresa (Workspace) | **marzo de 2027** | |
 | Educación | **junio de 2027** | |
 
-Cuando desaparezcan, **Google convertirá tus Gems en skills automáticamente**. Si prefieres hacerlo antes (y revisarlo tú), el paso a paso es: abrir la Gem y descargar sus archivos, crear una skill nueva copiando nombre, descripción e instrucciones, y subir la skill con sus archivos.
+El **17 de noviembre** Google empieza a **convertir tus Gems en skills automáticamente** y la Gem original queda de solo lectura; el 17 de diciembre desaparece. (Las cuentas de menores y las Gems de Google Labs siguen otras fechas.) Si prefieres hacerlo antes (y revisarlo tú), el paso a paso es: abrir la Gem y descargar sus archivos, crear una skill nueva copiando nombre, descripción e instrucciones, y subir la skill con sus archivos.
 
 <Callout kind="warn" title="Antes del 17 de noviembre">
 Si dependes de una Gem, **copia hoy sus instrucciones y descarga sus archivos**. La conversión automática es cómoda, pero las skills tienen límites que las Gems no tenían (100 MB en total, algunos tipos de archivo no se admiten) y de momento **no funcionan con Canvas ni con Deep Research**.
@@ -49,11 +49,11 @@ La ayuda de Google lo dice expresamente: puedes **importar skills creadas en otr
 <Quiz
   id="gem-o-skill"
   options={[
-    "Crear una Gem nueva con las instrucciones",
     "Subir el SKILL.md de la skill del acta que ya usas en Claude",
+    "Crear una Gem nueva con las instrucciones",
     "Pegar las instrucciones del acta al principio de cada chat",
   ]}
-  answer={1}
+  answer={0}
   explanation="Gemini importa skills de otras plataformas subiendo su SKILL.md, así que la skill del acta de Claude vale tal cual y se aplicará sola cuando pidas un acta. Una Gem nueva no tiene sentido: desaparecen en diciembre. Pegar las instrucciones cada vez funciona, pero es justo el trabajo que una skill te ahorra."
 >
 Usas en Claude la skill `acta-de-reunion` y quieres tener lo mismo en Gemini, con tu cuenta personal. ¿Qué haces?
@@ -73,7 +73,7 @@ Si en tu equipo hay Gems compartidas («la Gem de convocatorias» de la secretar
     "En un chat nuevo, pega unas notas de reunión y pide «hazme el acta» sin nombrar la skill.",
     "Prueba también a llamarla escribiendo / y su nombre.",
   ]}
-  hints={["Si no ves Skills en Personalizar, puede que tu cuenta aún no lo tenga (las de trabajo llegarán más tarde) o que tengas que pulsar Más. Mientras, pega el texto del SKILL.md en Tus instrucciones para Gemini o en una Gem."]}
+  hints={["Si no ves Skills en Personalizar, puede que tu cuenta aún no lo tenga (las de trabajo llegarán más tarde) o que tengas que pulsar Más. Mientras, pega el texto del SKILL.md en Tus instrucciones para Gemini o al principio del chat."]}
   example={<>Lo normal es que Gemini use la skill solo, con el formato de la casa: cabecera, puntos, tabla de tareas y los puntos marcados con [CONFIRMAR]. Si no la usa sin nombrarla, la descripción no se parece a lo que pediste: revísala para que diga «úsala cuando pidan un acta, un resumen de reunión o los acuerdos».</>}
 >
 Lleva a Gemini un procedimiento que ya tienes escrito.

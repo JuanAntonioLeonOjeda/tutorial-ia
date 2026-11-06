@@ -6,14 +6,44 @@ OpenAI renombra modelos y mueve funciones casi cada mes: en 2026 retiró su nave
 
 ## La pantalla, por zonas
 
-- **Barra lateral (izquierda)**: nuevo chat, **buscar** en tus chats, tus **proyectos**, las tareas **programadas** y el historial. Según tu plan verás también los GPTs que usas o tus agentes.
-- **El cuadro de texto**: el **`+`** para adjuntar archivos y elegir herramientas (investigación avanzada, crear una imagen, apps conectadas…); con **`@`** llamas a una app o un plugin por su nombre.
+<Screenshot
+  src="chatgpt/inicio.jpg"
+  alt="Pantalla de inicio de ChatGPT en español con el plan Gratis: barra lateral con el menú, los proyectos y los chats recientes; en el centro, el cuadro de texto con el botón más, la opción Pensar y el micrófono; abajo a la izquierda, el nombre de la cuenta."
+  width={1490}
+  height={700}
+  date="noviembre de 2026"
+  marks={[
+    { x: 6, y: 60, w: 328, h: 216, n: 1, badge: "right" },
+    { x: 6, y: 305, w: 328, h: 65, n: 2, badge: "right" },
+    { x: 552, y: 342, w: 32, h: 32, n: 3, badge: "left" },
+    { x: 1126, y: 342, w: 92, h: 32, n: 4, badge: "bottom" },
+    { x: 6, y: 662, w: 254, h: 44, n: 5, badge: "right" },
+  ]}
+  caption="(1) Nuevo chat, Imágenes, Tareas programadas, Biblioteca, Complementos y Explorar. (2) Tus proyectos. (3) El botón +. (4) Pensar: que razone antes de responder. (5) Tu perfil. Nombre y chats son de ejemplo."
+/>
+
+- **Barra lateral (izquierda)**: **Nuevo chat**, **Imágenes**, **Tareas programadas**, **Biblioteca** (tus archivos), **Complementos** (las apps que conectas) y **Explorar**; debajo, tus **proyectos** y los chats **recientes**. La lupa de arriba busca en tus chats.
+- **El cuadro de texto**: el **`+`** para adjuntar archivos, crear una imagen, buscar en internet, trabajar en un proyecto o lanzar una **investigación avanzada**; con **`@`** llamas a un complemento por su nombre.
 - **Chat o Work**: en los planes que lo tienen, un selector para elegir entre conversar (Chat) o encargar un trabajo largo (Work, lección 6). Es el equivalente al «Chat o Cowork» de Claude.
-- **El selector de modelo y esfuerzo**, arriba o junto al cuadro de texto.
-- **Tu perfil** (abajo a la izquierda): **Ajustes**, con **Personalización** (instrucciones y memoria), **Notificaciones**, **Complementos** (las apps conectadas, también en la barra lateral) y los controles de datos.
+- **Pensar o el selector de esfuerzo**: en el plan gratuito, un botón **Pensar** para que razone antes de responder; en los de pago, un selector con varios niveles.
+- **Tu perfil** (abajo a la izquierda): **Personalización** (instrucciones, memoria y estilo) y **Configuración**, con **Notificaciones**, **Complementos** y **Controles de datos**.
+
+<Screenshot
+  src="chatgpt/menu-mas.jpg"
+  alt="Menú del botón más de ChatGPT abierto: Añadir fotos y archivos, Añadir desde la biblioteca, Crea una imagen, Búsqueda en Internet, Trabajar en un proyecto, Investigación avanzada, Dibujar y Razonamiento."
+  width={1490}
+  height={700}
+  date="noviembre de 2026"
+  marks={[
+    { x: 552, y: 398, w: 750, h: 70, n: 1, badge: "left" },
+    { x: 552, y: 506, w: 750, h: 106, n: 2, badge: "left" },
+    { x: 552, y: 650, w: 750, h: 34, n: 3, badge: "left" },
+  ]}
+  caption="El menú +: (1) adjuntar desde el ordenador o la biblioteca, (2) buscar en internet, trabajar en un proyecto e investigación avanzada, (3) razonamiento."
+/>
 
 <Callout kind="real">
-Si en tu empresa conviven las dos herramientas, lo práctico es tener **las mismas instrucciones** en ambas (lección 2) y decidir qué se hace en cada una con el criterio del último módulo: **dónde están los datos**. Lo que tiene datos de la empresa, en la cuenta de empresa; la cuenta personal de ChatGPT, para lo personal.
+Si en tu empresa conviven las dos herramientas, lo práctico es tener **las mismas instrucciones** en ambas (lección 2) y decidir qué se hace en cada una con el criterio del módulo 6: **dónde están los datos**. Lo que tiene datos de la empresa, en la cuenta de empresa; la cuenta personal de ChatGPT, para lo personal.
 </Callout>
 
 ## Modelos y esfuerzo
@@ -32,11 +62,11 @@ Los nombres de los modelos que hay detrás (en noviembre de 2026, la familia GPT
 <Quiz
   id="esfuerzo-chatgpt"
   options={[
-    "Pro, para que quede perfecto",
     "Instant o un esfuerzo medio",
+    "Pro, para que quede perfecto",
     "Da igual: todos los niveles gastan lo mismo",
   ]}
-  answer={1}
+  answer={0}
   explanation="Pasar una lista de asistentes a una tabla es una tarea sencilla: Instant la hace bien y al momento. Pro tarda mucho más y en los planes con límites gasta cuota que te puede hacer falta luego. Y no gastan lo mismo: más esfuerzo es más lento y consume más."
 >
 Tienes que convertir una lista de asistentes al consejo, que te han mandado en un correo, en una tabla con nombre, cargo y si confirma. ¿Qué nivel eliges?
@@ -48,15 +78,28 @@ Precios en España en noviembre de 2026 (cambian a menudo):
 
 | Plan | Precio | Lo que te importa |
 | --- | --- | --- |
-| **Gratis** | 0 € | Chat ilimitado con un modelo ligero; archivos, imágenes, voz e investigación limitados; Work, limitado y solo en escritorio |
+| **Gratis** | 0 € | Chat ilimitado con un modelo ligero; archivos, imágenes, voz e investigación limitados; **proyectos** y hasta 3 **tareas programadas** (como mucho, una al día); Work, limitado y solo en escritorio |
 | **Go** | 8 €/mes | Más mensajes, archivos, imágenes, voz y memoria; **puede incluir anuncios** |
-| **Plus** | 23 €/mes | Modelos de razonamiento, investigación avanzada, **proyectos y tareas programadas**, más Work en web, escritorio y móvil |
+| **Plus** | 23 €/mes | Modelos de razonamiento, investigación avanzada, más proyectos y tareas (también a hora exacta y **por evento**), más Work en web, escritorio y móvil |
 | **Pro** | desde 103 €/mes | Lo máximo de todo, varios niveles de uso y **tu dot** (lección 7) |
 | **Business** y **Enterprise** | por persona, lo contrata la empresa | Lo de Plus o Pro más controles de empresa, **skills** y agentes compartidos, y por defecto no entrenan con vuestros datos |
 
 <Callout kind="warn" title="Cuenta personal o de empresa">
-Una cuenta personal de ChatGPT, aunque sea Plus, **no es la cuenta de empresa**: el semáforo del módulo 1 se aplica igual. Revisa en **Ajustes → Controles de datos** si tus conversaciones se usan para mejorar los modelos (en los planes personales lo decides tú), y no pegues ahí datos ámbar o rojos de tu trabajo.
+Una cuenta personal de ChatGPT, aunque sea Plus, **no es la cuenta de empresa**: el semáforo del módulo 1 se aplica igual. Revisa en **Configuración → Controles de datos** el interruptor **Mejorar el modelo para todo el mundo**: si está activado, tus chats se usan para entrenar los modelos (en los planes personales viene activado y lo decides tú), y no pegues ahí datos ámbar o rojos de tu trabajo.
 </Callout>
+
+<Screenshot
+  src="chatgpt/controles-de-datos.jpg"
+  alt="Configuración de ChatGPT, sección Controles de datos, con el interruptor Mejorar el modelo para todo el mundo activado, y opciones para exportar, archivar o eliminar los chats."
+  width={1490}
+  height={700}
+  date="noviembre de 2026"
+  marks={[
+    { x: 6, y: 452, w: 328, h: 36, n: 1, badge: "right" },
+    { x: 544, y: 146, w: 766, h: 56, n: 2, badge: "left" },
+  ]}
+  caption="(1) Configuración → Controles de datos. (2) Mejorar el modelo para todo el mundo: activado, tus chats se usan para entrenar."
+/>
 
 <Practice
   id="tour-chatgpt"
@@ -65,18 +108,18 @@ Una cuenta personal de ChatGPT, aunque sea Plus, **no es la cuenta de empresa**:
     "Entra en chatgpt.com (o en la app) y localiza la barra lateral: buscar, proyectos y programadas.",
     "Abre el + del cuadro de texto y apunta qué herramientas te ofrece tu plan.",
     "Abre el selector de modelo y mira qué niveles de esfuerzo tienes.",
-    "Entra en Ajustes y recorre Personalización, Notificaciones, Complementos y Controles de datos, sin cambiar nada.",
-    "Comprueba en Controles de datos si tus chats se usan para entrenar y decide si lo quieres así.",
+    "Abre tu perfil y entra en Configuración: recorre Notificaciones, Complementos y Controles de datos, sin cambiar nada.",
+    "En Controles de datos, mira el interruptor Mejorar el modelo para todo el mundo y decide si lo quieres así.",
   ]}
   hints={["Si no ves el selector Chat / Work, tu plan o tu país aún no lo tienen: no te pierdes nada de las lecciones 1 a 5."]}
-  example={<>Al terminar deberías saber, sin buscar, dónde se adjunta un archivo, dónde se elige el esfuerzo, dónde están tus instrucciones y si tus conversaciones se usan para entrenar. Con un plan gratuito es normal ver menos herramientas en el <code>+</code> y no tener proyectos ni tareas programadas.</>}
+  example={<>Al terminar deberías saber, sin buscar, dónde se adjunta un archivo, dónde se elige el esfuerzo, dónde están tus instrucciones y si tus conversaciones se usan para entrenar. Con un plan gratuito es normal ver menos herramientas en el <code>+</code> y tener límites más bajos en proyectos y tareas programadas.</>}
 >
 Diez minutos de reconocimiento antes de pedirle nada serio.
 </Practice>
 
 ## Para llevar
 
-- Barra lateral (buscar, proyectos, programadas), el `+` y la `@` para herramientas y apps, Chat o Work, y Ajustes → Personalización.
+- Barra lateral (tareas programadas, biblioteca, complementos, proyectos), el `+` y la `@`, y en tu perfil **Personalización** y **Configuración**.
 - Elige **esfuerzo**, no modelo: Instant para lo rutinario, más esfuerzo solo cuando haga falta.
-- Gratis y Go para probar; **Plus** es el primero con proyectos y tareas programadas; Business y Enterprise son para datos de empresa.
+- Gratis y Go ya tienen proyectos y tareas programadas, con límites; **Plus** amplía y añade tareas por evento; Business y Enterprise son para datos de empresa.
 - Una cuenta personal no es la de la empresa: revisa los controles de datos y aplica el semáforo.

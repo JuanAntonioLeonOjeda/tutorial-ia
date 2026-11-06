@@ -2,7 +2,7 @@ En Claude tienes tres sitios para que no tengas que repetirte: tus instrucciones
 
 ## Instrucciones personalizadas
 
-En <MenuPath to={["Ajustes", "Personalización", "Instrucciones personalizadas"]} /> le dices a ChatGPT lo que es verdad en todas tus conversaciones. Están en **todos los planes** (web, escritorio y móvil) y se aplican al momento, incluso en los chats que ya tienes abiertos.
+En <MenuPath to={["Tu perfil", "Personalización", "Instrucciones personalizadas"]} /> le dices a ChatGPT lo que es verdad en todas tus conversaciones. Están en **todos los planes** (web, escritorio y móvil) y se aplican al momento, incluso en los chats que ya tienes abiertos.
 
 El espacio es limitado: **1.500 caracteres** en Gratis y Go, **5.000** en Plus y superiores. Si vienes de Claude, copia tus instrucciones tal cual y recórtalas si hace falta:
 
@@ -17,13 +17,41 @@ El espacio es limitado: **1.500 caracteres** en Gratis y Go, **5.000** en Plus y
 
 ## Memoria
 
-Con la **memoria** activada, ChatGPT recuerda preferencias y datos de tus conversaciones y puede consultar tus chats anteriores. Los controles están en <MenuPath to={["Ajustes", "Personalización"]} /> y, según tu plan y tu versión, se llaman **Memoria**, **Consultar memorias guardadas**, **Consultar historial de chats** y **Gestionar**.
+Con la **memoria** activada, ChatGPT recuerda preferencias y datos de tus conversaciones, archivos y apps conectadas. Los controles están en <MenuPath to={["Tu perfil", "Personalización"]} />, en **Memoria de ChatGPT**: **Habilitar memoria**, y **Resumen de memoria → Gestionar** para ver lo que ha aprendido de ti (y tus antiguas **memorias guardadas**).
+
+<Screenshot
+  src="chatgpt/personalizacion-memoria.jpg"
+  alt="Configuración de ChatGPT, Personalización: el apartado Memoria de ChatGPT con el interruptor Habilitar memoria y, debajo, Resumen de memoria con el botón Gestionar."
+  width={1490}
+  height={700}
+  date="noviembre de 2026"
+  marks={[
+    { x: 544, y: 140, w: 766, h: 68, n: 1, badge: "left" },
+    { x: 544, y: 222, w: 766, h: 82, n: 2, badge: "left" },
+  ]}
+  caption="(1) Habilitar memoria. (2) Resumen de memoria: Gestionar para ver y borrar lo que recuerda."
+/>
 
 Tres cosas que la hacen distinta de la de Claude:
 
 - **Ves de dónde sale cada cosa.** En las versiones recientes, ChatGPT puede enseñarte qué memorias o qué chats anteriores ha usado para una respuesta, y desde ahí corregirlos, borrarlos o marcarlos como no relevantes.
 - **Apagarla no borra nada.** Tus chats siguen ahí. Para que olvide algo de verdad, borra la memoria guardada **y** el chat donde se lo contaste: borrar solo el chat no siempre basta.
-- **Chat temporal.** Para algo que no quieres que recuerde ni que quede en el historial, abre un chat temporal (como el incógnito de Claude).
+- **Chat temporal.** En las versiones que lo tienen, un chat temporal no se recuerda ni queda en el historial (como el incógnito de Claude).
+
+En la misma página de Personalización hay algo que Claude no tiene con ese detalle: **Estilo y tono principales** y unos ajustes de **calidez**, **entusiasmo**, **emoji**, **encabezados y listas**. Para el trabajo, suele funcionar bajar el entusiasmo y los emoji, y dejar las listas en «predeterminado».
+
+<Screenshot
+  src="chatgpt/personalizacion-instrucciones.jpg"
+  alt="Personalización de ChatGPT: ajustes de calidez, entusiasmo, emoji, respuestas visuales y encabezados y listas, todos en Predeterminado, y debajo el apartado Instrucciones personalizadas."
+  width={1490}
+  height={700}
+  date="noviembre de 2026"
+  marks={[
+    { x: 544, y: 2, w: 766, h: 292, n: 1, badge: "left" },
+    { x: 544, y: 388, w: 766, h: 62, n: 2, badge: "left" },
+  ]}
+  caption="(1) El estilo de las respuestas: calidez, entusiasmo, emoji, encabezados y listas. (2) Instrucciones personalizadas."
+/>
 
 <Callout kind="warn">
 Revisa cada pocos meses qué recuerda (en Gestionar). Es fácil que haya guardado de pasada algo que no debería: la dirección de casa de tu jefa, el nombre de un candidato, un importe. Si es de la cuenta personal, con más motivo.
@@ -75,7 +103,7 @@ La configuración que funciona en ChatGPT es la misma que en Claude: unas instru
     "Hazle la misma petición que a tu proyecto de Claude y compara los resultados.",
     "Entra en Personalización → Gestionar y revisa qué recuerda de ti.",
   ]}
-  hints={["Los proyectos no están en todos los planes. Si no los tienes, pon la plantilla y las reglas en tus instrucciones personalizadas y adjunta los ejemplos al chat."]}
+  hints={["Los proyectos están en todos los planes, también el gratuito, pero cuántos archivos admite cada uno depende del plan. Si no te caben, deja la plantilla y un solo ejemplo, y pon las reglas en las instrucciones del proyecto."]}
   example={<>Con las mismas instrucciones y los mismos archivos, Claude y ChatGPT suelen dar resultados muy parecidos: cambian el estilo y algún detalle. Si uno se inventa más (un asistente que no estaba, una fecha), anótalo: es una buena razón para elegir herramienta en ese tipo de tarea.</>}
 >
 Reproduce en ChatGPT el contexto que ya tienes en Claude.
@@ -83,7 +111,7 @@ Reproduce en ChatGPT el contexto que ya tienes en Claude.
 
 ## Para llevar
 
-- **Instrucciones personalizadas** (Ajustes → Personalización): lo que es verdad siempre; 1.500 caracteres en Gratis y Go, 5.000 en el resto.
+- **Instrucciones personalizadas** (tu perfil → Personalización): lo que es verdad siempre; 1.500 caracteres en Gratis y Go, 5.000 en el resto.
 - **Memoria**: ves de dónde sale cada respuesta y la corriges; para olvidar algo, borra la memoria y el chat.
 - **Chat temporal** para lo que no debe quedar.
 - **Proyectos**: archivos, instrucciones que mandan sobre las generales, memoria propia si quieres y se pueden compartir.

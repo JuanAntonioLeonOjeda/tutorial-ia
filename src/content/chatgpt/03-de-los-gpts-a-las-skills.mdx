@@ -21,13 +21,26 @@ Según la ayuda de OpenAI (noviembre de 2026):
 - La migración usa la **última versión publicada**: los borradores y los cambios sin publicar no pasan.
 
 <Callout kind="warn" title="Antes del 11 de diciembre">
-Si usas un GPT del que dependes, **guarda hoy sus instrucciones y sus archivos** (si lo hiciste tú, ábrelo en modo edición y copia el texto; si es de una compañera, pídeselo). Y apunta tres o cuatro peticiones típicas con su resultado, para comprobar que lo que lo sustituya funciona igual.
+Si usas un GPT del que dependes, **guarda hoy sus instrucciones y sus archivos** (si lo hiciste tú, ábrelo en modo edición y copia el texto; si es de una compañera, pídeselo). Y apunta tres o cuatro peticiones típicas con su resultado, para comprobar que lo que lo sustituya funciona igual. Según las preguntas frecuentes de OpenAI, al migrar **no pasan** las acciones (las conexiones con otras herramientas hay que rehacerlas), el modelo elegido ni, a veces, las frases de inicio; y lo migrado empieza siendo privado: pruébalo antes de compartirlo.
 </Callout>
 
 ## Lo que los sustituye: plugins y skills
 
 - **Complementos** (*plugins*): juntan **skills** (instrucciones y procedimientos) y **apps conectadas** para un tipo de tarea. Hay un directorio de plugins en todos los planes, pero instalar o usar cada uno depende de tu plan, tu empresa y tu país. Es el camino oficial de migración de los GPTs.
-- **Skills**: procedimientos reutilizables que ChatGPT **aplica solo cuando encajan** con lo que pides, igual que las skills de Claude. Se crean conversando (**Skills → Crear → Crear con chat**: ChatGPT usa su propia skill para crear skills) y se comparten con compañeras, grupos o toda la empresa. En noviembre de 2026 están en los planes de empresa (Business, Enterprise, Edu), según lo que active el administrador.
+- **Habilidades** (*skills*): procedimientos reutilizables que ChatGPT **aplica solo cuando encajan** con lo que pides, igual que las skills de Claude. Están en **Complementos → Habilidades**; se crean conversando (**Crear → Crear con chat**: ChatGPT usa su propia habilidad para crear habilidades) y se comparten con compañeras, grupos o toda la empresa. En noviembre de 2026 están **solo en los planes de empresa** (Business, Enterprise, Edu), según lo que active el administrador: en una cuenta personal verás la pestaña, pero vacía.
+
+<Screenshot
+  src="chatgpt/habilidades.jpg"
+  alt="Página Complementos de ChatGPT con la pestaña Habilidades abierta y el mensaje Las habilidades no están disponibles para esta cuenta, en un plan Gratis."
+  width={1490}
+  height={700}
+  date="noviembre de 2026"
+  marks={[
+    { x: 494, y: 8, w: 112, h: 36, n: 1, badge: "bottom" },
+    { x: 700, y: 244, w: 456, h: 34, n: 2, badge: "bottom" },
+  ]}
+  caption="(1) Habilidades, junto a Complementos. (2) En una cuenta personal, de momento, no están disponibles."
+/>
 
 <Callout kind="idea" title="Los tres van al mismo sitio">
 Claude tiene skills; ChatGPT cambia los GPTs por skills y plugins; Google cambia las Gems por skills (módulo 5). La idea que aprendiste en el módulo 3 es la que se queda: **un procedimiento bien escrito, con su descripción de cuándo usarlo, que el asistente aplica solo**. Si escribes bien una skill para una herramienta, la pasas a otra en una tarde.
