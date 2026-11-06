@@ -2,7 +2,22 @@ Los proyectos sirven para un área de trabajo. Pero hay cosas que valen para **t
 
 ## Instrucciones para Claude
 
-En <MenuPath to={["Ajustes", "Tu Claude"]} /> (en la versión anterior, «Cuenta» o «Perfil») hay un campo de **instrucciones para Claude**: un texto corto que tiene en cuenta en todas las conversaciones. Pon ahí lo que es verdad siempre:
+En <MenuPath to={["Ajustes", "Cuenta"]} /> hay un campo de **Instrucciones para Claude**: un texto corto que tiene en cuenta en todas las conversaciones, tanto en los chats como en Cowork. Su sitio cambia según la versión y el idioma (en la interfaz en inglés, por ejemplo, tiene sección propia: «Your Claude»); si no lo ves, busca «instrucciones» en el buscador de Ajustes.
+
+<Screenshot
+  src="claude/ajustes-cuenta.jpg"
+  alt="Ajustes de claude.ai, sección Cuenta: nombre completo, cómo quieres que Claude te llame y, debajo, el campo Instrucciones para Claude con un texto de ejemplo de Ana, asistente de dirección de Laura Martín."
+  width={1512}
+  height={716}
+  date="noviembre de 2026"
+  marks={[
+    { x: 258, y: 189, w: 184, h: 34, n: 1 },
+    { x: 466, y: 247, w: 794, h: 192, n: 2 },
+  ]}
+  caption="(1) Ajustes → Cuenta. (2) Instrucciones para Claude, con un ejemplo. Nombre y texto son de ejemplo."
+/>
+
+Pon ahí lo que es verdad siempre:
 
 <Prompt
   title="Instrucciones para Claude"
@@ -29,10 +44,24 @@ En versiones anteriores de Claude había un selector de **estilos** (normal, con
 
 Con la **memoria** activada, Claude recuerda cosas de conversaciones anteriores: en qué estás trabajando, preferencias que le dijiste de pasada, nombres. También puede **buscar en tus chats anteriores** cuando le preguntas por algo («¿qué hotel reservamos en Bruselas la otra vez?»).
 
-- En <MenuPath to={["Ajustes", "Memoria"]} /> ves lo que recuerda, ordenado por **temas** que puedes editar o borrar, y un ajuste para los **temas sensibles**.
+- En <MenuPath to={["Ajustes", "Memoria"]} /> hay dos interruptores: **buscar y consultar chats** anteriores y **generar memoria** a partir de tus chats. Con la memoria activada, según la ayuda de Claude puedes ver lo que recuerda, editarlo o borrarlo.
+
+<Screenshot
+  src="claude/ajustes-memoria.jpg"
+  alt="Ajustes de claude.ai, sección Memoria, con dos interruptores: Buscar y consultar chats, activado, y Generar memoria a partir de los chats, desactivado."
+  width={1512}
+  height={716}
+  date="noviembre de 2026"
+  marks={[
+    { x: 468, y: 120, w: 780, h: 58, n: 1 },
+    { x: 468, y: 189, w: 780, h: 58, n: 2 },
+  ]}
+  caption="(1) Que Claude busque en tus chats anteriores cuando le preguntas por algo. (2) Que vaya guardando recuerdos de tus chats."
+/>
+
 - Puedes **pausarla** (no usa ni crea recuerdos, pero no los borra) o **reiniciarla** (lo borra todo, también la de los proyectos).
 - Cada **proyecto tiene su propia memoria**: lo de «Consejo» no se mezcla con lo de «Viajes». Si quieres que un proyecto tampoco use lo que Claude sabe de ti en general, desactiva **Usar memoria de la cuenta** en ese proyecto.
-- Para que **un chat concreto** no se recuerde, apaga **Memoria** en el `+` antes de enviar el primer mensaje. El chat sí queda en tu historial.
+- Para que **un chat concreto** no se recuerde, en algunas versiones puedes apagar la memoria solo para ese chat antes de enviar el primer mensaje; si no encuentras la opción, usa un chat incógnito.
 - Para que no quede **ni en el historial**, usa un **chat incógnito**. Solo funciona fuera de proyectos.
 - En cuentas de empresa, el administrador puede tener la memoria desactivada.
 
@@ -44,7 +73,7 @@ La memoria es cómoda, pero no la uses como archivo: lo que debe saber **siempre
 
 | Si es… | Va en… |
 | --- | --- |
-| Verdad en todas tus conversaciones (quién eres, idioma, «sé breve», tu forma de escribir) | Instrucciones para Claude (Ajustes → Tu Claude) |
+| Verdad en todas tus conversaciones (quién eres, idioma, «sé breve», tu forma de escribir) | Instrucciones para Claude (Ajustes → Cuenta) |
 | Contexto de un área de trabajo (personas, plantillas, reglas) | Instrucciones y conocimiento de un proyecto |
 | Lo que ha ido saliendo y no quieres repetir | Memoria (automática) |
 | Un procedimiento paso a paso, o un tono para un tipo de texto, que se aplique cuando toque | Una skill (módulo 3) |
@@ -55,7 +84,7 @@ Una configuración típica que dura: unas instrucciones generales de diez línea
 
 <Quiz
   id="que-va-donde"
-  options={["Instrucciones para Claude (Tu Claude)", "Una skill", "Instrucciones del proyecto «Consejo»", "Memoria"]}
+  options={["Tus instrucciones para Claude (Ajustes)", "Una skill", "Instrucciones del proyecto «Consejo»", "Memoria"]}
   answer={2}
   explanation="Es contexto de un área concreta (el consejo), estable y que debe cumplirse siempre. Va en las instrucciones de ese proyecto. En tus instrucciones generales se aplicaría también a tus correos de viajes, y la memoria no garantiza que lo recuerde exactamente."
 >
@@ -75,7 +104,7 @@ Quieres pedir ayuda con un tema personal delicado sin que quede en tu historial 
   id="personalizar"
   title="Personaliza tu Claude"
   steps={[
-    "Rellena tus instrucciones en Ajustes → Tu Claude (usa la plantilla si te sirve).",
+    "Rellena tus instrucciones en Ajustes → Cuenta (usa la plantilla si te sirve).",
     "Pega 3–5 correos tuyos en un chat y pide que describa tu forma de escribir en ocho reglas. Corrígelas y añádelas a tus instrucciones.",
     "Abre Ajustes → Memoria y revisa qué recuerda de ti. Borra lo que no deba saber.",
     "Abre un chat nuevo sin proyecto y pide un correo cualquiera: ¿se nota el cambio?",
@@ -88,7 +117,7 @@ Deja Claude configurado a tu medida.
 
 ## Para llevar
 
-- **Instrucciones para Claude** (Ajustes → Tu Claude): lo que es verdad siempre, incluida tu forma de escribir.
+- **Instrucciones para Claude** (Ajustes → Cuenta): lo que es verdad siempre, incluida tu forma de escribir.
 - **Proyecto**: contexto de un área. **Skill**: un procedimiento o un tono que se aplica cuando toca.
 - La **memoria** recuerda lo que va saliendo; revísala en Ajustes → Memoria y no la uses como archivo.
 - Memoria apagada en un chat para que no se recuerde; **incógnito** para que no quede ni en el historial.

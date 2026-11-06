@@ -37,7 +37,23 @@ Preguntas «¿tengo hueco el jueves a las 12?» y no tienes conectado el calenda
 
 ## Activarlos
 
-1. Ve a <MenuPath to={["Personalizar", "Conectores"]} /> y pulsa **`+` (Añadir)** para abrir el **directorio** (también se llega desde el `+` del cuadro de texto). Cada conector tiene su ficha: qué puede leer, qué puede escribir y en qué planes está.
+1. Ve a <MenuPath to={["Personalización", "Conectores"]} /> (en la barra lateral). En **Descubrir** está el **directorio**, con los más populares arriba; en **Tuyos**, los que ya tienes. También se llega desde el `+` del cuadro de texto → **Añadir conector**. Cada conector tiene su ficha: qué puede leer, qué puede escribir y en qué planes está.
+
+<Screenshot
+  src="claude/conectores.jpg"
+  alt="Página Personalización de claude.ai con la pestaña Conectores abierta: un carrusel de conectores destacados y, debajo, los más populares, entre ellos Google Drive, Gmail, Google Calendar y Microsoft 365, cada uno con un botón más para añadirlo."
+  width={1490}
+  height={700}
+  date="noviembre de 2026"
+  marks={[
+    { x: 8, y: 255, w: 272, h: 33, n: 1 },
+    { x: 478, y: 86, w: 103, h: 32, n: 2 },
+    { x: 686, y: 86, w: 154, h: 32, n: 3 },
+    { x: 418, y: 518, w: 964, h: 182, n: 4 },
+  ]}
+  caption="(1) Personalización, en la barra lateral. (2) La pestaña Conectores. (3) Tuyos o Descubrir. (4) Los más usados: Drive, Gmail, Calendar y Microsoft 365 (Outlook)."
+/>
+
 2. Pulsa **Conectar**: se abre la página de Google o Microsoft para que inicies sesión y aceptes permisos.
 3. En cada conversación, los activas o desactivas en el `+` del cuadro de texto → **Conectores**.
 
@@ -64,11 +80,40 @@ Lo aprendido sobre prompts sigue valiendo, con dos trucos:
   ]}
 />
 
+## El correo y la agenda de tu jefa
+
+Tu trabajo no está solo en tu buzón: está en el **correo y la agenda de Laura**, a los que tienes acceso por **delegación** (ella te da permiso para ver o gestionar su buzón y su calendario sin darte su contraseña). Aquí las herramientas de IA se comportan distinto, y conviene saberlo antes de prometerle nada:
+
+- **Google (Gmail y Calendar)**: el conector solo ve **la cuenta con la que te conectas**, con tus mismos permisos. Ve los **calendarios compartidos contigo**, así que si Laura te comparte su agenda, Claude puede leerla; su buzón de Gmail, no.
+- **Microsoft 365 (Outlook)**: según la ayuda de Claude, el conector puede **buscar** (solo leer) en los **buzones compartidos o delegados** a los que ya tienes acceso.
+- **Copilot en Outlook** (módulo 4) trabaja dentro del buzón delegado para resumir y redactar, pero de momento no envía ni organiza reuniones desde él.
+
+<Callout kind="warn" title="Nunca con la contraseña de tu jefa">
+Conectar la cuenta de Laura iniciando sesión con su contraseña es saltarse la delegación: lo que haga Claude parecerá hecho por ella, y suele ir contra la política de seguridad de la empresa. Usa tu cuenta y los permisos que IT te haya dado.
+</Callout>
+
+<Callout kind="real">
+Lo que funciona en la mayoría de oficinas: Laura te **comparte su calendario** (con permiso de edición si gestionas su agenda), tú conectas **tu** cuenta, y para su correo pides a IT el acceso delegado oficial. Así Claude puede preparar «la agenda de Laura de mañana» leyendo su calendario y tus correos, y lo que se envíe sale con tu nombre o como borrador para que ella lo revise.
+</Callout>
+
+<Quiz
+  id="delegacion"
+  options={[
+    "Conectar en Claude la cuenta de Gmail de Laura con su contraseña",
+    "Que Laura te comparta su calendario y conectar tu propia cuenta",
+    "Copiar cada mañana su agenda y pegarla en el chat",
+  ]}
+  answer={1}
+  explanation="El conector de Google ve los calendarios compartidos con tu cuenta, así que con su agenda compartida Claude la lee con tus permisos. Usar su contraseña salta la delegación y la seguridad de la empresa; copiar y pegar funciona, pero es justo el trabajo que querías ahorrarte."
+>
+Quieres que Claude te prepare cada mañana el resumen de la agenda de Laura. Tu empresa usa Google Workspace. ¿Qué haces?
+</Quiz>
+
 <Practice
   id="conectar"
   title="Conecta correo y calendario"
   steps={[
-    "En Personalizar → Conectores, conecta tu correo y tu calendario (o comprueba con IT cuáles están permitidos).",
+    "En Personalización → Conectores, conecta tu correo y tu calendario (o comprueba con IT cuáles están permitidos).",
     "Pregunta: «¿Qué tengo mañana?» y comprueba que coincide con tu agenda.",
     "Pide: «Busca en mi correo los mensajes de [persona] de las dos últimas semanas y resúmelos en cinco puntos».",
     "Pide un borrador de respuesta a uno de ellos, sin enviarlo, y míralo en tu carpeta de borradores.",
@@ -88,6 +133,7 @@ El orden habitual: primero **calendario** (solo lectura de agendas, poco riesgo)
 
 - Un **conector** (por debajo, MCP) deja a Claude ver y usar tus herramientas con tus permisos.
 - Correo, calendario y documentos son los tres imprescindibles.
-- Se conectan en **Personalizar → Conectores** y se activan por chat en el `+`; en empresa, IT decide cuáles.
+- Se conectan en **Personalización → Conectores** y se activan por chat en el `+`; en empresa, IT decide cuáles.
 - Lo que escribe o envía te lo pregunta: lee antes de permitir y prefiere borradores.
+- Con el correo y la agenda de tu jefa: tu cuenta, su calendario compartido y la delegación oficial; nunca su contraseña.
 - Acota la búsqueda («de la última semana», «de este remitente») para que acierte más.

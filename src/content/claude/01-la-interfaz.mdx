@@ -19,23 +19,68 @@ Desde septiembre de 2026, Anthropic está activando poco a poco una versión en 
 
 ## La pantalla, por zonas
 
-**Barra lateral (izquierda).** Nuevo chat, tus **proyectos**, tus **artefactos** y el historial de chats. Arriba suele haber un buscador: puedes buscar en tus conversaciones antiguas.
+<Screenshot
+  src="claude/inicio.jpg"
+  alt="Pantalla de inicio de claude.ai en español. A la izquierda, la barra lateral con Nuevo, Buscar, Proyectos, Artefactos, Programadas y Personalización, y debajo los chats fijados y recientes. En el centro, el cuadro de texto con el botón más, el selector Chat o Cowork y el nombre del modelo. Abajo a la izquierda, el nombre de la cuenta."
+  width={1512}
+  height={716}
+  date="noviembre de 2026"
+  marks={[
+    { x: 8, y: 86, w: 272, h: 200, n: 1 },
+    { x: 8, y: 310, w: 272, h: 352, n: 2 },
+    { x: 579, y: 391, w: 32, h: 31, n: 3 },
+    { x: 612, y: 391, w: 122, h: 31, n: 4 },
+    { x: 1006, y: 391, w: 142, h: 31, n: 5 },
+    { x: 8, y: 677, w: 122, h: 30, n: 6 },
+  ]}
+  caption="(1) Barra lateral: Nuevo, Buscar, Proyectos, Artefactos, Programadas y Personalización. (2) Tus chats: los fijados arriba y el resto debajo. (3) El botón +. (4) Chat o Cowork. (5) El modelo. (6) El menú de tu cuenta. Los títulos de los chats son de ejemplo."
+/>
+
+**Barra lateral (izquierda).** Nuevo chat, **Buscar** en tus conversaciones antiguas, tus **proyectos**, tus **artefactos**, las tareas **programadas** (módulo 3) y **Personalización**, donde viven tus **skills**, **conectores** y **plugins** (módulo 3). Debajo, el historial: puedes **fijar** arriba los chats que usas a diario.
 
 **El cuadro de texto.** Además de escribir:
 
-- **El botón `+`**: adjuntar archivos o fotos, activar **Investigación**, encender o apagar los **conectores** de esta conversación y apagar la **memoria** solo para este chat. En la versión anterior, también la **búsqueda web**; en la nueva no hay interruptor: Claude busca en internet cuando le hace falta (y puedes pedirle que no lo haga).
-- **El nombre del modelo**, junto al botón de enviar: elige **modelo**, **esfuerzo** y **pensamiento**. Tiene lección propia, la siguiente.
+- **El botón `+`**: adjuntar archivos o fotos, añadir desde Google Drive, añadir el chat a un proyecto, elegir una **skill**, añadir un **conector** y activar **Investigación** o la **búsqueda web**. En la versión nueva no hay interruptor de búsqueda: Claude busca en internet cuando le hace falta (y puedes pedirle que no lo haga).
+- **Chat o Cowork**: si ves este selector, eliges si quieres conversar o encargar una tarea larga (módulo 3).
+- **El nombre del modelo**, junto al botón de enviar: elige **modelo** y **esfuerzo**. Tiene lección propia, la siguiente.
 
-**El menú de tu cuenta** (tu inicial, abajo a la izquierda):
+<Screenshot
+  src="claude/menu-mas.jpg"
+  alt="Menú del botón más abierto: Subir o añadir archivos, Añadir desde Google Drive, Hacer una captura de pantalla, Añadir al proyecto, Skills, Añadir conector, Sistema de diseño, Añadir plugins, Investigación y Búsqueda web."
+  width={1512}
+  height={716}
+  date="noviembre de 2026"
+  marks={[
+    { x: 589, y: 31, w: 306, h: 72, n: 1 },
+    { x: 589, y: 206, w: 306, h: 110, n: 2 },
+    { x: 589, y: 326, w: 306, h: 56, n: 3 },
+  ]}
+  caption="El menú +: (1) adjuntar, (2) skills, conectores y plugins para esta conversación, (3) Investigación y búsqueda web."
+/>
 
-- **Ajustes**: **Tu Claude** (tus instrucciones para todas las conversaciones), **Memoria**, **Capacidades** (por ejemplo, crear y editar archivos), **Uso** (cuánto llevas gastado), **Apariencia** y privacidad.
-- **Personalizar**: tus **skills**, **conectores** y **plugins**, todo junto (módulo 3).
+**El menú de tu cuenta** (tu nombre, abajo a la izquierda): **Ajustes**, **Uso** (cuánto llevas gastado), **Idioma** de la interfaz y la ayuda.
+
+<Screenshot
+  src="claude/menu-cuenta.jpg"
+  alt="Menú de la cuenta abierto desde abajo a la izquierda: Ajustes, Uso, Idioma, Obtener ayuda, Mejorar plan, Consigue apps y extensiones, Más información y Cerrar sesión."
+  width={1512}
+  height={716}
+  date="noviembre de 2026"
+  marks={[
+    { x: 15, y: 385, w: 258, h: 28, n: 1 },
+    { x: 15, y: 413, w: 258, h: 28, n: 2 },
+    { x: 15, y: 441, w: 258, h: 28, n: 3 },
+  ]}
+  caption="(1) Ajustes. (2) Uso. (3) Idioma: si tu Claude está en inglés, aquí lo pones en español."
+/>
+
+En **Ajustes** están, entre otras: **Cuenta** (tu nombre y las **Instrucciones para Claude**, que valen para todas las conversaciones), **Uso**, **Capacidades** (por ejemplo, crear archivos), **Memoria**, **Privacidad** y la apariencia. La lista cambia según la versión y el idioma: en inglés, por ejemplo, las instrucciones aparecen en una sección propia, «Your Claude».
 
 <Quiz
   id="donde-busqueda"
-  options={["En Ajustes → Tu Claude", "En el botón + del cuadro de texto", "En la barra lateral, debajo de Proyectos"]}
+  options={["En Ajustes → Cuenta", "En el botón + del cuadro de texto", "En la barra lateral, debajo de Proyectos"]}
   answer={1}
-  explanation="La Investigación, los conectores y la memoria de este chat se activan por conversación desde el botón + del cuadro de texto. Ajustes es para lo que se aplica a todas las conversaciones."
+  explanation="La Investigación y los conectores se activan por conversación desde el botón + del cuadro de texto. Ajustes es para lo que se aplica a todas las conversaciones, y la barra lateral es para moverte entre proyectos y chats."
 >
 Quieres que Claude haga una Investigación a fondo para esta pregunta concreta. ¿Dónde la activas?
 </Quiz>
@@ -49,7 +94,7 @@ Quieres que Claude haga una Investigación a fondo para esta pregunta concreta. 
 - **Mayúsculas + Intro** hace un salto de línea sin enviar.
 
 <Callout kind="real">
-Una asistente de dirección con soltura en Claude suele tener: la app de escritorio con el atajo de teclado configurado, cuatro o cinco **proyectos** fijos (dirección, consejo, viajes, eventos…), sus **instrucciones** en «Tu Claude» rellenas y los conectores de correo y calendario activados. Todo eso lo montas en este módulo y el siguiente.
+Una asistente de dirección con soltura en Claude suele tener: la app de escritorio con el atajo de teclado configurado, cuatro o cinco **proyectos** fijos (dirección, consejo, viajes, eventos…), sus **instrucciones** para Claude rellenas y los conectores de correo y calendario activados. Todo eso lo montas en este módulo y el siguiente.
 </Callout>
 
 <Practice
@@ -58,12 +103,12 @@ Una asistente de dirección con soltura en Claude suele tener: la app de escrito
   steps={[
     "Instala la app de escritorio de Claude (desde claude.com/download) si aún no la tienes, e inicia sesión.",
     "Busca en la barra lateral una conversación antigua por una palabra que recuerdes.",
-    "Abre el botón + del cuadro de texto y localiza: Investigación, conectores y memoria. Luego pulsa el nombre del modelo, junto a enviar, y mira las opciones de esfuerzo.",
-    "Abre Ajustes y recorre las secciones (Tu Claude, Memoria, Capacidades, Uso…) y luego Personalizar. Solo mira, aún no cambies nada.",
+    "Abre el botón + del cuadro de texto y localiza: adjuntar, Investigación y conectores. Luego pulsa el nombre del modelo, junto a enviar, y mira las opciones de esfuerzo.",
+    "Abre Ajustes y recorre las secciones (Cuenta, Uso, Capacidades, Memoria…) y luego Personalización, en la barra lateral. Solo mira, aún no cambies nada.",
     "Escribe un mensaje, edítalo con el lápiz y regenera la respuesta.",
   ]}
   hints={["Si en tu empresa no puedes instalar programas, pide a IT la app de escritorio de Claude o sigue en el navegador."]}
-  example={<>Al terminar deberías saber, sin buscar, dónde se adjunta, dónde se activan la Investigación y los conectores, dónde se elige el modelo y dónde están Ajustes y Personalizar. Apunta en un papel lo que no encontraste: suele ser algo que tu cuenta de empresa tiene desactivado.</>}
+  example={<>Al terminar deberías saber, sin buscar, dónde se adjunta, dónde se activan la Investigación y los conectores, dónde se elige el modelo y dónde están Ajustes y Personalización. Apunta en un papel lo que no encontraste: suele ser algo que tu cuenta de empresa tiene desactivado.</>}
 >
 Recorre la interfaz con calma una vez. Cinco minutos ahora te ahorran muchos después.
 </Practice>
@@ -71,7 +116,7 @@ Recorre la interfaz con calma una vez. Cinco minutos ahora te ahorran muchos des
 ## Para llevar
 
 - Claude está en web, escritorio, móvil y dentro de otras herramientas, con los mismos chats.
-- El cuadro de texto esconde mucho: el `+` (adjuntar, Investigación, conectores, memoria) y el menú del modelo.
-- **Ajustes** y **Personalizar** valen para todas las conversaciones; el `+`, para la de ahora.
+- El cuadro de texto esconde mucho: el `+` (adjuntar, skills, conectores, Investigación) y el menú del modelo.
+- **Ajustes** y **Personalización** valen para todas las conversaciones; el `+`, para la de ahora.
 - Edita tus mensajes en vez de corregirte en el siguiente.
 - Si un botón ha cambiado de sitio, pregúntale a Claude dónde está.

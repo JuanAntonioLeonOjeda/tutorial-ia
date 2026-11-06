@@ -8,7 +8,8 @@ description: Organiza un viaje de trabajo de la dirección (itinerario, vuelos, 
 ## Datos que necesitas (pregunta lo que falte)
 
 - Viajero, destino, fechas y horas de las citas fijas.
-- Presupuesto o categoría según la política de viajes.
+- Presupuesto o categoría según la política de viajes: consúltala en
+  `references/politica-de-viajes.md` cuando haya que elegir clase, hotel o dietas.
 - Preferencias: ventanilla o pasillo, tren frente a avión por debajo de 3 h, hoteles
   habituales, alergias.
 
