@@ -6,14 +6,60 @@ En 2026 Google convirtió las Gems en skills, renombró NotebookLM como Gemini N
 
 ## La pantalla, por zonas
 
-- **Menú lateral (izquierda)**: chat nuevo, tus chats, tus **notebooks** (lección 5), las tareas **programadas** (lección 6) y **Personalizar**, donde están tus **skills** y las **apps conectadas**.
-- **El cuadro de texto**: **añadir archivos** y herramientas como **Deep Research** o **Canvas** (lección 4); y, en la parte de abajo, el **modelo** que vas a usar.
+<Screenshot
+  src="gemini/inicio.jpg"
+  alt="Pantalla de inicio de Gemini en español con el menú lateral abierto: Nueva conversación, Biblioteca, Imágenes, Programado, Personalizar y Vídeos, los cuadernos debajo y el nombre de la cuenta abajo. En el centro, el cuadro de texto con el botón más y el modelo Flash, y un aviso de que revisores humanos pueden leer algunas conversaciones."
+  width={1470}
+  height={700}
+  date="noviembre de 2026"
+  marks={[
+    { x: 8, y: 60, w: 272, h: 190, n: 1, badge: "right" },
+    { x: 8, y: 270, w: 272, h: 56, n: 2, badge: "right" },
+    { x: 588, y: 342, w: 28, h: 32, n: 3, badge: "left" },
+    { x: 1080, y: 342, w: 78, h: 32, n: 4, badge: "bottom" },
+    { x: 570, y: 455, w: 660, h: 188, n: 5, badge: "left" },
+    { x: 8, y: 660, w: 272, h: 40, n: 6, badge: "right" },
+  ]}
+  caption="(1) Nueva conversación, Biblioteca, Imágenes, Programado, Personalizar y Vídeos. (2) Tus cuadernos. (3) El botón +. (4) El modelo. (5) El aviso de que, en una cuenta personal, personas pueden revisar conversaciones. (6) Tu cuenta y la rueda de ajustes. Nombre y ciudad son de ejemplo."
+/>
+
+- **Menú lateral (izquierda)**: **Nueva conversación**, **Biblioteca** (tus archivos), **Imágenes**, **Programado** (lección 6), **Personalizar** (tus **habilidades** y **conectores**) y **Vídeos**; debajo, tus **cuadernos** (lección 5) y abajo la **Actividad** (lo que Google guarda de tus chats).
+- **El cuadro de texto**: el **`+`** para subir archivos, añadir desde Drive, crear imágenes y, en **Más herramientas**, **Canvas** y **Deep Research** (lección 4); a la derecha, el **modelo**. Con **`@`** llamas a tus conectores y habilidades.
 - **Chat o Tarea**: si ves este selector, es el modo agente de Gemini (lección 6). En España, con una cuenta normal, no lo verás.
-- **Ajustes**: **Contexto personal** (tus instrucciones, lección 2), los **límites de uso** y la **actividad** (el historial que Google guarda).
+- **La rueda junto a tu nombre** abre los ajustes: **Límites de uso**, **Contexto personal** (tus instrucciones, lección 2), **Habilidades**, **Aplicaciones conectadas**, **Gems** y el **Tema**.
+
+<Screenshot
+  src="gemini/menu-ajustes.jpg"
+  alt="Menú de ajustes de Gemini abierto desde la rueda: Límites de uso, Gestionar suscripción, Contexto personal, Habilidades, Aplicaciones conectadas, Gems, Tema y opciones de datos y privacidad."
+  width={1470}
+  height={700}
+  date="noviembre de 2026"
+  marks={[
+    { x: 252, y: 126, w: 224, h: 68, n: 1, badge: "right" },
+    { x: 252, y: 268, w: 224, h: 30, n: 2, badge: "right" },
+    { x: 252, y: 304, w: 224, h: 66, n: 3, badge: "right" },
+  ]}
+  caption="(1) Límites de uso y tu suscripción. (2) Contexto personal: tus instrucciones y la memoria. (3) Habilidades y Aplicaciones conectadas."
+/>
 
 ## Modelos y nivel de pensamiento
 
-Gemini elige el modelo **automáticamente** según lo que pidas, salvo que lo cambies tú desde la parte de abajo del cuadro de texto. Los nombres en noviembre de 2026:
+Gemini elige el modelo **automáticamente** según lo que pidas, salvo que lo cambies tú con el botón del modelo, a la derecha del cuadro de texto:
+
+<Screenshot
+  src="gemini/modelos.jpg"
+  alt="Selector de modelo de Gemini abierto: 3.5 Flash-Lite, respuestas rápidas; 3.8 Flash, ayuda completa, marcado; 3.1 Pro, razonamiento avanzado; 4 Argon, tareas complejas; y debajo Nivel de razonamiento."
+  width={1470}
+  height={700}
+  date="noviembre de 2026"
+  marks={[
+    { x: 942, y: 392, w: 220, h: 200, n: 1, badge: "left" },
+    { x: 942, y: 612, w: 220, h: 38, n: 2, badge: "left" },
+  ]}
+  caption="(1) Los modelos, de más rápido a más capaz, con una línea que dice para qué. (2) El nivel de razonamiento."
+/>
+
+Los nombres en noviembre de 2026 (con su número de versión, que cambia):
 
 | Modelo | Para qué |
 | --- | --- |
@@ -21,7 +67,7 @@ Gemini elige el modelo **automáticamente** según lo que pidas, salvo que lo ca
 | **Pro** | Tareas más difíciles |
 | **Argon** | El más capaz, en los planes Pro y Ultra |
 
-Además puedes elegir el **nivel de pensamiento**: bajo (el que viene por defecto), medio o alto. La regla es la de siempre: **empieza por lo rápido y sube solo si se queda corto**.
+Además puedes elegir el **nivel de razonamiento**: bajo (el que viene por defecto), medio o alto. La regla es la de siempre: **empieza por lo rápido y sube solo si se queda corto**.
 
 ## Los planes
 
@@ -70,9 +116,9 @@ En las empresas con Google Workspace, lo habitual es que IT active Gemini para t
   title="Visita guiada a Gemini"
   steps={[
     "Entra en gemini.google.com con la cuenta que uses para el trabajo (si la tienes con Gemini) o con la personal.",
-    "Localiza en el menú lateral tus chats, Personalizar y, si los tienes, notebooks y programadas.",
+    "Abre el menú lateral y localiza Programado, Personalizar y tus cuadernos.",
     "Mira qué modelo está usando y qué opciones te deja elegir en la parte de abajo del cuadro de texto.",
-    "Entra en Ajustes y busca Contexto personal, los límites de uso y la actividad.",
+    "Pulsa la rueda junto a tu nombre y busca Contexto personal y Límites de uso; luego mira la Actividad.",
     "Con una cuenta personal, decide en la actividad si quieres que tus chats se guarden y se usen para mejorar los productos.",
   ]}
   hints={["Con una cuenta de trabajo, la actividad y el historial los controla el administrador: es normal que no puedas cambiarlos."]}
@@ -83,7 +129,7 @@ Diez minutos para saber con qué cuenta y qué Gemini estás trabajando.
 
 ## Para llevar
 
-- Menú lateral con chats, notebooks, programadas y **Personalizar** (skills y apps); el modelo, abajo del cuadro de texto.
-- Gemini elige el modelo solo (Flash, Pro, Argon); tú puedes subir el **nivel de pensamiento**.
+- Menú lateral con Programado, **Personalizar** (habilidades y conectores) y cuadernos; el modelo, a la derecha del cuadro de texto; los ajustes, en la rueda junto a tu nombre.
+- Gemini elige el modelo solo (Flash, Pro, Argon); tú puedes subir el **nivel de razonamiento**.
 - Planes: sin coste, AI Plus, AI Pro y AI Ultra; en la empresa, **Google Workspace**.
 - **Cuenta de trabajo** = datos protegidos y controlados por la empresa; **cuenta personal** = solo para lo personal.

@@ -2,9 +2,23 @@ Durante dos años, la forma de enseñarle a Gemini un trabajo repetido fue crear
 
 ## Tus instrucciones para Gemini
 
-En <MenuPath to={["Ajustes", "Contexto personal"]} /> (en el móvil, desde tu foto de perfil) está **Tus instrucciones para Gemini**: lo que es verdad en todas tus conversaciones. Se añaden con **Añadir +**, y se editan o se borran desde el menú de cada una. Puedes copiar las que ya tienes en Claude.
+En la rueda junto a tu nombre → **Contexto personal** (en el móvil, desde tu foto de perfil) está **Tus instrucciones para Gemini**: lo que es verdad en todas tus conversaciones. Se añaden con **+ Añadir**, y se editan o se borran desde el menú de cada una. Puedes copiar las que ya tienes en Claude.
 
-Gemini también puede **recordar datos** que le cuentas en el chat («recuerda que Laura no vuela antes de las 8»), pero según la ayuda de Google, en noviembre de 2026 esa memoria **solo está en Estados Unidos**, con plan de pago y cuenta personal. En España, lo que quieras que sepa siempre, **escríbelo en tus instrucciones**.
+<Screenshot
+  src="gemini/contexto-personal.jpg"
+  alt="Pantalla Contexto personal de Gemini: el interruptor Memoria, desactivado, que aprende de las conversaciones anteriores; el interruptor Tus instrucciones para Gemini, activado, con ejemplos; y el botón Añadir."
+  width={1470}
+  height={700}
+  date="noviembre de 2026"
+  marks={[
+    { x: 505, y: 155, w: 790, h: 90, n: 1, badge: "left" },
+    { x: 505, y: 338, w: 790, h: 135, n: 2, badge: "left" },
+    { x: 505, y: 533, w: 112, h: 40, n: 3, badge: "left" },
+  ]}
+  caption="(1) Memoria: que aprenda de tus conversaciones anteriores. (2) Tus instrucciones para Gemini. (3) + Añadir, para escribir una."
+/>
+
+En la misma pantalla está la **Memoria**: si la activas, Gemini aprende de tus conversaciones anteriores, y puedes gestionar y borrar esas conversaciones cuando quieras. Lo que según la ayuda de Google aún no llega a todos los países es que **recuerde datos sueltos** que le dictas («recuerda que Laura no vuela antes de las 8»). Lo que quieras que sepa siempre y exactamente, **escríbelo en tus instrucciones**.
 
 <Callout kind="note">
 Con una cuenta de trabajo, las instrucciones y la memoria personal pueden no estar disponibles: depende de la licencia y de lo que permita el administrador.
@@ -28,14 +42,28 @@ Si dependes de una Gem, **copia hoy sus instrucciones y descarga sus archivos**.
 
 ## Las skills de Gemini
 
-Funcionan como las de Claude (módulo 3):
+En la interfaz en español se llaman **Habilidades**. Funcionan como las skills de Claude (módulo 3):
 
 - **Se aplican solas**: Gemini reconoce cuándo una skill encaja con lo que pides y la usa.
-- **También las llamas tú**: escribe **`/`** y el nombre de la skill en cualquier chat (Google anuncia que pronto será **`@`**).
+- **También las llamas tú**: escribe **`@`** en el cuadro de texto y elige la habilidad (en algunas versiones, con **`/`**).
 - **Se combinan**: puedes usar varias en la misma conversación.
 - **Límites**: tantas como quieras, pero **100 activas** a la vez y 100 MB de archivos por skill.
 
-Se crean en <MenuPath to={["Personalizar", "Skills", "Crear"]} />, de cuatro maneras:
+Se crean en <MenuPath to={["Personalizar", "Habilidades", "Crear"]} />, de cuatro maneras:
+
+<Screenshot
+  src="gemini/habilidades-crear.jpg"
+  alt="Página Personalizar de Gemini con la pestaña Habilidades: el botón Crear abierto con Crear con Gemini, Crear manualmente y Subir, y debajo habilidades recomendadas como Reflejar tu estilo de escritura o Prepararse las reuniones."
+  width={1470}
+  height={700}
+  date="noviembre de 2026"
+  marks={[
+    { x: 770, y: 16, w: 112, h: 36, n: 1, badge: "bottom" },
+    { x: 1048, y: 168, w: 184, h: 112, n: 2, badge: "left" },
+    { x: 556, y: 260, w: 320, h: 232, n: 3, badge: "left" },
+  ]}
+  caption="(1) Habilidades, en Personalizar. (2) Crear con Gemini, crear manualmente o subir un SKILL.md. (3) Recomendadas: Prepararse las reuniones o Reflejar tu estilo de escritura son buenas para empezar."
+/>
 
 1. **Crear con Gemini**: te entrevista y la escribe (como «Crear con Claude»).
 2. **Desde una plantilla recomendada**, que editas.
@@ -68,12 +96,12 @@ Si en tu equipo hay Gems compartidas («la Gem de convocatorias» de la secretar
   title="Tu skill del acta, en Gemini"
   steps={[
     "Descarga acta-de-reunion.zip del módulo 3 (o usa una skill tuya).",
-    "En Gemini, ve a Personalizar → Skills → Crear y elige Subir.",
+    "En Gemini, ve a Personalizar → Habilidades → Crear y elige Subir.",
     "Sube el .zip o la carpeta y comprueba que la skill aparece activa.",
     "En un chat nuevo, pega unas notas de reunión y pide «hazme el acta» sin nombrar la skill.",
-    "Prueba también a llamarla escribiendo / y su nombre.",
+    "Prueba también a llamarla escribiendo @ y eligiéndola.",
   ]}
-  hints={["Si no ves Skills en Personalizar, puede que tu cuenta aún no lo tenga (las de trabajo llegarán más tarde) o que tengas que pulsar Más. Mientras, pega el texto del SKILL.md en Tus instrucciones para Gemini o al principio del chat."]}
+  hints={["Si no ves Habilidades en Personalizar, puede que tu cuenta aún no lo tenga (las de trabajo llegarán más tarde) o que tengas que pulsar Más. Mientras, pega el texto del SKILL.md en Tus instrucciones para Gemini o al principio del chat."]}
   example={<>Lo normal es que Gemini use la skill solo, con el formato de la casa: cabecera, puntos, tabla de tareas y los puntos marcados con [CONFIRMAR]. Si no la usa sin nombrarla, la descripción no se parece a lo que pediste: revísala para que diga «úsala cuando pidan un acta, un resumen de reunión o los acuerdos».</>}
 >
 Lleva a Gemini un procedimiento que ya tienes escrito.
@@ -81,7 +109,7 @@ Lleva a Gemini un procedimiento que ya tienes escrito.
 
 ## Para llevar
 
-- **Tus instrucciones para Gemini** en Ajustes → Contexto personal; la memoria de datos aún no llega a España.
+- **Tus instrucciones para Gemini** en Contexto personal, junto a la **Memoria**, que puedes encender o apagar.
 - Las **Gems se convierten en skills**: solo lectura el 17 de noviembre y fuera el 17 de diciembre de 2026 (empresas, en marzo de 2027). Copia hoy lo que necesites.
-- Las **skills** de Gemini se aplican solas, se llaman con `/` y se crean en Personalizar → Skills.
+- Las **habilidades** (skills) de Gemini se aplican solas, se llaman con `@` y se crean en Personalizar → Habilidades.
 - Puedes **subir el `SKILL.md`** de tus skills de Claude: un procedimiento bien escrito vale en todas partes.

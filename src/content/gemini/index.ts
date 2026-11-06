@@ -3,6 +3,10 @@ import type { Subject } from "@/content/types";
 
 const HELP = "https://support.google.com/gemini/answer";
 
+/** The captures in these lessons: gemini.google.com in Spanish (Google AI Pro), checked on screen that day. */
+const UI_CAPTURE =
+  "Interfaz de gemini.google.com en español (Google AI Pro), capturada el 6 de noviembre de 2026";
+
 /** Module 5: Gemini and Google Workspace in depth. */
 export const gemini: Subject = {
   slug: "gemini",
@@ -22,6 +26,7 @@ export const gemini: Subject = {
         `${HELP}/16275805?hl=en`,
         "https://gemini.google/subscriptions/",
         `${HELP}/14620100?hl=en`,
+        UI_CAPTURE,
       ],
       exercises: ["cuenta-gemini", "tour-gemini"],
       load: () => import("./01-la-app-de-gemini.mdx"),
@@ -38,6 +43,7 @@ export const gemini: Subject = {
         `${HELP}/18560919?hl=en`,
         `${HELP}/17094296`,
         `${HELP}/15146780?hl=en`,
+        UI_CAPTURE,
       ],
       exercises: ["gem-o-skill", "skill-en-gemini"],
       load: () => import("./02-instrucciones-y-skills.mdx"),
@@ -53,6 +59,7 @@ export const gemini: Subject = {
         "https://support.google.com/meet/answer/14754931?hl=en",
         `${HELP}/14620100?hl=en`,
         "https://workspace.google.com/blog/product-announcements/august-2026-workspace-feature-drop",
+        UI_CAPTURE,
       ],
       exercises: ["notas-meet", "gemini-gmail"],
       load: () => import("./03-gemini-en-workspace.mdx"),
@@ -63,7 +70,7 @@ export const gemini: Subject = {
       summary:
         "Investigar con fuentes, también en tu Gmail y tu Drive, y crear documentos y presentaciones que exportas a Docs y Slides.",
       minutes: 20,
-      sources: [`${HELP}/15719111?hl=en`, `${HELP}/16047321?hl=en`],
+      sources: [`${HELP}/15719111?hl=en`, `${HELP}/16047321?hl=en`, UI_CAPTURE],
       exercises: ["canvas-o-docs", "investigar-gemini"],
       load: () => import("./04-deep-research-y-canvas.mdx"),
     }),
@@ -93,6 +100,7 @@ export const gemini: Subject = {
         "https://workspaceupdates.googleblog.com/2025/12/workspace-studio.html",
         "https://support.google.com/workspace-studio/",
         `${HELP}/17094507?hl=en`,
+        UI_CAPTURE,
       ],
       exercises: ["programada-o-studio", "automatizar-gemini"],
       load: () => import("./06-automatizar.mdx"),
