@@ -7,7 +7,7 @@ Un conector es un **enchufe** entre Claude y otra aplicación. Por debajo usa un
 - Cada conector da a Claude **herramientas** concretas: «buscar correos», «leer evento», «crear borrador», «buscar archivo»…
 - Claude decide cuándo usarlas según lo que pides, y te enseña qué ha consultado.
 - Solo ve **lo que tu cuenta puede ver**: entra con tu usuario y tus permisos.
-- Lo de **escribir** (crear, mover, enviar, borrar) te lo pregunta antes en el chat y en el modo **manual** de Cowork; en el modo automático puede hacerlo sin preguntar (lección 3 de este módulo).
+- Lo de **escribir** (crear, mover, enviar, borrar) **por defecto** te lo pregunta antes en el chat (en empresa, el administrador puede cambiarlo) y en el modo **manual** de Cowork; en el modo automático puede hacerlo sin preguntar (lección 3 de este módulo).
 
 <ConnectorsSim />
 
@@ -54,7 +54,7 @@ Preguntas «¿tengo hueco el jueves a las 12?» y no tienes conectado el calenda
   caption="(1) Personalización, en la barra lateral. (2) La pestaña Conectores. (3) Tuyos o Descubrir. (4) Los más usados: Drive, Gmail, Calendar y Microsoft 365 (Outlook)."
 />
 
-2. Pulsa **Conectar**: se abre la página de Google o Microsoft para que inicies sesión y aceptes permisos.
+2. Pulsa el `+` del conector y luego **Conectar**: se abre la página de Google o Microsoft para que inicies sesión y aceptes permisos.
 3. En cada conversación, los activas o desactivas en el `+` del cuadro de texto → **Conectores**.
 
 En planes **Team y Enterprise**, primero el administrador añade el conector para toda la empresa y luego cada persona inicia sesión con su cuenta; Gmail o Calendar no te aparecerán hasta que lo haga. Con **Microsoft 365**, Claude puede además redactar y enviar correos o tocar el calendario si el administrador activa esas acciones. Si no ves uno, pregunta a IT.
@@ -119,7 +119,7 @@ Quieres que Claude te prepare cada mañana el resumen de la agenda de Laura. Tu 
     "Pide un borrador de respuesta a uno de ellos, sin enviarlo, y míralo en tu carpeta de borradores.",
   ]}
   hints={["Si no aparece el conector que buscas, puede que tu empresa use otro (Outlook en vez de Gmail, por ejemplo) o que esté desactivado por el administrador."]}
-  example={<>Lo esperable: Claude te enseña qué ha buscado («busca en Gmail: from:pedro newer_than:14d»), resume con fechas y, al pedir el borrador, te pregunta antes de crearlo. Si algo de la respuesta no está en tus correos, díselo: «eso no aparece, ¿de dónde lo sacas?».</>}
+  example={<>Lo esperable: Claude te enseña qué ha buscado («busca en Gmail: from:pedro newer_than:14d»), resume con fechas y, al pedir el borrador, te enseña lo que va a escribir. Si algo de la respuesta no está en tus correos, díselo: «eso no aparece, ¿de dónde lo sacas?».</>}
 >
 El paso que más tiempo te va a ahorrar del curso.
 </Practice>
@@ -134,6 +134,6 @@ El orden habitual: primero **calendario** (solo lectura de agendas, poco riesgo)
 - Un **conector** (por debajo, MCP) deja a Claude ver y usar tus herramientas con tus permisos.
 - Correo, calendario y documentos son los tres imprescindibles.
 - Se conectan en **Personalización → Conectores** y se activan por chat en el `+`; en empresa, IT decide cuáles.
-- Lo que escribe o envía te lo pregunta: lee antes de permitir y prefiere borradores.
+- Lo que escribe o envía, por defecto, te lo pregunta: lee antes de permitir y prefiere borradores.
 - Con el correo y la agenda de tu jefa: tu cuenta, su calendario compartido y la delegación oficial; nunca su contraseña.
 - Acota la búsqueda («de la última semana», «de este remitente») para que acierte más.

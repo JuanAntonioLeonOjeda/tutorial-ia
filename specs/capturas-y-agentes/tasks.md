@@ -10,5 +10,5 @@
       steered by malicious content (prompt injection) in "Usarla con cabeza"; levels of agents.
 - [x] 6. Module 4: ChatGPT Work replaces agent/Atlas; Gemini agent naming hedged; new lesson
       "Copilot en Outlook y Teams"; "cuál para qué" updated.
-- [ ] 7. Content review (`content-reviewer`), UI review (`ts-reviewer`, `accessibility-reviewer`).
-- [ ] 8. Close: AGENTS.md map, content-authoring table, README badge check, Docker rebuild.
+- [x] 7. Content review (`content-reviewer`), UI review (`ts-reviewer`, `accessibility-reviewer`).
+- [x] 8. Close: AGENTS.md map, content-authoring table, README badge check, Docker rebuild.
