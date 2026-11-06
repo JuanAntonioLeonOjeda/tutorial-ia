@@ -78,6 +78,7 @@ describe("content catalog", () => {
             expect(existsSync(join(CAPTURES_DIR, src)), src).toBe(true);
             expect(block).toMatch(/\bdate="[^"]+"/);
             expect(block).toMatch(/\balt="[^"]{20,}"/);
+            expect(block).toMatch(/\bcaption="[^"]+"/);
             const width = Number(/\bwidth=\{(\d+)\}/.exec(block)?.[1] ?? 0);
             const height = Number(/\bheight=\{(\d+)\}/.exec(block)?.[1] ?? 0);
             expect(width * height, src).toBeGreaterThan(0);

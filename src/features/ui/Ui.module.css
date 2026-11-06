@@ -253,27 +253,32 @@
   margin: var(--space-6) 0;
 }
 
-.shotLink {
+.shotFrame {
   position: relative;
-  display: block;
   border: 1px solid var(--color-line);
   border-radius: var(--radius-md);
   overflow: hidden;
   background: var(--color-surface);
 }
 
-.shotLink img {
+.shotFrame img {
   display: block;
   width: 100%;
   height: auto;
 }
 
+/* Boxes and badges keep their colours in forced-colors mode, like the raster capture below. */
 .shotMarks {
   position: absolute;
   inset: 0;
+  pointer-events: none;
+  forced-color-adjust: none;
+}
+
+.shotMarks svg {
+  display: block;
   width: 100%;
   height: 100%;
-  pointer-events: none;
 }
 
 /* The stroke stays 3 screen pixels whatever the scale (vector-effect: non-scaling-stroke). */
@@ -283,32 +288,38 @@
   stroke-width: 3px;
 }
 
-.shotBadge circle {
-  fill: var(--color-shot-mark);
-}
-
-.shotBadge text {
-  fill: var(--color-shot-mark-ink);
-  font-family: var(--font-body);
-  font-weight: 700;
-}
-
-/* Shown on hover and keyboard focus; always read by screen readers as part of the link. */
-.shotZoom {
+/* Fixed size in rem: readable on a phone and at 200 % zoom, whatever the image scale. */
+.shotBadge {
   position: absolute;
-  right: var(--space-2);
-  bottom: var(--space-2);
-  padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius-sm);
-  background: var(--color-ink);
-  color: var(--color-surface);
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid var(--color-shot-mark-ink);
+  border-radius: 50%;
+  background: var(--color-shot-mark);
+  color: var(--color-shot-mark-ink);
+  font-family: var(--font-body);
   font-size: var(--text-xs);
-  opacity: 0;
+  font-weight: 700;
+  line-height: 1;
 }
 
-.shotLink:hover .shotZoom,
-.shotLink:focus-visible .shotZoom {
-  opacity: 1;
+/* Hang the badge just outside the box edge it is anchored to. */
+.shotBadge[data-side="top"] {
+  transform: translate(0, calc(-100% - var(--space-1)));
+}
+
+.shotBadge[data-side="bottom"] {
+  transform: translate(0, var(--space-1));
+}
+
+.shotBadge[data-side="left"] {
+  transform: translate(calc(-100% - var(--space-1)), -50%);
+}
+
+.shotBadge[data-side="right"] {
+  transform: translate(var(--space-1), -50%);
 }
 
 .shot figcaption {
@@ -317,7 +328,7 @@
   color: var(--color-muted);
 }
 
-.shotDate {
+.shotMeta {
   display: block;
   margin-top: var(--space-1);
   font-size: var(--text-xs);

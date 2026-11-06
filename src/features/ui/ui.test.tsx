@@ -5,7 +5,7 @@ import { Chat } from "./Chat";
 import { dedent } from "./dedent";
 import { MenuPath } from "./MenuPath";
 import { Prompt, splitPlaceholders } from "./Prompt";
-import { Screenshot, badgeCentre, captureUrl } from "./Screenshot";
+import { Screenshot, badgeAnchor, captureUrl } from "./Screenshot";
 
 describe("dedent", () => {
   it("removes the first newline and the common indentation", () => {
@@ -73,26 +73,17 @@ describe("captureUrl", () => {
   });
 });
 
-describe("badgeCentre", () => {
-  const size = { width: 1000, height: 500 };
+describe("badgeAnchor", () => {
+  const mark = { x: 100, y: 200, w: 50, h: 30 };
 
-  it("sits just above the box by default, aligned with its left edge", () => {
-    expect(badgeCentre({ x: 100, y: 200, w: 50, h: 30 }, size)).toEqual({ cx: 124, cy: 172 });
+  it("hangs from the top-left corner by default", () => {
+    expect(badgeAnchor(mark)).toEqual({ x: 100, y: 200, side: "top" });
   });
 
-  it("can sit on any side, outside the box", () => {
-    const mark = { x: 100, y: 200, w: 50, h: 30 };
-    expect(badgeCentre({ ...mark, badge: "bottom" }, size)).toEqual({ cx: 124, cy: 258 });
-    expect(badgeCentre({ ...mark, badge: "left" }, size)).toEqual({ cx: 72, cy: 215 });
-    expect(badgeCentre({ ...mark, badge: "right" }, size)).toEqual({ cx: 178, cy: 215 });
-  });
-
-  it("stays inside the image when the box touches an edge", () => {
-    expect(badgeCentre({ x: 0, y: 4, w: 10, h: 10 }, size)).toEqual({ cx: 24, cy: 24 });
-    expect(badgeCentre({ x: 990, y: 490, w: 10, h: 10, badge: "right" }, size)).toEqual({
-      cx: 976,
-      cy: 476,
-    });
+  it("hangs from the middle of the chosen side", () => {
+    expect(badgeAnchor({ ...mark, badge: "bottom" })).toEqual({ x: 100, y: 230, side: "bottom" });
+    expect(badgeAnchor({ ...mark, badge: "left" })).toEqual({ x: 100, y: 215, side: "left" });
+    expect(badgeAnchor({ ...mark, badge: "right" })).toEqual({ x: 150, y: 215, side: "right" });
   });
 });
 
@@ -113,10 +104,11 @@ describe("Screenshot", () => {
       />,
     );
     expect(screen.getByRole("img", { name: "Pantalla de inicio de Claude" })).toBeInTheDocument();
-    const link = screen.getByRole("link", { name: /Pantalla de inicio de Claude.*otra pestaña/ });
+    const link = screen.getByRole("link", { name: /tamaño completo.*otra pestaña/ });
     expect(link).toHaveAttribute("href", "/capturas/claude/inicio.jpg");
-    expect(container.querySelector("svg")).toHaveAttribute("aria-hidden", "true");
-    expect(container.querySelector("svg")?.textContent).toBe("12");
+    expect(container.querySelectorAll("rect")).toHaveLength(2);
+    const overlay = container.querySelector('[aria-hidden="true"]');
+    expect(overlay?.textContent).toBe("12");
     expect(screen.getByText(/noviembre de 2026/)).toBeInTheDocument();
   });
 
@@ -129,9 +121,10 @@ describe("Screenshot", () => {
         height={100}
         date="noviembre de 2026"
         marks={[{ x: 10, y: 10, w: 20, h: 20 }]}
+        caption="Una zona sin número."
       />,
     );
     expect(container.querySelectorAll("rect")).toHaveLength(1);
-    expect(container.querySelectorAll("circle")).toHaveLength(0);
+    expect(container.querySelector('[aria-hidden="true"]')?.textContent).toBe("");
   });
 });
