@@ -2,14 +2,31 @@ Con una suscripción a Claude no pagas por mensaje, pero tampoco es barra libre:
 
 ## El menú del modelo
 
-Junto al botón de enviar está el **nombre del modelo**. Al pulsarlo controlas tres cosas:
+Junto al botón de enviar está el **nombre del modelo**. Al pulsarlo se abre este menú:
+
+<Screenshot
+  src="claude/selector-modelo.jpg"
+  alt="Menú del modelo abierto en claude.ai: lista de modelos (Fable, Opus, Sonnet y Haiku) con una línea que describe cada uno, debajo las filas Esfuerzo y Más modelos, y el botón del modelo junto al de enviar."
+  width={1512}
+  height={716}
+  date="noviembre de 2026"
+  marks={[
+    { x: 1006, y: 391, w: 142, h: 31, n: 1, badge: "bottom" },
+    { x: 734, y: 72, w: 408, h: 188, n: 2, badge: "left" },
+    { x: 734, y: 265, w: 408, h: 31, n: 3, badge: "left" },
+    { x: 734, y: 302, w: 408, h: 31, n: 4, badge: "left" },
+  ]}
+  caption="(1) El botón con el modelo y el esfuerzo actuales. (2) Los modelos, cada uno con una línea que dice para qué sirve. (3) El esfuerzo. (4) Más modelos."
+/>
+
+Con él controlas tres cosas:
 
 1. **El modelo.** Los de siempre son tres familias:
    - **Haiku**: el rápido y ligero.
    - **Sonnet**: el equilibrado, el del día a día.
    - **Opus**: el más capaz, para lo difícil.
 
-   En **Más modelos** aparecen otros (versiones anteriores y modelos especiales, como **Fable**, que en algunos planes tiene su propio límite semanal). Si no sabes cuál elegir, el que viene marcado sirve.
+   Por encima de ellos puede aparecer **Fable**, el modelo más avanzado: en la captura (plan Pro) el propio menú indica que en Pro se usa con **créditos de uso** (se pagan aparte) y que está incluido en planes superiores. En **Más modelos** están las versiones anteriores. Si no sabes cuál elegir, el que viene marcado sirve.
 2. **El esfuerzo**: cuánto «piensa» antes de contestar. Cada modelo trae uno marcado como **Predeterminado**.
 3. **Pensar** (o **Extendido**): que razone por escrito antes de responder. En los modelos más recientes va siempre activado y no se puede apagar; ahí la palanca es el esfuerzo.
 
@@ -60,7 +77,22 @@ En el plan gratuito también hay un límite que se renueva cada cinco horas, y l
 
 Detalles que conviene saber:
 
-- Lo ves en <MenuPath to={["Ajustes", "Uso"]} />, con barras de progreso y el tiempo que falta.
+- Lo ves en <MenuPath to={["Ajustes", "Uso"]} /> (o directamente en **Uso**, en el menú de tu cuenta), con barras de progreso y el tiempo que falta:
+
+<Screenshot
+  src="claude/ajustes-uso.jpg"
+  alt="Página Ajustes, Uso, de claude.ai en un plan Pro: barra de la sesión actual al 12 por ciento con la hora a la que se restablece, barra de esta semana al 33 por ciento y, debajo, el apartado Créditos de uso con su interruptor."
+  width={1512}
+  height={660}
+  date="noviembre de 2026"
+  marks={[
+    { x: 464, y: 164, w: 796, h: 58, n: 1, badge: "right" },
+    { x: 464, y: 238, w: 796, h: 58, n: 2, badge: "right" },
+    { x: 464, y: 474, w: 796, h: 100, n: 3, badge: "right" },
+  ]}
+  caption="(1) El límite de la sesión y cuándo se renueva. (2) El límite semanal. (3) Los créditos de uso: apagados, Claude se para al llegar al límite; encendidos, sigue y se cobra aparte."
+/>
+
 - **Todo cuenta para el mismo límite**: la web, la app de escritorio, el móvil, Cowork y Claude Code.
 - Si llegas al límite, puedes **esperar** a que se renueve, **subir de plan** o, si están activados, seguir con **créditos de uso** (que se pagan aparte).
 - En el plan **Team**, el límite es **de cada persona**: no se comparte ni se pasa entre compañeras. En **Enterprise**, el administrador puede restringir qué modelos y qué niveles de esfuerzo se pueden usar.

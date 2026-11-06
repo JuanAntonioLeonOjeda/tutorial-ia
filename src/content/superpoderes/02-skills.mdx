@@ -6,7 +6,7 @@ Una skill es, literalmente, **una carpeta con un archivo de texto** llamado `SKI
 
 1. Un **nombre** y una **descripción** (cuándo usarla).
 2. Las **instrucciones**: el procedimiento, el formato, las reglas, ejemplos.
-3. Opcionalmente, otros archivos: una plantilla, un logo, una lista de referencia.
+3. Opcionalmente, otros archivos: una plantilla, un logo, una normativa de referencia (más abajo, «Una skill con anexos»).
 
 Así de simple es la del acta que te dejamos para descargar:
 
@@ -57,7 +57,24 @@ Se combinan: dentro del proyecto «Consejo», la skill del acta usa las personas
 
 ## Las que vienen de serie
 
-Anthropic trae skills para **Word, Excel, PowerPoint y PDF** (las que usa Claude para crear documentos, módulo 2). Funcionan solas: no hay que activarlas. Tus skills, las que te comparten y las de tu empresa están en <MenuPath to={["Personalizar", "Skills"]} />, junto a los conectores y los **plugins** (paquetes que juntan skills, conectores y subagentes para un tipo de trabajo). En planes de empresa, el administrador puede repartir skills a todo el equipo o desactivar que cada persona cree las suyas.
+Anthropic trae skills para **Word, Excel, PowerPoint y PDF** (las que usa Claude para crear documentos, módulo 2). Funcionan solas: no hay que activarlas. Tus skills, las que te comparten y las de tu empresa están en <MenuPath to={["Personalización", "Skills"]} />, en la barra lateral, junto a los conectores y los **plugins** (paquetes que juntan skills, conectores y subagentes para un tipo de trabajo). En **Tuyos** ves las tuyas; en **Descubrir**, las que publica Anthropic (de momento, la mayoría en inglés).
+
+<Screenshot
+  src="claude/skills-anadir.jpg"
+  alt="Página Personalización de claude.ai con la pestaña Skills y el menú del botón Añadir abierto, que ofrece Subir Skill, Crear una Skill y Crear con Claude. Debajo, skills publicadas por Anthropic."
+  width={1490}
+  height={700}
+  date="noviembre de 2026"
+  marks={[
+    { x: 8, y: 255, w: 272, h: 33, n: 1, badge: "right" },
+    { x: 420, y: 86, w: 236, h: 32, n: 2, badge: "bottom" },
+    { x: 1280, y: 86, w: 101, h: 32, n: 3, badge: "top" },
+    { x: 1205, y: 124, w: 176, h: 94, n: 4, badge: "left" },
+  ]}
+  caption="(1) Personalización. (2) Skills, Conectores y Plugins. (3) El botón Añadir. (4) Subir una skill (.zip), escribirla a mano o crearla conversando con Claude."
+/>
+
+En planes **Team y Enterprise** puedes **compartir** una skill con compañeras concretas o publicarla para toda la organización, y el administrador decide quién puede crear, compartir o publicar. Los **plugins** van un paso más allá: empaquetan skills, conectores y comandos para que todo el equipo trabaje igual, y la empresa puede instalarlos por defecto.
 
 ## Instalar una skill
 
@@ -65,12 +82,31 @@ Anthropic trae skills para **Word, Excel, PowerPoint y PDF** (las que usa Claude
    - [acta-de-reunion.zip](/descargas/acta-de-reunion.zip)
    - [correo-ejecutivo.zip](/descargas/correo-ejecutivo.zip)
    - [preparar-viaje.zip](/descargas/preparar-viaje.zip)
-2. Ve a <MenuPath to={["Personalizar", "Skills", "+", "Crear skill", "Subir una skill"]} /> y elige el `.zip`. El zip debe contener **la carpeta** de la skill (no el `SKILL.md` suelto) y la carpeta debe llamarse igual que el `name` de la skill; las tres de arriba ya cumplen las dos cosas.
+2. Ve a <MenuPath to={["Personalización", "Skills", "Añadir", "Subir Skill"]} /> y elige el `.zip`. El zip debe contener **la carpeta** de la skill (no el `SKILL.md` suelto) y la carpeta debe llamarse igual que el `name` de la skill; las tres de arriba ya cumplen las dos cosas.
 3. Aparecerá en tu lista, con un interruptor para activarla o desactivarla. Pruébala en un chat nuevo: «hazme el acta con estas notas: …». Las skills que subes son **solo tuyas** hasta que las compartes.
 
 <Callout kind="warn">
 Una skill puede llevar instrucciones (y, en las avanzadas, pequeños programas). **Instala solo skills de fuentes de confianza** y léete el `SKILL.md` antes: es texto normal y se entiende.
 </Callout>
+
+## Una skill con anexos
+
+Hay información que la skill necesita **a veces** y es larga: la política de viajes, el manual de protocolo, el listado de consejeros. Si la metes entera en el `SKILL.md`, Claude la carga cada vez que usa la skill, aunque no haga falta. Lo que se hace es guardarla **en un archivo aparte dentro de la carpeta** y decir en el `SKILL.md` cuándo leerlo. La skill de viajes que te dejamos lo hace así:
+
+```text
+preparar-viaje/
+├── SKILL.md
+└── references/
+    └── politica-de-viajes.md
+```
+
+Y en el `SKILL.md`, una línea en el paso donde hace falta: «consulta `references/politica-de-viajes.md` cuando haya que elegir clase, hotel o dietas». Claude solo abre ese archivo cuando el viaje lo requiere.
+
+Tres reglas que evitan problemas al subirla:
+
+- El **nombre**: minúsculas, números y guiones (`preparar-viaje`), sin las palabras «claude» ni «anthropic». La carpeta se llama igual.
+- La **descripción**: qué hace y cuándo usarla, con las palabras que usarías al pedirlo. Es lo que más influye en que se active cuando toca.
+- Si el `SKILL.md` crece mucho, saca a anexos lo que no se usa en todos los casos.
 
 ## Crear la tuya, conversando
 
@@ -85,7 +121,7 @@ No hace falta escribir el archivo a mano: pídeselo a Claude en un chat.
   `}
 />
 
-Claude te entrevistará, escribirá el `SKILL.md` y te dará el `.zip`. Luego **pruébala** con casos reales y, si algo falla, dile «modifica la skill para que…».
+Claude te entrevistará, escribirá el `SKILL.md` y te dará el `.zip`. También puedes empezar desde **Añadir → Crear con Claude**, que abre esa misma conversación. Luego **pruébala** con casos reales y, si algo falla, dile «modifica la skill para que…».
 
 <Callout kind="real">
 Buenas candidatas a skill son las tareas que (1) haces al menos una vez al mes, (2) siguen siempre los mismos pasos y (3) te obligan a explicar lo mismo cada vez. Para una asistente de dirección: actas, convocatorias, órdenes del día, notas de gastos, preparación de viajes, informes semanales, felicitaciones y protocolo de eventos.
@@ -96,7 +132,7 @@ Buenas candidatas a skill son las tareas que (1) haces al menos una vez al mes, 
   title="Instala y prueba una skill"
   steps={[
     "Descarga acta-de-reunion.zip y ábrelo para leer el SKILL.md (es texto).",
-    "Súbela en Personalizar → Skills → + → Crear skill → Subir una skill, y comprueba que está activada.",
+    "Súbela en Personalización → Skills → Añadir → Subir Skill, y comprueba que está activada.",
     "En un chat nuevo, pega unas notas de reunión y pide «hazme el acta».",
     "Comprueba que sigue el formato y marca con [CONFIRMAR] lo dudoso.",
   ]}
@@ -126,5 +162,6 @@ Convierte un procedimiento tuyo en una skill.
 - Una **skill** es una carpeta con un `SKILL.md`: nombre, descripción e instrucciones.
 - Claude solo lee la **descripción** hasta que la necesita: que diga qué hace y cuándo usarla.
 - Proyecto = contexto de un área; skill = procedimiento que se aplica en cualquier chat.
-- Se instalan como `.zip` en **Personalizar → Skills**; solo de fuentes de confianza.
+- Se instalan como `.zip` en **Personalización → Skills**; solo de fuentes de confianza.
+- Lo largo y ocasional (una normativa, un listado) va en un **anexo** dentro de la carpeta, no en el `SKILL.md`.
 - La forma fácil de crear una: pedírsela a Claude conversando.

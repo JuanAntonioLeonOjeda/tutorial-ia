@@ -16,7 +16,7 @@ La diferencia con el chat no es que sea más listo, sino que **puede encadenar a
     "Porque el agente no sabe enviar correos sin ayuda",
   ]}
   answer={1}
-  explanation="El modo automático sí revisa: frena lo que parece peligroso, como sacar datos fuera o instrucciones escondidas en una web. Pero un itinerario con un vuelo mal elegido no es «peligroso», es un error de trabajo, y solo lo cazas tú si te pregunta. Por eso, para lo que sale hacia otras personas, aprobar a mano."
+  explanation="El modo automático sí revisa: frena lo que parece peligroso, como sacar datos fuera o instrucciones escondidas en una web. Pero un itinerario con un vuelo mal elegido no es «peligroso», es un error de trabajo, y solo lo cazas tú si te pregunta. Por eso, para lo que sale hacia otras personas, aprobar manualmente."
 >
 En la simulación, con «Aprobar automáticamente», el itinerario le llega a Laura sin que lo veas. ¿Por qué?
 </Quiz>
@@ -26,11 +26,26 @@ En la simulación, con «Aprobar automáticamente», el itinerario le llega a La
 **Cowork** es la forma en que Claude hace **tareas largas** por ti, con herramientas. Dónde está depende de tu versión:
 
 - En la **nueva experiencia de Claude** (desde septiembre de 2026, llegando poco a poco), chat y Cowork son lo mismo: le describes la tarea en cualquier conversación y Claude decide cómo hacerla. Funciona en la web, la app de escritorio, el móvil y el panel lateral de Chrome.
-- En la **versión anterior**, el cuadro de texto tiene dos opciones, «Chat» y «Cowork»: eliges Cowork para encargar tareas.
+- En la **versión anterior**, el cuadro de texto tiene dos opciones, «Chat» y «Cowork»: eliges Cowork para encargar tareas. Debajo aparecen el **proyecto** en el que trabajará y el **modo de aprobación**, y unas ideas para empezar:
+
+<Screenshot
+  src="claude/cowork.jpg"
+  alt="Pantalla de inicio de claude.ai con Cowork elegido en el cuadro de texto. Debajo del cuadro, los selectores Proyecto y Manual, y la lista Ideas para ti: Envíame un resumen diario, Organiza mi bandeja de entrada y Personalizar Cowork para mí."
+  width={1512}
+  height={716}
+  date="noviembre de 2026"
+  marks={[
+    { x: 612, y: 391, w: 122, h: 31, n: 1, badge: "right" },
+    { x: 582, y: 440, w: 104, h: 31, n: 2, badge: "left" },
+    { x: 692, y: 440, w: 94, h: 31, n: 3, badge: "right" },
+    { x: 578, y: 512, w: 280, h: 166, n: 4, badge: "left" },
+  ]}
+  caption="(1) Chat o Cowork. (2) En qué proyecto trabaja. (3) El modo de aprobación. (4) Ideas de encargos: fíjate en que dos de tres son de asistente."
+/>
 
 Lo que lo hace distinto:
 
-- **Trabaja con tus archivos**: en la app de escritorio le das acceso a una carpeta de tu ordenador (aparece en Ajustes como **carpeta de confianza**) y solo puede leer y escribir ahí.
+- **Trabaja con tus archivos**: en la app de escritorio le das acceso a una carpeta de tu ordenador (las carpetas conectadas se ven en Ajustes → Cowork) y solo puede leer y escribir ahí.
 - **Usa tus conectores** (correo, calendario, Drive…), un navegador propio o tu Chrome, y en algunos planes incluso tu pantalla.
 - **Sigue trabajando aunque cierres el portátil**: las tareas corren en la nube. La excepción es lo que necesita tu ordenador (tus archivos locales, tu navegador): para eso, la app de escritorio tiene que estar abierta.
 - Te **avisa en el móvil** cuando termina o necesita algo.
@@ -46,12 +61,39 @@ Antes de actuar, Claude puede pedirte permiso o no, según el **modo de aprobaci
 
 | Modo | Qué hace | Cuándo usarlo |
 | --- | --- | --- |
-| **Aprobar a mano** | Te pide permiso para cada acción y tú pulsas Permitir o Denegar | Lo que sale hacia otras personas o no tiene vuelta atrás; las primeras veces con un encargo |
+| **Aprobar manualmente** | Te pide permiso para cada acción y tú pulsas Permitir o Denegar | Lo que sale hacia otras personas o no tiene vuelta atrás; las primeras veces con un encargo |
 | **Aprobar automáticamente** | Sigue sin preguntar; una comprobación de seguridad frena lo peligroso (sacar datos fuera, instrucciones escondidas) y, si frena mucho, vuelve a preguntarte | Encargos internos y reversibles que ya conoces |
-| **Saltar aprobaciones** | Ni pregunta ni comprueba nada | Prácticamente nunca en tu trabajo |
+| **Omitir todas las aprobaciones** | Ni pregunta ni comprueba nada | Prácticamente nunca en tu trabajo |
+
+<Screenshot
+  src="claude/cowork-aprobacion.jpg"
+  alt="Menú del modo de aprobación abierto debajo del cuadro de texto de Cowork, con tres opciones: Aprobar manualmente, marcada, Aprobar automáticamente y Omitir todas las aprobaciones, esta última con un icono de aviso."
+  width={1440}
+  height={700}
+  date="noviembre de 2026"
+  marks={[
+    { x: 690, y: 440, w: 98, h: 31, n: 1, badge: "right" },
+    { x: 692, y: 474, w: 298, h: 96, n: 2, badge: "right" },
+  ]}
+  caption="(1) El botón muestra el modo actual. (2) Los tres modos; el tercero lleva un triángulo de aviso por algo."
+/>
 
 <Callout kind="warn">
-En Pro, Max, Ultra y Team el modo **por defecto es el automático** (en Enterprise, el manual), y en la nueva experiencia solo verás esos dos. Revisa cuál tienes antes de encargar algo que envíe correos o toque documentos de otras personas. Lo que sí pide permiso siempre es **borrar archivos para siempre**.
+En la **nueva experiencia**, el modo **por defecto es el automático** en Pro, Max, Ultra y Team (en Enterprise, el manual), y solo verás esos dos. En la versión anterior mira el botón junto a **Proyecto**: puede venir en Manual, como en la captura. Revisa cuál tienes antes de encargar algo que envíe correos o toque documentos de otras personas. Lo que sí pide permiso siempre es **borrar archivos para siempre**.
+</Callout>
+
+## Un agente con ayudantes: los subagentes
+
+En encargos grandes, Cowork puede repartir el trabajo en **subagentes**: copias de Claude que reciben una parte («lee las actas de enero a junio», «lee las de julio a diciembre»), la hacen por su cuenta y le devuelven solo el resultado. Es como cuando repartes la preparación del consejo entre tres compañeras y tú solo juntas lo que te traen: cada una trabaja con su montón de papeles, y tu mesa no se llena.
+
+No tienes que activarlo: lo decide Claude, y lo verás en el registro de pasos. Lo que te importa saber es que **un encargo grande puede tardar menos y gastar más** de tu límite de uso, porque trabajan varios a la vez.
+
+## Tu nuevo papel: supervisar
+
+Cuando delegas en un agente, tu trabajo no desaparece: **cambia de sitio**. Pasas de hacer cada paso a **encargar bien, revisar y responder de lo que sale**. Es lo mismo que haces con una persona nueva en la oficina, y por eso las asistentes con experiencia lo hacen bien. Lo razonable es delegar primero lo que se revisa fácil (preparar agendas, resumir reuniones, primeros borradores) y quedarte lo delicado, las negociaciones y lo que no tiene precedente.
+
+<Callout kind="idea" title="Cuatro preguntas antes de delegar">
+Son las del marco 4D de Anthropic que viste en «Usarla con cabeza» (módulo 1): **¿lo delego?**, **¿lo he descrito bien?**, **¿he revisado con criterio?** y **¿respondo yo de lo que sale?**. Si alguna respuesta es «no», el encargo aún no está listo.
 </Callout>
 
 ## Encargos que le van bien
@@ -96,7 +138,7 @@ Igual que con una persona, el resultado depende del encargo:
   id="primer-encargo"
   title="Tu primer encargo a Cowork"
   steps={[
-    "Abre la app de escritorio (hace falta para trabajar con carpetas de tu ordenador) y elige «Aprobar a mano» en el cuadro de texto.",
+    "Abre la app de escritorio (hace falta para trabajar con carpetas de tu ordenador) y elige «Aprobar manualmente» debajo del cuadro de texto.",
     "Crea una carpeta de prueba con 10–15 archivos variados (copias de PDFs, Word, capturas) y dale acceso a Claude.",
     "Encárgale ordenarla: «crea subcarpetas por tipo de documento, renombra cada archivo como AAAA-MM-DD_tema y hazme un índice en Excel».",
     "Lee el plan que propone antes de que empiece.",
@@ -118,5 +160,6 @@ Buenas primeras delegaciones: ordenar una carpeta de descargas, montar un índic
 - Un **agente** recibe un objetivo y encadena pasos: planifica, actúa, mira, sigue.
 - **Cowork** son las tareas largas de Claude: tus archivos (con la app de escritorio), tus conectores, en la nube.
 - Encargo = objetivo, material, resultado, reglas y cuándo preguntar.
+- Tu papel pasa de hacer a **encargar, revisar y responder** del resultado.
 - Una carpeta concreta, copias al principio y revisar el plan.
-- Mira el **modo de aprobación**: el automático es el de por defecto; para lo que sale hacia otros, **a mano**.
+- Mira el **modo de aprobación** antes de encargar (puede venir en automático); para lo que sale hacia otros, **manual**.
