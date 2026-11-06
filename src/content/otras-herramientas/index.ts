@@ -1,28 +1,13 @@
 import { defineLesson } from "@/content/define-lesson";
 import type { Subject } from "@/content/types";
 
-/** Module 4: the same ideas in ChatGPT, Gemini and Microsoft Copilot, and which one to use for what. */
+/** Last module: Gemini (until it gets its own module), Microsoft Copilot and which one to use for what. */
 export const otrasHerramientas: Subject = {
   slug: "otras-herramientas",
-  title: "ChatGPT, Gemini y Copilot",
-  code: "Módulo 4",
-  tagline:
-    "Las mismas piezas con otros nombres: GPTs y ChatGPT Work, Gems y NotebookLM, Copilot en Outlook y Teams, y cuál usar para qué.",
+  title: "Gemini, Copilot y cuál usar",
+  code: "Módulo 5",
+  tagline: "Gemini y NotebookLM, Copilot en Outlook y Teams, y cuál usar para qué.",
   lessons: [
-    defineLesson({
-      slug: "chatgpt",
-      title: "ChatGPT, traducido",
-      summary:
-        "Personalización, proyectos, GPTs, Canvas, investigación, aplicaciones, tareas y Work: el diccionario desde Claude.",
-      minutes: 15,
-      sources: [
-        "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex",
-        "https://help.openai.com/en/articles/11752874-chatgpt-agent",
-        "https://help.openai.com/en/articles/20001371",
-      ],
-      exercises: ["gpt-o-proyecto", "traducir-gpt"],
-      load: () => import("./01-chatgpt.mdx"),
-    }),
     defineLesson({
       slug: "gemini",
       title: "Gemini, Gems y NotebookLM",
@@ -34,9 +19,10 @@ export const otrasHerramientas: Subject = {
         "https://workspaceupdates.googleblog.com/2026/01/take-notebooks-further-notebooklm-gemini.html",
         "https://notebooklm.google",
         "https://support.google.com/gemini/answer/17094507?hl=en",
+        "https://support.google.com/gemini/answer/18560919?hl=en",
       ],
       exercises: ["notebooklm", "gem-mejorada"],
-      load: () => import("./02-gemini.mdx"),
+      load: () => import("./01-gemini.mdx"),
     }),
     defineLesson({
       slug: "copilot",
@@ -58,7 +44,7 @@ export const otrasHerramientas: Subject = {
         "https://www.vimcal.com/ea/2026-report",
       ],
       exercises: ["que-copilot", "copilot-outlook"],
-      load: () => import("./03-copilot.mdx"),
+      load: () => import("./02-copilot.mdx"),
     }),
     defineLesson({
       slug: "cual-para-que",
@@ -73,7 +59,7 @@ export const otrasHerramientas: Subject = {
         "https://support.microsoft.com/en-us/microsoft-365-copilot/how-copilot-chat-works-with-and-without-a-microsoft-365-copilot-license",
       ],
       exercises: ["elegir", "mi-mapa"],
-      load: () => import("./04-cual-para-que.mdx"),
+      load: () => import("./03-cual-para-que.mdx"),
     }),
   ],
 };

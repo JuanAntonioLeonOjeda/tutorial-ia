@@ -1,0 +1,97 @@
+Igual que Claude tiene Cowork, ChatGPT tiene **Work**: el modo en que, en lugar de contestarte, **hace un trabajo de varios pasos y te entrega algo terminado** (un informe, una presentación, una hoja de cálculo). Y en las empresas, además, **agentes de equipo** que cualquiera puede usar. Si ya hiciste la lección de Cowork, aquí vas a reconocer casi todo.
+
+## Qué es Work
+
+Según la ayuda de OpenAI, **Work es un agente para trabajos largos, de varios pasos, que terminan en un entregable**; **Chat** es para preguntas rápidas. Se elige con el selector **Chat / Work**.
+
+- **Dónde**: en la web y el móvil trabaja **en la nube** (puedes cerrar el ordenador). En la **app de escritorio**, si tu plan y tu empresa lo permiten, también puede usar **archivos y programas de tu ordenador, con tu permiso**. Los trabajos en la nube se sincronizan entre web, móvil y escritorio.
+- **Cómo trabaja**: propone un plan, reúne el contexto de tus fuentes (archivos, apps conectadas, la web), encadena pasos y **se para a preguntarte** cuando necesita algo o antes de lo importante. Puedes seguir el avance, contestar, cambiarle el rumbo y aprobar las acciones importantes.
+- **Qué planes**: en noviembre de 2026, acceso limitado y solo en escritorio en el plan gratuito, más amplio en Plus (web, escritorio y móvil), y sesiones más largas en Pro y en los de empresa. Los trabajos largos **gastan más** de tu cupo.
+
+<Callout kind="note" title="Si has oído «modo agente»">
+Antes de Work, ChatGPT tenía un **modo agente** en el menú de herramientas y un navegador propio, **Atlas**. Los dos se retiraron en 2026. Si un tutorial te dice «elige Agente en el menú», está desactualizado: hoy es **Work**.
+</Callout>
+
+## El encargo, igual que en Cowork
+
+Lo que aprendiste en la lección de Cowork vale tal cual: **objetivo, material, resultado, reglas y cuándo preguntar**.
+
+<Prompt
+  title="Encargo para Work"
+  text={`
+    Objetivo: preparar la documentación del Comité de Dirección del [FECHA].
+
+    Material: los informes de cada área que han llegado al correo esta semana (asunto «Comité [FECHA]») y el orden del día que te adjunto.
+
+    Resultado: un único PDF con portada, índice y los informes en el orden del día, y una tabla aparte con qué área falta por enviar su informe.
+
+    Reglas: no reenvíes ni compartas nada; si un informe tiene dos versiones, usa la más reciente y avísame.
+
+    Antes de enviar o compartir cualquier cosa, pregúntame. Al terminar, resume qué has hecho y qué queda pendiente.
+  `}
+/>
+
+<Chat
+  assistant="ChatGPT Work"
+  messages={[
+    { from: "tu", text: "(el encargo de arriba)", note: "en modo Work, con Gmail conectado" },
+    { from: "ia", text: "Plan:\n1. Buscar en Gmail los correos con asunto «Comité 14/11» de esta semana.\n2. Descargar los informes y ordenarlos según el orden del día.\n3. Montar el PDF con portada e índice.\n4. Preparar la tabla de pendientes.\n\n¿Empiezo? Una duda antes: Finanzas ha mandado dos versiones (lunes y miércoles). Usaré la del miércoles salvo que me digas lo contrario." },
+  ]}
+/>
+
+<Quiz
+  id="chat-o-work"
+  options={[
+    "Chat: es una pregunta y una respuesta",
+    "Work: son muchos pasos con archivos y un entregable al final",
+    "Una tarea programada",
+  ]}
+  answer={1}
+  explanation="Leer veinte facturas, comprobarlas contra la política y entregar una hoja con las que no cumplen son muchos pasos con un resultado concreto: es justo para lo que está Work. En un chat tendrías que ir pegando factura a factura. Una tarea programada tiene sentido si esto se repite cada mes; la primera vez, hazlo con Work y revísalo."
+>
+Tienes una carpeta con veinte facturas de viajes del trimestre y quieres una hoja de cálculo con las que no cumplen la política de viajes y por qué. ¿Chat o Work?
+</Quiz>
+
+## Agentes de equipo (Business y Enterprise)
+
+En los planes de empresa existen además los **agentes de equipo** (*workspace agents*): agentes para tareas repetidas que alguien de la empresa crea y comparte. Según la ayuda de OpenAI:
+
+- Están en **Agentes**, en la barra lateral. Se crean desde una **plantilla** o desde cero, y se **prueban antes de publicarlos**.
+- Se conectan a apps, se comparten con compañeras o con toda la empresa, se pueden usar desde **Slack** y **ejecutarse con horario**.
+- Cada persona ve y usa solo los agentes a los que tiene permiso. En Enterprise vienen **desactivados** hasta que el administrador los activa.
+
+Es el sitio natural para «el agente de las notas de gastos» o «el agente de reservas de salas» del equipo de asistentes: lo construye una vez quien sabe hacerlo, y todas lo usan igual.
+
+<Callout kind="real">
+Una buena forma de empezar con agentes de equipo: el procedimiento que más se repite entre las asistentes (convocatorias, notas de gastos, reservas) y que ya tiene reglas escritas. Se monta el agente, dos personas lo prueban una semana con casos reales y, si funciona, se publica para el resto. Igual que harías con un procedimiento nuevo en papel.
+</Callout>
+
+<Callout kind="warn" title="Buenas costumbres, como en Cowork">
+- Primeras pruebas con **copias** de archivos y con encargos internos y reversibles.
+- Lee el **plan** antes de que empiece y aprueba a mano lo que sale hacia otras personas.
+- Revisa el resultado la primera vez como si fuera de alguien nuevo.
+</Callout>
+
+<Practice
+  id="primer-work"
+  title="Tu primer encargo a Work"
+  steps={[
+    "Elige un trabajo interno y reversible: por ejemplo, ordenar y resumir cinco documentos de un mismo tema.",
+    "Cambia el selector a Work y escribe el encargo con objetivo, material, resultado y reglas.",
+    "Lee el plan que te propone y corrígelo si hace falta antes de que empiece.",
+    "Contesta sus dudas durante el trabajo y revisa el entregable.",
+    "Pide una corrección concreta y comprueba que la aplica.",
+  ]}
+  hints={["Si no ves el selector Work, tu plan o tu versión aún no lo tienen: haz el mismo encargo en Claude Cowork (módulo 3) o, en ChatGPT, en un chat normal adjuntando los documentos."]}
+  example={<>Un buen arranque: «Voy a leer los 5 documentos, sacar los puntos comunes y preparar un resumen de una página con una tabla de diferencias. Dos dudas: ¿el documento sin fecha es el más reciente? ¿Quieres el resumen en Word o en el chat?». Si empieza sin enseñarte el plan, añade a tus encargos: «antes de empezar, enséñame el plan».</>}
+>
+Delega un trabajo de varios pasos en ChatGPT, con red.
+</Practice>
+
+## Para llevar
+
+- **Work** = el Cowork de ChatGPT: trabajos de varios pasos que acaban en un entregable; **Chat** para lo rápido.
+- En la nube desde web y móvil; con tus archivos, desde la app de escritorio y con tu permiso.
+- Encargo = objetivo, material, resultado, reglas y cuándo preguntar. Gasta más cupo que un chat.
+- En empresa, **agentes de equipo**: se crean una vez, se prueban y se comparten.
+- El «modo agente» y Atlas ya no existen: hoy es Work.

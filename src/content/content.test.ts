@@ -22,9 +22,9 @@ function mdxFiles(subject: string): string[] {
 }
 
 describe("content catalog", () => {
-  it("has four modules with unique slugs", () => {
-    expect(subjects).toHaveLength(4);
-    expect(new Set(subjects.map((s) => s.slug)).size).toBe(4);
+  it("has five modules with unique slugs", () => {
+    expect(subjects).toHaveLength(5);
+    expect(new Set(subjects.map((s) => s.slug)).size).toBe(5);
   });
 
   it("has the extras as sections after the modules", () => {

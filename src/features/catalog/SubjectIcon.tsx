@@ -43,6 +43,14 @@ export function SubjectIcon({ slug, size = 56 }: { slug: SubjectSlug; size?: num
           <path d="M28 40 V48 C28 51, 31 52, 34 52 H46" opacity={0.6} />
         </svg>
       );
+    case "chatgpt":
+      // Two speech bubbles: a conversation in another assistant.
+      return (
+        <svg {...common}>
+          <path d="M6 10 H34 V28 H18 L11 34 V28 H6 Z" />
+          <path d="M22 32 H50 V48 H45 V53 L39 48 H22 Z" opacity={0.6} />
+        </svg>
+      );
     case "otras-herramientas":
       // Three overlapping windows: other assistants side by side.
       return (

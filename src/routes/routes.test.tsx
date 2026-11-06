@@ -29,6 +29,16 @@ describe("routes", () => {
     }
   });
 
+  it("a lesson that moved to its own module redirects to the new path", async () => {
+    renderAt("/otras-herramientas/chatgpt");
+    expect(
+      await screen.findByRole("heading", {
+        level: 1,
+        name: "La interfaz, los modelos y los planes",
+      }),
+    ).toBeInTheDocument();
+  });
+
   it("an extra is browsed like a subject", () => {
     renderAt("/un-paso-mas");
     expect(screen.getByRole("heading", { level: 1, name: "Un paso más" })).toBeInTheDocument();

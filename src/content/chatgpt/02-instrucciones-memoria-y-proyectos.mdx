@@ -1,0 +1,89 @@
+En Claude tienes tres sitios para que no tengas que repetirte: tus instrucciones, la memoria y los proyectos. ChatGPT tiene exactamente los mismos tres, con nombres parecidos y algún matiz que conviene conocer. Si ya montaste tu proyecto «Consejo» en Claude, aquí lo vas a reproducir en diez minutos.
+
+## Instrucciones personalizadas
+
+En <MenuPath to={["Ajustes", "Personalización", "Instrucciones personalizadas"]} /> le dices a ChatGPT lo que es verdad en todas tus conversaciones. Están en **todos los planes** (web, escritorio y móvil) y se aplican al momento, incluso en los chats que ya tienes abiertos.
+
+El espacio es limitado: **1.500 caracteres** en Gratis y Go, **5.000** en Plus y superiores. Si vienes de Claude, copia tus instrucciones tal cual y recórtalas si hace falta:
+
+<Prompt
+  title="Instrucciones personalizadas"
+  text={`
+    Soy [TU NOMBRE], asistente de dirección de [CARGO] en [EMPRESA]. Escribo en español de España (vosotros, fechas día/mes, euros con coma decimal).
+    Respuestas directas, sin introducciones ni resúmenes finales. Si algo es ambiguo, pregúntame antes de hacerlo largo.
+    Los textos para enviar, listos para copiar y sin comentarios alrededor.
+  `}
+/>
+
+## Memoria
+
+Con la **memoria** activada, ChatGPT recuerda preferencias y datos de tus conversaciones y puede consultar tus chats anteriores. Los controles están en <MenuPath to={["Ajustes", "Personalización"]} /> y, según tu plan y tu versión, se llaman **Memoria**, **Consultar memorias guardadas**, **Consultar historial de chats** y **Gestionar**.
+
+Tres cosas que la hacen distinta de la de Claude:
+
+- **Ves de dónde sale cada cosa.** En las versiones recientes, ChatGPT puede enseñarte qué memorias o qué chats anteriores ha usado para una respuesta, y desde ahí corregirlos, borrarlos o marcarlos como no relevantes.
+- **Apagarla no borra nada.** Tus chats siguen ahí. Para que olvide algo de verdad, borra la memoria guardada **y** el chat donde se lo contaste: borrar solo el chat no siempre basta.
+- **Chat temporal.** Para algo que no quieres que recuerde ni que quede en el historial, abre un chat temporal (como el incógnito de Claude).
+
+<Callout kind="warn">
+Revisa cada pocos meses qué recuerda (en Gestionar). Es fácil que haya guardado de pasada algo que no debería: la dirección de casa de tu jefa, el nombre de un candidato, un importe. Si es de la cuenta personal, con más motivo.
+</Callout>
+
+## Proyectos
+
+Un **proyecto** junta chats, archivos e instrucciones de un área de trabajo, igual que en Claude. Se crea con **Nuevo proyecto** en la barra lateral, y dentro:
+
+- **Archivos**: sube el organigrama, la plantilla del acta, dos actas buenas. Cuántos puedes subir depende de tu plan.
+- **Instrucciones del proyecto**: en el menú **•••** → **Ajustes del proyecto**. Solo valen dentro del proyecto y **mandan sobre tus instrucciones generales** si se contradicen.
+- **Memoria del proyecto**: puede usar tu memoria normal o una **memoria solo del proyecto**, que no se mezcla con el resto. En los proyectos que no compartes puedes cambiar de una a otra en sus ajustes.
+- **Compartir**: puedes compartir un proyecto con tu equipo para trabajar con los mismos archivos e instrucciones. Si alguien borra un archivo de un proyecto compartido, desaparece para todos.
+
+Si mueves un chat a un proyecto, hereda sus instrucciones y sus archivos.
+
+<Chat
+  assistant="ChatGPT"
+  messages={[
+    { from: "tu", text: "Prepárame el borrador de convocatoria del Consejo del 18 de diciembre.", note: "dentro del proyecto «Consejo», con la plantilla y el calendario de sesiones subidos" },
+    { from: "ia", text: "Aquí tienes el borrador con el formato de la plantilla. He puesto el orden del día de la última sesión ordinaria como base; confirma estos dos puntos:\n1. ¿Se mantiene la sala Retiro a las 10:00?\n2. ¿Entra la aprobación del presupuesto 2027, que en la sesión anterior quedó para diciembre?" },
+  ]}
+/>
+
+<Quiz
+  id="instrucciones-o-proyecto"
+  options={[
+    "Las instrucciones del proyecto, porque mandan sobre las generales dentro del proyecto",
+    "Tus instrucciones personalizadas, porque son las de la cuenta",
+    "Las dos a la vez: ChatGPT mezcla las dos versiones",
+  ]}
+  answer={0}
+  explanation="Dentro de un proyecto, sus instrucciones tienen prioridad sobre las generales si se contradicen. Por eso en las generales pones lo que vale siempre («respuestas breves») y en cada proyecto lo propio de esa área («las actas, con todos los detalles»). No las mezcla: gana la del proyecto."
+>
+En tus instrucciones generales pides «respuestas breves». En el proyecto «Actas» pides «el acta completa, con todas las intervenciones». Dentro del proyecto, ¿qué manda?
+</Quiz>
+
+<Callout kind="real">
+La configuración que funciona en ChatGPT es la misma que en Claude: unas instrucciones generales cortas, un proyecto por área (Consejo, Viajes, Eventos), cada uno con su plantilla y dos ejemplos buenos, y la memoria revisada de vez en cuando. Si usas las dos herramientas, guarda tus instrucciones en un documento y cópialas en ambas: así no se desincronizan.
+</Callout>
+
+<Practice
+  id="proyecto-chatgpt"
+  title="Tu proyecto, en ChatGPT"
+  steps={[
+    "Rellena tus instrucciones personalizadas (puedes copiar las de Claude).",
+    "Crea un proyecto para un área de tu trabajo, por ejemplo «Consejo».",
+    "Sube la plantilla y dos ejemplos buenos, y escribe sus instrucciones en Ajustes del proyecto.",
+    "Hazle la misma petición que a tu proyecto de Claude y compara los resultados.",
+    "Entra en Personalización → Gestionar y revisa qué recuerda de ti.",
+  ]}
+  hints={["Los proyectos no están en todos los planes. Si no los tienes, pon la plantilla y las reglas en tus instrucciones personalizadas y adjunta los ejemplos al chat."]}
+  example={<>Con las mismas instrucciones y los mismos archivos, Claude y ChatGPT suelen dar resultados muy parecidos: cambian el estilo y algún detalle. Si uno se inventa más (un asistente que no estaba, una fecha), anótalo: es una buena razón para elegir herramienta en ese tipo de tarea.</>}
+>
+Reproduce en ChatGPT el contexto que ya tienes en Claude.
+</Practice>
+
+## Para llevar
+
+- **Instrucciones personalizadas** (Ajustes → Personalización): lo que es verdad siempre; 1.500 caracteres en Gratis y Go, 5.000 en el resto.
+- **Memoria**: ves de dónde sale cada respuesta y la corriges; para olvidar algo, borra la memoria y el chat.
+- **Chat temporal** para lo que no debe quedar.
+- **Proyectos**: archivos, instrucciones que mandan sobre las generales, memoria propia si quieres y se pueden compartir.

@@ -1,0 +1,104 @@
+Hasta aquí, todos los agentes del curso trabajan **cuando tú se lo pides**: un encargo en Cowork o en Work, una tarea programada a una hora. En septiembre de 2026 OpenAI presentó algo distinto: los **dots**, agentes **siempre encendidos** que conocen tus objetivos, siguen tus proyectos entre conversación y conversación y, a veces, te traen hecho algo que aún no habías pedido. Es lo más parecido a un ayudante propio que hay hoy, y por eso merece una lección aunque, como verás, en España de momento solo llega por la empresa.
+
+## Qué es un dot
+
+Según OpenAI, un **dot** es un agente de ChatGPT que:
+
+- Tiene **su propio ordenador en la nube** y su propio navegador, separados del tuyo (si quieres, puedes darle permiso para usar tu portátil).
+- Trabaja con las **apps que le conectas** (correo, calendario, documentos, Slack…) y empieza con lo que ChatGPT ya **recuerda** de ti.
+- **Aprende tus preferencias** con tus comentarios: cuanto más trabajáis juntos, más se parece su trabajo al tuyo.
+- **Sigue los proyectos** entre conversaciones: le das un objetivo y va avanzando, puede llevar varios a la vez y te escribe para contarte avances o preguntarte.
+- Hace **investigación proactiva**: cuando no le estás pidiendo nada, revisa tus apps conectadas en **modo solo lectura** (no envía mensajes ni cambia nada) para encontrar en qué ayudarte.
+- Se le escribe desde **ChatGPT** (escritorio, web y móvil), desde **Slack** y **Teams**, y se le puede llamar por voz.
+
+El ejemplo que dio OpenAI en su presentación es de asistente de dirección pura: el dot de un usuario detectó que se le había olvidado **emitir una factura**, la preparó y la envió **después de que él la aprobara**.
+
+## Cómo lo controlas
+
+- **Reglas propias**: decides qué acciones puede hacer solo, cuáles necesitan tu **aprobación** y cuáles tiene **bloqueadas**. Hay requisitos de seguridad que se aplican siempre y tareas sensibles, como cambiar una contraseña, que siempre te tocan a ti.
+- **Revisión automática**: antes de una acción que afecte a tus cuentas o comparta información, el dot comprueba que cumple tus instrucciones y tus reglas.
+- **Actividad**: en su perfil ves lo **en curso**, lo **programado** y lo **terminado**, y puedes **pausarlo** en cualquier momento.
+- **Contraseñas**: puede iniciar sesión en webs compatibles con contraseñas guardadas sin que el modelo las vea.
+
+## Dot, Work, tarea programada: cuál es cuál
+
+| | Tarea programada | Work (o Cowork) | Dot |
+| --- | --- | --- | --- |
+| Cuándo trabaja | A la hora o con el evento que pongas | Cuando le encargas algo | Siempre: también por iniciativa propia |
+| Qué recuerda | La instrucción de la tarea | El encargo | Tus objetivos, preferencias y proyectos |
+| Ejemplo | Briefing a las 7:45 | Montar la documentación del comité | Seguir los acuerdos del comité y avisarte de lo que se atasca |
+
+<Quiz
+  id="dot-o-tarea"
+  options={[
+    "Una tarea programada cada lunes que revise el acta",
+    "Un dot con el objetivo de seguir los acuerdos y las reglas de qué puede hacer solo",
+    "Un encargo a Work cada vez que te acuerdes",
+  ]}
+  answer={1}
+  explanation="Seguir acuerdos es un trabajo continuo: hay que recordar quién se comprometió a qué, mirar el correo y los documentos a medida que llegan y avisar cuando algo se atasca. Es lo que distingue a un dot. Una tarea programada lo haría de forma mecánica cada lunes, sin recordar el contexto; un encargo a Work depende de que te acuerdes de pedirlo."
+>
+Quieres que alguien siga los acuerdos del Comité de Dirección (quién tiene que hacer qué y para cuándo), vaya mirando si llegan los entregables y te avise cuando algo se retrase. ¿Qué encaja mejor?
+</Quiz>
+
+## Quién lo tiene (y por qué tú quizá no)
+
+En noviembre de 2026, según la ayuda de OpenAI:
+
+- **ChatGPT Pro** (cuenta personal, mayores de 18): se está desplegando, **excepto en el Espacio Económico Europeo, Suiza y Reino Unido**. Con una cuenta personal en España, **no lo tienes**.
+- **Business Premium**: en las regiones admitidas y según los requisitos de la empresa.
+- **Enterprise y Edu**: disponibles desde el **18 de noviembre de 2026**, salvo que el administrador lo desactive, con **un dot personal por persona**. Se paga aparte, por tarifa o por consumo; lo que el dot encarga a Work se cobra como siempre.
+
+Es decir: si te llega, será **por la empresa**, y lo decidirá IT.
+
+<Callout kind="warn" title="Un dot ve mucho">
+La investigación proactiva significa que el dot **lee tus apps conectadas por su cuenta**, aunque no le preguntes nada, y forma recuerdos con lo que encuentra. Antes de conectarle el correo de dirección:
+- Que sea la **cuenta de empresa** y con el visto bueno de IT.
+- Empieza con **reglas estrictas**: que todo lo que salga hacia otras personas necesite tu aprobación.
+- Revisa su **actividad** a diario las primeras semanas, como harías con alguien nuevo.
+</Callout>
+
+<Callout kind="real">
+Si en tu empresa activan los dots, el mejor primer objetivo para una asistente es uno **con criterio escrito y poco riesgo**: el seguimiento de acuerdos del comité, las notas de gastos pendientes de justificar o la preparación de los viajes del mes. Escríbele el objetivo como un encargo de Cowork, con reglas claras de qué puede hacer solo («buscar y preparar borradores») y qué no («enviar nada a consejeros sin que yo lo apruebe»).
+</Callout>
+
+<Prompt
+  title="Primer objetivo para tu dot"
+  text={`
+    Objetivo continuo: hacer el seguimiento de los acuerdos del Comité de Dirección.
+
+    Contexto: las actas están en [CARPETA]. Cada acuerdo tiene responsable y fecha.
+
+    Qué puedes hacer solo: leer las actas, el correo y los documentos de [CARPETA]; preparar borradores de recordatorio; actualizar la tabla de seguimiento en [DOCUMENTO].
+
+    Qué necesita mi aprobación: enviar cualquier correo o mensaje.
+
+    Qué no debes hacer nunca: escribir a consejeros o a personas de fuera de la empresa.
+
+    Cada lunes a las 9:00, mándame un resumen: acuerdos cumplidos, en plazo y retrasados, con un borrador de recordatorio para cada retraso.
+  `}
+/>
+
+<Practice
+  id="objetivo-dot"
+  title="Diseña el trabajo de tu agente permanente"
+  steps={[
+    "Elige un trabajo continuo de tu puesto (seguimiento de acuerdos, gastos pendientes, viajes del mes).",
+    "Escribe el objetivo con el prompt de arriba: contexto, qué puede hacer solo, qué necesita tu aprobación y qué nunca.",
+    "Si tienes dot, créalo desde la app de escritorio o la web de ChatGPT, conecta solo las apps necesarias y dale ese objetivo.",
+    "Si no lo tienes, monta lo más parecido: una tarea programada semanal (lección 5) con esa misma instrucción.",
+    "Al cabo de una semana, revisa qué ha hecho y endurece o relaja las reglas.",
+  ]}
+  hints={["Con una cuenta personal en España no hay dots: la versión con tarea programada (en ChatGPT o en Claude) cubre gran parte del mismo trabajo, aunque sin iniciativa propia."]}
+  example={<>Un buen resumen del lunes: «12 acuerdos: 8 cumplidos, 3 en plazo, 1 retrasado (Finanzas, previsión de tesorería, vencía el viernes). Borrador de recordatorio a Pedro Ruiz, pendiente de tu aprobación». Si un día te propone escribir a un consejero, es que la regla de «nunca» no estaba clara: revísala.</>}
+>
+Aunque no tengas dot, el ejercicio de escribirle el trabajo te sirve para cualquier agente.
+</Practice>
+
+## Para llevar
+
+- Un **dot** es un agente siempre encendido: su propio ordenador en la nube, tus apps, tu memoria, y **iniciativa propia**.
+- Lo controlas con **reglas** (solo, con aprobación, nunca), su **actividad** y la **pausa**.
+- Tarea programada = a una hora; Work = cuando encargas; dot = continuo.
+- En noviembre de 2026, **no para cuentas personales en España**: llega por Business Premium o Enterprise, si IT lo activa.
+- Ve mucho: cuenta de empresa, reglas estrictas al principio y revisión diaria.
