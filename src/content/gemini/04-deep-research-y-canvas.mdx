@@ -1,0 +1,99 @@
+Dos herramientas de la app de Gemini cubren lo mismo que la Investigación y los artefactos de Claude: [**Deep Research**](https://support.google.com/gemini/answer/15719111?hl=es), para investigar con fuentes (también en tu correo y tu Drive), y [**Canvas**](https://support.google.com/gemini/answer/16047321?hl=es), para crear documentos, presentaciones y mini aplicaciones que luego exportas a Docs o Slides. Son las dos que más se usan para preparar reuniones y viajes.
+
+## Deep Research
+
+<Screenshot
+  src="gemini/mas-herramientas.jpg"
+  alt="Menú del botón más de Gemini con el submenú Más herramientas abierto: Crear música, Canvas, Deep Research y Aprendizaje guiado."
+  width={1470}
+  height={700}
+  date="noviembre de 2026"
+  marks={[
+    { x: 594, y: 588, w: 232, h: 34, n: 1, badge: "left" },
+    { x: 836, y: 508, w: 208, h: 70, n: 2, badge: "right" },
+  ]}
+  caption="(1) + → Más herramientas. (2) Canvas y Deep Research."
+/>
+
+Deep Research investiga una pregunta en muchas fuentes y te entrega un informe con citas. Lo que dice la ayuda de Google:
+
+1. En el cuadro de texto, **`+` → Más herramientas → Deep Research**, escribe la pregunta y envíala.
+2. Gemini te propone un **plan**; puedes **editarlo** antes de pulsar **Empezar investigación**.
+3. Tarda unos **5 a 10 minutos**; te avisa cuando está listo.
+4. El informe se abre en un panel, desde donde puedes **exportarlo a Docs**, copiarlo o compartirlo, y hasta crear un **resumen en audio**.
+
+Por defecto busca en Google, pero con el botón **Fuentes** puedes añadir **Gmail** y **Drive** (si tienes Workspace conectado a Gemini), subir archivos o añadir un notebook. Necesitas tener 18 años o más, y el número de investigaciones al día depende de tu plan.
+
+<Prompt
+  title="Deep Research con tu correo y tu Drive"
+  text={`
+    Prepara un informe para la reunión de Laura Martín con [EMPRESA] el [FECHA].
+    Fuentes: la web, mi Gmail (correos con [DOMINIO] del último año) y la carpeta de Drive [CARPETA].
+    Quiero:
+    1. Historia de la relación: reuniones, acuerdos y temas pendientes, con fecha y el correo o documento de donde sale.
+    2. Noticias de los últimos tres meses sobre [EMPRESA].
+    3. Tres temas que probablemente salgan y qué hemos dicho antes sobre cada uno.
+    Separa lo que sale de nuestros correos de lo que sale de internet.
+  `}
+/>
+
+<Callout kind="warn">
+Con Gmail y Drive como fuentes, el informe mezcla información interna con la de internet. Antes de reenviarlo a nadie, **mira qué sale de vuestros correos**: puede haber datos que no deberían salir de la empresa. Y comprueba las citas: abre dos o tres y mira que dicen lo que el informe afirma.
+</Callout>
+
+## Canvas
+
+**Canvas** es un espacio de trabajo al lado del chat para crear y editar un **documento, una presentación, una aplicación o código**, como los artefactos de Claude:
+
+- Se abre desde **`+` → Más herramientas → Canvas**, escribiendo lo que quieres.
+- Lo vas editando con Gemini («acorta la introducción», «añade una diapositiva con el calendario»).
+- Desde el menú **Crear** convierte el contenido en un **resumen en audio**, un **cuestionario**, una **infografía** o una **página web**.
+- **Compartir y exportar**: a **Docs**, a **Slides** (o PDF) o como enlace (que solo se abre en Gemini).
+
+<Chat
+  assistant="Gemini (Canvas)"
+  messages={[
+    { from: "tu", text: "Con este programa del viaje, haz una presentación de 5 diapositivas para el equipo de Laura: objetivo, agenda por días, personas que verá, logística y contactos." , note: "adjunta el itinerario del viaje a Bruselas" },
+    { from: "ia", text: "He creado la presentación en Canvas con las 5 diapositivas. La de logística dice «hotel por confirmar» porque el itinerario no lo incluye. ¿Lo añado o lo dejo así? Cuando esté, puedes exportarla a Slides desde Compartir y exportar." },
+  ]}
+/>
+
+<Quiz
+  id="canvas-o-docs"
+  options={[
+    "Canvas, y luego Exportar a Slides para que el equipo la edite",
+    "Deep Research, porque necesita fuentes",
+    "Un chat normal y copiar el texto a Slides a mano",
+  ]}
+  answer={0}
+  explanation="Canvas crea la presentación, la puedes retocar con Gemini y se exporta a Slides, donde el equipo trabaja como siempre. Deep Research es para investigar con fuentes, no para montar una presentación con información que ya tienes. Copiar a mano funciona, pero es el trabajo que Canvas te ahorra."
+>
+Tienes el itinerario de un viaje y quieres una presentación para el equipo, que luego tienen que poder editar en Google Slides. ¿Qué usas?
+</Quiz>
+
+<Callout kind="real">
+Para un viaje o una reunión importante, el combo que funciona: **Deep Research** con la web y vuestro correo para el contexto, revisas el informe, y **Canvas** para convertirlo en una ficha de una página o en una presentación que exportas a Docs o Slides. Media hora de trabajo que antes eran dos tardes.
+</Callout>
+
+<Practice
+  id="investigar-gemini"
+  title="Prepara una reunión con Gemini"
+  steps={[
+    "Elige una reunión real de las próximas semanas con alguien de fuera.",
+    "Lanza un Deep Research con el prompt de arriba; si usas la cuenta de trabajo, añade Gmail y Drive como fuentes.",
+    "Revisa el plan antes de empezar y edítalo si hace falta.",
+    "Cuando termine, comprueba tres citas y quita lo que no esté bien.",
+    "Convierte el informe en una ficha de una página en Canvas y expórtala a Docs.",
+  ]}
+  hints={["Si no ves Gmail ni Drive en Fuentes, tu cuenta no tiene Workspace conectado a Gemini: hazlo solo con la web y adjunta tú los documentos."]}
+  example={<>Una buena ficha cabe en una página: quién es quién, historia de la relación con fechas, temas probables y qué se ha dicho antes de cada uno. Si una línea dice «según el correo de Marta del 3 de octubre» y ese correo no lo dice, quítala.</>}
+>
+Investiga y presenta, con fuentes que puedas comprobar.
+</Practice>
+
+## Para llevar
+
+- **Deep Research**: plan editable, 5–10 minutos, informe con citas; puede buscar en **Gmail y Drive** además de la web.
+- Mira qué sale de vuestros correos antes de compartir un informe.
+- **Canvas** = artefactos de Gemini: documentos, presentaciones y apps que exportas a **Docs o Slides**.
+- Combo para reuniones: investigar con Deep Research, presentar con Canvas.

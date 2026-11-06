@@ -1,0 +1,109 @@
+Durante tres años, la forma de «enseñarle» a ChatGPT un trabajo repetido era crear un [**GPT**](https://help.openai.com/en/articles/8554407-gpts-in-chatgpt): un ChatGPT con instrucciones y archivos fijos que podías compartir. Si en tu empresa alguien hizo «el GPT de las actas» o «el GPT de viajes», esta lección te importa: [**OpenAI está retirando los GPTs**](https://help.openai.com/en/articles/20001519-custom-gpt-retirement-and-migration-faq), y hay que saber qué hacer con ellos y qué los sustituye.
+
+## Qué era un GPT
+
+Un GPT tenía tres partes, las mismas que una buena skill o un buen proyecto:
+
+1. **Instrucciones**: quién es, qué hace, formato y reglas.
+2. **Conocimiento**: hasta 20 archivos de referencia (plantillas, normativa, ejemplos).
+3. **Acciones o apps**: conexión con otras herramientas.
+
+Y se podía **compartir** con un enlace o con toda la organización. Por eso se usaba como «la herramienta del equipo».
+
+## La retirada, con fechas
+
+Según la ayuda de OpenAI (noviembre de 2026):
+
+- En las **cuentas personales** (Gratis, Go, Plus y Pro) **ya no se pueden crear ni publicar GPTs nuevos**.
+- En las empresas afectadas, la creación terminó el **26 de octubre de 2026**.
+- La retirada general está prevista para el **11 de diciembre de 2026** (algunas organizaciones con prórroga, en febrero de 2027).
+- Los GPTs que ya existen siguen funcionando y se pueden editar hasta su fecha de retirada. Cuando se migran, el original queda **solo de lectura**.
+- La migración usa la **última versión publicada**: los borradores y los cambios sin publicar no pasan.
+
+<Callout kind="warn" title="Antes del 11 de diciembre">
+Si usas un GPT del que dependes, **guarda hoy sus instrucciones y sus archivos** (si lo hiciste tú, ábrelo en modo edición y copia el texto; si es de una compañera, pídeselo). Y apunta tres o cuatro peticiones típicas con su resultado, para comprobar que lo que lo sustituya funciona igual. Según las preguntas frecuentes de OpenAI, al migrar **no pasan** las acciones (las conexiones con otras herramientas hay que rehacerlas), el modelo elegido ni, a veces, las frases de inicio; y lo migrado empieza siendo privado: pruébalo antes de compartirlo.
+</Callout>
+
+## Lo que los sustituye: plugins y skills
+
+- [**Complementos**](https://help.openai.com/en/articles/20001256) (*plugins*): juntan **skills** (instrucciones y procedimientos) y **apps conectadas** para un tipo de tarea. Hay un directorio de plugins en todos los planes, pero instalar o usar cada uno depende de tu plan, tu empresa y tu país. Es el camino oficial de migración de los GPTs.
+- [**Habilidades**](https://help.openai.com/en/articles/20001066-skills-in-chatgpt) (*skills*): procedimientos reutilizables que ChatGPT **aplica solo cuando encajan** con lo que pides, igual que las skills de Claude. Están en **Complementos → Habilidades**; se crean conversando (**Crear → Crear con chat**: ChatGPT usa su propia habilidad para crear habilidades) y se comparten con compañeras, grupos o toda la empresa. En noviembre de 2026 están **solo en los planes de empresa** (Business, Enterprise, Edu), según lo que active el administrador: en una cuenta personal verás la pestaña, pero vacía.
+
+<Screenshot
+  src="chatgpt/habilidades.jpg"
+  alt="Página Complementos de ChatGPT con la pestaña Habilidades abierta y el mensaje Las habilidades no están disponibles para esta cuenta, en un plan Gratis."
+  width={1490}
+  height={700}
+  date="noviembre de 2026"
+  marks={[
+    { x: 494, y: 8, w: 112, h: 36, n: 1, badge: "bottom" },
+    { x: 700, y: 244, w: 456, h: 34, n: 2, badge: "bottom" },
+  ]}
+  caption="(1) Habilidades, junto a Complementos. (2) En una cuenta personal, de momento, no están disponibles."
+/>
+
+<Callout kind="idea" title="Los tres van al mismo sitio">
+Claude tiene skills; ChatGPT cambia los GPTs por skills y plugins; Google cambia las Gems por skills (módulo 5). La idea que aprendiste en el módulo 3 es la que se queda: **un procedimiento bien escrito, con su descripción de cuándo usarlo, que el asistente aplica solo**. Si escribes bien una skill para una herramienta, la pasas a otra en una tarde.
+</Callout>
+
+## Qué hacer con cada GPT
+
+| Si tu GPT era… | En una cuenta personal | En una cuenta de empresa |
+| --- | --- | --- |
+| Instrucciones para un área (Consejo, Viajes) | Un **proyecto** con esas instrucciones y archivos | Un proyecto compartido o una **skill** |
+| Un procedimiento repetido (el acta, la nota de gastos) | Tus instrucciones personalizadas o un proyecto; o una **skill en Claude** | Una **skill** compartida con el equipo |
+| Una herramienta conectada a otra app | Un **plugin**, si tu plan lo permite | El plugin al que lo migre quien lo creó |
+
+<Quiz
+  id="gpt-equipo"
+  options={[
+    "Crear un GPT nuevo y compartirlo con ellas",
+    "Crear una skill con el formato y compartirla con el equipo",
+    "Pegar el formato en tus instrucciones personalizadas",
+  ]}
+  answer={1}
+  explanation="En una cuenta de empresa, la skill es lo que sustituye al GPT: se aplica sola cuando alguien pide una convocatoria y se comparte con el equipo. Crear un GPT nuevo ya no se puede en muchas cuentas y desaparece en diciembre. Tus instrucciones personalizadas solo te valen a ti."
+>
+Tu empresa tiene ChatGPT Business. Quieres que las otras tres asistentes redacten las convocatorias con el mismo formato que tú. ¿Qué haces?
+</Quiz>
+
+<Prompt
+  title="Convertir un GPT en skill (pídeselo a ChatGPT o a Claude)"
+  text={`
+    Te pego las instrucciones de un GPT que uso para [TAREA]. Conviértelas en una skill:
+    1. Un nombre corto en minúsculas con guiones.
+    2. Una descripción que diga qué hace y cuándo usarla, con las palabras que yo usaría al pedirlo.
+    3. Las instrucciones, paso a paso, con el formato de salida y las reglas.
+    Si algo de las instrucciones es ambiguo, pregúntame antes.
+
+    [PEGA AQUÍ LAS INSTRUCCIONES DEL GPT]
+  `}
+/>
+
+<Callout kind="real">
+En muchas oficinas los GPTs los hizo una persona que ya no está, y nadie sabe qué instrucciones tenían. Ahora es el momento de hacer inventario: qué GPTs usa el equipo, quién los mantiene y a qué se van a migrar. Una tabla de cuatro columnas en un documento compartido basta, y te convierte en la persona que lo tiene controlado.
+</Callout>
+
+<Practice
+  id="inventario-gpts"
+  title="Inventario de tus GPTs"
+  steps={[
+    "Haz una lista de los GPTs que usas tú o tu equipo, y quién los creó.",
+    "De cada uno, guarda sus instrucciones y sus archivos en una carpeta.",
+    "Decide su sustituto con la tabla de arriba: proyecto, skill o plugin.",
+    "Convierte el más importante con el prompt «Convertir un GPT en skill».",
+    "Prueba el sustituto con tres peticiones típicas y compara con el GPT.",
+  ]}
+  hints={["Si no usas ningún GPT, haz el ejercicio con una tarea que repitas: escribe sus instrucciones como si fueran un GPT y conviértelas en skill para Claude (módulo 3) o en un proyecto de ChatGPT."]}
+  example={<>Una fila del inventario: «GPT Convocatorias · lo hizo Marta (Secretaría) · instrucciones y 2 plantillas guardadas en Drive/IA/GPTs · sustituto: skill <code>convocatoria-consejo</code> compartida con Secretaría · probado con 3 convocatorias, igual de bien». Con eso, el 11 de diciembre no pilla a nadie por sorpresa.</>}
+>
+Que la retirada de los GPTs no te deje sin herramientas.
+</Practice>
+
+## Para llevar
+
+- Los **GPTs se retiran**: no se crean nuevos en cuentas personales y la retirada general es el **11 de diciembre de 2026**.
+- Guarda ya las instrucciones y los archivos de los que dependes.
+- Los sustituyen los **plugins** (skills y apps juntos) y, en empresa, las **skills**, que se aplican solas y se comparten.
+- En una cuenta personal, un **proyecto** hace casi todo lo que hacía un GPT.
+- Claude, ChatGPT y Gemini convergen en las skills: un procedimiento bien escrito viaja.

@@ -1,0 +1,83 @@
+Hay preguntas que no quieres que la IA conteste «con lo que sabe», sino **solo con tus documentos**: qué se decidió en los consejos de este año, qué dice la política de viajes sobre la clase business, qué condiciones firmamos con Acme. Para eso Google tiene una herramienta pensada exactamente para ello: [**Gemini Notebook**](https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/), que hasta julio de 2026 se llamaba **NotebookLM**.
+
+## Qué es
+
+**Gemini Notebook** responde **solo con las fuentes que tú le das** (PDFs, documentos de Drive, webs, vídeos) y **cita cada afirmación** con su origen. Es la diferencia con un chat normal: si la respuesta no está en tus documentos, te lo dice en lugar de rellenar con lo que sabe.
+
+Se trabaja en **cuadernos** (*notebooks*): uno por tema. Ejemplos que funcionan muy bien:
+
+- **Todas las actas del consejo del año**: «¿cuándo se aprobó el presupuesto de marketing y con qué condiciones?».
+- **La normativa interna**: «¿qué dice la política de viajes sobre la clase business?».
+- **El dossier de un cliente**: contrato, propuestas y correos importantes de Acme.
+
+<Callout kind="note" title="NotebookLM y Gemini Notebook son lo mismo">
+Google cambió el nombre en julio de 2026 y mantuvo la herramienta y los enlaces: si alguien te habla de NotebookLM o te pasa un enlace antiguo, es esto. La versión de empresa también cambió de nombre.
+</Callout>
+
+## El panel Studio: audio, guías y más
+
+Además de preguntar, el panel **Studio** convierte tus fuentes en otros formatos:
+
+- **Resumen en audio** (*Audio Overview*): un pódcast de dos voces sobre tus documentos, **en español** (también el de España) entre más de 80 idiomas. Tiene varios formatos (en profundidad, resumen breve, crítica, debate) y tarda un par de minutos. Perfecto para preparar una reunión en el coche.
+- **Resúmenes en vídeo**, guías de estudio, mapas mentales y otros formatos, según tu versión.
+
+## Cuadernos dentro de la app de Gemini
+
+Tus cuadernos aparecen también en el **menú lateral de la app de Gemini**, y lo que cambies en uno (renombrarlo, añadir fuentes) se sincroniza en el otro. La diferencia, según la ayuda de Google:
+
+| | En Gemini Notebook | En la app de Gemini |
+| --- | --- | --- |
+| De dónde salen las respuestas | **Solo de tus fuentes** | De tus fuentes y, si hace falta, de internet |
+| Resúmenes en audio y vídeo | Sí | No |
+| Para qué | Preguntar a tus documentos con citas | Trabajar un tema mezclando tus documentos con lo demás |
+
+Por eso, cuando necesites que cada respuesta salga **de tus documentos y de nada más**, pregunta en Gemini Notebook.
+
+<Quiz
+  id="notebook-o-gemini"
+  options={[
+    "En la app de Gemini, que también tiene el cuaderno",
+    "En un chat normal de Gemini, pegando las actas",
+    "En Gemini Notebook, que responde solo con las actas y cita cada una",
+  ]}
+  answer={2}
+  explanation="Quieres que cada respuesta diga en qué acta está, sin que se cuele nada de fuera. Gemini Notebook responde exclusivamente con tus fuentes y cita cada afirmación. En la app de Gemini el mismo cuaderno puede completar con internet, y pegar doce actas en un chat es incómodo y no garantiza las citas."
+>
+Quieres preguntar «¿qué se decidió sobre la oficina de Valencia en los consejos de este año?» y que cada respuesta diga en qué acta está. ¿Dónde preguntas?
+</Quiz>
+
+## Compartir un cuaderno
+
+Puedes **compartir un cuaderno** como un documento de Drive: quien lo recibe puede preguntarle y escuchar sus resúmenes en audio. Útil para el dossier de un cliente que usan varias personas, o para que el equipo nuevo pregunte a la normativa interna. Dos matices: en las cuentas de Workspace Enterprise y Education, **no se pueden publicar resúmenes en audio con un enlace público**, y los cuadernos que contienen chats de Gemini no se pueden compartir.
+
+<Callout kind="warn">
+Un cuaderno compartido da acceso a **todas sus fuentes**. Antes de compartir el de las actas del consejo, comprueba quién lo va a ver: lo que es rojo en el semáforo (información privilegiada, nóminas) no va en un cuaderno compartido, y menos en una cuenta personal.
+</Callout>
+
+<Callout kind="real">
+Muchas asistentes tienen tres cuadernos fijos: **actas** (del comité y del consejo, por año), **normativa** (viajes, gastos, protocolo) y **la jefa** (sus preferencias, contactos clave, compromisos recurrentes). Cuando Laura pregunta «¿esto no lo hablamos ya?», la respuesta está en treinta segundos y con la cita.
+</Callout>
+
+<Practice
+  id="cuaderno-actas"
+  title="Tu cuaderno de actas"
+  steps={[
+    "Abre Gemini Notebook (notebooklm.google) con la cuenta de trabajo, si la tenéis.",
+    "Crea un cuaderno y añade como fuentes entre 3 y 10 actas o documentos de normativa.",
+    "Hazle tres preguntas que te hayan hecho de verdad este mes y comprueba las citas.",
+    "Hazle una pregunta cuya respuesta no esté en los documentos y mira qué contesta.",
+    "Genera un resumen en audio en español y escúchalo.",
+  ]}
+  hints={["Con documentos confidenciales, usa la cuenta de empresa o prueba antes con documentos que no lo sean (una normativa pública, actas de una asociación)."]}
+  example={<>Lo esperable: respuestas cortas con números que llevan a la frase exacta de cada acta, y ante la pregunta sin respuesta, algo como «las fuentes no mencionan ese tema». Si se inventa una respuesta en vez de decirlo, revisa que estás en Gemini Notebook y no en la app de Gemini.</>}
+>
+Monta el cuaderno que más vas a consultar.
+</Practice>
+
+## Para llevar
+
+- **Gemini Notebook** (antes NotebookLM) responde **solo con tus fuentes** y cita cada afirmación.
+- Un cuaderno por tema: actas, normativa, un cliente, tu jefa.
+- **Studio**: resúmenes en audio en español y otros formatos.
+- Los cuadernos aparecen también en la app de Gemini, que puede completar con internet: para respuestas solo de tus documentos, pregunta en Gemini Notebook.
+- Compartir un cuaderno es compartir todas sus fuentes.

@@ -59,6 +59,10 @@ description: How lessons are written — tone, structure, the components availab
 - Menu paths and feature names are checked against official help pages (see
   `ai-collaboration.md`) and listed in `sources`. When they vary by version or plan, say so
   ("en algunas versiones…", "si tu empresa lo tiene activado").
+- When a lesson explains a platform concept (a skill, a Gem, a dot, Cowork, a connector…),
+  link the term to its official help page the first time it is explained:
+  `[**dots**](https://…)`. The reader gets the primary source in one click; `sources` keeps
+  the full list. Use the Spanish version of the page when it exists (`?hl=es`).
 
 ## Captures
 

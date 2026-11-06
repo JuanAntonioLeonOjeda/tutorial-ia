@@ -9,16 +9,19 @@ Mismo método que la plataforma de repaso del máster: lecciones en lenguaje cer
 preguntas rápidas con pista y solución, **capturas reales de la interfaz** con la zona marcada y
 **prácticas para hacer en Claude** con una checklist.
 
-- 4 módulos + 1 opcional · 23 lecciones · 7 simulaciones · 15 capturas · 59 ejercicios y prácticas.
+- 6 módulos + 1 opcional · 34 lecciones · 7 simulaciones · 32 capturas · 81 ejercicios y prácticas.
   1. **Fundamentos**: qué hay detrás del chat, pedir bien, archivos/imágenes/voz, usarla con cabeza
      (instrucciones escondidas y las cuatro preguntas antes de delegar).
   2. **Claude a fondo**: la interfaz, modelos y límites de uso, artefactos y documentos, proyectos,
      instrucciones y memoria, investigación con fuentes, Claude en Chrome, Outlook, Excel y Google Docs.
   3. **Superpoderes**: conectores (MCP) y el buzón de tu jefa, skills, Cowork y subagentes,
      automatizaciones y un recetario.
-  4. **ChatGPT, Gemini y Copilot**: el diccionario desde Claude (con ChatGPT Work), Gems y NotebookLM,
-     Copilot en Outlook y Teams, cuál usar para qué.
-  5. **Un paso más** (con un poco de código): Claude Code, la carpeta `.claude` y `AGENTS.md`,
+  4. **ChatGPT a fondo**: interfaz y planes, instrucciones, memoria y proyectos, de los GPTs a las
+     skills, investigación y Record, apps y tareas programadas, Work y los dots.
+  5. **Gemini y Google Workspace a fondo**: la app y sus planes, de las Gems a las skills, Gemini en
+     Gmail y Meet, Deep Research y Canvas, Gemini Notebook, acciones programadas y Workspace Studio.
+  6. **Copilot y cuál usar**: Copilot en Outlook y Teams, cuál usar para qué.
+  7. **Un paso más** (con un poco de código): Claude Code, la carpeta `.claude` y `AGENTS.md`,
      conectores MCP a mano.
 - **Descargas**: tres skills de ejemplo listas para subir a Claude (acta, correo ejecutivo,
   viaje) y una plantilla de espacio de trabajo para Claude Code (`material/`).
