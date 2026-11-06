@@ -3,6 +3,10 @@ import type { Subject } from "@/content/types";
 
 const HELP = "https://help.openai.com/en/articles";
 
+/** The captures in these lessons: chatgpt.com in Spanish (free plan), checked on screen that day. */
+const UI_CAPTURE =
+  "Interfaz de chatgpt.com en español (plan Gratis), capturada el 6 de noviembre de 2026";
+
 /** Module 4: ChatGPT in depth, from the interface to agents (Work, workspace agents, dots). */
 export const chatgpt: Subject = {
   slug: "chatgpt",
@@ -22,6 +26,7 @@ export const chatgpt: Subject = {
         "https://chatgpt.com/es-ES/pricing/",
         `${HELP}/20001275-chatgpt-work-and-codex`,
         `${HELP}/8096356-chatgpt-custom-instructions`,
+        UI_CAPTURE,
       ],
       exercises: ["esfuerzo-chatgpt", "tour-chatgpt"],
       load: () => import("./01-interfaz-modelos-y-planes.mdx"),
@@ -37,6 +42,7 @@ export const chatgpt: Subject = {
         `${HELP}/8590148-memory-faq`,
         `${HELP}/10169521-projects-in-chatgpt`,
         `${HELP}/6825453-chatgpt-release-notes`,
+        UI_CAPTURE,
       ],
       exercises: ["instrucciones-o-proyecto", "proyecto-chatgpt"],
       load: () => import("./02-instrucciones-memoria-y-proyectos.mdx"),
@@ -53,6 +59,7 @@ export const chatgpt: Subject = {
         `${HELP}/20001256`,
         `${HELP}/20001066-skills-in-chatgpt`,
         `${HELP}/8554397-creating-and-editing-gpts`,
+        UI_CAPTURE,
       ],
       exercises: ["gpt-equipo", "inventario-gpts"],
       load: () => import("./03-de-los-gpts-a-las-skills.mdx"),
@@ -82,6 +89,7 @@ export const chatgpt: Subject = {
         `${HELP}/11487775-apps-in-chatgpt`,
         `${HELP}/20001256`,
         `${HELP}/10291617-tasks-in-chatgpt`,
+        UI_CAPTURE,
       ],
       exercises: ["evento-o-programada", "tarea-chatgpt"],
       load: () => import("./05-apps-y-tareas-programadas.mdx"),
