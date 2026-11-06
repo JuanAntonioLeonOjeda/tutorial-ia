@@ -9,7 +9,7 @@ Mismo método que la plataforma de repaso del máster: lecciones en lenguaje cer
 preguntas rápidas con pista y solución, **capturas reales de la interfaz** con la zona marcada y
 **prácticas para hacer en Claude** con una checklist.
 
-- 6 módulos + 1 opcional · 34 lecciones · 7 simulaciones · 35 capturas · 81 ejercicios y prácticas.
+- 6 módulos + 1 opcional · 34 lecciones · 7 simulaciones · 32 capturas · 81 ejercicios y prácticas.
   1. **Fundamentos**: qué hay detrás del chat, pedir bien, archivos/imágenes/voz, usarla con cabeza
      (instrucciones escondidas y las cuatro preguntas antes de delegar).
   2. **Claude a fondo**: la interfaz, modelos y límites de uso, artefactos y documentos, proyectos,
