@@ -11,6 +11,7 @@ import { SubjectRoute } from "./SubjectRoute";
 /** Old lesson paths and where they live now. */
 const MOVED_LESSONS = [
   { from: "otras-herramientas/chatgpt", to: "/chatgpt/interfaz-modelos-y-planes" },
+  { from: "otras-herramientas/gemini", to: "/gemini/la-app-de-gemini" },
 ] as const;
 
 export const routes: RouteObject[] = [

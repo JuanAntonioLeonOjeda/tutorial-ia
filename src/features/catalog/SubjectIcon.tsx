@@ -51,6 +51,15 @@ export function SubjectIcon({ slug, size = 56 }: { slug: SubjectSlug; size?: num
           <path d="M22 32 H50 V48 H45 V53 L39 48 H22 Z" opacity={0.6} />
         </svg>
       );
+    case "gemini":
+      // A four-pointed sparkle over a document: an assistant inside your office files.
+      return (
+        <svg {...common}>
+          <rect x="8" y="14" width="28" height="36" rx="4" opacity={0.55} />
+          <path d="M14 26 H30 M14 33 H30 M14 40 H24" opacity={0.55} />
+          <path d="M42 6 C43 13, 45 15, 52 16 C45 17, 43 19, 42 26 C41 19, 39 17, 32 16 C39 15, 41 13, 42 6 Z" />
+        </svg>
+      );
     case "otras-herramientas":
       // Three overlapping windows: other assistants side by side.
       return (

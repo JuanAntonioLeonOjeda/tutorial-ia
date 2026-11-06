@@ -1,0 +1,87 @@
+La gran baza de Gemini es que **vive dentro de Google Workspace**: no tienes que ir a otra ventana, copiar el correo y pegarlo. Está en el panel lateral de Gmail, de Docs, de Sheets, y toma notas en Meet. Si tu empresa usa Google, esta es probablemente la lección que más tiempo te va a ahorrar del módulo.
+
+<Callout kind="note">
+Estas funciones necesitan **una edición de Google Workspace que las incluya o un plan de Google AI**, y que IT las tenga activadas. Lo que ves depende de tu licencia; si no te aparece el botón de Gemini, pregunta a IT antes de buscar alternativas.
+</Callout>
+
+## Gmail
+
+Arriba a la derecha, el botón de **Gemini** (*Ask Gemini*) abre un panel lateral (o ancho, si lo prefieres) donde le hablas sobre tu correo:
+
+- **Resumir y sacar tareas**: «haz una lista de lo que me piden en este hilo y con qué plazo».
+- **Redactar**: un correo o una respuesta, desde lo que le digas («contesta a Acme que el martes no podemos, propón jueves o viernes por la mañana»).
+- **Buscar preguntando**: «¿qué me dijo Pedro sobre el catering de la cena de Navidad?».
+- **Añadir fuentes**: con **Añadir fuentes → Añadir desde Drive** o escribiendo **`@`**, le das un documento para que lo tenga en cuenta.
+- **Acciones**: puede crear un evento a partir de un correo (solo en tu **calendario principal**) y hacer acciones en bloque (archivar, etiquetar); tienes **60 segundos para deshacer**.
+
+<Chat
+  assistant="Gemini en Gmail"
+  messages={[
+    { from: "tu", text: "Resume este hilo y dime qué tengo que contestar yo y qué tiene que decidir Laura.", note: "con el hilo «Cena anual de clientes» abierto, 14 correos" },
+    { from: "ia", text: "Resumen: la agencia propone dos restaurantes para el 12 de diciembre y necesita confirmación antes del viernes.\n\nPara ti: confirmar el número de invitados (la última lista tiene 48) y si hay menús especiales.\nPara Laura: elegir entre el restaurante La Alameda (más céntrico, 95 €/persona) y Casa del Retiro (sala privada, 120 €/persona).\n\n¿Te preparo la respuesta a la agencia con lo tuyo?" },
+  ]}
+/>
+
+<Callout kind="warn">
+Lo que hace en tu buzón lo hace **con tu cuenta**: si gestionas el correo de tu jefa por delegación, comprueba con IT qué permite tu licencia antes de pedirle que actúe en su buzón. Y antes de enviar un borrador suyo, lee destinatarios y texto: un correo puede llevar instrucciones escondidas (módulo 1).
+</Callout>
+
+## Calendar, Docs, Sheets y Drive
+
+- **Calendar**: crear y mover eventos pidiéndolo, desde el panel de Gemini.
+- **Docs**: redactar, reescribir, resumir un documento largo o convertirlo en una presentación.
+- **Sheets**: crear tablas, fórmulas y análisis pidiéndolos («crea una columna con los días que faltan para cada vencimiento»).
+- **Drive**: preguntar por el contenido de tus archivos o montar una hoja a partir de lo que hay en una carpeta.
+
+Los nombres de los botones cambian a menudo; casi siempre hay un icono de Gemini (una estrella) arriba a la derecha que abre el panel.
+
+## Meet: «Tomar notas por mí»
+
+En una videollamada de Meet, **Tomar notas por mí** (*Take notes for me*) hace que Gemini escriba las notas de la reunión. Lo que dice la ayuda de Google:
+
+- Se activa en la propia reunión (arriba a la derecha) o al crear el evento en Calendar, en las opciones de la videollamada.
+- **Funciona en español**, pero en **un solo idioma por reunión**.
+- **Avisa a todos** los participantes de que se están tomando notas (aparece un lápiz), y el administrador puede exigir que den su consentimiento.
+- El resultado es un **documento de Google** con notas rápidas y notas completas, guardado en el **Drive del organizador** (carpeta «Google Meet»), adjunto al evento, y enviado por correo.
+- Quien organiza decide a quién se mandan: a todos los invitados (también de fuera), solo a los de la empresa o solo a los organizadores.
+- Está pensado para reuniones de **15 minutos a 8 horas**.
+
+<Quiz
+  id="notas-meet"
+  options={[
+    "A todos los invitados, incluidos los de fuera",
+    "Solo a los organizadores, y tú decides después qué se comparte",
+    "No hace falta decidirlo: Gemini no manda las notas a nadie",
+  ]}
+  answer={1}
+  explanation="Las notas automáticas recogen todo lo que se dice, también lo que no debería salir de la sala. Con personas de fuera, lo prudente es que lleguen solo a quien organiza y que tú las revises antes de mandar un resumen. Gemini sí las envía: la opción de destinatarios está precisamente para eso."
+>
+Laura tiene una reunión por Meet con Acme para negociar el contrato y quieres usar «Tomar notas por mí». ¿A quién configuras que se envíen las notas?
+</Quiz>
+
+<Callout kind="real">
+El flujo más eficiente para las actas en una empresa con Google: **Tomar notas por mí** en la reunión, revisas el documento que genera y se lo pasas a la skill del acta (en Gemini o en Claude) para darle el formato de la casa. Lo que no se toca es la revisión: las notas automáticas no distinguen una propuesta de una decisión, y en un comité esa diferencia lo es todo.
+</Callout>
+
+<Practice
+  id="gemini-gmail"
+  title="Gemini en tu Gmail y tu Meet"
+  steps={[
+    "En Gmail, con la cuenta de trabajo, abre el panel de Gemini y pide el resumen de un hilo largo con lo que te toca a ti.",
+    "Pide un borrador de respuesta y revísalo antes de enviarlo.",
+    "Pregúntale por algo de tu correo («¿qué me dijo X sobre Y?») y comprueba la respuesta en el correo original.",
+    "En tu próxima reunión de Meet interna, avisa y activa Tomar notas por mí.",
+    "Revisa el documento que genera: qué ha entendido bien y qué ha confundido.",
+  ]}
+  hints={["Si no ves Gemini en Gmail ni en Meet, tu licencia no lo incluye o IT no lo ha activado. Pregunta antes de usar tu cuenta personal con correo del trabajo."]}
+  example={<>Lo habitual es que el resumen del hilo sea muy bueno y que las notas de Meet acierten los temas pero mezclen alguna propuesta con una decisión, o atribuyan una frase a quien no la dijo. Apunta esos fallos: son los que tendrás que revisar siempre.</>}
+>
+Prueba Gemini donde más tiempo te ahorra: dentro de tu correo y tus reuniones.
+</Practice>
+
+## Para llevar
+
+- Gemini está **dentro** de Gmail, Calendar, Docs, Sheets, Drive y Meet, con una licencia que lo incluya.
+- En Gmail: resumir, redactar, buscar preguntando, añadir documentos con `@` y acciones con 60 segundos para deshacer.
+- **Tomar notas por mí** en Meet: en español, avisa a todos, guarda un Doc en el Drive del organizador; tú eliges a quién se envía.
+- Las notas automáticas se **revisan** siempre antes de convertirlas en acta.

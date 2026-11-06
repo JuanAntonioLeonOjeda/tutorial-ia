@@ -1,6 +1,7 @@
 import { chatgpt } from "./chatgpt";
 import { claude } from "./claude";
 import { fundamentos } from "./fundamentos";
+import { gemini } from "./gemini";
 import { otrasHerramientas } from "./otras-herramientas";
 import { superpoderes } from "./superpoderes";
 import type { Subject } from "./types";
@@ -12,6 +13,7 @@ export const subjects: readonly Subject[] = [
   claude,
   superpoderes,
   chatgpt,
+  gemini,
   otrasHerramientas,
 ];
 

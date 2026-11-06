@@ -2,7 +2,13 @@ import type { MDXContent } from "mdx/types";
 import type { ComponentType } from "react";
 
 export type SubjectSlug =
-  "fundamentos" | "claude" | "superpoderes" | "chatgpt" | "otras-herramientas" | "un-paso-mas";
+  | "fundamentos"
+  | "claude"
+  | "superpoderes"
+  | "chatgpt"
+  | "gemini"
+  | "otras-herramientas"
+  | "un-paso-mas";
 
 export interface Lesson {
   slug: string;

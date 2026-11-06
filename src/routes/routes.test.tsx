@@ -39,6 +39,16 @@ describe("routes", () => {
     ).toBeInTheDocument();
   });
 
+  it("the old Gemini lesson path redirects to the Gemini module", async () => {
+    renderAt("/otras-herramientas/gemini");
+    expect(
+      await screen.findByRole("heading", {
+        level: 1,
+        name: "La app de Gemini: modelos, planes y cuentas",
+      }),
+    ).toBeInTheDocument();
+  });
+
   it("an extra is browsed like a subject", () => {
     renderAt("/un-paso-mas");
     expect(screen.getByRole("heading", { level: 1, name: "Un paso más" })).toBeInTheDocument();

@@ -1,29 +1,13 @@
 import { defineLesson } from "@/content/define-lesson";
 import type { Subject } from "@/content/types";
 
-/** Last module: Gemini (until it gets its own module), Microsoft Copilot and which one to use for what. */
+/** Last module: Microsoft Copilot and which assistant to use for what. */
 export const otrasHerramientas: Subject = {
   slug: "otras-herramientas",
-  title: "Gemini, Copilot y cuál usar",
-  code: "Módulo 5",
-  tagline: "Gemini y NotebookLM, Copilot en Outlook y Teams, y cuál usar para qué.",
+  title: "Copilot y cuál usar",
+  code: "Módulo 6",
+  tagline: "Copilot en Outlook y Teams, y cuál de los asistentes usar para cada tarea.",
   lessons: [
-    defineLesson({
-      slug: "gemini",
-      title: "Gemini, Gems y NotebookLM",
-      summary:
-        "Gems bien hechas, Gemini dentro de Gmail, Docs, Sheets y Meet, y NotebookLM para preguntar solo a tus documentos.",
-      minutes: 20,
-      sources: [
-        "https://support.google.com/gemini",
-        "https://workspaceupdates.googleblog.com/2026/01/take-notebooks-further-notebooklm-gemini.html",
-        "https://notebooklm.google",
-        "https://support.google.com/gemini/answer/17094507?hl=en",
-        "https://support.google.com/gemini/answer/18560919?hl=en",
-      ],
-      exercises: ["notebooklm", "gem-mejorada"],
-      load: () => import("./01-gemini.mdx"),
-    }),
     defineLesson({
       slug: "copilot",
       title: "Copilot en Outlook y Teams",
@@ -44,7 +28,7 @@ export const otrasHerramientas: Subject = {
         "https://www.vimcal.com/ea/2026-report",
       ],
       exercises: ["que-copilot", "copilot-outlook"],
-      load: () => import("./02-copilot.mdx"),
+      load: () => import("./01-copilot.mdx"),
     }),
     defineLesson({
       slug: "cual-para-que",
@@ -59,7 +43,7 @@ export const otrasHerramientas: Subject = {
         "https://support.microsoft.com/en-us/microsoft-365-copilot/how-copilot-chat-works-with-and-without-a-microsoft-365-copilot-license",
       ],
       exercises: ["elegir", "mi-mapa"],
-      load: () => import("./03-cual-para-que.mdx"),
+      load: () => import("./02-cual-para-que.mdx"),
     }),
   ],
 };

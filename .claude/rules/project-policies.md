@@ -11,7 +11,8 @@ dirección) who use Claude, ChatGPT and Gemini as regular users and want to get 
 of them at work. Learners are **not programmers**: everything except the optional section is done
 through the apps' interfaces.
 
-- Four modules (Fundamentos, Claude a fondo, Superpoderes, ChatGPT y Gemini) and an optional
+- Six modules (Fundamentos, Claude a fondo, Superpoderes, ChatGPT a fondo, Gemini y Google
+  Workspace a fondo, Copilot y cuál usar) and an optional
   section, **Un paso más** (`extras` in `catalog.ts`), with the few things worth learning that
   need a terminal or a text file (Claude Code, the `.claude/` folder, MCP by hand).
 - Each lesson: plain Spanish, mock chats, prompts to copy, simulations that make one idea
