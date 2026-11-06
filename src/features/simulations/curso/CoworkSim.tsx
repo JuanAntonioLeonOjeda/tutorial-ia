@@ -48,7 +48,7 @@ export default function CoworkSim(): ReactNode {
   return (
     <SimFrame
       title="Un agente trabajando (y cuándo te pregunta)"
-      intro="Un agente no responde de una vez: planifica, usa herramientas, mira el resultado y sigue. Avanza paso a paso con «Aprobar a mano» y luego repite con «Aprobar automáticamente», que es el modo por defecto en muchos planes."
+      intro="Un agente no responde de una vez: planifica, usa herramientas, mira el resultado y sigue. Avanza paso a paso con «Aprobar manualmente» y luego repite con «Aprobar automáticamente», que es el modo por defecto en muchos planes."
       onReset={() => {
         reset("manual");
       }}

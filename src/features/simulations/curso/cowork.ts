@@ -43,9 +43,9 @@ const BEFORE_SENDING: readonly AgentStep[] = [
 export type ApprovalMode = "manual" | "auto" | "skip";
 
 export const APPROVAL_MODES: readonly { id: ApprovalMode; label: string }[] = [
-  { id: "manual", label: "Aprobar a mano" },
+  { id: "manual", label: "Aprobar manualmente" },
   { id: "auto", label: "Aprobar automáticamente" },
-  { id: "skip", label: "Saltar aprobaciones" },
+  { id: "skip", label: "Omitir todas las aprobaciones" },
 ];
 
 /** The whole run for a given mode and, when it asks, the person's answer. */

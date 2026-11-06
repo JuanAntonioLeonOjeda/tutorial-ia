@@ -15,7 +15,7 @@ export const es = {
   },
   home: {
     title: "Aprende IA",
-    lead: "Un curso paso a paso para sacarle todo el partido a Claude (y a ChatGPT y Gemini) en el día a día de una asistente de dirección: pedir bien, proyectos, skills, conectores y automatizaciones. Sin programar.",
+    lead: "Un curso paso a paso para sacarle todo el partido a Claude (y a ChatGPT, Gemini y Copilot) en el día a día de una asistente de dirección: pedir bien, proyectos, skills, conectores y automatizaciones. Sin programar.",
     subjectsHeading: "Módulos",
     extrasHeading: "Un paso más (con un poco de código)",
     extrasLead:
@@ -80,6 +80,11 @@ export const es = {
     practiceDoneHint: "Marca los pasos según los vayas haciendo.",
     practiceExample: "Un ejemplo de cómo podría quedar",
     solutionLabel: "Solución",
+  },
+  screenshot: {
+    openFull: "Verla a tamaño completo (se abre en otra pestaña)",
+    taken: (date: string): string =>
+      `Captura de ${date}. La interfaz cambia a menudo: si algo no está igual, busca un nombre parecido.`,
   },
   prompt: {
     label: "Prompt para copiar",

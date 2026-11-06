@@ -5,6 +5,7 @@ import { Chat } from "./Chat";
 import { dedent } from "./dedent";
 import { MenuPath } from "./MenuPath";
 import { Prompt, splitPlaceholders } from "./Prompt";
+import { Screenshot, badgeAnchor, captureUrl } from "./Screenshot";
 
 describe("dedent", () => {
   it("removes the first newline and the common indentation", () => {
@@ -57,5 +58,73 @@ describe("MenuPath", () => {
   it("reads the whole path to screen readers", () => {
     render(<MenuPath to={["Ajustes", "Conectores"]} />);
     expect(screen.getByLabelText("Dónde está: Ajustes, Conectores")).toBeInTheDocument();
+  });
+});
+
+describe("captureUrl", () => {
+  it("resolves a capture under the deploy base", () => {
+    expect(captureUrl("claude/inicio.jpg", "/")).toBe("/capturas/claude/inicio.jpg");
+    expect(captureUrl("claude/inicio.jpg", "/tutorial-ia/")).toBe(
+      "/tutorial-ia/capturas/claude/inicio.jpg",
+    );
+    expect(captureUrl("/claude/inicio.jpg", "/tutorial-ia")).toBe(
+      "/tutorial-ia/capturas/claude/inicio.jpg",
+    );
+  });
+});
+
+describe("badgeAnchor", () => {
+  const mark = { x: 100, y: 200, w: 50, h: 30 };
+
+  it("hangs from the top-left corner by default", () => {
+    expect(badgeAnchor(mark)).toEqual({ x: 100, y: 200, side: "top" });
+  });
+
+  it("hangs from the middle of the chosen side", () => {
+    expect(badgeAnchor({ ...mark, badge: "bottom" })).toEqual({ x: 100, y: 230, side: "bottom" });
+    expect(badgeAnchor({ ...mark, badge: "left" })).toEqual({ x: 100, y: 215, side: "left" });
+    expect(badgeAnchor({ ...mark, badge: "right" })).toEqual({ x: 150, y: 215, side: "right" });
+  });
+});
+
+describe("Screenshot", () => {
+  it("shows the capture with its alt text, numbered marks and the date", () => {
+    const { container } = render(
+      <Screenshot
+        src="claude/inicio.jpg"
+        alt="Pantalla de inicio de Claude"
+        width={1512}
+        height={716}
+        date="noviembre de 2026"
+        marks={[
+          { x: 10, y: 10, w: 100, h: 40, n: 1 },
+          { x: 200, y: 300, w: 50, h: 50, n: 2 },
+        ]}
+        caption="La barra lateral (1) y el cuadro de texto (2)."
+      />,
+    );
+    expect(screen.getByRole("img", { name: "Pantalla de inicio de Claude" })).toBeInTheDocument();
+    const link = screen.getByRole("link", { name: /tamaño completo.*otra pestaña/ });
+    expect(link).toHaveAttribute("href", "/capturas/claude/inicio.jpg");
+    expect(container.querySelectorAll("rect")).toHaveLength(2);
+    const overlay = container.querySelector('[aria-hidden="true"]');
+    expect(overlay?.textContent).toBe("12");
+    expect(screen.getByText(/noviembre de 2026/)).toBeInTheDocument();
+  });
+
+  it("draws a box without a badge when the mark has no number", () => {
+    const { container } = render(
+      <Screenshot
+        src="claude/inicio.jpg"
+        alt="Pantalla de inicio de Claude"
+        width={100}
+        height={100}
+        date="noviembre de 2026"
+        marks={[{ x: 10, y: 10, w: 20, h: 20 }]}
+        caption="Una zona sin número."
+      />,
+    );
+    expect(container.querySelectorAll("rect")).toHaveLength(1);
+    expect(container.querySelector('[aria-hidden="true"]')?.textContent).toBe("");
   });
 });

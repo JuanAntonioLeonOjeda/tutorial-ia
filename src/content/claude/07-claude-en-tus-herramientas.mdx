@@ -1,4 +1,4 @@
-No todo tiene que pasar por la ventana de chat. Claude también vive dentro de las herramientas que ya usas: el navegador, Excel, PowerPoint y la mensajería del equipo. Así trabaja **donde está el documento**, sin copiar y pegar. Qué tienes disponible depende de tu plan y de lo que haya aprobado IT, así que tómate esta lección como un mapa.
+No todo tiene que pasar por la ventana de chat. Claude también vive dentro de las herramientas que ya usas: el navegador, Outlook, Word, Excel, PowerPoint y la mensajería del equipo. Así trabaja **donde está el documento**, sin copiar y pegar. Qué tienes disponible depende de tu plan y de lo que haya aprobado IT, así que tómate esta lección como un mapa.
 
 ## Claude en Chrome
 
@@ -13,15 +13,37 @@ Es una **extensión del navegador** que pone a Claude en un panel lateral de Chr
 En la app de escritorio, Claude en Chrome aparece también como un **conector** que puedes activar en cualquier conversación, y desde su panel lateral puedes encargar tareas a Claude sin cambiar de ventana.
 
 <Callout kind="warn">
-Que la IA haga clic por ti en el navegador es potente y delicado. Empieza con webs de confianza, déjale preguntar antes de enviar o pagar, y **no le dejes usar páginas donde haya datos bancarios o accesos sensibles**. Una web maliciosa puede intentar darle instrucciones escondidas.
+Que la IA haga clic por ti en el navegador es potente y delicado. Empieza con webs de confianza, elige que te **pregunte antes de actuar** (en algunas versiones viene en aprobación automática: cámbialo a manual), y **no le dejes usar páginas donde haya datos bancarios o accesos sensibles**. Una web maliciosa puede intentar darle instrucciones escondidas: la ayuda de Claude lo llama el mayor riesgo de los navegadores con IA, y aunque tiene filtros que revisan cada página y cada acción, el riesgo no es cero (lo ves a fondo en «Usarla con cabeza», módulo 1). Algunas cosas las tiene bloqueadas (por ejemplo, operar en bolsa o saltarse un captcha) y otras te las pregunta antes, pero de lo que compre o publique en tu nombre **respondes tú**.
 </Callout>
 
-## Claude en Excel y PowerPoint
+<Callout kind="note" title="Otros navegadores con agente">
+Otras empresas tienen su versión: Perplexity con su navegador **Comet**, Microsoft con **Navegar con Copilot** en Edge (en empresas, solo en las webs que IT permita). OpenAI tuvo el suyo, **ChatGPT Atlas**, pero lo retiró en agosto de 2026 y llevó esas funciones a ChatGPT. La idea es la misma en todos, y las precauciones también.
+</Callout>
 
-Con los complementos de **Claude para Microsoft 365**, Claude aparece en un panel dentro de Excel y PowerPoint:
+## Claude en Outlook, Word, Excel y PowerPoint
 
+Con los complementos de **Claude para Microsoft 365**, Claude aparece en un panel dentro de las aplicaciones de Office. Se instalan desde la tienda de complementos de Microsoft (AppSource) o los despliega IT para toda la empresa, y necesitan un plan Pro, Max, Team o Enterprise. El de Outlook necesita un buzón de Exchange Online (el correo de Microsoft 365 de empresa) y no funciona en el móvil.
+
+- **Outlook** (en beta en noviembre de 2026): ordena la bandeja en una sola petición (qué necesita respuesta tuya, qué puede redactar él, qué es ruido), deja **respuestas como borrador** con destinatarios y asunto rellenos, y propone **convocatorias** comprobando la disponibilidad de los asistentes. Nada **se envía** hasta que pulsas **Enviar**: borradores e invitaciones se abren en las ventanas normales de Outlook. Pero sí puede archivar, mover o marcar correos, así que revisa lo que hace.
+- **Word**: redacta y revisa sobre el documento abierto, con su formato.
 - **Excel**: le preguntas por la hoja abierta («¿por qué no cuadra el total de marzo?»), te crea tablas resumen, gráficos o fórmulas, y te explica qué hace una fórmula heredada que nadie entiende.
 - **PowerPoint**: crea diapositivas con la plantilla de la presentación abierta, reescribe textos para que quepan, genera notas del orador.
+
+Y puede **trabajar entre aplicaciones**: si tienes abiertos el Excel del presupuesto, la presentación del consejo y el informe en Word, cambias una cifra en el Excel y le pides que actualice el gráfico y el párrafo. Solo trabaja con los archivos **abiertos**; en Pro y Max viene activado, en Team y Enterprise lo decide el administrador.
+
+<Chat
+  assistant="Claude en Outlook"
+  messages={[
+    { from: "tu", text: "Ordena lo que ha llegado esta mañana al buzón y prepárame borradores de lo que puedas contestar tú." },
+    { from: "ia", text: "Necesitan respuesta tuya (2): Acme pide mover la reunión del jueves; Marta, de Finanzas, pregunta si Laura firma hoy el presupuesto.\nHe dejado borradores (3): confirmación de asistencia al Comité, envío del orden del día a los consejeros y respuesta a la agencia de viajes.\nRuido (11): boletines y notificaciones automáticas.\nNo he enviado nada: los borradores están en tu carpeta.", note: "en el panel de Claude, dentro de Outlook" },
+  ]}
+/>
+
+<Callout kind="warn" title="Claude dentro de tu buzón">
+- Lo que Claude lee de tu correo **se envía a Anthropic** para procesarlo: aplica el semáforo del módulo 1 y no lo uses en buzones con información privilegiada o regulada sin permiso de IT.
+- En planes de empresa, lo que haces con el complemento no sigue todas las reglas de conservación y auditoría de la empresa: otra razón para que lo apruebe IT.
+- Un correo de fuera puede llevar **instrucciones escondidas** (módulo 1). Antes de enviar un borrador, mira los **destinatarios** y el texto.
+</Callout>
 
 Lo bueno: trabaja sobre el archivo real, con vuestro formato, sin copiar y pegar. Ojo: el contenido del archivo sigue yendo a Claude, así que se aplica el mismo semáforo de datos del módulo 1.
 
@@ -55,7 +77,7 @@ Tienes un Excel de presupuesto con varias pestañas y fórmulas y quieres entend
   id="integraciones"
   title="Haz tu inventario"
   steps={[
-    "Mira qué tienes disponible: app de escritorio, Claude en Chrome, complementos de Excel y PowerPoint, Google Docs y Sheets, Slack.",
+    "Mira qué tienes disponible: app de escritorio, Claude en Chrome, complementos de Outlook, Word, Excel y PowerPoint, Google Docs y Sheets, Slack.",
     "Instala (o pide a IT) la que más vayas a usar.",
     "Pruébala con una tarea real y pequeña: resumir una página, explicar una fórmula, rehacer una diapositiva.",
     "Prueba la entrada rápida de la app de escritorio con su atajo de teclado.",
@@ -74,7 +96,7 @@ Lo que más se usa en una oficina: la app de escritorio con la entrada rápida p
 ## Para llevar
 
 - **Chrome**: Claude lee y actúa en webs; potente, con prudencia.
-- **Excel y PowerPoint**: trabaja sobre el archivo real con vuestro formato.
+- **Outlook, Word, Excel y PowerPoint**: trabaja sobre el correo o el archivo real; en Outlook no envía nada solo, pero lo que lee va a Claude: aplica el semáforo.
 - **Google Docs/Sheets/Slides** y **Slack** (Claude Tag): según tu plan y lo que active IT.
 - **Escritorio** con entrada rápida y **móvil** con voz y cámara para el día a día.
 - Lo que tengas depende de tu plan y de IT: haz inventario y empieza por una.

@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
 import { describe, expect, it } from "vitest";
@@ -9,6 +9,7 @@ import { simulations } from "@/features/simulations";
 import { extras, sections, subjects } from "./catalog";
 
 const CONTENT_DIR = join(process.cwd(), "src", "content");
+const CAPTURES_DIR = join(process.cwd(), "public", "capturas");
 
 function exerciseIds(source: string): string[] {
   return [...source.matchAll(/<(?:Quiz|Predict|Practice)\b[^>]*?\bid="([^"]+)"/gs)].map(
@@ -66,6 +67,30 @@ describe("content catalog", () => {
           );
           const known = new Set([...Object.keys(simulations), ...Object.keys(illustrations)]);
           expect(used.filter((name) => !known.has(name))).toEqual([]);
+        });
+
+        it(`${lesson.slug}: every screenshot exists and says when it was taken`, () => {
+          // Captions and alt texts are plain strings, so a block ends at the first "/>".
+          const blocks = source.match(/<Screenshot\b.*?\/>/gs) ?? [];
+          for (const block of blocks) {
+            const src = /\bsrc="([^"]+\.(?:jpg|png|webp))"/.exec(block)?.[1] ?? "";
+            expect(src, block.slice(0, 80)).not.toBe("");
+            expect(existsSync(join(CAPTURES_DIR, src)), src).toBe(true);
+            expect(block).toMatch(/\bdate="[^"]+"/);
+            expect(block).toMatch(/\balt="[^"]{20,}"/);
+            expect(block).toMatch(/\bcaption="[^"]+"/);
+            const width = Number(/\bwidth=\{(\d+)\}/.exec(block)?.[1] ?? 0);
+            const height = Number(/\bheight=\{(\d+)\}/.exec(block)?.[1] ?? 0);
+            expect(width * height, src).toBeGreaterThan(0);
+            const marks = block.matchAll(/\{ x: (\d+), y: (\d+), w: (\d+), h: (\d+)/g);
+            for (const [, x = "0", y = "0", w = "0", h = "0"] of marks) {
+              expect(Number(x) + Number(w), `${src} mark at x=${x}`).toBeLessThanOrEqual(width);
+              expect(Number(y) + Number(h), `${src} mark at y=${y}`).toBeLessThanOrEqual(height);
+            }
+          }
+          if (blocks.length > 0) {
+            expect(lesson.sources.some((s) => s.includes("capturada el"))).toBe(true);
+          }
         });
 
         it(`${lesson.slug}: every practice has steps and a worked example`, () => {
