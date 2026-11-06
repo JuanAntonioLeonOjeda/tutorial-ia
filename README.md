@@ -1,19 +1,23 @@
 # Aprende IA
 
-Curso paso a paso para sacarle todo el partido a **Claude** (y a ChatGPT y Gemini) en el día a
+Curso paso a paso para sacarle todo el partido a **Claude** (y a ChatGPT, Gemini y Copilot) en el día a
 día de una asistente de dirección. Sin programar: todo se hace desde la interfaz, salvo una
 sección final opcional.
 
 Mismo método que la plataforma de repaso del máster: lecciones en lenguaje cercano,
 **conversaciones de ejemplo**, **prompts para copiar**, **simulaciones** que se pueden tocar,
-preguntas rápidas con pista y solución y **prácticas para hacer en Claude** con una checklist.
+preguntas rápidas con pista y solución, **capturas reales de la interfaz** con la zona marcada y
+**prácticas para hacer en Claude** con una checklist.
 
-- 4 módulos + 1 opcional · 22 lecciones · 7 simulaciones · 55 ejercicios y prácticas.
-  1. **Fundamentos**: qué hay detrás del chat, pedir bien, archivos/imágenes/voz, usarla con cabeza.
+- 4 módulos + 1 opcional · 23 lecciones · 7 simulaciones · 15 capturas · 59 ejercicios y prácticas.
+  1. **Fundamentos**: qué hay detrás del chat, pedir bien, archivos/imágenes/voz, usarla con cabeza
+     (instrucciones escondidas y las cuatro preguntas antes de delegar).
   2. **Claude a fondo**: la interfaz, modelos y límites de uso, artefactos y documentos, proyectos,
-     instrucciones y memoria, investigación con fuentes, Claude en Chrome, Excel y Google Docs.
-  3. **Superpoderes**: conectores (MCP), skills, Cowork, automatizaciones y un recetario.
-  4. **ChatGPT y Gemini**: el diccionario desde Claude, Gems y NotebookLM, cuál usar para qué.
+     instrucciones y memoria, investigación con fuentes, Claude en Chrome, Outlook, Excel y Google Docs.
+  3. **Superpoderes**: conectores (MCP) y el buzón de tu jefa, skills, Cowork y subagentes,
+     automatizaciones y un recetario.
+  4. **ChatGPT, Gemini y Copilot**: el diccionario desde Claude (con ChatGPT Work), Gems y NotebookLM,
+     Copilot en Outlook y Teams, cuál usar para qué.
   5. **Un paso más** (con un poco de código): Claude Code, la carpeta `.claude` y `AGENTS.md`,
      conectores MCP a mano.
 - **Descargas**: tres skills de ejemplo listas para subir a Claude (acta, correo ejecutivo,

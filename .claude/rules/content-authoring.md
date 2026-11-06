@@ -35,6 +35,7 @@ description: How lessons are written — tone, structure, the components availab
 | `<Prompt text={`...`} title?>`                                       | a prompt to copy; `[PLACEHOLDERS]` are highlighted                   |
 | `<MenuPath to={["Ajustes", "Conectores"]} />`                        | where a setting lives, as a breadcrumb                               |
 | `<Figure caption>`                                                   | wraps an inline SVG                                                  |
+| `<Screenshot src alt width height date marks caption>`               | a real capture from `public/capturas/` with numbered boxes           |
 | `<Quiz id options answer explanation hints?>`                        | multiple choice; `answer` is the index                               |
 | `<Predict id answer explanation hints?>`                             | "work it out and type the result" (a word or a number)               |
 | `<Practice id title? steps={[...]} hints? example={...}>`            | a task done in the real tool, with a checklist and a worked example  |
@@ -58,6 +59,16 @@ description: How lessons are written — tone, structure, the components availab
 - Menu paths and feature names are checked against official help pages (see
   `ai-collaboration.md`) and listed in `sources`. When they vary by version or plan, say so
   ("en algunas versiones…", "si tu empresa lo tiene activado").
+
+## Captures
+
+- Take them in the Spanish interface, light theme, at the same window size; replace history
+  titles, names and e-mails on screen with the fictional cast before capturing, and hide the
+  cursor. Never capture real data.
+- `marks` are in image pixels (`x, y, w, h, n`); the caption explains each number, and `alt`
+  describes the screen and the marked zones. `date` is the month and year of the capture.
+- The text must still make sense without the image: the capture illustrates, it does not
+  replace the explanation. Add the capture date to the lesson's `sources`.
 
 ## MDX pitfalls
 

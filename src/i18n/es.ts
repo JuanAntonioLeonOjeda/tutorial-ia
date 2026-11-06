@@ -15,7 +15,7 @@ export const es = {
   },
   home: {
     title: "Aprende IA",
-    lead: "Un curso paso a paso para sacarle todo el partido a Claude (y a ChatGPT y Gemini) en el día a día de una asistente de dirección: pedir bien, proyectos, skills, conectores y automatizaciones. Sin programar.",
+    lead: "Un curso paso a paso para sacarle todo el partido a Claude (y a ChatGPT, Gemini y Copilot) en el día a día de una asistente de dirección: pedir bien, proyectos, skills, conectores y automatizaciones. Sin programar.",
     subjectsHeading: "Módulos",
     extrasHeading: "Un paso más (con un poco de código)",
     extrasLead:

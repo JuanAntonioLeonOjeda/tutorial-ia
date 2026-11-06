@@ -1,0 +1,110 @@
+Si en tu empresa el correo es **Outlook** y las reuniones son por **Teams**, es muy probable que ya tengas un botón de **Copilot**, el asistente de Microsoft, delante de las narices. Es la herramienta de IA más usada por las asistentes de dirección según los informes sobre la profesión de 2026, por la sencilla razón de que está donde ya trabajan. Esta lección te lo traduce a lo que ya sabes, con una advertencia: **lo que ves depende mucho de la licencia** que te haya dado IT.
+
+<Callout kind="note" title="Sin capturas en esta lección">
+Copilot cambia según la licencia, la versión de Outlook (la nueva, la clásica, la web) y lo que active IT, y no hemos podido capturarlo con una cuenta de empresa. Los nombres de los botones vienen de la ayuda de Microsoft en inglés: en tu Outlook en español se llamarán parecido.
+</Callout>
+
+## Dos Copilots distintos
+
+Aquí está la fuente de casi toda la confusión:
+
+| | **Copilot Chat** | **Licencia de Microsoft 365 Copilot** |
+| --- | --- | --- |
+| Qué es | Un chat con IA incluido con tu cuenta de trabajo | Un complemento de pago que contrata la empresa por persona |
+| Qué sabe de tu trabajo | Lo que le adjuntes y, en algunos casos, el correo o el chat que tengas abierto | Tu correo, tus reuniones, tus chats y tus archivos, que busca solo |
+| Equivale en Claude a… | Un chat sin conectores | Un chat con los conectores de Microsoft 365 activados |
+
+Microsoft los está renombrando a **Microsoft Copilot** y **Microsoft Copilot Chat**, así que verás ambos nombres un tiempo. Si al pedirle «resume los correos de Acme de esta semana» te contesta que no tiene acceso, tienes Copilot Chat sin licencia.
+
+## En Outlook: resumir, redactar, convocar
+
+Con la licencia, tres botones te van a ahorrar más tiempo que todo lo demás:
+
+- **Resumir** (*Summarize*), arriba de una conversación: lee todo el hilo y saca los puntos clave, en algunas versiones con números que llevan al correo de donde sale cada cosa. Ideal para el hilo de 23 mensajes sobre la fecha del consejo.
+- **Redactar con Copilot** (*Draft with Copilot*), en la cinta al escribir (o tecleando `/`): al responder, usa el hilo como contexto, así que basta con decir qué quieres contestar.
+- **Programar con Copilot** (*Schedule with Copilot*), desde un hilo: propone título, orden del día y asistentes a partir de los correos, comprueba la disponibilidad y te deja la convocatoria para revisarla antes de enviarla.
+
+<Chat
+  assistant="Copilot en Outlook"
+  messages={[
+    { from: "tu", text: "Responde a Acme que Laura puede el martes 18 a las 10:00 o el jueves 20 a las 16:00, en nuestras oficinas. Tono cordial, breve.", note: "Redactar con Copilot, respondiendo al hilo de Acme" },
+    { from: "ia", text: "Buenos días, Javier:\n\nGracias por vuestra propuesta. Laura Martín podría reunirse con vosotros el martes 18 a las 10:00 o el jueves 20 a las 16:00, en nuestras oficinas. Indícanos qué opción os viene mejor y os enviamos la convocatoria.\n\nUn saludo,\nAna" },
+  ]}
+/>
+
+<Callout kind="warn">
+- No funciona con correos **cifrados o firmados** ni con algunos protegidos con etiquetas de confidencialidad: ahí el botón no estará o no hará nada.
+- Un resumen cuenta **lo que dice el hilo, no lo que es verdad**: si alguien se equivocó de fecha en el correo, el resumen también.
+- Lo que redacta queda como borrador: tú lo lees y tú pulsas Enviar.
+</Callout>
+
+## El buzón y la agenda de tu jefa
+
+Buena noticia para tu día a día: según la ayuda de Microsoft, **Copilot Chat en Outlook funciona dentro de los buzones compartidos y delegados** a los que tienes acceso, sin cambiar de cuenta. Puedes **resumir y redactar** en el buzón de Laura y pedir resúmenes de su calendario si eres su delegada.
+
+Lo que **todavía no** hace en esos buzones (Microsoft lo anuncia como «próximamente»): marcar como leído, borrar, clasificar o señalar correos, **enviar** en su nombre y **crear o mover reuniones**. Para eso, de momento, lo haces tú.
+
+<Callout kind="real">
+Una forma habitual de trabajar: por la mañana, en el buzón de Laura, «resume lo que ha llegado desde ayer a las 18:00 y dime qué necesita respuesta suya y qué puedo contestar yo». Copilot te lo ordena; tú contestas lo tuyo con **Redactar con Copilot** y le pasas a Laura una lista corta con lo que es suyo. El historial de esas preguntas se queda en **tu** cuenta: otras personas con acceso al mismo buzón no lo ven.
+</Callout>
+
+## En Teams: las reuniones
+
+Con la licencia, Copilot en una reunión de Teams **resume lo que se ha dicho, quién lo ha dicho, propone tareas** y responde preguntas («¿qué se decidió sobre el presupuesto?»), durante la reunión o después.
+
+El detalle que importa: para usarlo **después** de la reunión (en la pestaña de resumen, *Recap*), la reunión tiene que haberse **transcrito** (o grabado). Si Copilot se usó solo durante la reunión, sin transcripción, al terminar ya no está disponible. Hay una opción de resumen sin transcripción, pero depende de la licencia y de lo que permita IT.
+
+<Callout kind="real">
+Antes de transcribir, avisa: en muchas empresas es obligatorio decirlo al empezar la reunión, y con consejeros o personas de fuera conviene preguntarlo antes. Con la transcripción, la skill del acta de Claude (módulo 3) o el propio Copilot te sacan el acta con vuestro formato.
+</Callout>
+
+## Copilot Cowork: el agente de Microsoft
+
+**Copilot Cowork** es a Microsoft 365 lo que Cowork es a Claude: le das un **resultado** («organiza la reunión trimestral con los cinco directores: busca hueco, reserva sala, manda la convocatoria con el orden del día del último correo de Laura») y él planifica y lo hace en tus aplicaciones de Microsoft: correo, calendario, Teams, documentos. Microsoft explica que lo construyó con la tecnología de Claude Cowork, en colaboración con Anthropic.
+
+Lo que conviene saber:
+
+- Antes de **enviar un correo, publicar en Teams o convocar una reunión**, te enseña una vista previa y espera tu aprobación.
+- Trabaja **en la nube**: puedes cerrar el portátil.
+- Necesita la **licencia de Microsoft 365 Copilot**, se cobra **según el uso** y lo activa IT.
+
+Todo lo de la lección de Cowork vale aquí: un buen encargo (objetivo, material, resultado, reglas), aprobar a mano lo que sale hacia otras personas y revisar como si fuera de alguien nuevo.
+
+<Quiz
+  id="que-copilot"
+  options={[
+    "Que tienes Copilot Chat sin la licencia de Microsoft 365 Copilot: no busca en tu correo por su cuenta",
+    "Que Copilot no sabe leer correos en español",
+    "Que tienes que reenviarte los correos a ti misma para que los vea",
+  ]}
+  answer={0}
+  explanation="Copilot Chat sin licencia trabaja con la web y con lo que le adjuntas (y, en algunos casos, con el correo que tienes abierto). Buscar solo en tu buzón, tus reuniones y tus archivos es lo que añade la licencia. El idioma no tiene nada que ver, y reenviarte correos no le da acceso a tu buzón."
+>
+Le pides a Copilot «resume los correos de Acme de esta semana» y te responde que no puede acceder a tu correo. ¿Qué es lo más probable?
+</Quiz>
+
+<Practice
+  id="copilot-outlook"
+  title="Copilot en tu Outlook"
+  steps={[
+    "Abre Outlook (mejor la versión nueva o la web) y busca el botón de Copilot en la cinta o arriba de un correo.",
+    "Abre un hilo largo y pulsa Resumir. Comprueba el resumen contra los correos.",
+    "Responde a uno de esos correos con Redactar con Copilot, diciendo en una frase qué quieres contestar. No lo envíes sin leerlo.",
+    "Si tienes acceso delegado al buzón de tu jefa, repite el resumen desde su buzón.",
+    "Apunta qué botones tienes y cuáles no: así sabes qué licencia te ha dado IT.",
+  ]}
+  hints={[
+    "Si no ves ningún botón de Copilot en Outlook, pregunta a IT si tu cuenta tiene Copilot Chat o la licencia de Microsoft 365 Copilot. Mientras tanto, el complemento de Claude para Outlook (módulo 2) hace cosas parecidas si tu empresa lo permite.",
+  ]}
+  example={<>Un buen resumen de un hilo largo dice en tres o cuatro puntos qué se ha decidido, qué queda pendiente y quién tiene que responder, y señala el correo de donde sale cada cosa. Si mezcla propuestas con decisiones («se celebrará el 14» cuando solo se propuso), es justo lo que tienes que corregir antes de pasárselo a Laura.</>}
+>
+Descubre qué Copilot tienes y prueba los tres botones que más ahorran.
+</Practice>
+
+## Para llevar
+
+- Hay **dos Copilots**: Copilot Chat (con lo que le adjuntas) y la licencia de Microsoft 365 Copilot (que busca en tu correo, reuniones y archivos).
+- En Outlook: **Resumir**, **Redactar** y **Programar** desde un hilo; todo queda como borrador o para revisar.
+- En el **buzón delegado** de tu jefa resume y redacta, pero aún no envía ni convoca.
+- En **Teams**, para usarlo después de la reunión hace falta transcripción; avisa antes de transcribir.
+- **Copilot Cowork** es el agente de Microsoft: mismo método que Cowork, aprobación antes de enviar o convocar.
