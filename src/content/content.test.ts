@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
 import { describe, expect, it } from "vitest";
@@ -9,6 +9,7 @@ import { simulations } from "@/features/simulations";
 import { extras, sections, subjects } from "./catalog";
 
 const CONTENT_DIR = join(process.cwd(), "src", "content");
+const CAPTURES_DIR = join(process.cwd(), "public", "capturas");
 
 function exerciseIds(source: string): string[] {
   return [...source.matchAll(/<(?:Quiz|Predict|Practice)\b[^>]*?\bid="([^"]+)"/gs)].map(
@@ -66,6 +67,16 @@ describe("content catalog", () => {
           );
           const known = new Set([...Object.keys(simulations), ...Object.keys(illustrations)]);
           expect(used.filter((name) => !known.has(name))).toEqual([]);
+        });
+
+        it(`${lesson.slug}: every screenshot exists and says when it was taken`, () => {
+          const blocks = source.match(/<Screenshot\b.*?\/>/gs) ?? [];
+          for (const block of blocks) {
+            const src = /\bsrc="([^"]+)"/.exec(block)?.[1] ?? "";
+            expect(existsSync(join(CAPTURES_DIR, src)), src).toBe(true);
+            expect(block).toMatch(/\bdate="[^"]+"/);
+            expect(block).toMatch(/\balt="[^"]{20,}"/);
+          }
         });
 
         it(`${lesson.slug}: every practice has steps and a worked example`, () => {

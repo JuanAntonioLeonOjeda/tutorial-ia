@@ -81,6 +81,11 @@ export const es = {
     practiceExample: "Un ejemplo de cómo podría quedar",
     solutionLabel: "Solución",
   },
+  screenshot: {
+    openFull: "Abrir la captura a tamaño completo",
+    taken: (date: string): string =>
+      `Captura de ${date}. La interfaz cambia a menudo: si algo no está igual, busca un nombre parecido.`,
+  },
   prompt: {
     label: "Prompt para copiar",
     copy: "Copiar",

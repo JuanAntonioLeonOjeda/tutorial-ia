@@ -3,7 +3,7 @@ import type { MDXComponents } from "mdx/types";
 import { Practice, Predict, Quiz } from "@/features/exercises";
 import { illustrations } from "@/features/illustrations";
 import { simulations } from "@/features/simulations";
-import { Callout, Chat, Figure, MenuPath, Prompt } from "@/features/ui";
+import { Callout, Chat, Figure, MenuPath, Prompt, Screenshot } from "@/features/ui";
 
 import { LessonLink } from "./LessonLink";
 
@@ -18,6 +18,7 @@ export const mdxComponents: MDXComponents = {
   Figure,
   MenuPath,
   Prompt,
+  Screenshot,
   Quiz,
   Predict,
   Practice,

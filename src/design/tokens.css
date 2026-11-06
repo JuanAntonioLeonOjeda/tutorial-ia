@@ -29,6 +29,10 @@
   --color-task-soft: #fff6c7;
   --color-task-ink: #4a3b00;
 
+  /* Boxes drawn over interface captures. Same in both themes: the captures are always light. */
+  --color-shot-mark: #d0245c;
+  --color-shot-mark-ink: #ffffff;
+
   /* Feedback */
   --color-ok: #127a4a;
   --color-ok-soft: #ddf3e7;

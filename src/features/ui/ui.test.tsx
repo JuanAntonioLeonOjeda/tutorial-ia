@@ -5,6 +5,7 @@ import { Chat } from "./Chat";
 import { dedent } from "./dedent";
 import { MenuPath } from "./MenuPath";
 import { Prompt, splitPlaceholders } from "./Prompt";
+import { Screenshot, badgeCentre, captureUrl } from "./Screenshot";
 
 describe("dedent", () => {
   it("removes the first newline and the common indentation", () => {
@@ -57,5 +58,50 @@ describe("MenuPath", () => {
   it("reads the whole path to screen readers", () => {
     render(<MenuPath to={["Ajustes", "Conectores"]} />);
     expect(screen.getByLabelText("Dónde está: Ajustes, Conectores")).toBeInTheDocument();
+  });
+});
+
+describe("captureUrl", () => {
+  it("resolves a capture under the deploy base", () => {
+    expect(captureUrl("claude/inicio.jpg", "/")).toBe("/capturas/claude/inicio.jpg");
+    expect(captureUrl("claude/inicio.jpg", "/tutorial-ia/")).toBe(
+      "/tutorial-ia/capturas/claude/inicio.jpg",
+    );
+    expect(captureUrl("/claude/inicio.jpg", "/tutorial-ia")).toBe(
+      "/tutorial-ia/capturas/claude/inicio.jpg",
+    );
+  });
+});
+
+describe("badgeCentre", () => {
+  it("sits on the top-left corner of the mark", () => {
+    expect(badgeCentre({ x: 100, y: 50, w: 10, h: 10 })).toEqual({ cx: 100, cy: 50 });
+  });
+
+  it("stays inside the image when the mark touches an edge", () => {
+    expect(badgeCentre({ x: 0, y: 4, w: 10, h: 10 })).toEqual({ cx: 20, cy: 20 });
+  });
+});
+
+describe("Screenshot", () => {
+  it("shows the capture with its alt text, numbered marks and the date", () => {
+    const { container } = render(
+      <Screenshot
+        src="claude/inicio.jpg"
+        alt="Pantalla de inicio de Claude"
+        width={1512}
+        height={716}
+        date="noviembre de 2026"
+        marks={[
+          { x: 10, y: 10, w: 100, h: 40, n: 1 },
+          { x: 200, y: 300, w: 50, h: 50, n: 2 },
+        ]}
+        caption="La barra lateral (1) y el cuadro de texto (2)."
+      />,
+    );
+    expect(screen.getByRole("img", { name: "Pantalla de inicio de Claude" })).toBeInTheDocument();
+    expect(screen.getByRole("link")).toHaveAttribute("href", "/capturas/claude/inicio.jpg");
+    expect(container.querySelectorAll("rect")).toHaveLength(2);
+    expect(screen.getByText(/noviembre de 2026/)).toBeInTheDocument();
   });
 });
