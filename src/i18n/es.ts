@@ -82,7 +82,7 @@ export const es = {
     solutionLabel: "Solución",
   },
   screenshot: {
-    openFull: "Abrir la captura a tamaño completo",
+    openFull: "Abrir la captura a tamaño completo (se abre en otra pestaña)",
     taken: (date: string): string =>
       `Captura de ${date}. La interfaz cambia a menudo: si algo no está igual, busca un nombre parecido.`,
   },

@@ -276,6 +276,7 @@
   pointer-events: none;
 }
 
+/* The stroke stays 3 screen pixels whatever the scale (vector-effect: non-scaling-stroke). */
 .shotRect {
   fill: none;
   stroke: var(--color-shot-mark);
@@ -288,7 +289,8 @@
 
 .shotBadge text {
   fill: var(--color-shot-mark-ink);
-  font: 700 22px var(--font-body);
+  font-family: var(--font-body);
+  font-weight: 700;
 }
 
 /* Shown on hover and keyboard focus; always read by screen readers as part of the link. */

@@ -74,12 +74,25 @@ describe("captureUrl", () => {
 });
 
 describe("badgeCentre", () => {
-  it("sits on the top-left corner of the mark", () => {
-    expect(badgeCentre({ x: 100, y: 50, w: 10, h: 10 })).toEqual({ cx: 100, cy: 50 });
+  const size = { width: 1000, height: 500 };
+
+  it("sits just above the box by default, aligned with its left edge", () => {
+    expect(badgeCentre({ x: 100, y: 200, w: 50, h: 30 }, size)).toEqual({ cx: 124, cy: 172 });
   });
 
-  it("stays inside the image when the mark touches an edge", () => {
-    expect(badgeCentre({ x: 0, y: 4, w: 10, h: 10 })).toEqual({ cx: 20, cy: 20 });
+  it("can sit on any side, outside the box", () => {
+    const mark = { x: 100, y: 200, w: 50, h: 30 };
+    expect(badgeCentre({ ...mark, badge: "bottom" }, size)).toEqual({ cx: 124, cy: 258 });
+    expect(badgeCentre({ ...mark, badge: "left" }, size)).toEqual({ cx: 72, cy: 215 });
+    expect(badgeCentre({ ...mark, badge: "right" }, size)).toEqual({ cx: 178, cy: 215 });
+  });
+
+  it("stays inside the image when the box touches an edge", () => {
+    expect(badgeCentre({ x: 0, y: 4, w: 10, h: 10 }, size)).toEqual({ cx: 24, cy: 24 });
+    expect(badgeCentre({ x: 990, y: 490, w: 10, h: 10, badge: "right" }, size)).toEqual({
+      cx: 976,
+      cy: 476,
+    });
   });
 });
 
@@ -100,8 +113,25 @@ describe("Screenshot", () => {
       />,
     );
     expect(screen.getByRole("img", { name: "Pantalla de inicio de Claude" })).toBeInTheDocument();
-    expect(screen.getByRole("link")).toHaveAttribute("href", "/capturas/claude/inicio.jpg");
-    expect(container.querySelectorAll("rect")).toHaveLength(2);
+    const link = screen.getByRole("link", { name: /Pantalla de inicio de Claude.*otra pestaña/ });
+    expect(link).toHaveAttribute("href", "/capturas/claude/inicio.jpg");
+    expect(container.querySelector("svg")).toHaveAttribute("aria-hidden", "true");
+    expect(container.querySelector("svg")?.textContent).toBe("12");
     expect(screen.getByText(/noviembre de 2026/)).toBeInTheDocument();
+  });
+
+  it("draws a box without a badge when the mark has no number", () => {
+    const { container } = render(
+      <Screenshot
+        src="claude/inicio.jpg"
+        alt="Pantalla de inicio de Claude"
+        width={100}
+        height={100}
+        date="noviembre de 2026"
+        marks={[{ x: 10, y: 10, w: 20, h: 20 }]}
+      />,
+    );
+    expect(container.querySelectorAll("rect")).toHaveLength(1);
+    expect(container.querySelectorAll("circle")).toHaveLength(0);
   });
 });

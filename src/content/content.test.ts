@@ -70,12 +70,25 @@ describe("content catalog", () => {
         });
 
         it(`${lesson.slug}: every screenshot exists and says when it was taken`, () => {
+          // Captions and alt texts are plain strings, so a block ends at the first "/>".
           const blocks = source.match(/<Screenshot\b.*?\/>/gs) ?? [];
           for (const block of blocks) {
-            const src = /\bsrc="([^"]+)"/.exec(block)?.[1] ?? "";
+            const src = /\bsrc="([^"]+\.(?:jpg|png|webp))"/.exec(block)?.[1] ?? "";
+            expect(src, block.slice(0, 80)).not.toBe("");
             expect(existsSync(join(CAPTURES_DIR, src)), src).toBe(true);
             expect(block).toMatch(/\bdate="[^"]+"/);
             expect(block).toMatch(/\balt="[^"]{20,}"/);
+            const width = Number(/\bwidth=\{(\d+)\}/.exec(block)?.[1] ?? 0);
+            const height = Number(/\bheight=\{(\d+)\}/.exec(block)?.[1] ?? 0);
+            expect(width * height, src).toBeGreaterThan(0);
+            const marks = block.matchAll(/\{ x: (\d+), y: (\d+), w: (\d+), h: (\d+)/g);
+            for (const [, x = "0", y = "0", w = "0", h = "0"] of marks) {
+              expect(Number(x) + Number(w), `${src} mark at x=${x}`).toBeLessThanOrEqual(width);
+              expect(Number(y) + Number(h), `${src} mark at y=${y}`).toBeLessThanOrEqual(height);
+            }
+          }
+          if (blocks.length > 0) {
+            expect(lesson.sources.some((s) => s.includes("capturada el"))).toBe(true);
           }
         });
 
