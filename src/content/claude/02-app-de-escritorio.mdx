@@ -1,0 +1,157 @@
+Si usas Claude en una pestaña del navegador, cada vez que lo necesitas tienes que buscarla entre otras treinta. La **app de escritorio** lo convierte en un programa más de tu ordenador, como Outlook o Excel: está siempre a mano, en el Mac puedes llamarlo con una tecla desde cualquier sitio y puede hacer cosas que una pestaña no puede, como trabajar con carpetas de tu ordenador. Esta lección es para instalarla y sacarle partido desde el primer día.
+
+## Por qué instalarla
+
+La app de escritorio es **el mismo Claude** que `claude.ai`: los mismos chats, proyectos, instrucciones y memoria. Lo que empiezas en el navegador lo sigues en la app, y al revés. No es otra cuenta ni otra herramienta que aprender.
+
+Lo que añade:
+
+- **Un sitio propio**: una ventana en el Dock o en la barra de tareas, en vez de una pestaña perdida.
+- **La entrada rápida** (solo en Mac): un cuadro pequeño que aparece con una tecla, encima de lo que estés haciendo.
+- **Lo que necesita tu ordenador**: que Claude trabaje con carpetas de tus archivos, maneje tu Chrome o, en algunos planes, use tus aplicaciones.
+- **Enlaces que abren Claude** con una petición ya escrita, para crearte accesos directos a tus tareas de siempre.
+
+## Instalarla
+
+La descarga oficial está en [claude.com/download](https://claude.com/download). Según la [ayuda de Claude](https://support.claude.com/en/articles/10065433-install-claude-desktop), funciona en **macOS 13 (Ventura) o posterior** y en **Windows 10 o posterior**. En Mac abres el archivo descargado, arrastras Claude a Aplicaciones y lo abres desde ahí; en Windows, lo encuentras en el menú Inicio. Luego inicias sesión con tu cuenta de siempre.
+
+El chat está en todos los planes, también en el gratuito. **Cowork** (las tareas largas, módulo 3) y **Claude Code** (para programar) solo en los de pago.
+
+<Callout kind="real" title="En el ordenador del trabajo">
+En muchas empresas no puedes instalar programas tú misma. No busques atajos: pide a IT «la app de escritorio de Claude». IT tiene instaladores pensados para empresas y puede dejarla configurada para todo el equipo. Mientras tanto, todo lo del chat lo puedes hacer en el navegador.
+</Callout>
+
+## La entrada rápida (Mac)
+
+Estás en Outlook, con un correo de Acme abierto, y quieres que Claude te ayude con la respuesta. Sin la entrada rápida: abres Claude, copias el correo, lo pegas y vuelves. Con ella: pulsas dos veces la tecla **Opción** (⌥) y aparece un cuadro encima de Outlook. Escribes, pulsas Intro y la ventana se queda delante mientras sigues trabajando.
+
+Desde ese cuadro puedes:
+
+- **Adjuntar una captura**: arrastras para seleccionar una zona de la pantalla, o haces clic en una ventana para mandarla entera (el correo de Acme, sin copiar nada).
+- **Dictar**: si lo activas, mantienes pulsado **Bloq Mayús** y hablas; ves el texto mientras lo dices. Viene desactivado y necesita macOS 14 o posterior.
+
+<Chat
+  messages={[
+    {
+      from: "tu",
+      text: "Prepárame una respuesta: aceptamos la reunión, pero el jueves Laura no puede; propón el viernes a las 10.",
+      note: "Captura adjunta: ventana de Outlook con el correo de Acme",
+    },
+    {
+      from: "ia",
+      text: "Aquí tienes una propuesta:\n\nHola:\n\nGracias por la propuesta. Laura Martín tiene un compromiso el jueves, pero el viernes a las 10:00 le vendría muy bien. ¿Os encaja? Si es así, os enviamos la convocatoria.\n\nUn saludo,\nAna",
+    },
+  ]}
+/>
+
+El atajo se cambia en Ajustes, en el apartado de la **app de escritorio** (en inglés, «Desktop app»; en algunas versiones, «System»): doble toque de Opción, Opción + Espacio o una combinación tuya. La primera vez, el Mac te pedirá permisos en **Ajustes del Sistema → Privacidad y seguridad**: **Grabación de pantalla** para las capturas, **Accesibilidad** para el atajo y **Reconocimiento de voz** para el dictado. Toda la información está en la página oficial de la [**entrada rápida**](https://support.claude.com/en/articles/12626668-use-quick-entry-with-claude-desktop-on-mac).
+
+<Callout kind="note" title="¿Y en Windows?">
+Según la ayuda de Claude, hoy la entrada rápida **solo está en Mac**, y con ella las capturas y el dictado con Bloq Mayús de ese cuadro. En Windows tienes la app completa, pero sin la entrada rápida. Si más adelante llega a Windows, la verás en Ajustes.
+</Callout>
+
+<Callout kind="warn" title="Una captura es mandar lo que se ve">
+Cuando adjuntas una ventana o una zona de la pantalla, Claude recibe **todo lo que se ve en ella**: la bandeja de entrada con otros asuntos, una hoja de cálculo con sueldos, un chat lateral. Antes de mandar una captura, mira qué hay en la imagen y aplica el semáforo de datos del módulo 1. Si sobra algo, selecciona solo la zona que necesitas.
+</Callout>
+
+<Quiz
+  id="windows"
+  options={[
+    "Tiene que activarla primero en Ajustes → Capacidades",
+    "La entrada rápida hoy solo existe en la app de Mac",
+    "Su plan gratuito no la incluye",
+  ]}
+  answer={1}
+  explanation="Según la ayuda de Claude, la entrada rápida es hoy solo para Mac, en todos los planes (también el gratuito). En Windows la app funciona igual para todo lo demás. Buscarla en Capacidades es lo que tienta, pero ahí se activan otras cosas, como crear archivos."
+>
+Ana trabaja en un portátil con Windows. Una compañera con Mac le ha enseñado la entrada rápida, pero ella no la encuentra por ningún sitio. ¿Por qué?
+</Quiz>
+
+## Lo que solo hace el escritorio
+
+Todo esto se ve a fondo en el módulo 3; aquí basta con saber que existe y que necesita la app:
+
+- **Carpetas de tu ordenador.** Con **Cowork** le das acceso a una carpeta (por ejemplo, «Viaje Bruselas», con facturas y billetes) y Claude lee, ordena y crea archivos solo dentro de ella. Desde el navegador no puede tocar tus archivos.
+- **Claude en Chrome como conector.** Activas el conector en una conversación y Claude navega, hace clic y rellena formularios en tu Chrome (lección «Claude en tus herramientas»).
+- **Usar tu ordenador.** En los planes Pro, Max y Ultra (no en Team ni Enterprise, las cuentas de empresa), y todavía en beta, Claude puede [**usar tus aplicaciones**](https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork) cuando no hay otra forma de hacer la tarea. Pide permiso antes de usar cada aplicación y bloquea por defecto algunas sensibles, como las de inversión. Ve lo que hay en tu pantalla, así que úsalo con la misma prudencia que Chrome: nada de banca, salud ni accesos delicados.
+- **Extensiones.** En ese mismo apartado de Ajustes puede aparecer un apartado de **extensiones**: piezas que conectan Claude con programas de tu ordenador. Normalmente las instala IT (lo ves en «Un paso más»).
+
+## Si cierras la app
+
+Una duda que surge pronto: «si cierro el portátil, ¿se para lo que le he encargado?». Depende de **dónde esté el trabajo**:
+
+- Lo que pasa **en la nube** sigue: un chat que está respondiendo, una tarea de Cowork con tus conectores (correo, calendario, Drive) o una **tarea programada** que solo usa conectores. Según la ayuda actual de Claude, siguen aunque el ordenador esté en reposo o la app cerrada. Si una tarea programada no se ha hecho, mira en **Programadas** que no esté en pausa.
+- Lo que necesita **tu ordenador** se para: una tarea que trabaja con una carpeta tuya, que maneja tu Chrome o que usa tus aplicaciones. Para eso, la app tiene que estar abierta y el ordenador encendido.
+
+<Quiz
+  id="app-cerrada"
+  options={[
+    "El resumen semanal del calendario de Laura, que se envía cada lunes por el conector",
+    "Ordenar la carpeta «Facturas viaje Bruselas» de su portátil",
+    "Las dos siguen igual: las tareas siempre corren en la nube",
+  ]}
+  answer={1}
+  explanation="Ordenar una carpeta del portátil necesita la app abierta, porque los archivos están en tu ordenador. El resumen semanal usa el conector de calendario y corre en la nube, así que, según la ayuda de Claude, debería enviarse igual. Pensar que todo corre en la nube es lo que tienta, pero lo que toca tus archivos no puede."
+>
+Ana deja dos encargos en Claude y apaga el portátil para irse de viaje. ¿Cuál **no** se hará hasta que vuelva a encender el ordenador y abrir la app?
+</Quiz>
+
+## Enlaces que abren Claude
+
+La app entiende enlaces que empiezan por `claude://`. Según la [ayuda de Claude](https://support.claude.com/en/articles/14729294-open-claude-desktop-with-a-link), funcionan en Mac y Windows: al pulsarlos se abre la app (si estaba cerrada, la arranca) y hacen lo que diga el enlace. Los dos que más te sirven:
+
+- **Un chat nuevo con la petición ya escrita**: `claude://claude.ai/new?q=` seguido del texto. Los espacios se escriben `%20`.
+- **Un proyecto concreto**: abre el proyecto en el navegador, copia la dirección (`https://claude.ai/project/…`) y cambia `https://` por `claude://`.
+
+Con eso puedes tener en la barra de favoritos de tu navegador, o en un documento con tus atajos, botones como «Acta», «Correo a Acme» o «Proyecto Consejo». Por ejemplo, este abre un chat que empieza con «Redacta un acta con estas notas:», listo para que pegues las tuyas:
+
+<Prompt
+  title="Enlace «Acta»"
+  text={`claude://claude.ai/new?q=Redacta%20un%20acta%20con%20estas%20notas%3A%20`}
+/>
+
+No hace falta aprender a escribir los `%20`: pídeselo a Claude.
+
+<Prompt
+  title="Que Claude te prepare el enlace"
+  text={`Hazme un enlace claude:// que abra un chat nuevo con este texto ya escrito: "[TU PETICIÓN DE SIEMPRE]". Dame solo el enlace, con los espacios y las tildes bien codificados.`}
+/>
+
+<Callout kind="idea">
+El enlace solo **escribe** la petición en el cuadro de texto; según la ayuda de Claude, no la envía. Siempre puedes leerla, añadir lo que falte (tus notas, el correo) y enviarla tú.
+</Callout>
+
+<Practice
+  id="instalar-y-atajo"
+  title="Tu Claude de escritorio, listo para usar"
+  steps={[
+    "Descarga la app desde claude.com/download (o pídesela a IT), ábrela e inicia sesión con tu cuenta.",
+    "Comprueba que ves tus chats y proyectos de siempre en la barra lateral.",
+    "En Mac: abre Ajustes, busca el apartado de la app de escritorio, deja el atajo de la entrada rápida que prefieras y acepta los permisos que te pida el Mac.",
+    "En Mac: con un documento sin datos reales abierto, llama a la entrada rápida, adjunta su ventana y pide un resumen en tres líneas.",
+    "Pídele a Claude un enlace claude:// para tu tarea más repetida, guárdalo en los favoritos de tu navegador y pruébalo.",
+  ]}
+  hints={[
+    "En Windows, o si no puedes instalar programas, sáltate los pasos de Mac: haz el resto en la app o en claude.ai y guarda como favorito la dirección de tu proyecto más usado.",
+    "Puede que tu navegador te pregunte si quieres abrir Claude al pulsar el enlace: di que sí. Si no deja guardar el enlace como favorito, pégalo en un documento con tus atajos y ábrelo desde ahí.",
+  ]}
+  example={
+    <>
+      Al terminar, Ana tiene la app en el Dock, la entrada rápida con el doble toque de Opción y,
+      en la barra de favoritos, un botón «Acta» que abre Claude con «Redacta un acta con estas
+      notas:» ya escrito. Al salir del Comité pega sus notas y envía: en diez segundos está
+      trabajando.
+    </>
+  }
+>
+Instala la app y déjala preparada para tus tareas de cada día.
+</Practice>
+
+## Para llevar
+
+- La app de escritorio es **el mismo Claude** que el navegador, con tus mismos chats y proyectos, pero siempre a mano.
+- En el trabajo, la instalación se pide a **IT**.
+- En **Mac**, la entrada rápida (doble toque de Opción) te deja preguntar y mandar capturas sin salir de lo que haces. En Windows, de momento no existe.
+- Una captura manda **todo lo que se ve**: revísala antes de enviarla.
+- Lo que usa **tu ordenador** (carpetas, Chrome, tus aplicaciones) necesita la app abierta; lo que va en la nube sigue aunque la cierres.
+- Un enlace `claude://` en tus favoritos convierte una tarea repetida en un clic.

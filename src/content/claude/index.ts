@@ -12,7 +12,7 @@ export const claude: Subject = {
   title: "Claude a fondo",
   code: "Módulo 2",
   tagline:
-    "La interfaz, modelos y límites de uso, documentos y mini apps, proyectos, instrucciones y memoria, investigación con fuentes y Claude dentro de Chrome, Outlook, Excel y Google Docs.",
+    "La interfaz, la app de escritorio, modelos y límites de uso, documentos y mini apps, proyectos, instrucciones y memoria, investigación con fuentes y Claude dentro de Chrome, Outlook, Excel y Google Docs.",
   lessons: [
     defineLesson({
       slug: "la-interfaz",
@@ -31,6 +31,24 @@ export const claude: Subject = {
       load: () => import("./01-la-interfaz.mdx"),
     }),
     defineLesson({
+      slug: "app-de-escritorio",
+      title: "La app de escritorio",
+      summary:
+        "Instalarla, la entrada rápida del Mac, lo que solo hace en tu ordenador, qué pasa si la cierras y enlaces que abren Claude con tu petición ya escrita.",
+      minutes: 15,
+      sources: [
+        "https://claude.com/download",
+        `${HELP}/en/articles/10065433-install-claude-desktop`,
+        `${HELP}/en/articles/12626668-use-quick-entry-with-claude-desktop-on-mac`,
+        "https://academy.claude.com/courses/claude-101/claude-desktop-app-chat-cowork-code",
+        `${HELP}/en/articles/14128542-let-claude-use-your-computer-in-cowork`,
+        `${HELP}/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork`,
+        `${HELP}/en/articles/14729294-open-claude-desktop-with-a-link`,
+      ],
+      exercises: ["windows", "app-cerrada", "instalar-y-atajo"],
+      load: () => import("./02-app-de-escritorio.mdx"),
+    }),
+    defineLesson({
       slug: "modelos-y-limites",
       title: "Modelos, esfuerzo y límites de uso",
       summary:
@@ -43,7 +61,7 @@ export const claude: Subject = {
         UI_CAPTURE,
       ],
       exercises: ["modelo-correo", "sesion", "comparar-modelos"],
-      load: () => import("./02-modelos-y-limites.mdx"),
+      load: () => import("./03-modelos-y-limites.mdx"),
     }),
     defineLesson({
       slug: "artefactos-y-documentos",
@@ -57,7 +75,7 @@ export const claude: Subject = {
         UI_CAPTURE,
       ],
       exercises: ["artefacto", "presentacion", "mini-app"],
-      load: () => import("./03-artefactos-y-documentos.mdx"),
+      load: () => import("./04-artefactos-y-documentos.mdx"),
     }),
     defineLesson({
       slug: "proyectos",
@@ -67,7 +85,7 @@ export const claude: Subject = {
       minutes: 25,
       sources: [`${HELP}/en/articles/9519177-how-can-i-create-and-manage-projects`, UI_CAPTURE],
       exercises: ["donde-va", "mi-proyecto"],
-      load: () => import("./04-proyectos.mdx"),
+      load: () => import("./05-proyectos.mdx"),
     }),
     defineLesson({
       slug: "memoria-y-personalizacion",
@@ -82,7 +100,7 @@ export const claude: Subject = {
         UI_CAPTURE,
       ],
       exercises: ["que-va-donde", "incognito", "personalizar"],
-      load: () => import("./05-memoria-y-personalizacion.mdx"),
+      load: () => import("./06-memoria-y-personalizacion.mdx"),
     }),
     defineLesson({
       slug: "investigacion",
@@ -95,13 +113,13 @@ export const claude: Subject = {
         `${HELP}/en/articles/10684626-enable-and-use-web-search`,
       ],
       exercises: ["busqueda-o-investigacion", "verificar", "briefing"],
-      load: () => import("./06-investigacion.mdx"),
+      load: () => import("./07-investigacion.mdx"),
     }),
     defineLesson({
       slug: "claude-en-tus-herramientas",
       title: "Claude en tus herramientas",
       summary:
-        "Claude en Chrome, en Outlook, Word, Excel y PowerPoint, en Google Docs y Sheets, en Slack, y la app de escritorio y del móvil.",
+        "Claude en Chrome, en Outlook, Word, Excel y PowerPoint, en Google Docs y Sheets, en Slack, y en la app del móvil.",
       minutes: 15,
       sources: [
         "https://claude.com/claude-in-chrome",
@@ -118,7 +136,7 @@ export const claude: Subject = {
         "https://support.microsoft.com/en-us/topic/copilot-actions-in-edge-5ed5e17e-42df-40a3-984a-20420eba86e2",
       ],
       exercises: ["donde-trabajar", "integraciones"],
-      load: () => import("./07-claude-en-tus-herramientas.mdx"),
+      load: () => import("./08-claude-en-tus-herramientas.mdx"),
     }),
   ],
 };
